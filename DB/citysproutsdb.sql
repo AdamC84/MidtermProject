@@ -123,9 +123,9 @@ DROP TABLE IF EXISTS `driver` ;
 CREATE TABLE IF NOT EXISTS `driver` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `address_id` INT NOT NULL,
-  `bank_routing` INT(9) NOT NULL,
+  `bank_routing` VARCHAR(15) NOT NULL,
   `bank_name` VARCHAR(50) NOT NULL,
-  `bank_acct_num` INT NOT NULL,
+  `bank_acct_num` VARCHAR(20) NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_driver_user1_idx` (`user_id` ASC),
@@ -144,9 +144,9 @@ DROP TABLE IF EXISTS `seller` ;
 
 CREATE TABLE IF NOT EXISTS `seller` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `bank_routing` INT NOT NULL,
+  `bank_routing` VARCHAR(15) NOT NULL,
   `bank_name` VARCHAR(45) NOT NULL,
-  `bank_acct_num` INT NOT NULL,
+  `bank_acct_num` VARCHAR(20) NOT NULL,
   `user_id` INT NOT NULL,
   `address_id` INT NOT NULL,
   PRIMARY KEY (`id`),
