@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_login` TIMESTAMP NULL,
   `role` ENUM('SELLER', 'BUYER', 'DRIVER') NOT NULL,
   `first_name` VARCHAR(50) NOT NULL,
-  `lsat_name` VARCHAR(50) NOT NULL,
+  `last_name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `buyer` (
   `credit_card_exp_date` DATE NULL,
   `credit_card_ccv` VARCHAR(3) NULL,
   `user_id` INT NOT NULL,
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_buyer_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_buyer_user`
@@ -105,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `picked` DATE NULL,
   `category_id` INT NOT NULL,
   `last_updated` VARCHAR(45) NULL DEFAULT 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_item_category1_idx` (`category_id` ASC),
   CONSTRAINT `fk_item_category1`
@@ -123,10 +125,11 @@ DROP TABLE IF EXISTS `driver` ;
 CREATE TABLE IF NOT EXISTS `driver` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `address_id` INT NOT NULL,
-  `bank_routing` INT(9) NOT NULL,
+  `bank_routing` VARCHAR(15) NOT NULL,
   `bank_name` VARCHAR(50) NOT NULL,
-  `bank_acct_num` INT NOT NULL,
+  `bank_acct_num` VARCHAR(20) NOT NULL,
   `user_id` INT NOT NULL,
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_driver_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_driver_user1`
@@ -144,11 +147,12 @@ DROP TABLE IF EXISTS `seller` ;
 
 CREATE TABLE IF NOT EXISTS `seller` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `bank_routing` INT NOT NULL,
+  `bank_routing` VARCHAR(15) NOT NULL,
   `bank_name` VARCHAR(45) NOT NULL,
-  `bank_acct_num` INT NOT NULL,
+  `bank_acct_num` VARCHAR(20) NOT NULL,
   `user_id` INT NOT NULL,
   `address_id` INT NOT NULL,
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_seller_user1_idx` (`user_id` ASC),
   INDEX `fk_seller_address1_idx` (`address_id` ASC),
