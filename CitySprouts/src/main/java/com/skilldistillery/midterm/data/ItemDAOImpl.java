@@ -25,25 +25,46 @@ public class ItemDAOImpl implements ItemDAO {
 		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 		return items;
 	}
-
-
 	@Override
 	public Item addItem(Item i) {
-		// TODO Auto-generated method stub
-		return null;
+		Item item = new Item();
+		item.setBestBy(i.getBestBy());
+		item.setCategory(i.getCategory());
+		item.setCommodity(i.getCommodity());
+		item.setDescription(i.getDescription());
+		item.setInventories(i.getInventories());
+		item.setLastUpdated(i.getLastUpdated());
+		item.setName(i.getName());
+		item.setPicked(i.getPicked());
+		item.setPrice(i.getPrice());
+		item.setUnit(i.getUnit());
+		item.setVariety(i.getVariety());
+		em.persist(item);
+		em.flush();
+		return item;
 	}
-
-
 	@Override
 	public Item updateItem(Item i) {
-		// TODO Auto-generated method stub
+		Item item = em.find(Item.class, i.getId());
+		item.setBestBy(i.getBestBy());
+		item.setCategory(i.getCategory());
+		item.setCommodity(i.getCommodity());
+		item.setDescription(i.getDescription());
+		item.setInventories(i.getInventories());
+		item.setLastUpdated(i.getLastUpdated());
+		item.setName(i.getName());
+		item.setPicked(i.getPicked());
+		item.setPrice(i.getPrice());
+		item.setUnit(i.getUnit());
+		item.setVariety(i.getVariety());
+		em.persist(item);
+		em.flush();
 		return null;
 	}
-
-
 	@Override
 	public Item deleteItem(Item i) {
-		// TODO Auto-generated method stub
-		return null;
+		Item item = em.find(Item.class, i.getId());
+		em.remove(item);
+		return item;
 	}
 }
