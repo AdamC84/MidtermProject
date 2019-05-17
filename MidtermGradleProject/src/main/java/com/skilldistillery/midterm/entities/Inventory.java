@@ -1,7 +1,5 @@
 package com.skilldistillery.midterm.entities;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
@@ -20,7 +17,21 @@ public class Inventory {
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
 	private Seller seller;
+	@ManyToOne
+	@JoinColumn(name = "item_id")
+	private Item item;
 	
+	
+	
+	
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
 
 	public int getId() {
 		return id;
@@ -30,19 +41,31 @@ public class Inventory {
 		this.id = id;
 	}
 
-	public Inventory(int id, Seller seller) {
+	
+
+	public Inventory(int id, Seller seller, Item item) {
 		super();
 		this.id = id;
 		this.seller = seller;
+		this.item = item;
 	}
 
 	public Inventory() {
 		super();
 	}
+	
+
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
 
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", seller=" + seller + "]";
+		return "Inventory [id=" + id + ", seller=" + seller + ", item=" + item + "]";
 	}
 
 	@Override

@@ -16,7 +16,9 @@ public class Address {
 	private String City;
 	private String State;
 	private String zipcode;
-	private int buyerId;
+
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -53,27 +55,8 @@ public class Address {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public int getBuyerId() {
-		return buyerId;
-	}
-	public void setBuyerId(int buyerId) {
-		this.buyerId = buyerId;
-	}
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", address=" + address + ", address2=" + address2 + ", City=" + City + ", State="
-				+ State + ", zipcode=" + zipcode + ", buyerId=" + buyerId + "]";
-	}
-	public Address(int id, String address, String address2, String city, String state, String zipcode, int buyerId) {
-		super();
-		this.id = id;
-		this.address = address;
-		this.address2 = address2;
-		City = city;
-		State = state;
-		this.zipcode = zipcode;
-		this.buyerId = buyerId;
-	}
+	
+
 	public Address() {
 		super();
 	}
