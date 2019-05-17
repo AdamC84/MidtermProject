@@ -30,10 +30,6 @@ public class Inventory {
 		this.id = id;
 	}
 
-
-
-
-
 	public Inventory(int id, Seller seller) {
 		super();
 		this.id = id;

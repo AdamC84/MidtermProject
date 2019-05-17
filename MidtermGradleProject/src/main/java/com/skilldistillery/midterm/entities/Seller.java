@@ -33,6 +33,9 @@ public class Seller {
 	@OneToMany
 	@JoinColumn(name = "seller_id")
 	private List<Inventory> inventory;
+	
+	
+	
 	public int getId() {
 		return id;
 	}

@@ -1,6 +1,7 @@
 package com.skilldistillery.midterm.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -28,6 +30,8 @@ public class Buyer {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
+	@OneToMany(mappedBy = "")
+	private List<Purchase> purchases;
 	
 	
 	
@@ -81,7 +85,8 @@ public class Buyer {
 	@Override
 	public String toString() {
 		return "Buyer [id=" + id + ", creditCardNum=" + creditCardNum + ", creditCardExpDate=" + creditCardExpDate
-				+ ", creditCardCcv=" + creditCardCcv + ", user=" + user + ", address=" + address + "]";
+				+ ", creditCardCcv=" + creditCardCcv + ", user=" + user + ", address=" + address + ", purchases="
+				+ purchases.size() + "]";
 	}
 	@Override
 	public int hashCode() {
