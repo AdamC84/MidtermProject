@@ -6,6 +6,7 @@ import com.mysql.cj.jdbc.Driver;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Seller;
+import com.skilldistillery.midterm.entities.User;
 
 public interface SproutsDAO {
 
@@ -16,5 +17,6 @@ public interface SproutsDAO {
 	public Seller getSellerById(int id);
 	public Buyer getBuyerById(int id);
 	public List<Item> getItemsByCategoryId(int id);
+	List<User> getAllUsers();
 	
 }

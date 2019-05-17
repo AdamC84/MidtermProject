@@ -12,6 +12,7 @@ import com.mysql.cj.jdbc.Driver;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Seller;
+import com.skilldistillery.midterm.entities.User;
 
 @Transactional
 @Service
@@ -31,6 +32,12 @@ public class SproutsDAOImpl implements SproutsDAO {
 		String query = "Select driver from Driver driver";
 		List<Driver> drivers = em.createQuery(query, Driver.class).getResultList();
 		return drivers;
+	}
+	@Override
+	public List<User> getAllUsers() {
+		String query = "Select user from User user";
+		List<User> users = em.createQuery(query, User.class).getResultList();
+		return users;
 	}
 
 	@Override
