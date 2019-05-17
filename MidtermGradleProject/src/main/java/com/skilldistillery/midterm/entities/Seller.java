@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,9 +33,29 @@ public class Seller {
 	private Address address;
 	@OneToMany
 	@JoinColumn(name = "seller_id")
-	private List<Inventory> inventory;
+	private List<Inventory> inventories;
 	
 	
+	
+	
+	public void addInventory(Inventory inventory) {
+		if(inventories == null) {
+			inventories = new ArrayList<>();
+		}
+		if(! inventories.contains(inventory)) {
+			inventories.add(inventory);
+			
+			
+		}
+		inventory.setSeller(this);
+	}
+	
+	public void removeInventory(Inventory inventory) {
+		inventory.setSeller(null);
+		if(inventories != null) {
+			inventories.remove(inventory);
+		}
+	}
 	
 	public int getId() {
 		return id;
@@ -42,7 +63,6 @@ public class Seller {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	
 	public String getBankAcctNum() {
 		return bankAcctNum;
@@ -77,10 +97,10 @@ public class Seller {
 	
 	
 	public List<Inventory> getInventory() {
-		return inventory;
+		return inventories;
 	}
 	public void setInventory(List<Inventory> inventory) {
-		this.inventory = inventory;
+		this.inventories = inventory;
 	}
 	
 	
@@ -94,7 +114,7 @@ public class Seller {
 		this.bankName = bankName;
 		this.user = user;
 		this.address = address;
-		this.inventory = inventory;
+		this.inventories = inventory;
 	}
 	public Seller() {
 		super();
@@ -102,7 +122,7 @@ public class Seller {
 	@Override
 	public String toString() {
 		return "Seller [id=" + id + ", bankAcctNum=" + bankAcctNum + ", bankRouting=" + bankRouting + ", bankName="
-				+ bankName + ", user=" + user + ", address=" + address + ", inventory=" + inventory + "]";
+				+ bankName + ", user=" + user + ", address=" + address + ", inventory=" + inventories.size() + "]";
 	}
 	@Override
 	public int hashCode() {

@@ -10,58 +10,73 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Category {
+public class Commodity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "commodity")
 	private List<Item> items;
 	
 	
 	
-	private void addItem(Item item) {
+	public void addItem(Item item) {
 		if(items == null) {
 			items = new ArrayList<>();
 		}
 		if(! items.contains(item)) {
 			items.add(item);
 		}
-		item.setCategory(this);
+		item.setCommodity(this);
 	}
-	
-	private void removeItem(Item item) {
-		item.setCategory(null);
+	public void removeItem(Item item) {
+		item.setCommodity(null);
 		if(items != null) {
 			items.remove(item);
 		}
 	}
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Category(int id, String name) {
+
+	public List<Item> getItem() {
+		return items;
+	}
+
+	public void setItem(List<Item> item) {
+		this.items = item;
+	}
+
+	public Commodity(int id, String name, List<Item> item) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.items = item;
 	}
-	public Category() {
+
+	public Commodity() {
 		super();
 	}
+
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + "]";
+		return "Commodity [id=" + id + ", name=" + name + ", item=" + items.size() + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -69,6 +84,7 @@ public class Category {
 		result = prime * result + id;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,11 +93,10 @@ public class Category {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		Commodity other = (Commodity) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
-	
-	
+
 }

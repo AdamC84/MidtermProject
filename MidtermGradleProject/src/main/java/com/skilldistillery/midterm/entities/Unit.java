@@ -10,57 +10,64 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Category {
+public class Unit {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String name;
-	@OneToMany(mappedBy = "category")
+	private String unit;
+	@OneToMany(mappedBy = "unit")
 	private List<Item> items;
 	
 	
 	
-	private void addItem(Item item) {
+	
+	
+	public void addItem(Item item) {
 		if(items == null) {
 			items = new ArrayList<>();
 		}
 		if(! items.contains(item)) {
 			items.add(item);
 		}
-		item.setCategory(this);
+		item.setUnit(this);
 	}
-	
-	private void removeItem(Item item) {
-		item.setCategory(null);
+	public void removeItem(Item item) {
+		item.setUnit(null);
 		if(items != null) {
 			items.remove(item);
 		}
 	}
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getUnit() {
+		return unit;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
-	public Category(int id, String name) {
+	public List<Item> getItems() {
+		return items;
+	}
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+	public Unit(int id, String unit, List<Item> items) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.unit = unit;
+		this.items = items;
 	}
-	public Category() {
+	public Unit() {
 		super();
 	}
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + "]";
+		return "Unit [id=" + id + ", unit=" + unit + ", items=" + items.size() + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -77,11 +84,13 @@ public class Category {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		Unit other = (Unit) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
+	
+	
 	
 	
 }
