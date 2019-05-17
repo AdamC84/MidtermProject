@@ -38,6 +38,7 @@ public class Item {
 	@ManyToOne
 	@JoinColumn(name = "variety_id")
 	private Variety variety;
+	private int active;
 	
 	
 	
@@ -58,6 +59,15 @@ public class Item {
 		}
 	}
 	
+	
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -116,7 +126,8 @@ public class Item {
 	
 	
 	public Item(int id, String name, String description, double price, Date bestBy, Date picked, Category category,
-			String lastUpdated, List<Inventory> inventories, Unit unit, Commodity commodity, Variety variety) {
+			String lastUpdated, List<Inventory> inventories, Unit unit, Commodity commodity, Variety variety,
+			int active) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -130,6 +141,7 @@ public class Item {
 		this.unit = unit;
 		this.commodity = commodity;
 		this.variety = variety;
+		this.active = active;
 	}
 
 	public Unit getUnit() {
@@ -179,7 +191,7 @@ public class Item {
 		return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", bestBy="
 				+ bestBy + ", picked=" + picked + ", category=" + category + ", lastUpdated=" + lastUpdated
 				+ ", inventories=" + inventories.size() + ", unit=" + unit + ", commodity=" + commodity + ", variety="
-				+ variety + "]";
+				+ variety + ", active=" + active + "]";
 	}
 	@Override
 	public int hashCode() {
