@@ -39,6 +39,8 @@ public class Item {
 	@JoinColumn(name = "variety_id")
 	private Variety variety;
 	private int active;
+	@Column(name = "img_url")
+	private String imgUrl;
 	
 	
 	
@@ -60,6 +62,14 @@ public class Item {
 	}
 	
 	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
 	public int getActive() {
 		return active;
 	}
@@ -127,7 +137,7 @@ public class Item {
 	
 	public Item(int id, String name, String description, double price, Date bestBy, Date picked, Category category,
 			String lastUpdated, List<Inventory> inventories, Unit unit, Commodity commodity, Variety variety,
-			int active) {
+			int active, String imgUrl) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -142,6 +152,7 @@ public class Item {
 		this.commodity = commodity;
 		this.variety = variety;
 		this.active = active;
+		this.imgUrl = imgUrl;
 	}
 
 	public Unit getUnit() {
