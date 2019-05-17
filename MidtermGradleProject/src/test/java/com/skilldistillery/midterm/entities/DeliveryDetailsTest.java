@@ -13,11 +13,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class DriverTest {
+class DeliveryDetailsTest {
 
 	static EntityManagerFactory emf;
 	EntityManager em;
-	Driver driver;
+	DeliveryDetails d;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,13 +32,14 @@ class DriverTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		driver = new Driver("Bank");;
+		d = new DeliveryDetails();
+		d.setId(3);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		driver = null;
+		d = null;
 	}
 
 	@Test
@@ -48,8 +49,8 @@ class DriverTest {
 	}
 	
 	@Test
-	void test_driver_mapping(){
-		assertEquals("Bank", driver.getBankName());
+	void test_delivery_details_mapping(){
+		assertEquals(3, d.getId());
 	}
 
 }

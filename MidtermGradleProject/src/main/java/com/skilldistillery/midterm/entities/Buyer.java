@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,12 +31,27 @@ public class Buyer {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
-	@OneToMany(mappedBy = "")
+	@OneToMany(mappedBy = "buyer")
 	private List<Purchase> purchases;
 	
 	
 	
+	public void addPurchase(Purchase purchase) {
+		if(purchases == null) {
+			purchases = new ArrayList<>();
+		}
+		if(! purchases.contains(purchase)) {
+			purchases.add(purchase);
+		}
+		purchase.setBuyer(this);
+	}
 	
+	public void removePurchase(Purchase purchase) {
+		purchase.setBuyer(null);
+		if(purchases != null) {
+			purchases.remove(purchase);
+		}
+	}
 	
 	public Address getAddress() {
 		return address;
@@ -79,6 +95,12 @@ public class Buyer {
 		this.user = user;
 		this.address = address;
 	}
+	
+	public Buyer(String creditCardNum) {
+		super();
+		this.creditCardNum = creditCardNum;
+	}
+
 	public Buyer() {
 		super();
 	}
