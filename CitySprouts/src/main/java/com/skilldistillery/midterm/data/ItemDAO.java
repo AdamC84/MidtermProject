@@ -10,4 +10,14 @@ public interface ItemDAO {
 	public Item addItem(Item i);
 	public Item updateItem(Item i);
 	public Item deleteItem(Item i);
+	List<Item> getItemsByVarietyId(int id);
+	List<Item> getItemsByCommodityId(int id);
+	List<Item> getItemsByUnitId(int id);
+	List<Item> getItemsByCategoryName(String name);
+	List<Item> getItemsByVarietyName(String name);
+	List<Item> getItemsByCommodityName(String name);
+	List<Item> getItemsByUnitName(String name);
+	List<Item> getItemsSortedByPickedDate(String name);
+	List<Item> getItemsSortedByPrice(String name);
+	List<Item> getItemsSortedByBestByDate(String name);
 }

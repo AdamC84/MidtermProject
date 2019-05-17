@@ -18,11 +18,71 @@ public class ItemDAOImpl implements ItemDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
+	@Override
+	public List<Item> getItemsByVarietyId(int id) {
+		String query = "Select item from Item item where item.variety.id = :id";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsByCommodityId(int id) {
+		String query = "Select item from Item item where item.commodity.id = :id";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsByUnitId(int id) {
+		String query = "Select item from Item item where item.unit.id = :id";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
+		return items;
+	}
 	
 	@Override
 	public List<Item> getItemsByCategoryId(int id) {
-		String query = "Select item from Item item where item.category_id = :id";
+		String query = "Select item from Item item where item.category.id = :id";
 		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsByCategoryName(String name) {
+		String query = "Select item from Item item where item.category.name = :name";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("name",name).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsByVarietyName(String name) {
+		String query = "Select item from Item item where item.variety.name = :name";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("name", name).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsByCommodityName(String name) {
+		String query = "Select item from Item item where item.variety.name = :name";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("name", name).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsByUnitName(String name) {
+		String query = "Select item from Item item where item.unit.name = :name";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("name", name).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsSortedByPickedDate(String name) {
+		String query = "Select item from Item item order by picked";
+		List<Item> items = em.createQuery(query, Item.class).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsSortedByPrice(String name) {
+		String query = "Select item from Item item order by price";
+		List<Item> items = em.createQuery(query, Item.class).getResultList();
+		return items;
+	}
+	@Override
+	public List<Item> getItemsSortedByBestByDate(String name) {
+		String query = "Select item from Item item order by bestBy";
+		List<Item> items = em.createQuery(query, Item.class).getResultList();
 		return items;
 	}
 	@Override
