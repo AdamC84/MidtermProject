@@ -1,5 +1,7 @@
 package com.skilldistillery.midterm.entities;
 
-public class Purchase {
 
+public class Purchase {
+	
+	
 }

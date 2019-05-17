@@ -1,18 +1,98 @@
 package com.skilldistillery.midterm.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String username;
-	private String password;
 	private String email;
+	private String password;
+	@Column(name = "create_time")
 	private Date createTime;
+	@Column(name = "last_login")
 	private Date lastLogin;
+	@Enumerated(EnumType.STRING)
 	private Role role;
+	@Column(name = "first_name")
 	private String firstName;
+	@Column(name = "last_name")
 	private String lastName;
+	@OneToMany(mappedBy = "user")
+	private List<Seller> sellers;
+	@OneToMany(mappedBy = "user")
+	private List<Driver> drivers;
+	@OneToMany(mappedBy = "user")
+	private List<Buyer> buyers;
+	
+	
+	
+	
+	public void addSeller(Seller seller) {
+		if(sellers == null) {
+			sellers = new ArrayList<>();
+		}
+		if(! sellers.contains(seller)) {
+			sellers.add(seller);
+		}
+		seller.setUser(this);
+	}
+	
+	public void removeSeller(Seller seller) {
+		seller.setUser(null);
+		if(sellers != null) {
+			sellers.remove(seller);
+		}
+	}
+	public void addDriver(Driver driver) {
+		if(drivers == null) {
+			drivers = new ArrayList<>();
+		}
+		if(! drivers.contains(driver)) {
+			drivers.add(driver);
+		}
+		driver.setDriver(this);
+	}
+	
+	public void removeDriver(Driver driver) {
+		driver.setDriver(null);
+		if(drivers != null) {
+			drivers.remove(driver);
+		}
+	}
+	public void addBuyer(Buyer buyer) {
+		if(buyers == null) {
+			buyers = new ArrayList<>();
+		}
+		if(! buyers.contains(buyer)) {
+			buyers.add(buyer);
+		}
+		buyer.setUser(this);
+	}
+	
+	public void removeBuyer(Buyer buyer) {
+		buyer.setUser(null);
+		if(buyers != null) {
+			buyers.remove(buyer);
+		}
+	}
+	
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -86,6 +166,14 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+	
+	
+	public User(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	public User() {
 		super();
 	}

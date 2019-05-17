@@ -17,12 +17,10 @@ public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int seller_id;
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
 	private Seller seller;
-	@OneToMany(mappedBy = "inventory")
-	private List<Purchase> purchases;
+	
 
 	public int getId() {
 		return id;
@@ -32,18 +30,14 @@ public class Inventory {
 		this.id = id;
 	}
 
-	public int getSeller_id() {
-		return seller_id;
-	}
 
-	public void setSeller_id(int seller_id) {
-		this.seller_id = seller_id;
-	}
 
-	public Inventory(int id, int seller_id) {
+
+
+	public Inventory(int id, Seller seller) {
 		super();
 		this.id = id;
-		this.seller_id = seller_id;
+		this.seller = seller;
 	}
 
 	public Inventory() {
@@ -52,7 +46,7 @@ public class Inventory {
 
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", seller_id=" + seller_id + "]";
+		return "Inventory [id=" + id + ", seller=" + seller + "]";
 	}
 
 	@Override
@@ -76,21 +70,6 @@ public class Inventory {
 			return false;
 		return true;
 	}
-	public void addPurchase(Purchase purchase) {
-		if (purchases == null)
-			purchases = new ArrayList<Purchase>();
-
-		if (!purchases.contains(purchase)) {
-			purchases.add(purchase);
-			purchase.addInventory(this);
-		}
-	}
-
-	public void removeActor(Actor actor) {
-		if (actors != null && actors.contains(actor)) {
-			actors.remove(actor);
-			actor.removeFilm(this);
-		}
-	}
+	
 
 }
