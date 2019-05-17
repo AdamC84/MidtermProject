@@ -16,7 +16,7 @@ import com.skilldistillery.midterm.entities.User;
 
 @Transactional
 @Service
-public class SproutsDAOImpl implements SproutsDAO {
+public class UserDAOImpl implements UserDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -67,12 +67,82 @@ public class SproutsDAOImpl implements SproutsDAO {
 	}
 
 	@Override
-	public List<Item> getItemsByCategoryId(int id) {
-		String query = "Select item from Item item where item.category_id = :id";
-		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
-		return items;
+	public User addUser(User u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateUser(User u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User deleteUser(User u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Driver addDriver(Driver d) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Driver updateDriver(Driver d) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Driver deleteDriver(Driver d) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Buyer addBuyer(Buyer b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Buyer updateBuyer(Buyer b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Buyer deleteBuyer(Buyer b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Seller addSeller(Seller s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Seller updateSeller(Seller s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Seller deleteSeller(Seller s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUserById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
-	
-
 }
+	

@@ -7,14 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skilldistillery.midterm.data.SproutsDAO;
+import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
-public class SproutsController {
+public class UserController {
 
 	@Autowired
-	SproutsDAO d;
+	UserDAO d;
 	
 	
 	@RequestMapping()
