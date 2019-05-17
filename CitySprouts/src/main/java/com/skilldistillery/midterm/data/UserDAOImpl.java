@@ -1,5 +1,5 @@
  package com.skilldistillery.midterm.data;
-
+ 
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,9 +8,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.mysql.cj.jdbc.Driver;
+import com.skilldistillery.midterm.entities.Address;
 import com.skilldistillery.midterm.entities.Buyer;
-import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Driver;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.User;
 
@@ -22,6 +22,11 @@ public class UserDAOImpl implements UserDAO {
 	private EntityManager em;
 
 	@Override
+	public User getUserById(int id) {
+		User user = em.find(User.class, id);
+		return user;
+	}
+	@Override
 	public Driver getDriverById(int id) {
 		Driver driver = em.find(Driver.class, id);
 		return driver;
@@ -30,7 +35,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<Driver> getAllDrivers() {
 		String query = "Select driver from Driver driver";
-		List<Driver> drivers = em.createQuery(query, Driver.class).getResultList();
+		List<Driver> drivers= em.createQuery(query, Driver.class).getResultList();
 		return drivers;
 	}
 	@Override
@@ -68,81 +73,137 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User addUser(User u) {
-		// TODO Auto-generated method stub
-		return null;
+		em.getTransaction().begin();
+		em.persist(u);
+		em.flush();
+		em.getTransaction().commit();
+		em.close();
+		return u;
 	}
 
 	@Override
-	public User updateUser(User u) {
-		// TODO Auto-generated method stub
-		return null;
+	public User updateUser(int id, User u) {
+		em.getTransaction().begin();
+		User updatedUser = em.find(User.class, id);
+		updatedUser.setFirstName(u.getFirstName());
+		updatedUser.setLastName(u.getLastName());
+		updatedUser.setEmail(u.getEmail());
+		updatedUser.setPassword(u.getPassword());
+		updatedUser.setUsername(u.getUsername());
+		updatedUser.setRole(u.getRole());
+		em.getTransaction().commit();
+		em.close();
+		return updatedUser;
 	}
 
 	@Override
 	public User deleteUser(User u) {
-		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+		em.remove(u);
+		em.flush();
+		em.getTransaction().commit();
 		return null;
 	}
 
 	@Override
 	public Driver addDriver(Driver d) {
-		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+		em.persist(d);
+		em.flush();
+		em.getTransaction().commit();
+		em.close();		
 		return null;
 	}
 
 	@Override
-	public Driver updateDriver(Driver d) {
-		// TODO Auto-generated method stub
-		return null;
+	public Driver updateDriver(int id, Driver d) {
+		em.getTransaction().begin();
+		Driver updatedDriver= em.find(Driver.class, id);
+		updatedDriver.setBankAcctNum(d.getBankAcctNum());
+		updatedDriver.setBankName(d.getBankName());
+		updatedDriver.setBankRouting(d.getBankRouting());
+		updatedDriver.setDriver(em.find(User.class, d.getUser().getId()));
+		updatedDriver.setAddressId(d.getAddressId());
+		em.getTransaction().commit();
+		em.close();
+		return updatedDriver;
 	}
 
 	@Override
 	public Driver deleteDriver(Driver d) {
-		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+		em.remove(d);
+		em.flush();
+		em.getTransaction().commit();
 		return null;
 	}
 
 	@Override
 	public Buyer addBuyer(Buyer b) {
-		// TODO Auto-generated method stub
-		return null;
+		em.getTransaction().begin();
+		em.persist(b);
+		em.flush();
+		em.getTransaction().commit();
+		em.close();
+		return b;
 	}
 
 	@Override
-	public Buyer updateBuyer(Buyer b) {
-		// TODO Auto-generated method stub
-		return null;
+	public Buyer updateBuyer(int id, Buyer b) {
+		em.getTransaction().begin();
+		Buyer updatedBuyer = em.find(Buyer.class, id);
+		updatedBuyer.setAddress(b.getAddress());
+		updatedBuyer.setCreditCardCcv(b.getCreditCardCcv());
+		updatedBuyer.setCreditCardExpDate(b.getCreditCardExpDate());
+		updatedBuyer.setCreditCardNum(b.getCreditCardNum());
+		updatedBuyer.setUser(em.find(User.class, b.getId()));
+		em.getTransaction().commit();
+		em.close();
+		return updatedBuyer;
 	}
 
 	@Override
 	public Buyer deleteBuyer(Buyer b) {
-		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+		em.remove(b);
+		em.flush();
+		em.getTransaction().commit();
 		return null;
 	}
 
 	@Override
 	public Seller addSeller(Seller s) {
-		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+		em.persist(s);
+		em.flush();
+		em.getTransaction().commit();
+		em.close();
 		return null;
 	}
 
 	@Override
-	public Seller updateSeller(Seller s) {
-		// TODO Auto-generated method stub
+	public Seller updateSeller(int id, Seller s) {
+		em.getTransaction().begin();
+		Seller updatedSeller = em.find(Seller.class, id);
+		updatedSeller.setAddress(s.getAddress());
+		updatedSeller.setBankAcctNum(s.getBankAcctNum());
+		updatedSeller.setBankName(s.getBankName());
+		updatedSeller.setBankRouting(s.getBankRouting());
+		updatedSeller.setUser(em.find(User.class, s.getId()));
+		em.getTransaction().commit();
+		em.close();
 		return null;
 	}
 
 	@Override
 	public Seller deleteSeller(Seller s) {
-		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+		em.remove(s);
+		em.flush();
+		em.getTransaction().commit();
 		return null;
 	}
 
-	@Override
-	public User getUserById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }
 	
