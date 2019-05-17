@@ -18,6 +18,14 @@ public class ItemDAOImpl implements ItemDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
+	
+	
+	@Override
+	public List<Item> getAllItems() {
+		String query = "Select item from Item item";
+		List<Item> items = em.createQuery(query, Item.class).getResultList();
+		return items;
+	}
 	@Override
 	public List<Item> getItemsByVarietyId(int id) {
 		String query = "Select item from Item item where item.variety.id = :id";
@@ -68,7 +76,7 @@ public class ItemDAOImpl implements ItemDAO {
 		return items;
 	}
 	@Override
-	public List<Item> getItemsSortedByPickedDate(String name) {
+	public List<Item> getItemsSortedByPickedDate() {
 		String query = "Select item from Item item order by picked";
 		List<Item> items = em.createQuery(query, Item.class).getResultList();
 		return items;

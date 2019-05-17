@@ -17,7 +17,8 @@ public interface ItemDAO {
 	List<Item> getItemsByVarietyName(String name);
 	List<Item> getItemsByCommodityName(String name);
 	List<Item> getItemsByUnitName(String name);
-	List<Item> getItemsSortedByPickedDate(String name);
+	List<Item> getItemsSortedByPickedDate();
 	List<Item> getItemsSortedByPrice(String name);
 	List<Item> getItemsSortedByBestByDate(String name);
+	List<Item> getAllItems();
 }
