@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_login` TIMESTAMP NULL,
   `role` ENUM('SELLER', 'BUYER', 'DRIVER') NOT NULL,
   `first_name` VARCHAR(50) NOT NULL,
-  `lsat_name` VARCHAR(50) NOT NULL,
+  `last_name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -382,12 +382,12 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `lsat_name`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `lsat_name`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `lsat_name`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `lsat_name`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `lsat_name`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `lsat_name`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers');
 
 COMMIT;
 
