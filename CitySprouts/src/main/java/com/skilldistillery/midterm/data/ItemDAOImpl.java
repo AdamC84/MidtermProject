@@ -99,6 +99,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setPrice(i.getPrice());
 		item.setUnit(i.getUnit());
 		item.setVariety(i.getVariety());
+		item.setActive(i.getActive());
 		em.persist(item);
 		em.flush();
 		return item;
@@ -117,6 +118,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setPrice(i.getPrice());
 		item.setUnit(i.getUnit());
 		item.setVariety(i.getVariety());
+		item.setActive(i.getActive());
 		em.persist(item);
 		em.flush();
 		return null;
