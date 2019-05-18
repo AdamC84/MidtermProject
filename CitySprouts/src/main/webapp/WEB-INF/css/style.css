@@ -1,6 +1,7 @@
 html, body {
 height: 100%;
-width: 100%
+width: 100%;
+overflow: scroll;
 }
 
 .navbar {
@@ -55,6 +56,8 @@ footer {
   background-color: #23415C;
   padding: 5% 5% 10% 5%;
   color: #FFF;
+  position: relative;
+  bottom: 0;
 }
 
 .fa {
@@ -94,7 +97,9 @@ footer {
 
 
 }
-
+form{
+	padding-bottom: 20px;
+}
 
 
 

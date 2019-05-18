@@ -23,12 +23,7 @@ public class UserController {
 		mv.setViewName("index");
 		return mv;
 	}
-	@RequestMapping(path = "register.do")
-	public ModelAndView register() {
-		ModelAndView mv = new ModelAndView();		
-		mv.setViewName("register");
-		return mv;
-	}
+	
 	@RequestMapping(path = "cart.do")
 	public ModelAndView cart() {
 		ModelAndView mv = new ModelAndView();		
