@@ -1,0 +1,6 @@
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/icons-reference/icons-reference.html
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/icons-reference/styles.css
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/icons-reference/fonts/clotheshub.svg
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/icons-reference/fonts/clotheshub.woff
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/icons-reference/fonts/clotheshub.eot
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/icons-reference/fonts/clotheshub.ttf
