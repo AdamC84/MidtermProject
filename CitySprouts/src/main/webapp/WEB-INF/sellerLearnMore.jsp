@@ -6,11 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>City Sprouts - Connecting Urban Growers</title>
+<title>City Sprouts - Sell</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -33,8 +31,9 @@
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="home.do"></a>
+		<img src="img/logo.png" class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -44,26 +43,30 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
+				<li class="nav-item active"><a class="nav-link" href="home.do">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Dropdown </a>
+					aria-expanded="false"> Menu </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Action</a> <a
-							class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="cart.do">Cart</a> <a
+							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div></li>
+						<a class="dropdown-item" href="searchResults.do">Search Results</a>
+						<a class="dropdown-item" href="buyerLearnMore.do">Buyer Learn More</a>
+						<a class="dropdown-item" href="sellerLearnMore.do">Seller Learn More</a>
+					</div>
+					
+					</li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
-			<li class="nav-item"><a class="nav-link" href="#">Login/Sign
+			<li class="nav-item"><a class="nav-link" href="register.do">Login/Sign
 					up</a></li>
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -73,6 +76,48 @@
 
 
 
+	<div id="home">
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			<div class="col-sm-8 col-md-6 col-lg-6">
+				<h1>City Sprouts</h1>
+				<br>
+				<p>City Sprouts brings locally grown produce to the market.
+					Targeting the urban community, we enable all growers to get their
+					crops to buyers <em>directly</em> ensuring you get the best price for your crop!
+				<p>
+			</div>
+			<div class="col-sm-2 col-md-3 col-lg-3"></div>
+		</div>
+	</div>
+	
+    <div class="landing-text">
+      <h1>City Sprouts</h1>
+      <h3>Connecting Urban farmers with the local market</h3>
+      <a href="#" Class="btn btn-default btn-lg">Fresh produce</a>
+    </div>
+  </div>
+
+	<section>
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-md-2 col-sm-1"></div>
+				<div class="col-md-8 col-sm-10">
+
+					<h3>Your Local Market Activity</h3>
+					<h4><small>Sell it local...</small></h4>
+					<h3>Denver Area</h3>
+					<iframe width="800" height="400" frameborder="0" style="border: 0"
+						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+						allowfullscreen> </iframe>
+				</div>
+				<div class="col-md-2 col-sm-1"></div>
+			</div>
+		</div>
+	</section>
 
 
 
@@ -91,7 +136,7 @@
 					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
-				<img src="img/b.png" class="icon">
+				<img src="img/logo.png" class="icon">
 			</div>
 		</div>
 	</footer>
