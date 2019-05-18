@@ -129,7 +129,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setActive(i.getActive());
 		em.persist(item);
 		em.flush();
-		return null;
+		return item;
 	}
 	@Override
 	public Item deleteItem(Item i) {
