@@ -27,7 +27,7 @@
 						'override try lazy for var catch throw type extends class while with new final yield abstract ' +
 						'else do if return protected private this package false';
 
-		var keyops =	'[_:=><%#@]+';
+		
 
 		this.regexList = [
 			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,			css: 'comments' },	// one line comments

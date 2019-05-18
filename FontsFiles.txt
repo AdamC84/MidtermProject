@@ -1,0 +1,10 @@
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//fontawesome-webfont.svg
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//FontAwesome.otf
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//clotheshub.svg
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//fontawesome-webfont.woff2
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//clotheshub.woff
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//clotheshub.eot
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//fontawesome-webfont.ttf
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//clotheshub.ttf
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//fontawesome-webfont.woff
+/Users/roblounsbury/SD/Java/MidtermProject/CitySprouts/src/main/webapp/WEB-INF/fonts//fontawesome-webfont.eot
