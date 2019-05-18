@@ -9,8 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Driver {
@@ -25,7 +25,7 @@ public class Driver {
 	private String bankName;
 	@Column(name = "bank_acct_num")
 	private int bankAcctNum;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	@OneToMany(mappedBy = "driver")

@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -25,12 +24,9 @@ public class Seller {
 	private String bankRouting;
 	@Column(name = "bank_name")
 	private String bankName;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	@OneToOne
-	@JoinColumn(name = "address_id")
-	private Address address;
 	@OneToMany
 	@JoinColumn(name = "seller_id")
 	private List<Inventory> inventories;
@@ -88,12 +84,7 @@ public class Seller {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+
 	
 	
 	public List<Inventory> getInventory() {
@@ -105,7 +96,7 @@ public class Seller {
 	
 	
 
-	public Seller(int id, String bankAcctNum, String bankRouting, String bankName, User user, Address address,
+	public Seller(int id, String bankAcctNum, String bankRouting, String bankName, User user,
 			List<Inventory> inventory) {
 		super();
 		this.id = id;
@@ -113,7 +104,6 @@ public class Seller {
 		this.bankRouting = bankRouting;
 		this.bankName = bankName;
 		this.user = user;
-		this.address = address;
 		this.inventories = inventory;
 	}
 	public Seller() {
@@ -122,7 +112,7 @@ public class Seller {
 	@Override
 	public String toString() {
 		return "Seller [id=" + id + ", bankAcctNum=" + bankAcctNum + ", bankRouting=" + bankRouting + ", bankName="
-				+ bankName + ", user=" + user + ", address=" + address + ", inventory=" + inventories.size() + "]";
+				+ bankName + ", user=" + user  + ", inventory=" + inventories.size() + "]";
 	}
 	@Override
 	public int hashCode() {
