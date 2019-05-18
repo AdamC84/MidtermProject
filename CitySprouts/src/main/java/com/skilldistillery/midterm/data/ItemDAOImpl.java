@@ -22,7 +22,7 @@ public class ItemDAOImpl implements ItemDAO {
 	
 	@Override
 	public List<Item> getAllItems() {
-		String query = "Select item from Item item";
+		String query = "Select i from Item i";
 		List<Item> items = em.createQuery(query, Item.class).getResultList();
 		return items;
 	}
@@ -77,7 +77,7 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 	@Override
 	public List<Item> getItemsSortedByPickedDate() {
-		String query = "Select item from Item item order by picked";
+		String query = "Select i from Item i order by i.picked";
 		List<Item> items = em.createQuery(query, Item.class).getResultList();
 		return items;
 	}

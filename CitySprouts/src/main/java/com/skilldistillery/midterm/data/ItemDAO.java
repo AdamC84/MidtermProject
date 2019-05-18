@@ -2,6 +2,7 @@ package com.skilldistillery.midterm.data;
 
 import java.util.List;
 
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
 
 public interface ItemDAO {
