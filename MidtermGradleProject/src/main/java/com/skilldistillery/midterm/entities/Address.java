@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,9 +13,11 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String address;
+	@Column(name = "address_2")
 	private String address2;
 	private String City;
 	private String State;
+	@Column(name = "zip_code")
 	private String zipcode;
 
 	
