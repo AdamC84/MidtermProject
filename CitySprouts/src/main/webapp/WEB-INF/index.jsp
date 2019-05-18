@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>City Sprouts - Urban Grower Connector</title>
+    <title>City Sprouts - Connecting Urban Growers</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -40,6 +40,7 @@
 <title>Home</title>
 <style type="text/css">
 <%@include file="css/custom.css" %>
+<%@include file="css/custom-fonticons.css" %>
 </style>
 </head>
 <body>
@@ -303,9 +304,9 @@
         <div class="row text-left">
         
         <c:if test="${! empty fresh }">
-			<c:forEach var="inventoryRecentlyPicked" items="${fresh}">
+			<c:forEach var="fresh" items="${fresh}">
 	          <div class="col-lg-4"><a href="#">
-              	<div style="background-image: url(https://images.unsplash.com/photo-1556843824-256570ca21c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);" class="item d-flex align-items-end">
+              	<div style="background-image: url(${fresh.imgUrl});" class="item d-flex align-items-end">
                	 <div class="content">
                   <h3 class="h5">@@Populate seller name img link above</h3><span>@@Item name id 17</span>
                 </div>
@@ -327,10 +328,10 @@
           <!-- item-->
           
          <c:if test="${! empty random }">
-          <c:forEach var="inventoryRecentlyPicked" items="${random}">
+          <c:forEach var="random" items="${random}">
            <div class="item">
             <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="https://image.shutterstock.com/z/stock-photo-pink-lady-apples-isolated-on-white-background-1122706196.jpg" alt="product" class="img-fluid">
+              <div class="image d-flex align-items-center justify-content-center"><img src="${random.imgUrl}" alt="product" class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>@@item id 1</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
                 </div>
