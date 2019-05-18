@@ -27,7 +27,7 @@ public class ItemController {
 		mv.addObject("random", randomList);
 		mv.addObject("fresh", sortedByDate);
 		
-		mv.setViewName("indexTest");
+		mv.setViewName("index");
 		return mv;
 	}
 }
