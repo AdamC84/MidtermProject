@@ -52,48 +52,27 @@
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="cart.do">Cart</a>
+          <a class="dropdown-item" href="editProfile.do">edit Profile</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="searchResults.do">search results</a>
+          <a class="dropdown-item" href="buyerLearnMore.do">buyer learn more</a>
+          <a class="dropdown-item" href="sellerLearnMore.do">seller learn more</a>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
+      <li class="nav-item">
+        <a class="nav-link" href="register.do">Login/Sign up</a>
+      </li>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
-
-
-
-<!-- 
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img src="img/logo.png" class="img-fluid">
-      </a>
-  </div>
-  </div>
-  <div class="collapse navbar-collapse" id="navbar-collapse-main">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a class="active" href="#">Home</a></li>
-      <li><a href="#">Produce</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-  </div>
-  </nav> -->
 
 
   
@@ -264,30 +243,6 @@
       </div>
     </div>
   </div>
-
-
-<!--- iOS Landing Page Fix
-<section>
-	<div class="landing-text">
-		<h1>BOOTSTRAP</h1>
-		<h3>Learn the basic building blocks.</h3>
-		<a href="#" class="btn btn-default btn-lg">Get Started</a>
-	</div>
-	<div class="home-wrap">
-        <div id="home">
-		</div>
-    </div>
-</section>
--->
-
-<!--- iOS Fixed Image Fix
-<figure>
-	<div class="fixed-wrap">
-        <div id="fixed">
-		</div>
-    </div>
-</figure>
--->
 
 
 

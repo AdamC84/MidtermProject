@@ -23,6 +23,43 @@ public class UserController {
 		mv.setViewName("index");
 		return mv;
 	}
+	@RequestMapping(path = "register.do")
+	public ModelAndView register() {
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("register");
+		return mv;
+	}
+	@RequestMapping(path = "cart.do")
+	public ModelAndView cart() {
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("cart");
+		return mv;
+	}
+	@RequestMapping(path = "buyerLearnMore.do")
+	public ModelAndView bLearnMore() {
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("buyerLearnMore");
+		return mv;
+	}
+	@RequestMapping(path = "searchResults.do")
+	public ModelAndView search() {
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("searchResults");
+		return mv;
+	}
+	@RequestMapping(path = "sellerLearnMore.do")
+	public ModelAndView sLearnMore() {
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("sellerLearnMore");
+		return mv;
+	}
+	@RequestMapping(path = "editProfile.do")
+	public ModelAndView edit() {
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("editProfile");
+		return mv;
+	}
+	
 	@RequestMapping(path = "getDrivers.do")
 	public ModelAndView getAllUsers() {
 		ModelAndView mv = new ModelAndView();
