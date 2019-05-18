@@ -15,7 +15,7 @@
 <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
     
-    
+
 <style>
       @media (min-width: 768px) {
   /* show 4 items */
@@ -120,6 +120,13 @@
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
 <div class="carousel-item col-md-3">
 <div class="card">
 <img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-yellow-golden-raisins-isolated-on-white-background-1064872322.jpg" alt="Card image cap">
