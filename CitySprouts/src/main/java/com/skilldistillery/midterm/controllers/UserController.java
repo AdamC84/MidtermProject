@@ -17,10 +17,10 @@ public class UserController {
 	UserDAO d;
 	
 	
-	@RequestMapping()
+	@RequestMapping(path = "home.do")
 	public ModelAndView home() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/index.jsp");
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("index");
 		return mv;
 	}
 	@RequestMapping(path = "getDrivers.do")
@@ -29,7 +29,8 @@ public class UserController {
 		List<User> user = d.getAllUsers();
 		
 		mv.addObject("users", user);
-		mv.setViewName("WEB-INF/index.jsp");
+		mv.setViewName("index");
 		return mv;
 	}
+
 }
