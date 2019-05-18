@@ -114,14 +114,14 @@ public class UserDAOImpl implements UserDAO {
 	public User deleteUser(User u) {
 		em.remove(u);
 		em.flush();
-		return null;
+		return u;
 	}
 
 	@Override
 	public Driver addDriver(Driver d) {
 		em.persist(d);
 		em.flush();
-		return null;
+		return d;
 	}
 
 	@Override
@@ -155,7 +155,7 @@ public class UserDAOImpl implements UserDAO {
 	public Driver deleteDriver(Driver d) {
 		em.remove(d);
 		em.flush();
-		return null;
+		return d;
 	}
 
 	@Override
@@ -195,14 +195,14 @@ public class UserDAOImpl implements UserDAO {
 	public Buyer deleteBuyer(Buyer b) {
 		em.remove(b);
 		em.flush();
-		return null;
+		return b;
 	}
 
 	@Override
 	public Seller addSeller(Seller s) {
 		em.persist(s);
 		em.flush();
-		return null;
+		return s;
 	}
 	public Seller getSellerByBankRouting(String bankRouting){
 		String queryString = "SELECT seller.bankRouting FROM Seller seller WHERE seller.bankRouting = :bankRouting";
@@ -235,7 +235,7 @@ public class UserDAOImpl implements UserDAO {
 	public Seller deleteSeller(Seller s) {
 		em.remove(s);
 		em.flush();
-		return null;
+		return s;
 	}
 
 	
