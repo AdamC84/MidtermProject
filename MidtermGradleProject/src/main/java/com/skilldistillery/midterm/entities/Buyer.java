@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -25,12 +24,9 @@ public class Buyer {
 	private Date creditCardExpDate;
 	@Column(name = "credit_card_ccv")
 	private String creditCardCcv;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	@OneToOne
-	@JoinColumn(name = "address_id")
-	private Address address;
 	@OneToMany(mappedBy = "buyer")
 	private List<Purchase> purchases;
 	
@@ -53,12 +49,7 @@ public class Buyer {
 		}
 	}
 	
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+	
 	public int getId() {
 		return id;
 	}
@@ -85,15 +76,13 @@ public class Buyer {
 	}
 	
 	
-	public Buyer(int id, String creditCardNum, Date creditCardExpDate, String creditCardCcv, User user,
-			Address address) {
+	public Buyer(int id, String creditCardNum, Date creditCardExpDate, String creditCardCcv, User user) {
 		super();
 		this.id = id;
 		this.creditCardNum = creditCardNum;
 		this.creditCardExpDate = creditCardExpDate;
 		this.creditCardCcv = creditCardCcv;
 		this.user = user;
-		this.address = address;
 	}
 	
 	public Buyer(String creditCardNum) {
@@ -107,7 +96,7 @@ public class Buyer {
 	@Override
 	public String toString() {
 		return "Buyer [id=" + id + ", creditCardNum=" + creditCardNum + ", creditCardExpDate=" + creditCardExpDate
-				+ ", creditCardCcv=" + creditCardCcv + ", user=" + user + ", address=" + address + ", purchases="
+				+ ", creditCardCcv=" + creditCardCcv + ", user=" + user + ", purchases="
 				+ purchases.size() + "]";
 	}
 	@Override
