@@ -16,25 +16,6 @@ CREATE SCHEMA IF NOT EXISTS `citysproutsdb` DEFAULT CHARACTER SET utf8 ;
 USE `citysproutsdb` ;
 
 -- -----------------------------------------------------
--- Table `user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `user` ;
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(16) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(32) NOT NULL,
-  `create_time` TIMESTAMP NULL,
-  `last_login` TIMESTAMP NULL,
-  `role` ENUM('SELLER', 'BUYER', 'DRIVER') NOT NULL,
-  `first_name` VARCHAR(50) NOT NULL,
-  `last_name` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `address`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `address` ;
@@ -51,6 +32,32 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user` ;
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(16) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(32) NOT NULL,
+  `create_time` TIMESTAMP NULL,
+  `last_login` TIMESTAMP NULL,
+  `role` ENUM('SELLER', 'BUYER', 'DRIVER') NOT NULL,
+  `first_name` VARCHAR(50) NOT NULL,
+  `last_name` VARCHAR(50) NOT NULL,
+  `address_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_user_address1_idx` (`address_id` ASC),
+  CONSTRAINT `fk_user_address1`
+    FOREIGN KEY (`address_id`)
+    REFERENCES `address` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `buyer`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `buyer` ;
@@ -60,20 +67,13 @@ CREATE TABLE IF NOT EXISTS `buyer` (
   `credit_card_num` VARCHAR(16) NULL,
   `credit_card_exp_date` DATE NULL,
   `credit_card_ccv` VARCHAR(3) NULL,
-  `user_id` INT NOT NULL,
   `active` TINYINT NULL,
-  `address_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_buyer_user_idx` (`user_id` ASC),
-  INDEX `fk_buyer_address1_idx` (`address_id` ASC),
-  CONSTRAINT `fk_buyer_user`
+  INDEX `fk_buyer_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_buyer_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_buyer_address1`
-    FOREIGN KEY (`address_id`)
-    REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -184,20 +184,13 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `bank_routing` VARCHAR(15) NOT NULL,
   `bank_name` VARCHAR(50) NOT NULL,
   `bank_acct_num` VARCHAR(20) NOT NULL,
-  `user_id` INT NOT NULL,
   `active` TINYINT NULL,
-  `address_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_driver_user1_idx` (`user_id` ASC),
-  INDEX `fk_driver_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_driver_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_driver_address1`
-    FOREIGN KEY (`address_id`)
-    REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -213,20 +206,13 @@ CREATE TABLE IF NOT EXISTS `seller` (
   `bank_routing` VARCHAR(15) NOT NULL,
   `bank_name` VARCHAR(45) NOT NULL,
   `bank_acct_num` VARCHAR(20) NOT NULL,
-  `user_id` INT NOT NULL,
-  `address_id` INT NOT NULL,
   `active` TINYINT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_seller_user1_idx` (`user_id` ASC),
-  INDEX `fk_seller_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_seller_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_seller_address1`
-    FOREIGN KEY (`address_id`)
-    REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -379,21 +365,6 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `user`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `citysproutsdb`;
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver');
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers');
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `address`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -413,12 +384,27 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `citysproutsdb`;
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer', 1);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban', 2);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks', 5);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey', 6);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver', 3);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers', 4);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `buyer`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `user_id`, `active`, `address_id`) VALUES (1, '1234765434560987', '2022-11-30', '123', 3, 1, 5);
-INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `user_id`, `active`, `address_id`) VALUES (2, '5434876534560987', '2023-03-31', '456', 4, 1, 6);
+INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `active`, `user_id`) VALUES (1, '1234765434560987', '2022-11-30', '123', 1, 5);
+INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `active`, `user_id`) VALUES (2, '5434876534560987', '2023-03-31', '456', 1, 6);
 
 COMMIT;
 
@@ -1273,8 +1259,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `user_id`, `active`, `address_id`) VALUES (1, '123456789', 'US Bank', '4837265', 5, 1, 3);
-INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `user_id`, `active`, `address_id`) VALUES (2, '746295823', 'Chase', '5048377', 6, 1, 4);
+INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (1, '123456789', 'US Bank', '4837265', 1, 3);
+INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (2, '746295823', 'Chase', '5048377', 1, 4);
 
 COMMIT;
 
@@ -1284,8 +1270,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `user_id`, `address_id`, `active`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1, 1);
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `user_id`, `address_id`, `active`) VALUES (2, '746295823', 'Chase', '84967563', 2, 2, 1);
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1);
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (2, '746295823', 'Chase', '84967563', 1, 2);
 
 COMMIT;
 
