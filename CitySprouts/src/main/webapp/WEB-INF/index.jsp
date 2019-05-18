@@ -64,9 +64,7 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
-      <li class="nav-item">
-        <a class="nav-link" href="register.do">Login/Sign up</a>
-      </li>
+      <a class="nav-link" href="registerPage.do">Login/Sign up</a>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
