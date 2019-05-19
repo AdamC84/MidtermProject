@@ -32,8 +32,8 @@
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="home.do"></a>
-		<img src="img/logo.png" class="icon">
+		<a class="navbar-brand" href="home.do"></a> <img src="img/logo.png"
+			class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -55,12 +55,11 @@
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search Results</a>
-						<a class="dropdown-item" href="buyerLearnMore.do">Buyer Learn More</a>
-						<a class="dropdown-item" href="sellerLearnMore.do">Seller Learn More</a>
-					</div>
-					
-					</li>
+						<a class="dropdown-item" href="searchResults.do">Search
+							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
+					</div></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
@@ -76,50 +75,66 @@
 
 
 
-	<div id="home">
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-sm-2 col-md-3 col-lg-3"></div>
-			<div class="col-sm-8 col-md-6 col-lg-6">
-				<h1>City Sprouts</h1>
-				<br>
-				<p>City Sprouts brings locally grown produce to the market.
-					Targeting the urban community, we enable all growers to get their
-					crops to buyers <em>directly</em> ensuring you get the best price for your crop!
-				<p>
-			</div>
-			<div class="col-sm-2 col-md-3 col-lg-3"></div>
-		</div>
-	</div>
-	
-    <div class="landing-text">
-      <h1>City Sprouts</h1>
-      <h3>Connecting Urban farmers with the local market</h3>
-      <a href="#" Class="btn btn-default btn-lg">Fresh produce</a>
-    </div>
-  </div>
-
-	<section>
+	<div id="home" class="landing-text pagination-centered">
 		<div
 			class="container-fluid text-center align-items-center justify-content-center">
 			<div class="row">
-				<div class="col-md-2 col-sm-1"></div>
-				<div class="col-md-8 col-sm-10">
-
-					<h3>Your Local Market Activity</h3>
-					<h4><small>Sell it local...</small></h4>
-					<h3>Denver Area</h3>
-					<iframe width="800" height="400" frameborder="0" style="border: 0"
-						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-						allowfullscreen> </iframe>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+				<div id="panel-grey">
+				<br>
+					<h1>City Sprouts</h1>
+					<h3>Connecting Urban farmers with the local market</h3>
+					<p>
+						City Sprouts brings locally grown produce to the market. Targeting
+						the urban community, we enable all growers to get their crops to
+						buyers <em>directly</em> ensuring you get the best price for your
+						crop!
+						</p>
+					</div>
+					
 				</div>
-				<div class="col-md-2 col-sm-1"></div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 			</div>
 		</div>
-	</section>
+	</div>
 
-
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+	<div class="row">
+		<div class="col-md-2 col-sm-1"></div>
+		<div class="col-md-8 col-sm-10"><hr>
+		<div id="panel-green">
+				<div id="white-text">
+			<h2>  How it works... </h2>
+			<p>Selling on City Sprouts is easy.  Simply sign up, list your items, set your price, and we take care of the rest! City Sprouts gets 1% of the sale.  We make purchases available for either pickup by the buyer or the buy can select to have their purchase delivered by one of City Sprouts connected delivery drivers.			
+			</p>
+			<h3>It couldn't be easier...<a href="register.do"><h3>signup today!</a></h3>
+			</div></div>
+		</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+	
+			<div class="container-fluid text-center align-items-center justify-content-center">
+	<div class="row">
+		<div class="col-md-2 col-sm-1"></div>
+		<div class="col-md-8 col-sm-10"><hr>
+		<div id="panel-green">
+				<div id="white-text-lg">
+			<h1>Your Local Market Activity</h1>
+			<h4>
+				<small>Sell it local...</small>
+			</h4>
+			<h3>Denver Area</h3>
+			</div></div>
+			<iframe width="800" height="400" frameborder="0" style="border: 0"
+				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+				allowfullscreen> </iframe>
+		</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
 	<footer class="container-fluid text-center">
 		<div class="row">
