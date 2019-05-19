@@ -2,6 +2,7 @@ html, body {
 height: 100%;
 width: 100%;
 overflow: scroll;
+background: rgba(0, 128, 0, 0.3)!important;
 }
 
 .navbar {
@@ -53,7 +54,7 @@ overflow: scroll;
 }
 footer {
   width: 100%;
-  background-color: #23415C;
+  background-color: #429244;
   padding: 5% 5% 10% 5%;
   color: #FFF;
   position: relative;
@@ -67,7 +68,7 @@ footer {
 }
 
 .fa:hover {
-  color: D5D5D5;
+  color: 9ACD32;
   text-decoration: none;
 }
 
@@ -75,6 +76,18 @@ footer {
   max-width: 200px;
 
 }
+
+#white-text {
+	color: #FFF;
+}
+#white-text-lg {
+	color: #FFF;
+  font-size: 500%;
+  font-weight: 700;
+    text-align: center;
+  vertical-align: middle;
+}
+
 @media (max-width: 768px) {
   .landing-text h1 {
     font-size: 300%;
@@ -101,9 +114,30 @@ form{
 	padding-bottom: 20px;
 }
 
+    .panel-transparent {
+        background: none;
+    }
 
+    .panel-transparent .panel-heading{
+        background: rgba(122, 130, 136, 0.3)!important;
+    }
 
+    .panel-transparent .panel-body{
+        background: rgba(46, 51, 56, 0.3)!important;
+    }
 
+#panel-grey {
+	border-radius: 15px;
+	background: rgba(122, 130, 136, 0.2)!important;
+
+}
+
+#panel-green {
+	padding: 20px;
+	border-radius: 15px;
+	background: rgba(0, 128, 0, 0.2)!important;
+
+}
 
 
 

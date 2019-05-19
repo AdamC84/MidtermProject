@@ -28,8 +28,9 @@
 
 </head>
 <body>
-	<nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="home.do"></a> <img src="img/logo.png"
+			class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -51,12 +52,11 @@
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search Results</a>
-						<a class="dropdown-item" href="buyerLearnMore.do">Buyer Learn More</a>
-						<a class="dropdown-item" href="sellerLearnMore.do">Seller Learn More</a>
-					</div>
-					
-					</li>
+						<a class="dropdown-item" href="searchResults.do">Search
+							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
+					</div></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
@@ -70,42 +70,73 @@
 		</div>
 	</nav>
 
+	<div id="home" class="landing-text pagination-centered">
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+					<div id="panel-grey">
+						<br>
+						<h1>City Sprouts</h1>
+						<h3>Connecting Urban farmers with the local market</h3>
+						<p>City Sprouts brings locally grown produce to the market.
+							Targeting the urban community, we enable all growers to get their
+							crops to you directly!</p>
+					</div>
+
+				</div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			</div>
+		</div>
+	</div>
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
-			<div class="col-sm-2 col-md-3 col-lg-3"></div>
-			<div class="col-sm-8 col-md-6 col-lg-6">
-				<h1>City Sprouts</h1>
-				<br>
-				<p>City Sprouts brings locally grown produce to the market.
-					Targeting the urban community, we enable all growers to get their
-					crops to you directly
-				<p>
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+						<h2>How it works...</h2>
+						<p>Buying on City Sprouts is easy. Simply sign up, select your
+							items, chose to pick up your order or have a driver deliver to
+							your door and we take care of the rest!</p>
+						<h3>
+							It couldn't be easier...<a href="register.do"><h3>sign
+									up today!</a>
+						</h3>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-2 col-md-3 col-lg-3"></div>
 		</div>
+		<div class="col-md-2 col-sm-1"></div>
 	</div>
 
-	<section>
-		<div
-			class="container-fluid text-center align-items-center justify-content-center">
-			<div class="row">
-				<div class="col-md-2 col-sm-1"></div>
-				<div class="col-md-8 col-sm-10">
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text-lg">
 
-					<h3>Find your Urban Farmer</h3>
-					<h4><small>Get it local...</small></h4>
-					<h3>Denver Area</h3>
-					<iframe width="800" height="400" frameborder="0" style="border: 0"
-						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-						allowfullscreen> </iframe>
+						<h1>Find your Urban Farmer</h1>
+						<h4>
+							<small>Get it local...</small>
+						</h4>
+						<h3>Denver Area</h3>
+					</div>
 				</div>
-				<div class="col-md-2 col-sm-1"></div>
+				<iframe width="800" height="400" frameborder="0" style="border: 0"
+					src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+					allowfullscreen> </iframe>
 			</div>
 		</div>
-	</section>
-
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
 	<footer class="container-fluid text-center">
 		<div class="row">
@@ -122,7 +153,7 @@
 					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
-				<div style="background-image: url(img/logo.png);"></div>
+				<img src="img/logo.png" class="icon">
 			</div>
 		</div>
 	</footer>
