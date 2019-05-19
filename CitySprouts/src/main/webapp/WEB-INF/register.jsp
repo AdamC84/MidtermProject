@@ -71,81 +71,51 @@
 		</div>
 	</nav>
  <div class="container">
- 
+ <%-- <c:choose>
+ <c:when test="${empty user.firstName}"> --%>
  <form:form action="registerUser.do" method="POST" modelAttribute="user">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">First</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="firstName"/>
+      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="lastName"/>
+      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="lastName" value="${user.lastName}"/>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <form:input type="text" class="form-control" id="userName" placeholder="userName" path="username"/>
+      <label for="inputEmail4">User Name</label>
+      <form:input type="text" class="form-control" id="userName" placeholder="userName" path="username" value="${user.username}"/>
     </div>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="email"/>
+      <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="email" value="${user.email}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="password"/>
+      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="password" value="${user.password}"/>
     </div>
-  </div>
-  </form:form>
-  <form:form action="registerUser.do" method="POST" modelAttribute="address">
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <form:input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" path="address"/>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <form:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" path="address2"/>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>Alabama</option>
-        <option>Alaska</option>
-        <option>Colorado</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
    <fieldset class="form-group">
     <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="BUYER" checked/>
           <label class="form-check-label" for="gridRadios1">
             Buyer
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="SELLER"/>
           <label class="form-check-label" for="gridRadios2">
             Seller
           </label>
         </div>
         <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+          <input class="form-check-input" type="radio" name="role" id="gridRadios3" value="DRIVER" disabled/>
           <label class="form-check-label" for="gridRadios3">
             Driver
           </label>
@@ -153,16 +123,49 @@
       </div>
     </div>
   </fieldset>
+  </div>
+ <!--  <button type="submit" class="btn btn-primary">Next</button> -->
+<%--   </form:form> --%>
+<%--  </c:when>
+ <c:otherwise> --%>
+  <%-- <c:if test="${not empty user.firstName}"> --%>
+  
+<%--  --- ${user.firstName }--- --%>
+ <%--  <form:form action="registerUserAddress.do" method="POST" modelAttribute="address"> --%>
+  
   <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
+    <label for="inputAddress">Address</label>
+    <form:input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" path="address.streetAddress"/>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <form:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" path="address.address2"/>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <form:input type="text" class="form-control" id="inputCity" path="address.city"/>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <form:select id="inputState" class="form-control" path="address.state">
+        <option selected>Choose...</option>
+        <option>Alabama</option>
+        <option>Alaska</option>
+        <option>Colorado</option>
+      </form:select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <form:input type="text" class="form-control" id="inputZip" path="address.zipcode"/>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form:form>
+<%--   </c:if> --%>
+<%--  </c:otherwise>
+ </c:choose> --%>
 
 
  </div>

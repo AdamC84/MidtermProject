@@ -71,6 +71,11 @@
 		</div>
 	</nav>
 
+
+welcome!
+
+${user.firstName},--- ${user.lastName }
+${user.address.city} ${user.address.state}
  
  
 

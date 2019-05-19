@@ -33,7 +33,7 @@ class AddressTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		a = new Address();
-		a.setAddress("123 street");
+		a.setStreetAddress("123 street");
 	}
 
 	@AfterEach
@@ -50,7 +50,7 @@ class AddressTest {
 	
 	@Test
 	void test_driver_mapping(){
-		assertEquals("123 street", a.getAddress());
+		assertEquals("123 street", a.getStreetAddress());
 	}
 
 }

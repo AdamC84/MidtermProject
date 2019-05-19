@@ -12,7 +12,8 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String address;
+	@Column(name = "address")
+	private String streetAddress;
 	@Column(name = "address_2")
 	private String address2;
 	private String City;
@@ -28,11 +29,11 @@ public class Address {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAddress() {
-		return address;
+	public String getStreetAddress() {
+		return streetAddress;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setStreetAddress(String address) {
+		this.streetAddress = address;
 	}
 	public String getAddress2() {
 		return address2;
@@ -59,7 +60,13 @@ public class Address {
 		this.zipcode = zipcode;
 	}
 	
+	
 
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", streetAddress=" + streetAddress + ", address2=" + address2 + ", City=" + City
+				+ ", State=" + State + ", zipcode=" + zipcode + "]";
+	}
 	public Address() {
 		super();
 	}

@@ -5,12 +5,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.UserDAO;
-import com.skilldistillery.midterm.entities.Address;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
@@ -38,19 +38,18 @@ public class LoginController {
 	public ModelAndView register() {
 		ModelAndView mv = new ModelAndView();
 		User u = new User();
-		Address a = new Address();
-		mv.addObject("address", a);
 		mv.addObject("user", u);
 		mv.setViewName("register");
 		return mv;
 	}
-	@RequestMapping(path = "registerUser.do")
-	public ModelAndView register(@ModelAttribute("user") User user, @ModelAttribute("address") Address address, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		User u = d.addUser(user);
-		Address a = d.addAddress(address);
-		
-		mv.setViewName("index");
-		return mv;
+	@RequestMapping(path = "registerUser.do", method = RequestMethod.POST)
+	public String register( Model model, User user) {
+		user = d.addUser(user);
+		d.addAddress(user.getAddress());
+		model.addAttribute(user);
+		System.out.println(user);
+		return "buyerLoggedIn";
 	}
+	
 }
+
