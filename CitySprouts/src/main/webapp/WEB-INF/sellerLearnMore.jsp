@@ -19,7 +19,6 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -32,7 +31,7 @@
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="home.do"></a> <img src="img/logo.png"
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
 			class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -50,7 +49,7 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Menu </a>
+					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
@@ -63,17 +62,21 @@
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
-			<li class="nav-item"><a class="nav-link" href="register.do">Login/Sign
-					up</a></li>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			<div class="nav-item">
+			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			</div>
+			<div class="nav-item"><a class="nav-link" href="login.do">
+				<span style="font-size: 2em;">
+				<i class="fa fa-user-circle-o"></i>
+				</span></a>
+			</div>
 		</div>
 	</nav>
-
-
 
 	<div id="home" class="landing-text pagination-centered">
 		<div
@@ -109,7 +112,7 @@
 			<h2>  How it works... </h2>
 			<p>Selling on City Sprouts is easy.  Simply sign up, list your items, set your price, and we take care of the rest! City Sprouts gets 1% of the sale.  We make purchases available for either pickup by the buyer or the buy can select to have their purchase delivered by one of City Sprouts connected delivery drivers.			
 			</p>
-			<h3>It couldn't be easier...<a href="register.do"><h3>signup today!</a></h3>
+			<h3>It couldn't be easier...</h3><h4><a href="registerPage.do">sign up today!</a></h4>
 			</div></div>
 		</div>
 		</div>
@@ -117,20 +120,21 @@
 	</div>
 	
 			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row">
+	<div class="row" style="padding: 0% 0% 3% 0%">
 		<div class="col-md-2 col-sm-1"></div>
 		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green">
+		<div id="panel-green" style="padding: 0% 0% 3% 0%">
 				<div id="white-text-lg">
 			<h1>Your Local Market Activity</h1>
-			<h4>
-				<small>Sell it local...</small>
-			</h4>
+			<h4><small>Sell it local...</small></h4>
 			<h3>Denver Area</h3>
-			</div></div>
-			<iframe width="800" height="400" frameborder="0" style="border: 0"
+			</div>
+		</div>
+		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+			<iframe width="100%" height="100%" frameborder="0"
 				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-				allowfullscreen> </iframe>
+				allowfullscreen=""style="position:absolute; top:0; left: 0"> </iframe>
+		</div>
 		</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
@@ -141,7 +145,7 @@
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
 				<br>
-				<h4>Address and contact info</h4>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
@@ -151,7 +155,7 @@
 					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
-				<img src="img/logo.png" class="icon">
+				<img src="img/logo_rd.png" class="icon">
 			</div>
 		</div>
 	</footer>
