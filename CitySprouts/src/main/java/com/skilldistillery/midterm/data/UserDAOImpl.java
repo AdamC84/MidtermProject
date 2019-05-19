@@ -137,7 +137,6 @@ public class UserDAOImpl implements UserDAO {
 		updatedDriver.setBankName(d.getBankName());
 		updatedDriver.setBankRouting(d.getBankRouting());
 		updatedDriver.setDriver(em.find(User.class, d.getUser().getId()));
-		updatedDriver.setAddressId(d.getAddressId());
 		em.persist(updatedDriver);
 		em.flush();
 		return updatedDriver;

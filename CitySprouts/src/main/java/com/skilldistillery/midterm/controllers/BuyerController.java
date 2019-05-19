@@ -14,7 +14,7 @@ import com.skilldistillery.midterm.entities.Purchase;
 public class BuyerController {
 	@Autowired
 	private BuyerDAO bd;
-	
+
 	@RequestMapping(path = "purchaseResults.do")
 	public ModelAndView getPurchaseResults(Buyer buyer) {
 		ModelAndView mv = new ModelAndView();
