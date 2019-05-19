@@ -2,6 +2,7 @@ package com.skilldistillery.midterm.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -30,7 +31,7 @@ public class User {
 	private String firstName;
 	@Column(name = "last_name")
 	private String lastName;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
@@ -41,6 +42,12 @@ public class User {
 	
 	
 	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public int getId() {
 		return id;
 	}

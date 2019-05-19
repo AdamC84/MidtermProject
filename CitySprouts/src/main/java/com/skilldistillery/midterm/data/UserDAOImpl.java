@@ -74,6 +74,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User addUser(User u) {
 		em.persist(u);
+		
 		em.flush();
 		return u;
 	}
@@ -265,19 +266,34 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 	@Override
-	public Address addAddress(Address a) {
-		// TODO Auto-generated method stub
-		return null;
+	public Address addAddress(Address aa) {
+		Address a = new Address();
+		a.setStreetAddress(aa.getStreetAddress());
+		a.setAddress2(aa.getAddress2());
+		a.setCity(aa.getCity());
+		a.setState(aa.getState());
+		a.setZipcode(aa.getZipcode());
+		em.persist(a);
+		em.flush();
+		return a;
 	}
 	@Override
-	public Address updateAddress(Address a) {
-		// TODO Auto-generated method stub
+	public Address updateAddress(Address address) {
+		Address a = em.find(Address.class, address.getId());
+		a.setStreetAddress(address.getStreetAddress());
+		a.setAddress2(address.getAddress2());
+		a.setCity(address.getCity());
+		a.setState(address.getState());
+		a.setZipcode(address.getZipcode());
+		em.persist(a);
+		em.flush();
 		return null;
 	}
 	@Override
 	public Address deleteAddress(Address a) {
-		// TODO Auto-generated method stub
-		return null;
+		em.remove(a);
+		em.flush();
+		return a;
 	}
 	
 	public User login(String username, String password) {
