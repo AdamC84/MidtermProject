@@ -52,5 +52,11 @@ class PurchaseTest {
 	void test_driver_mapping(){
 		assertEquals(5, purchase.getId());
 	}
+	
+	@Test
+	void test_Purchase_Inventory_ManyToMany_relationship_mapping_association() {
+		assertNotNull(purchase.getInventoryItems());
+		assertTrue(purchase.getInventoryItems().size() > 0);
+	}
 
 }
