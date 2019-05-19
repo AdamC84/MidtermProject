@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.UserDAO;
-import com.skilldistillery.midterm.entities.Role;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
@@ -28,8 +27,23 @@ public class LoginController {
 		User u = d.login(username, password);
 		u.setLastLogin(new Date());
 		session.setAttribute("user", u);
-		mv.setViewName("index");
-		return mv;
+		String role = u.getRole().toString();
+		if(role.equals("BUYER")) {
+			mv.setViewName("buyerLoggedIn");
+			return mv;
+		}else if(role.equals("SELLER")) {
+			mv.setViewName("sellerLoggedIn");
+			return mv;
+		}else if(role.equals("DRIVER")) {
+			mv.setViewName("driverLoggedIn");
+			return mv;
+		}else if(role.equals("ADMIN")) {
+			mv.setViewName("adminLoggedIn");
+			return mv;
+		}else {
+			mv.setViewName("index");
+			return mv;
+		}
 	}
 	@RequestMapping(path = "logout.do")
 	public ModelAndView logout(HttpSession session) {
