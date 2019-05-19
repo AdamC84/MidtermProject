@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
+import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Unit;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
@@ -15,6 +18,8 @@ public class UserController {
 
 	@Autowired
 	UserDAO d;
+	@Autowired
+	ItemDAO iDao;
 	
 	
 	@RequestMapping(path = "home.do")
@@ -64,12 +69,23 @@ public class UserController {
 		mv.setViewName("index");
 		return mv;
 	}
-	@RequestMapping(path = "oderHistory.do")
+	@RequestMapping(path = "orderHistory.do")
 	public ModelAndView OrderHistory() {
 		ModelAndView mv = new ModelAndView();
 		
-//		mv.addObject("users", user);
 		mv.setViewName("OrderHistory");
+		return mv;
+	}
+	@RequestMapping(path = "addItemView.do")
+	public ModelAndView addItemV() {
+		ModelAndView mv = new ModelAndView();
+		Item i = new Item();
+		System.out.println("**********************1111111111111111");
+		List<Unit> u = iDao.getAllUnits();
+		System.out.println(u);
+		mv.addObject("item", i);
+		mv.addObject("unit", u);
+		mv.setViewName("sellerLoggedIn");
 		return mv;
 	}
 

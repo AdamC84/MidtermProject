@@ -135,7 +135,74 @@
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="container">
+	<form:form action="addItemView.do" method="POST">
+	  <button type="submit" class="btn btn-primary">add Item</button>
+	</form:form>
+	
+	
+	<c:if test="${not empty item}">
+	
+	<form:form action="addItem.do" method="POST" modelAttribute="item">
+  	<div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Name</label>
+      <form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
+    </div>
+    </div>
+  	<div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Description</label>
+      <form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
+    </div>
+    </div>
+  	<div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Price</label>
+      <form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
+    </div>
+    <div class="form-row">
+  		<div class="col-md-4 mb-3">
+      	<label for="validationDefault01">Unit</label>
+  		<select class="form-control">
+  		<c:forEach var="unit" items="unit">
+  			<option>${unit.name}</option>
+  		</c:forEach>
+  		
+		</select>
+  		</div>
+ 	</div>
+    </div>
+    <div class="form-row">
+  		<div class="col-md-4 mb-3">
+  		<label for="example-datetime-local-input">Best By</label>
+    	<form:input class="form-control" type="date" value="2011-08-19T13:45:00" id="example-datetime-local-input" path="bestBy"/>
+  		</div>
+ 	</div>
+    <div class="form-row">
+  		<div class="col-md-4 mb-3">
+  		<label for="example-datetime-local-input">Picked/Harvested</label>
+    	<form:input class="form-control" type="date" value="2011-08-19T13:45:00" id="example-datetime-local-input" path="picked"/>
+  		</div>
+ 	</div>
+	</form:form>
+	
+	
+	</c:if>
 
+	</div>
+	
+	
+	
+	
 	<footer class="container-fluid text-center">
 		<div class="row">
 			<div class="col-sm-4">
