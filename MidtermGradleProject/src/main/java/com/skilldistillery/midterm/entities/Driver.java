@@ -17,8 +17,6 @@ public class Driver {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "address_id")
-	private int addressId;
 	@Column(name = "bank_routing")
 	private int bankRouting;
 	@Column(name = "bank_name")
@@ -58,12 +56,7 @@ public class Driver {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAddressId() {
-		return addressId;
-	}
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
+	
 	public int getBankRouting() {
 		return bankRouting;
 	}
@@ -99,15 +92,14 @@ public class Driver {
 
 	@Override
 	public String toString() {
-		return "Driver [id=" + id + ", addressId=" + addressId + ", bankRouting=" + bankRouting + ", bankName="
+		return "Driver [id=" + id + ", bankRouting=" + bankRouting + ", bankName="
 				+ bankName + ", bankAcctNum=" + bankAcctNum + ", user=" + user + "]";
 	}
 	
 	
-	public Driver(int id, int addressId, int bankRouting, String bankName, int bankAcctNum, User user) {
+	public Driver(int id, int bankRouting, String bankName, int bankAcctNum, User user) {
 		super();
 		this.id = id;
-		this.addressId = addressId;
 		this.bankRouting = bankRouting;
 		this.bankName = bankName;
 		this.bankAcctNum = bankAcctNum;

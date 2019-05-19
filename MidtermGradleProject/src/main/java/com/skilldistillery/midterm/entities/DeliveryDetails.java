@@ -19,9 +19,9 @@ public class DeliveryDetails {
 	private Date dateTimeDelivered;
 	@Column(name = "date_time_pickedup")
 	private Date dateTimePickedup;
-	@Column(name = "date_time_begin")
+	@Column(name = "date_time_sched_begin")
 	private Date dateTimeSchedBegin;
-	@Column(name = "date_time_end")
+	@Column(name = "date_time_sched_end")
 	private Date dateTimeSchedEnd;
 	@ManyToOne
 	@JoinColumn(name = "driver_id")

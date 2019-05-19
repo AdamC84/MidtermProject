@@ -20,7 +20,7 @@ public class Buyer {
 	private int id;
 	@Column(name = "credit_card_num")
 	private String creditCardNum;
-	@Column(name = "credit_card_exp")
+	@Column(name = "credit_card_exp_date")
 	private Date creditCardExpDate;
 	@Column(name = "credit_card_ccv")
 	private String creditCardCcv;
