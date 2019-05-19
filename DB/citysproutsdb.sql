@@ -110,7 +110,7 @@ DROP TABLE IF EXISTS `unit` ;
 
 CREATE TABLE IF NOT EXISTS `unit` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `unit` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -336,10 +336,9 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `purchase_item` ;
 
 CREATE TABLE IF NOT EXISTS `purchase_item` (
-  `id` INT NOT NULL,
-  `purchase_id` INT NULL,
-  `inventory_id` INT NULL,
-  PRIMARY KEY (`id`),
+  `purchase_id` INT NOT NULL,
+  `inventory_id` INT NOT NULL,
+  PRIMARY KEY (`purchase_id`, `inventory_id`),
   INDEX `fk_purchase_item_purchase1_idx` (`purchase_id` ASC),
   INDEX `fk_purchase_item_inventory1_idx` (`inventory_id` ASC),
   CONSTRAINT `fk_purchase_item_purchase1`
@@ -632,11 +631,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `unit` (`id`, `unit`) VALUES (1, 'each');
-INSERT INTO `unit` (`id`, `unit`) VALUES (2, 'lb');
-INSERT INTO `unit` (`id`, `unit`) VALUES (4, 'bushel');
-INSERT INTO `unit` (`id`, `unit`) VALUES (5, 'pint');
-INSERT INTO `unit` (`id`, `unit`) VALUES (6, 'quart');
+INSERT INTO `unit` (`id`, `name`) VALUES (1, 'each');
+INSERT INTO `unit` (`id`, `name`) VALUES (2, 'lb');
+INSERT INTO `unit` (`id`, `name`) VALUES (4, 'bushel');
+INSERT INTO `unit` (`id`, `name`) VALUES (5, 'pint');
+INSERT INTO `unit` (`id`, `name`) VALUES (6, 'quart');
 
 COMMIT;
 

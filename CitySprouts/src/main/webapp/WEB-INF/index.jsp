@@ -32,240 +32,135 @@
 </head>
 <body>
 
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
+			class="icon">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="home.do">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> More... </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="cart.do">Cart</a> <a
+							class="dropdown-item" href="editProfile.do">Edit Profile</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="searchResults.do">Search
+							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
+					</div></li>
+				<li class="nav-item"><a class="nav-link disabled" href="#"
+					tabindex="-1" aria-disabled="true">Disabled</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0" action="search.do">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+			<div class="nav-item">
+			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			</div>
+			<div class="nav-item"><a class="nav-link" href="login.do">
+				<span style="font-size: 2em;">
+				<i class="fa fa-user-circle-o"></i>
+				</span></a>
+			</div>
+		</div>
+	</nav>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="home.do">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="cart.do">Cart</a>
-          <a class="dropdown-item" href="editProfile.do">edit Profile</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="searchResults.do">search results</a>
-          <a class="dropdown-item" href="buyerLearnMore.do">buyer learn more</a>
-          <a class="dropdown-item" href="sellerLearnMore.do">seller learn more</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-      <a class="nav-link" href="registerPage.do">Login/Sign up</a>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+	<div id="home" class="landing-text pagination-centered">
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+				<div id="panel-grey">
+				<br>
+					<h1>City Sprouts</h1>
+					<h3>Connecting Urban farmers with the local market</h3>
+					<p>
+						City Sprouts brings locally grown produce to the market. Targeting
+						the urban community, we enable all growers to get their crops to
+						buyers <em>directly</em> ensuring you get the best price for your
+						crop!
+						</p>
+					</div>
+					
+				</div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			</div>
+		</div>
+	</div>
 
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+	<div class="row">
+		<div class="col-md-2 col-sm-1"></div>
+		<div class="col-md-8 col-sm-10"><hr>
+		<div id="panel-green">
+				<div id="white-text">
+			<h2>  How it works... </h2>
+			<p>Selling on City Sprouts is easy.  Simply sign up, list your items, set your price, and we take care of the rest! City Sprouts gets 1% of the sale.  We make purchases available for either pickup by the buyer or the buy can select to have their purchase delivered by one of City Sprouts connected delivery drivers.			
+			</p>
+			<h3>It couldn't be easier...</h3><h4><a href="registerPage.do">sign up today!</a></h4>
+			</div></div>
+		</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+	
+			<div class="container-fluid text-center align-items-center justify-content-center">
+	<div class="row" style="padding: 0% 0% 3% 0%">
+		<div class="col-md-2 col-sm-1"></div>
+		<div class="col-md-8 col-sm-10"><hr>
+		<div id="panel-green" style="padding: 0% 0% 3% 0%">
+				<div id="white-text-lg">
+			<h1>Your Local Market Activity</h1>
+			<h4><small>Sell it local...</small></h4>
+			<h3>Denver Area</h3>
+			</div>
+		</div>
+		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+			<iframe width="100%" height="100%" frameborder="0"
+				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+				allowfullscreen=""style="position:absolute; top:0; left: 0"> </iframe>
+		</div>
+		</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
-  
-<div class="container-fluid">
-<h1 class="text-center mb-3">City Sprouts</h1>
-<header class="text-center">
-  <h4 class="text-uppercase"><small>Connecting Urban farmers with the local market.</small></h4>
-  <h2>Our Featured Picks</h2> <!--@@ fore through inventory item.lastUpdated -->
-</header>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner row w-100 mx-auto">
-
-<div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1556843824-256570ca21c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 5</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-<div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-yellow-golden-raisins-isolated-on-white-background-1064872322.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 6</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div>
-<div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 7</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div>
-<div class="carousel-item col-md-3 active">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-pink-lady-apples-isolated-on-white-background-1122706196.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 1</h4>
- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div><div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-isolated-berries-red-currant-fruits-isolated-on-white-background-137215997.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 2</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div><div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-vector-honeydew-melon-whole-fresh-ripe-sweet-fruit-with-sliced-juicy-piece-of-cut-melon-realistic-fruits-1157387923.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 3</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div><div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 4</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div></div>
-<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Next</span>
-</a>
-</div>
-</div>
-
-
-<div id="home">
-<img src="mg/hero-bg.jpg">
-    <div class="landing-text">
-      <h1>City Sprouts</h1>
-      <h3>Connecting Urban farmers with the local market</h3>
-      <a href="#" Class="btn btn-default btn-lg">Fresh produce</a>
-    </div>
-  </div>
-
-  <div class="padding">
-    <div class="container">
-      <div class="row">
-          <div class="col-sm-6">
-            <img src="img/bootstrap.png">
-          </div>
-        <div class="col-sm-6 text-center">
-          <h2>FRESH PICKS</h2>
-          <p class="lead">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-    
-          <p class="lead">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-   
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="padding">
-    <div class="container">
-      <div class ="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <h4>Built with Sass</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <img src="img/sass.png" class="img-responsive">
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <h4>And Less</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-<img src="img/less.png" class="img-responsive">
-</div>
-    </div>
-  </div>
-  </div>
-<div id="fixed">
-</div>
-
-  <div class="padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <h4>FRESH PICKS</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
-          <div class="col-sm-6">
-            <img src="img/bootstrap2.png">
-          </div>
-
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-<footer class="container-fluid text-center">
-    <div class="row">
-      <div class="col-sm-4">
-        <h3>Contact Us</h3>
-        <br>
-        <h4>Address and contact info</h4>
-      </div>
-      <div class="col-sm-4">
-        <h3> Connect</h3>
-        <a href="#" class="fa fa-facebook"></a>
-        <a href="#" class="fa fa-twitter"></a>
-        <a href="#" class="fa fa-linkedin"></a>
-        <a href="#" class="fa fa-youtube"></a>
-        <a href="#" class="fa fa-github"></a>
-      </div>
-      <div class="col-sm-4">
-        <img src="img/b.png" class="icon">
-      </div>
-    </div>
-  </footer>
+	<footer class="container-fluid text-center">
+		<div class="row">
+			<div class="col-sm-4">
+				<h3>Contact Us</h3>
+				<br>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
+			</div>
+			<div class="col-sm-4">
+				<h3>Connect</h3>
+				<a href="#" class="fa fa-facebook"></a> <a href="#"
+					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
+				<a href="#" class="fa fa-youtube"></a> <a href="#"
+					class="fa fa-github"></a>
+			</div>
+			<div class="col-sm-4">
+				<img src="img/logo_rd.png" class="icon">
+			</div>
+		</div>
+	</footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
