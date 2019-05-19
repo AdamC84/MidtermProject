@@ -112,7 +112,7 @@ public class Seller {
 	@Override
 	public String toString() {
 		return "Seller [id=" + id + ", bankAcctNum=" + bankAcctNum + ", bankRouting=" + bankRouting + ", bankName="
-				+ bankName + ", user=" + user  + ", inventory=" + inventories.size() + "]";
+				+ bankName + ", user=" + user  + ", inventory=" + "" + "]";
 	}
 	@Override
 	public int hashCode() {

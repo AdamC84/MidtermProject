@@ -73,18 +73,18 @@ public class LoginController {
 		if(role.equals("BUYER")) {
 			Buyer b = new Buyer();
 			b.setUser(user);
-			model.addAttribute(b);
-			return "buyerLoggedIn";
+			model.addAttribute("buyer",b);
+			return "registerBuyer";
 		}else if(role.equals("SELLER")) {
 			Seller s = new Seller();
 			s.setUser(user);
-			model.addAttribute(s);
-			return "sellerLoggedIn";
+			model.addAttribute("seller",s);
+			return "registerSeller";
 		}else if(role.equals("DRIVER")) {
 			Driver d = new Driver();
 			d.setUser(user);
-			model.addAttribute(d);
-			return "driverLoggedIn";
+			model.addAttribute("driver",d);
+			return "registerDriver";
 		}else if(role.equals("ADMIN")) {
 			return "adminLoggedIn";
 		}else {
@@ -92,5 +92,29 @@ public class LoginController {
 		}
 	}
 	
+	@RequestMapping(path="registerSeller.do")
+	public String registerUser(Seller seller, HttpSession session, Model model) {
+		seller = d.addSeller(seller);
+		session.setAttribute("user", seller);
+		model.addAttribute("seller", seller);
+		return "sellerLoggedIn";
+	}
+	@RequestMapping(path="registerBuyer.do")
+	public String registerBuyer(Buyer buyer, HttpSession session, Model model) {
+		buyer = d.addBuyer(buyer);
+		session.setAttribute("user", buyer);
+		model.addAttribute("buyer", buyer);
+		
+		return "buyerLoggedIn";
+	}
+	@RequestMapping(path="registerDriver.do")
+	public String registerDriver(Driver driver, HttpSession session, Model model) {
+		driver = d.addDriver(driver);
+		session.setAttribute("user", driver);
+		model.addAttribute("driver", driver);
+		
+		
+		return "driverLoggedIn";
+	}
 }
 
