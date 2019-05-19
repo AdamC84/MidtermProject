@@ -18,6 +18,7 @@ background: rgba(0, 128, 0, 0.3)!important;
 .navbar-defaul .navbar-navbar-nav li a {
   color: #D5D5D5;
 }
+
 .navbar-default .navbar-navbar-nav li a:hover, .navbar-default .navbar-nav li a.active {
   color: #FFF;
 }
@@ -55,7 +56,7 @@ background: rgba(0, 128, 0, 0.3)!important;
 footer {
   width: 100%;
   background-color: #429244;
-  padding: 5% 5% 10% 5%;
+  padding: 3% 3% 3% 3%;
   color: #FFF;
   position: relative;
   bottom: 0;
@@ -86,6 +87,28 @@ footer {
   font-weight: 700;
     text-align: center;
   vertical-align: middle;
+}
+
+#navbarSupportedContent > div:nth-child(3) > a {
+	color: tomato !important;
+	font-size: medium;
+}
+
+
+#navbarSupportedContent > form {
+	padding-top: 20px;
+}
+
+body > nav > img {
+	left: 50px;
+}
+
+#white-text > h4 > a {
+	color: tomato;
+}
+
+.fa-user-circle-o {
+	color: tomato; 
 }
 
 @media (max-width: 768px) {
