@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.UserDAO;
+import com.skilldistillery.midterm.entities.Buyer;
+import com.skilldistillery.midterm.entities.Driver;
+import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
@@ -68,10 +71,19 @@ public class LoginController {
 		session.setAttribute("user", user);
 		String role = user.getRole().toString();
 		if(role.equals("BUYER")) {
+			Buyer b = new Buyer();
+			b.setUser(user);
+			model.addAttribute(b);
 			return "buyerLoggedIn";
 		}else if(role.equals("SELLER")) {
+			Seller s = new Seller();
+			s.setUser(user);
+			model.addAttribute(s);
 			return "sellerLoggedIn";
 		}else if(role.equals("DRIVER")) {
+			Driver d = new Driver();
+			d.setUser(user);
+			model.addAttribute(d);
 			return "driverLoggedIn";
 		}else if(role.equals("ADMIN")) {
 			return "adminLoggedIn";

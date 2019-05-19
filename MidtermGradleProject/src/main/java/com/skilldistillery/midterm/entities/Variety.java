@@ -56,7 +56,7 @@ public class Variety {
 	}
 	@Override
 	public String toString() {
-		return "Variety [id=" + id + ", name=" + name + ", items=" + items.size() + "]";
+		return "Variety [id=" + id + ", name=" + name + ", items="  + "]";
 	}
 	public Variety(int id, String name, List<Item> items) {
 		super();

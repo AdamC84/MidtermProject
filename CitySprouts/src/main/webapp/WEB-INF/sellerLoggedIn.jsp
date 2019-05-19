@@ -74,73 +74,6 @@
 	</nav>
 
 
-
-	<div id="home" class="landing-text pagination-centered">
-		<div
-			class="container-fluid text-center align-items-center justify-content-center">
-			<div class="row">
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-				<div id="panel-grey">
-				<br>
-					<h1>City Sprouts</h1>
-					<h3>Connecting Urban farmers with the local market</h3>
-					<p>
-						City Sprouts brings locally grown produce to the market. Targeting
-						the urban community, we enable all growers to get their crops to
-						buyers <em>directly</em> ensuring you get the best price for your
-						crop!
-						</p>
-					</div>
-					
-				</div>
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-			</div>
-		</div>
-	</div>
-
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green">
-				<div id="white-text">
-			<h2>  How it works... </h2>
-			<p>Selling on City Sprouts is easy.  Simply sign up, list your items, set your price, and we take care of the rest! City Sprouts gets 1% of the sale.  We make purchases available for either pickup by the buyer or the buy can select to have their purchase delivered by one of City Sprouts connected delivery drivers.			
-			</p>
-			<h3>It couldn't be easier...<a href="register.do"><h3>signup today!</a></h3>
-			</div></div>
-		</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	
-			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green">
-				<div id="white-text-lg">
-			<h1>Your Local Market Activity</h1>
-			<h4>
-				<small>Sell it local...</small>
-			</h4>
-			<h3>Denver Area</h3>
-			</div></div>
-			<iframe width="800" height="400" frameborder="0" style="border: 0"
-				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-				allowfullscreen> </iframe>
-		</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	
-	
-	
-	
-	
-	
 	
 	
 	<div class="container">
@@ -169,30 +102,66 @@
       <label for="validationDefault01">Price</label>
       <form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
     </div>
-    <div class="form-row">
-  		<div class="col-md-4 mb-3">
-      	<label for="validationDefault01">Unit</label>
-  		<select class="form-control">
-  		<c:forEach var="unit" items="unit">
-  			<option>${unit.name}</option>
-  		</c:forEach>
-  		
-		</select>
-  		</div>
- 	</div>
     </div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
+      	<label for="validationDefault01">Unit</label>
+  		<form:select class="form-control" path="unit.name" value="unit">
+  		<c:forEach var="unit" items="${unitList}">
+  			<option>${unit.name}</option>
+  		</c:forEach>
+  		
+		</form:select>
+  		</div>
+ 	</div>
+    <div class="form-row">
+  		<div class="col-md-4 mb-3">
+      	<label for="validationDefault01">Commodity</label>
+  		<form:select class="form-control" path="commodity.name" value="unit">
+  		<c:forEach var="commodity" items="${commodityList}">
+  			<option>${commodity.name}</option>
+  		</c:forEach>
+  		
+		</form:select>
+  		</div>
+ 	</div>
+    <div class="form-row">
+  		<div class="col-md-4 mb-3">
+      	<label for="validationDefault01">Variety</label>
+  		<form:select class="form-control" path="variety.name" value="unit">
+  		<c:forEach var="variety" items="${varietyList}">
+  			<option>${variety.name}</option>
+  		</c:forEach>
+  		
+		</form:select>
+  		</div>
+ 	</div>
+    <div class="form-row">
+  		<div class="col-md-4 mb-3">
+      	<label for="validationDefault01">Category</label>
+  		<form:select class="form-control" path="category.name" value="unit">
+  		<c:forEach var="category" items="${categoryList}">
+  			<option>${category.name}</option>
+  		</c:forEach>
+  		
+		</form:select>
+  		</div>
+ 	</div>
+  <%--   <div class="form-row">
+  		<div class="col-md-4 mb-3">
   		<label for="example-datetime-local-input">Best By</label>
-    	<form:input class="form-control" type="date" value="2011-08-19T13:45:00" id="example-datetime-local-input" path="bestBy"/>
+  		<fmt:formatDate value="${item.bestBy}" var="dateString" pattern="yyyy-mm-dd" />
+    	<form:input class="form-control" type="date" value="${dateString}" id="example-datetime-local-input" path="bestBy"/>
   		</div>
  	</div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
   		<label for="example-datetime-local-input">Picked/Harvested</label>
-    	<form:input class="form-control" type="date" value="2011-08-19T13:45:00" id="example-datetime-local-input" path="picked"/>
+  		<fmt:formatDate value="${item.picked}" var="dateString1" pattern="yyyy-mm-dd" />
+    	<form:input class="form-control" type="date" value="${dateString1}" id="example-datetime-local-input" path="picked"/>
   		</div>
- 	</div>
+ 	</div> --%>
+	  <button type="submit" class="btn btn-primary">add Item</button>
 	</form:form>
 	
 	

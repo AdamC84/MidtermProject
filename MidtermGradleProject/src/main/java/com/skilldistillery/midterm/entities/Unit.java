@@ -3,7 +3,6 @@ package com.skilldistillery.midterm.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -71,9 +70,9 @@ public class Unit {
 	@Override
 	public String toString() {
 		if(items == null) {
-			return "Unit [id=" + id + ", unit=" + name + ", items=" + "0" + "]";
+			return "Unit [id=" + id + ", name=" + name + ", items=" + "0" + "]";
 		}else {
-			return "Unit [id=" + id + ", unit=" + name + ", items=" + items.size() + "]";
+			return "Unit [id=" + id + ", name=" + name + ", items=" + items.size() + "]";
 		}
 	}
 	@Override

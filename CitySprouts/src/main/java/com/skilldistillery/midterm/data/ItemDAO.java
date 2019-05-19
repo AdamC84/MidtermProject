@@ -2,9 +2,11 @@ package com.skilldistillery.midterm.data;
 
 import java.util.List;
 
-import com.skilldistillery.midterm.entities.Inventory;
+import com.skilldistillery.midterm.entities.Category;
+import com.skilldistillery.midterm.entities.Commodity;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Unit;
+import com.skilldistillery.midterm.entities.Variety;
 
 public interface ItemDAO {
 	
@@ -24,4 +26,7 @@ public interface ItemDAO {
 	List<Item> getItemsSortedByBestByDate(String name);
 	List<Item> getAllItems();
 	List<Unit> getAllUnits();
+	List<Commodity> getAllCommodities();
+	List<Variety> getAllVariety();
+	List<Category> getAllCategory();
 }
