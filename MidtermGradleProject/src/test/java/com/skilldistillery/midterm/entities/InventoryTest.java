@@ -53,5 +53,11 @@ class InventoryTest {
 		assertEquals(2, i.getId());
 		
 	}
+	
+	@Test
+	void test_Inventory_Purchase_ManyToMany_relationship_mapping_association() {
+		assertNotNull(i.getPurchases());
+		assertTrue(i.getPurchases().size() > 0);
+	}
 
 }
