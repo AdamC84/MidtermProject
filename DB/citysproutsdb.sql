@@ -22,11 +22,11 @@ DROP TABLE IF EXISTS `address` ;
 
 CREATE TABLE IF NOT EXISTS `address` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `address` VARCHAR(50) NOT NULL,
+  `address` VARCHAR(50) NULL,
   `address_2` VARCHAR(60) NULL,
-  `city` VARCHAR(50) NOT NULL,
-  `state` VARCHAR(50) NOT NULL,
-  `zip_code` VARCHAR(5) NOT NULL,
+  `city` VARCHAR(50) NULL,
+  `state` VARCHAR(50) NULL,
+  `zip_code` VARCHAR(5) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -38,15 +38,15 @@ DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(16) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(32) NOT NULL,
+  `username` VARCHAR(16) NULL,
+  `email` VARCHAR(255) NULL,
+  `password` VARCHAR(32) NULL,
   `create_time` TIMESTAMP NULL,
   `last_login` TIMESTAMP NULL,
-  `role` ENUM('SELLER', 'BUYER', 'DRIVER') NOT NULL,
-  `first_name` VARCHAR(50) NOT NULL,
-  `last_name` VARCHAR(50) NOT NULL,
-  `address_id` INT NOT NULL,
+  `role` ENUM('SELLER', 'BUYER', 'DRIVER') NULL,
+  `first_name` VARCHAR(50) NULL,
+  `last_name` VARCHAR(50) NULL,
+  `address_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_user_address1`
@@ -98,7 +98,7 @@ DROP TABLE IF EXISTS `commodity` ;
 
 CREATE TABLE IF NOT EXISTS `commodity` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NOT NULL,
+  `name` VARCHAR(100) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -110,7 +110,7 @@ DROP TABLE IF EXISTS `unit` ;
 
 CREATE TABLE IF NOT EXISTS `unit` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `unit` VARCHAR(45) NOT NULL,
+  `unit` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -134,16 +134,16 @@ DROP TABLE IF EXISTS `item` ;
 
 CREATE TABLE IF NOT EXISTS `item` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
+  `name` VARCHAR(50) NULL,
   `description` VARCHAR(100) NULL,
   `price` DECIMAL(6,2) NULL,
   `best_by` DATE NULL,
   `picked` DATE NULL,
   `last_updated` TIMESTAMP NULL,
   `active` TINYINT NULL,
-  `category_id` INT NOT NULL,
-  `commodity_id` INT NOT NULL,
-  `unit_id` INT NOT NULL,
+  `category_id` INT NULL,
+  `commodity_id` INT NULL,
+  `unit_id` INT NULL,
   `variety_id` INT NULL,
   `img_url` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`),
@@ -181,11 +181,11 @@ DROP TABLE IF EXISTS `driver` ;
 
 CREATE TABLE IF NOT EXISTS `driver` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `bank_routing` VARCHAR(15) NOT NULL,
-  `bank_name` VARCHAR(50) NOT NULL,
-  `bank_acct_num` VARCHAR(20) NOT NULL,
+  `bank_routing` VARCHAR(15) NULL,
+  `bank_name` VARCHAR(50) NULL,
+  `bank_acct_num` VARCHAR(20) NULL,
   `active` TINYINT NULL,
-  `user_id` INT NOT NULL,
+  `user_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_driver_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_driver_user1`
@@ -203,11 +203,11 @@ DROP TABLE IF EXISTS `seller` ;
 
 CREATE TABLE IF NOT EXISTS `seller` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `bank_routing` VARCHAR(15) NOT NULL,
-  `bank_name` VARCHAR(45) NOT NULL,
-  `bank_acct_num` VARCHAR(20) NOT NULL,
+  `bank_routing` VARCHAR(15) NULL,
+  `bank_name` VARCHAR(45) NULL,
+  `bank_acct_num` VARCHAR(20) NULL,
   `active` TINYINT NULL,
-  `user_id` INT NOT NULL,
+  `user_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_seller_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_seller_user1`
@@ -225,8 +225,8 @@ DROP TABLE IF EXISTS `inventory` ;
 
 CREATE TABLE IF NOT EXISTS `inventory` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `item_id` INT NOT NULL,
-  `seller_id` INT NOT NULL,
+  `item_id` INT NULL,
+  `seller_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_inventory_item1_idx` (`item_id` ASC),
   INDEX `fk_inventory_seller1_idx` (`seller_id` ASC),
@@ -250,7 +250,7 @@ DROP TABLE IF EXISTS `purchase_status` ;
 
 CREATE TABLE IF NOT EXISTS `purchase_status` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `status` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -264,9 +264,9 @@ CREATE TABLE IF NOT EXISTS `delivery_details` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `date_time_delivered` DATETIME NULL,
   `date_time_pickedup` DATETIME NULL,
-  `date_time_sched_begin` DATETIME NOT NULL,
+  `date_time_sched_begin` DATETIME NULL,
   `date_time_sched_end` DATETIME NULL,
-  `driver_id` INT NOT NULL,
+  `driver_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_delivery_details_driver1_idx` (`driver_id` ASC),
   CONSTRAINT `fk_delivery_details_driver1`
@@ -284,9 +284,9 @@ DROP TABLE IF EXISTS `purchase` ;
 
 CREATE TABLE IF NOT EXISTS `purchase` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `buyer_id` INT NOT NULL,
-  `purchase_status_id` INT NOT NULL,
-  `delivery_details_id` INT NOT NULL,
+  `buyer_id` INT NULL,
+  `purchase_status_id` INT NULL,
+  `delivery_details_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_purchase_buyer1_idx` (`buyer_id` ASC),
   INDEX `fk_purchase_purchase_status1_idx` (`purchase_status_id` ASC),
@@ -316,9 +316,9 @@ DROP TABLE IF EXISTS `payment` ;
 
 CREATE TABLE IF NOT EXISTS `payment` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `purchase_id` INT NOT NULL,
-  `amount` DECIMAL(6,2) NOT NULL,
-  `payment_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `purchase_id` INT NULL,
+  `amount` DECIMAL(6,2) NULL,
+  `payment_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_payment_to_purchase_idx` (`purchase_id` ASC),
   CONSTRAINT `fk_payment_to_purchase`
@@ -336,19 +336,19 @@ DROP TABLE IF EXISTS `purchase_item` ;
 
 CREATE TABLE IF NOT EXISTS `purchase_item` (
   `id` INT NOT NULL,
-  `inventory_id` INT NOT NULL,
-  `purchase_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `inventory_id`),
-  INDEX `fk_purchase_item_inventory1_idx` (`inventory_id` ASC),
+  `purchase_id` INT NULL,
+  `inventory_id` INT NULL,
+  PRIMARY KEY (`id`),
   INDEX `fk_purchase_item_purchase1_idx` (`purchase_id` ASC),
-  CONSTRAINT `fk_purchase_item_inventory1`
-    FOREIGN KEY (`inventory_id`)
-    REFERENCES `inventory` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_purchase_item_inventory1_idx` (`inventory_id` ASC),
   CONSTRAINT `fk_purchase_item_purchase1`
     FOREIGN KEY (`purchase_id`)
     REFERENCES `purchase` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_purchase_item_inventory1`
+    FOREIGN KEY (`inventory_id`)
+    REFERENCES `inventory` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -388,12 +388,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer', 1);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban', 2);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks', 5);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey', 6);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver', 3);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers', 4);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers', NULL);
 
 COMMIT;
 
