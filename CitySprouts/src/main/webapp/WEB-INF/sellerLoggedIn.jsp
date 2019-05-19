@@ -74,7 +74,7 @@
 	</nav>
 
 
-	
+	${seller.id} is your seller id;
 	
 	<div class="container">
 	<form:form action="addItemView.do" method="POST">
