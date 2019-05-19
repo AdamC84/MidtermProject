@@ -1,5 +1,6 @@
  package com.skilldistillery.midterm.data;
  
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -73,6 +74,8 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User addUser(User u) {
+		u.setCreateTime(new Date());
+		u.setLastLogin(new Date());
 		em.persist(u);
 		
 		em.flush();
