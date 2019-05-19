@@ -64,5 +64,13 @@ public class UserController {
 		mv.setViewName("index");
 		return mv;
 	}
+	@RequestMapping(path = "oderHistory.do")
+	public ModelAndView OrderHistory() {
+		ModelAndView mv = new ModelAndView();
+		
+//		mv.addObject("users", user);
+		mv.setViewName("OrderHistory");
+		return mv;
+	}
 
 }

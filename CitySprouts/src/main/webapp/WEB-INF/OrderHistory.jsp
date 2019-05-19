@@ -14,17 +14,7 @@
     <meta name="robots" content="all,follow">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!--       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
-    
 
 <style>
 <%@include file="css/style.css" %>
@@ -52,25 +42,48 @@
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="cart.do">Cart</a>
-          <a class="dropdown-item" href="editProfile.do">edit Profile</a>
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="searchResults.do">search results</a>
-          <a class="dropdown-item" href="buyerLearnMore.do">buyer learn more</a>
-          <a class="dropdown-item" href="sellerLearnMore.do">seller learn more</a>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
-      <a class="nav-link" href="registerPage.do">Login/Sign up</a>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
+
+
+
+<!-- 
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="img/logo.png" class="img-fluid">
+      </a>
+  </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse-main">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="#">Produce</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+  </nav> -->
 
 
   
@@ -80,97 +93,10 @@
   <h4 class="text-uppercase"><small>Connecting Urban farmers with the local market.</small></h4>
   <h2>Our Featured Picks</h2> <!--@@ fore through inventory item.lastUpdated -->
 </header>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner row w-100 mx-auto">
-
-<div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1556843824-256570ca21c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 5</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 </div>
-</div>
-</div>
-
-
-
-
-
-
-
-<div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-yellow-golden-raisins-isolated-on-white-background-1064872322.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 6</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div>
-<div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 7</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div>
-<div class="carousel-item col-md-3 active">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-pink-lady-apples-isolated-on-white-background-1122706196.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 1</h4>
- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div><div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-isolated-berries-red-currant-fruits-isolated-on-white-background-137215997.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 2</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div><div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-vector-honeydew-melon-whole-fresh-ripe-sweet-fruit-with-sliced-juicy-piece-of-cut-melon-realistic-fruits-1157387923.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 3</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div><div class="carousel-item col-md-3">
-<div class="card">
-<img class="card-img-top img-fluid" src="https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg" alt="Card image cap">
-<div class="card-body">
-<h4 class="card-title">Card 4</h4>
-<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-</div></div>
-<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Next</span>
-</a>
-</div>
-</div>
-
 
 <div id="home">
-<img src="mg/hero-bg.jpg">
+<img src="img/hero-bg.jpg">
     <div class="landing-text">
       <h1>City Sprouts</h1>
       <h3>Connecting Urban farmers with the local market</h3>
@@ -183,6 +109,31 @@
       <div class="row">
           <div class="col-sm-6">
             <img src="img/bootstrap.png">
+            <p>
+            
+            <c:if test="${! empty random }">
+          <c:forEach var="random" items="${random}">
+<div class="carousel-item col-md-3">
+<div class="card">
+<img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1556843824-256570ca21c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
+
+              <div class="image d-flex align-items-center justify-content-center"><img src="${random.imgUrl}" alt="product" class="img-fluid">
+
+              <div class="title"><a href="detail.html">
+                  <h3 class="h6 text-uppercase no-margin-bottom">${random.picked } </h3></a><span class="price text-muted">$${random.price }</span></div>
+            </div>
+          </div>
+<div class="card-body">
+<h4 class="card-title">Card 5</h4>
+<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+</div>
+</div>
+         </c:forEach>
+           </c:if>
+            
+            
+            </p>
           </div>
         <div class="col-sm-6 text-center">
           <h2>FRESH PICKS</h2>
@@ -243,6 +194,30 @@
   </div>
 
 
+<!--- iOS Landing Page Fix
+<section>
+	<div class="landing-text">
+		<h1>BOOTSTRAP</h1>
+		<h3>Learn the basic building blocks.</h3>
+		<a href="#" class="btn btn-default btn-lg">Get Started</a>
+	</div>
+	<div class="home-wrap">
+        <div id="home">
+		</div>
+    </div>
+</section>
+-->
+
+<!--- iOS Fixed Image Fix
+<figure>
+	<div class="fixed-wrap">
+        <div id="fixed">
+		</div>
+    </div>
+</figure>
+-->
+
+
 
 
 
@@ -262,7 +237,7 @@
         <a href="#" class="fa fa-github"></a>
       </div>
       <div class="col-sm-4">
-        <img src="img/b.png" class="icon">
+        <img src="img/logo.png" class="icon">
       </div>
     </div>
   </footer>

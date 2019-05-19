@@ -1,6 +1,8 @@
 package com.skilldistillery.midterm.controllers;
 
 
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,25 @@ public class LoginController {
 	public ModelAndView login(String username, String password, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User u = d.login(username, password);
+		u.setLastLogin(new Date());
 		session.setAttribute("user", u);
-		mv.setViewName("index");
-		return mv;
+		String role = u.getRole().toString();
+		if(role.equals("BUYER")) {
+			mv.setViewName("buyerLoggedIn");
+			return mv;
+		}else if(role.equals("SELLER")) {
+			mv.setViewName("sellerLoggedIn");
+			return mv;
+		}else if(role.equals("DRIVER")) {
+			mv.setViewName("driverLoggedIn");
+			return mv;
+		}else if(role.equals("ADMIN")) {
+			mv.setViewName("adminLoggedIn");
+			return mv;
+		}else {
+			mv.setViewName("index");
+			return mv;
+		}
 	}
 	@RequestMapping(path = "logout.do")
 	public ModelAndView logout(HttpSession session) {
@@ -43,12 +61,23 @@ public class LoginController {
 		return mv;
 	}
 	@RequestMapping(path = "registerUser.do", method = RequestMethod.POST)
-	public String register( Model model, User user) {
+	public String register( Model model, User user, HttpSession session) {
 		user = d.addUser(user);
 		d.addAddress(user.getAddress());
 		model.addAttribute(user);
-		System.out.println(user);
-		return "buyerLoggedIn";
+		session.setAttribute("user", user);
+		String role = user.getRole().toString();
+		if(role.equals("BUYER")) {
+			return "buyerLoggedIn";
+		}else if(role.equals("SELLER")) {
+			return "sellerLoggedIn";
+		}else if(role.equals("DRIVER")) {
+			return "driverLoggedIn";
+		}else if(role.equals("ADMIN")) {
+			return "adminLoggedIn";
+		}else {
+			return "index";
+		}
 	}
 	
 }
