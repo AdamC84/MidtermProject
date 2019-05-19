@@ -388,12 +388,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer', NULL);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban', NULL);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks', NULL);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey', NULL);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver', NULL);
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (1, 'farmerjohn', 'famerjohn@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'John', 'Farmer', 1);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (2, 'urbanjane', 'urbanjane@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'SELLER', 'Jane', 'Urban', 2);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (3, 'carriecooks', 'carriecooks@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Carrie', 'Cooks', 5);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (4, 'cheframsey', 'cheframsey@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'BUYER', 'Chef', 'Ramsey', 6);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (5, 'dandriver', 'dandriver@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Dan', 'Driver', 3);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_time`, `last_login`, `role`, `first_name`, `last_name`, `address_id`) VALUES (6, 'denverdelivers', 'denverdelivers@email.com', 'pwd', '2019-05-17 12:00:00', '2019-05-17 12:00:00', 'DRIVER', 'Denver', 'Delivers', 4);
 
 COMMIT;
 
