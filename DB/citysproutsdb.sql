@@ -208,6 +208,7 @@ CREATE TABLE IF NOT EXISTS `seller` (
   `bank_acct_num` VARCHAR(20) NULL,
   `active` TINYINT NULL,
   `user_id` INT NULL,
+  `store_name` VARCHAR(20) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_seller_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_seller_user1`
@@ -1270,8 +1271,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1);
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (2, '746295823', 'Chase', '84967563', 1, 2);
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1, NULL);
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`) VALUES (2, '746295823', 'Chase', '84967563', 1, 2, NULL);
 
 COMMIT;
 
