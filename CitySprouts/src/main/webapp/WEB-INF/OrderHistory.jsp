@@ -35,17 +35,18 @@
         <a class="nav-link" href="home.do">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <!-- <a class="nav-link" href="#">Link</a> -->
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="addItem.do">Add Item</a>
+          <a class="dropdown-item" href="editItem.do">Edit Item</a>
+        <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="buyerLearnMore.do">Buyer Learn More</a>
+	      <a class="dropdown-item" href="sellerLearnMore.do">Seller Learn More</a>
         </div>
       </li>
       <li class="nav-item">
