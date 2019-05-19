@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Unit;
 
 @Transactional
 @Service
@@ -43,6 +44,15 @@ public class ItemDAOImpl implements ItemDAO {
 		String query = "Select item from Item item where item.unit.id = :id";
 		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 		return items;
+	}
+	@Override
+	public List<Unit> getAllUnits() {
+		String query = "Select unit from Unit unit";
+		System.out.println("**************************");
+		List<Unit> units = em.createQuery(query, Unit.class).getResultList();
+		System.out.println(units);
+		System.out.println("**************************");
+		return units;
 	}
 	
 	@Override
