@@ -83,6 +83,20 @@ public class Driver {
 		this.bankAcctNum = bankAcctNum;
 	}
 	
+	
+	
+	public List<DeliveryDetails> getDeliveryDetails() {
+		return deliveryDetails;
+	}
+
+	public void setDeliveryDetails(List<DeliveryDetails> deliveryDetails) {
+		this.deliveryDetails = deliveryDetails;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "Driver [id=" + id + ", addressId=" + addressId + ", bankRouting=" + bankRouting + ", bankName="

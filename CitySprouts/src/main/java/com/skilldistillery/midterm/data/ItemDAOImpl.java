@@ -8,8 +8,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.midterm.entities.Category;
+import com.skilldistillery.midterm.entities.Commodity;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Unit;
+import com.skilldistillery.midterm.entities.Variety;
 
 @Transactional
 @Service
@@ -48,11 +51,27 @@ public class ItemDAOImpl implements ItemDAO {
 	@Override
 	public List<Unit> getAllUnits() {
 		String query = "Select unit from Unit unit";
-		System.out.println("**************************");
 		List<Unit> units = em.createQuery(query, Unit.class).getResultList();
 		System.out.println(units);
-		System.out.println("**************************");
 		return units;
+	}
+	@Override
+	public List<Commodity> getAllCommodities() {
+		String query = "Select c from Commodity c";
+		List<Commodity> comms = em.createQuery(query, Commodity.class).getResultList();
+		return comms;
+	}
+	@Override
+	public List<Variety> getAllVariety() {
+		String query = "Select v from Variety v";
+		List<Variety> vars = em.createQuery(query, Variety.class).getResultList();
+		return vars;
+	}
+	@Override
+	public List<Category> getAllCategory() {
+		String query = "Select c from Category c";
+		List<Category> cats = em.createQuery(query, Category.class).getResultList();
+		return cats;
 	}
 	
 	@Override

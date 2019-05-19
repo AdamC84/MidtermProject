@@ -9,9 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
+import com.skilldistillery.midterm.entities.Category;
+import com.skilldistillery.midterm.entities.Commodity;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Unit;
 import com.skilldistillery.midterm.entities.User;
+import com.skilldistillery.midterm.entities.Variety;
 
 @Controller
 public class UserController {
@@ -80,11 +83,16 @@ public class UserController {
 	public ModelAndView addItemV() {
 		ModelAndView mv = new ModelAndView();
 		Item i = new Item();
-		System.out.println("**********************1111111111111111");
 		List<Unit> u = iDao.getAllUnits();
+		List<Variety> v = iDao.getAllVariety();
+		List<Category> c = iDao.getAllCategory();
+		List<Commodity> com = iDao.getAllCommodities();
 		System.out.println(u);
 		mv.addObject("item", i);
-		mv.addObject("unit", u);
+		mv.addObject("unitList", u);
+		mv.addObject("varietyList", v);
+		mv.addObject("categoryList", c);
+		mv.addObject("commodityList", com);
 		mv.setViewName("sellerLoggedIn");
 		return mv;
 	}

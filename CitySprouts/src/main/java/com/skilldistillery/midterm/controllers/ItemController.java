@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,5 +30,14 @@ public class ItemController {
 		
 		mv.setViewName("index");
 		return mv;
+	}
+	
+	@RequestMapping(path="addItem.do")
+	public String addItem(Model model, Item item){
+	    item.setActive(1);
+		item = itemDao.addItem(item);
+		
+		model.addAttribute("item", item);
+		return "sellerLoggedIn";
 	}
 }
