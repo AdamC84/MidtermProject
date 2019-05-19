@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Unit;
 
 public interface ItemDAO {
 	
@@ -22,4 +23,5 @@ public interface ItemDAO {
 	List<Item> getItemsSortedByPrice(String name);
 	List<Item> getItemsSortedByBestByDate(String name);
 	List<Item> getAllItems();
+	List<Unit> getAllUnits();
 }

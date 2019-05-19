@@ -3,6 +3,7 @@ package com.skilldistillery.midterm.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,7 @@ public class Unit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String unit;
+	private String name;
 	@OneToMany(mappedBy = "unit")
 	private List<Item> items;
 	
@@ -44,11 +45,13 @@ public class Unit {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUnit() {
-		return unit;
+
+
+	public String getName() {
+		return name;
 	}
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public List<Item> getItems() {
 		return items;
@@ -59,7 +62,7 @@ public class Unit {
 	public Unit(int id, String unit, List<Item> items) {
 		super();
 		this.id = id;
-		this.unit = unit;
+		this.name = unit;
 		this.items = items;
 	}
 	public Unit() {
@@ -67,7 +70,11 @@ public class Unit {
 	}
 	@Override
 	public String toString() {
-		return "Unit [id=" + id + ", unit=" + unit + ", items=" + items.size() + "]";
+		if(items == null) {
+			return "Unit [id=" + id + ", unit=" + name + ", items=" + "0" + "]";
+		}else {
+			return "Unit [id=" + id + ", unit=" + name + ", items=" + items.size() + "]";
+		}
 	}
 	@Override
 	public int hashCode() {
