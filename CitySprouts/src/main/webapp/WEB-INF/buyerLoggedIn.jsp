@@ -52,8 +52,12 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Menu </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="cart.do">Cart</a> <a
-							class="dropdown-item" href="editProfile.do">Edit Profile</a>
+						<a class="dropdown-item" href="cart.do">Cart</a> 
+
+							<a class="dropdown-item" href="#">Order History</a>
+
+							<a class="dropdown-item" href="editProfile.do">Edit Profile</a>
+
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="searchResults.do">Search
 							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
