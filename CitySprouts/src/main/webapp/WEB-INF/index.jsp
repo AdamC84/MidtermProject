@@ -55,6 +55,7 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
+							<a class="dropdown-item" href="purchaseResults.do">Purchase Results</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="searchResults.do">Search
 							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
@@ -114,6 +115,12 @@
 		<div id="panel-green">
 				<div id="white-text">
 			<h2>  How it works... </h2>
+			<form method="get" action="buyerLearnMore.do">
+                <button type="submit">Buyer Info</button>
+            </form>
+			<form method="get" action="sellerLearnMore.do">
+                <button type="submit">Seller Info</button>
+            </form>
 			<p>Selling on City Sprouts is easy.  Simply sign up, list your items, set your price, and we take care of the rest! City Sprouts gets 1% of the sale.  We make purchases available for either pickup by the buyer or the buy can select to have their purchase delivered by one of City Sprouts connected delivery drivers.			
 			</p>
 			<h3>It couldn't be easier...</h3><h4><a href="registerPage.do">sign up today!</a></h4>
@@ -129,7 +136,7 @@
 		<div class="col-md-8 col-sm-10"><hr>
 		<div id="panel-green" style="padding: 0% 0% 3% 0%">
 				<div id="white-text-lg">
-			<h1>Your Local Market Activity</h1>
+			<h1>Local Urban Farmer Connections</h1>
 			<h4><small>Sell it local...</small></h4>
 			<h3>Denver Area</h3>
 			</div>

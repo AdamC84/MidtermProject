@@ -36,6 +36,12 @@ public class UserController {
 		mv.setViewName("index");
 		return mv;
 	}
+//	@RequestMapping(path = "purchaseResults.do")
+//	public ModelAndView purchaseResults() {
+//		ModelAndView mv = new ModelAndView();		
+//		mv.setViewName("purchaseResults");
+//		return mv;
+//	}
 	
 	@RequestMapping(path = "cart.do")
 	public ModelAndView cart() {

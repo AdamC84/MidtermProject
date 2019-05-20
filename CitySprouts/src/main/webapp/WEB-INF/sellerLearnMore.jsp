@@ -26,13 +26,13 @@
 
 
 <style>
-<%@include file="css/style.css" %>
+<%@include file="css/style.css"%>
 </style>
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
-			class="icon">
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img
+			src="img/logo_trans.png" class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -68,11 +68,11 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login.do">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+				<a class="nav-link" href="login.do"> <span
+					style="font-size: 2em;"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
 			</div>
 		</div>
@@ -84,18 +84,23 @@
 			<div class="row">
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-				<div id="panel-grey">
-				<br>
-					<h1>City Sprouts</h1>
-					<h3>Connecting Urban farmers with the local market</h3>
-					<p>
-						City Sprouts brings locally grown produce to the market. Targeting
-						the urban community, we enable all growers to get their crops to
-						buyers <em>directly</em> ensuring you get the best price for your
-						crop!
-						</p>
+					<div id="panel-grey">
+						<br>
+						<h1>City Sprouts</h1>
+						<h3>Connecting Urban farmers with the local market</h3>
+						<p>City Sprouts brings locally grown produce to the market.
+							Targeting the urban community, City Sprouts emerged from the idea
+							that Farmers should profit more from the products they
+							sell—without a middleman marking up prices. We know people are
+							online 4+ hours and day and prefer self-service ordering (in as
+							few clicks and as little time as possible). Further, we believe
+							food should be as convenient to buy direct from local Farmers as
+							it is to go to the grocery store or buy from an online grocer. We
+							are passionate about powering Farmers’ online success, including
+							one-click access for their customers to purchase anytime across
+							web, social, and mobile.</p>
 					</div>
-					
+
 				</div>
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 			</div>
@@ -104,38 +109,46 @@
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green">
-				<div id="white-text">
-			<h2>  How it works... </h2>
-			<p>Selling on City Sprouts is easy.  Simply sign up, list your items, set your price, and we take care of the rest! City Sprouts gets 1% of the sale.  We make purchases available for either pickup by the buyer or the buy can select to have their purchase delivered by one of City Sprouts connected delivery drivers.			
-			</p>
-			<h3>It couldn't be easier...</h3><h4><a href="registerPage.do">sign up today!</a></h4>
-			</div></div>
-		</div>
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+						<h3>It couldn't be easier...</h3>
+						<h4>
+							<a href="registerPage.do">sign up today!</a>
+						</h4>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
-	
-			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row" style="padding: 0% 0% 3% 0%">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green" style="padding: 0% 0% 3% 0%">
-				<div id="white-text-lg">
-			<h1>Your Local Market Activity</h1>
-			<h4><small>Sell it local...</small></h4>
-			<h3>Denver Area</h3>
+
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row" style="padding: 0% 0% 3% 0%">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green" style="padding: 0% 0% 3% 0%">
+					<div id="white-text-lg">
+						<h1>Local Urban Farm Connections</h1>
+						<h4>
+							<small>Sell it local...</small>
+						</h4>
+						<h3>Denver Area</h3>
+					</div>
+				</div>
+				<div id="Container"
+					style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+					<iframe width="100%" height="100%" frameborder="0"
+						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+						allowfullscreen="" style="position: absolute; top: 0; left: 0">
+					</iframe>
+				</div>
 			</div>
-		</div>
-		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-			<iframe width="100%" height="100%" frameborder="0"
-				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-				allowfullscreen=""style="position:absolute; top:0; left: 0"> </iframe>
-		</div>
-		</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
