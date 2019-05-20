@@ -82,6 +82,7 @@
 		</div>
 	</nav>
 
+
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -123,6 +124,7 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 	
+
 	<div class="container">
 	<c:if test="${empty item}">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
