@@ -70,14 +70,17 @@
 			</form>
 		</div>
 	</nav>
-	Welcome seller!!!!!
+	Welcome seller!!!!!${seller.user.id } is your seller.user id.
+	${user.id } is your user id;.
+	${user.address.streetAddress}.
+	${user.address.city}.
 	
  <div class="container">
  <form:form action="registerSeller.do" method="POST" modelAttribute="seller">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Bank Routing</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="bankRouting" />
+      <form:input type="text" class="form-control" id="firstName" placeholder="first" path="bankRouting" />
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Bank Name</label>

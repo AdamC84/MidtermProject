@@ -75,6 +75,10 @@
 
 
 	${seller.id} is your seller id;
+	${seller.user.firstName} is your name;
+	${seller.user.address.streetAddress } is your street 
+	${seller.user.address.state } is your state 
+	${seller.user.address.city } is your city 
 	<div class="container">
 	<c:if test="${empty item}">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
