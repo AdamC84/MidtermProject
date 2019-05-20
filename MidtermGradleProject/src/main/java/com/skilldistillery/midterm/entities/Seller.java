@@ -31,10 +31,36 @@ public class Seller {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "seller_id")
 	private List<Inventory> inventories;
+	@Column(name = "store_name")
+	private String storeName;
+	private int active;
 	
 	
 	
-	
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
+	public List<Inventory> getInventories() {
+		return inventories;
+	}
+
+	public void setInventories(List<Inventory> inventories) {
+		this.inventories = inventories;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
 	public void addInventory(Inventory inventory) {
 		if(inventories == null) {
 			inventories = new ArrayList<>();
