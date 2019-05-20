@@ -1,19 +1,13 @@
 package com.skilldistillery.midterm.entities;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
@@ -28,8 +22,6 @@ public class Inventory {
 	@JoinColumn(name = "item_id")
 	private Item item;
 	
-	@ManyToMany(mappedBy="inventoryItems", fetch = FetchType.EAGER)	
-	private List<Purchase> purchases;
 	@ManyToOne
 	@JoinColumn(name = "purchase_id")
 	private Purchase purchase;
@@ -37,21 +29,19 @@ public class Inventory {
 	
 	
 	
-	
-	
-	public Inventory(int id, Seller seller, Item item, List<Purchase> purchases, Purchase purchase) {
+
+
+	public Inventory(int id, Seller seller, Item item, Purchase purchase) {
 		super();
 		this.id = id;
 		this.seller = seller;
 		this.item = item;
-		this.purchases = purchases;
 		this.purchase = purchase;
 	}
 
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", seller=" + seller + ", item=" + item + ", purchases=" + purchases
-				+ ", purchase=" + purchase + "]";
+		return "Inventory [id=" + id + ", seller=" + seller + ", item=" + item + ", purchase=" + purchase + "]";
 	}
 
 	public Purchase getPurchase() {
@@ -62,13 +52,7 @@ public class Inventory {
 		this.purchase = purchase;
 	}
 
-	public List<Purchase> getPurchases() {
-		return purchases;
-	}
 	
-	public void setPurchases(List<Purchase> purchases) {
-		this.purchases = purchases;
-	}
 
 	public Item getItem() {
 		return item;
@@ -86,24 +70,9 @@ public class Inventory {
 		this.id = id;
 	}
 
-	public void addPurchase(Purchase purchase) {
-		if(purchases == null) {
-			purchases = new ArrayList<>();
-		}
-		
-		if (!purchases.contains(purchase)) {
-			purchases.add(purchase);
-			purchase.addInventoryItem(this);
-		}
-	}
 	
-	public void removePurchase(Purchase purchase) {
-		if(purchases != null &&
-				purchases.contains(purchase)) {
-			purchases.remove(purchase);
-			purchase.removeInventoryItem(this);
-		}
-	}
+	
+
 
 	
 
