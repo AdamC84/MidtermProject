@@ -38,4 +38,8 @@ public interface ItemDAO {
 
 	List<Item> getItemsByName(String keyword);
 
+	Item getItemByItemId(int id);
+
+
+
 }
