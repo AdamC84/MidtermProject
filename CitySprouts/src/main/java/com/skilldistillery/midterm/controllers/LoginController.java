@@ -33,7 +33,7 @@ public class LoginController {
 		ModelAndView mv = new ModelAndView();
 		User u = d.login(username, password);
 		u.setLastLogin(new Date());
-		session.setAttribute("user", u);
+		session.setAttribute("user", u);  
 		String role = u.getRole().toString();
 		if(role.equals("BUYER")) {
 			mv.setViewName("buyerLoggedIn");
@@ -71,8 +71,10 @@ public class LoginController {
 	}
 	@RequestMapping(path = "registerUser.do", method = RequestMethod.POST)
 	public String register( Model model, User user, HttpSession session, RedirectAttributes redir) {
+		System.out.println("first registeruser.do       "+user);
 		user = d.addUser(user); 
 		d.addAddress(user.getAddress());
+		System.out.println("second registeruser.do       "+user);
 		model.addAttribute(user);
 		session.setAttribute("user", user);
 		String role = user.getRole().toString();
@@ -107,6 +109,7 @@ public class LoginController {
 	public String registerUser(Seller seller, Model model, RedirectAttributes redir, HttpSession session) {
 		User user =(User) session.getAttribute("user");
 		seller.setUser(user);
+		System.out.println("USER  ***** " + user);
 		System.out.println("****"+seller);
 		session.setAttribute("seller", seller);
 		seller = d.addSeller(seller);

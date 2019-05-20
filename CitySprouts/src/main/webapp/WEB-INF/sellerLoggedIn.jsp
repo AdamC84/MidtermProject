@@ -106,7 +106,7 @@
 						Street2: ${seller.user.address.address2 }<br>
 						City: ${seller.user.address.city }<br>
 						State: ${seller.user.address.state }<br>
-						Zip Code: ${seller.user.address.zipCode }<br>
+						Zip Code: ${seller.user.address.zipcode }<br>
 						
 						
 						<h3>Bank Info</h3>
