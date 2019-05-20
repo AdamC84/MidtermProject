@@ -78,8 +78,8 @@
 				<i class="fa fa-user-circle-o"></i>
 				</span></a>
 			<div class="nav-item"><a class="nav-link" href="cart.do">
-				<span style="font-size: 2em;">
-				<i class="fa fa-shopping-cart"></i>
+				<span style="font-size: 12px;">
+				<img src="img/shopping-cart.png">
 				</span></a>
 			</div>
 		</div>
