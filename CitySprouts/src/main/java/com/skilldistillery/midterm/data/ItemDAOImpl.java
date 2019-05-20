@@ -44,6 +44,12 @@ public class ItemDAOImpl implements ItemDAO {
 		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 		return items;
 	}
+		@Override
+		public List<Item> getItemsByName(String keyword) {
+			String query = "Select item from Item item where item.name LIKE :keyword";
+			List<Item> items = em.createQuery(query, Item.class).setParameter("keyword", '%' + keyword + '%').getResultList();
+			return items;
+	}
 	@Override
 	public List<Item> getItemsByUnitId(int id) {
 		String query = "Select item from Item item where item.unit.id = :id";

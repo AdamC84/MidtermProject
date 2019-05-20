@@ -63,6 +63,7 @@ public class LoginController {
 		return "login";
 	}
 
+
 	@RequestMapping(path = "logout.do")
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -139,6 +140,14 @@ public class LoginController {
 		return "sellerLoggedIn";
 	}
 
+	@RequestMapping(path = "buyerLoggedInView.do", method = RequestMethod.GET)
+	public String registeredBuyer(Model model, HttpSession session) {
+		Buyer buyer = (Buyer) session.getAttribute("buyer");
+		model.addAttribute("buyer", buyer);
+		return "buyerLoggedIn";
+	}
+
+
 	@RequestMapping(path = "buyerCreated.do", method = RequestMethod.GET)
 	public String redirectBuyer(Model model, Buyer buyer) {
 
@@ -146,12 +155,21 @@ public class LoginController {
 	}
 
 	@RequestMapping(path = "registerBuyer.do", method = RequestMethod.POST)
-	public String registerBuyer(Buyer buyer, HttpSession session, Model model) {
+	public String registerBuyer(Buyer buyer, RedirectAttributes redir, HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		buyer.setUser(user);
+		buyer.setActive(1);
 		buyer = d.addBuyer(buyer);
-		session.setAttribute("user", buyer);
 		model.addAttribute("buyer", buyer);
 
-		return "redirect:buyerLoggedIn";
+		System.out.println("USER  ***** " + user);
+		System.out.println("****" + buyer);
+		session.setAttribute("buyer", buyer);
+
+		redir.addFlashAttribute(buyer);
+		System.out.println("*************" + buyer);
+
+		return "redirect:buyerLoggedInView.do";
 	}
 
 	@RequestMapping(path = "registerDriver.do")
