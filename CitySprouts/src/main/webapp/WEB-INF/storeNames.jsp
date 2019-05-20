@@ -6,11 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>City Sprouts - Connecting Urban Growers</title>
+<title>City Sprouts - Sell</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -21,7 +19,6 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -29,13 +26,13 @@
 
 
 <style>
-<%@include file="css/style.css" %>
+<%@include file="css/style.css"%>
 </style>
-
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img
+			src="img/logo_trans.png" class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,64 +45,114 @@
 				<li class="nav-item active"><a class="nav-link" href="home.do">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
+				<!-- <li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li> -->
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Menu </a>
+					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="buyerLearnMore.do">Buyer Learn More</a>
-						<a class="dropdown-item" href="sellerLearnMore.do">Seller Learn More</a>
-					<!-- 	<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a> -->
+						<a class="dropdown-item" href="cart.do">Cart</a> <a
+							class="dropdown-item" href="editProfile.do">Edit Profile</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="searchResults.do">Search
+							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
-			 <a class="nav-link" href="#">Login/Sign up</a>
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			<div class="nav-item">
+				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login.do"> <span
+					style="font-size: 2em;"> <i class="fa fa-user-circle-o"></i>
+				</span></a>
+			</div>
 		</div>
 	</nav>
-	
-	
- <div class="container">
- <form:form action="registerBuyer.do" method="POST" modelAttribute="buyer">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Bank Routing</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="12443" path="bankRouting" />
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank Name</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="Citi" path="bankName" />
-    </div>
-  </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank acct number</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="4355353" path="bankAcctNum" />
-    </div>
- 
-  <button type="submit" class="btn btn-primary">Next</button>
-  </form:form>
-  </div>
-  
 
+	<div id="home" class="landing-text pagination-centered">
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+					<div id="panel-grey">
+						<br>
+						<h1>Local Urban Farms</h1>
+						<p>
+						<ol>
+						<c:forEach var="names" items="${storeList }">
+						<li>${names }
+						</c:forEach>
+						</ol>
+					</div>
 
+				</div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			</div>
+		</div>
+	</div>
 
- 
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+						<h3>It couldn't be easier...</h3>
+						<h4>
+							<a href="registerPage.do">sign up today!</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
-
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row" style="padding: 0% 0% 3% 0%">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green" style="padding: 0% 0% 3% 0%">
+					<div id="white-text-lg">
+						<h1>Local Urban Farm Connections</h1>
+						<h4>
+							<small>Sell it local...</small>
+						</h4>
+						<h3>Denver Area</h3>
+					</div>
+				</div>
+				<div id="Container"
+					style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+					<iframe width="100%" height="100%" frameborder="0"
+						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+						allowfullscreen="" style="position: absolute; top: 0; left: 0">
+					</iframe>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
 	<footer class="container-fluid text-center">
 		<div class="row">
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
 				<br>
-				<h4>Address and contact info</h4>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
@@ -115,7 +162,7 @@
 					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
-				<img src="img/b.png" class="icon">
+				<img src="img/logo_rd.png" class="icon">
 			</div>
 		</div>
 	</footer>
