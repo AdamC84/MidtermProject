@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.ItemDAO;
-import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Seller;
 

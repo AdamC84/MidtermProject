@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -32,11 +30,8 @@ public class Purchase {
 	@OneToMany(mappedBy = "purchase")
 	private List<Payment> payments;
 
-	@ManyToMany
-	@JoinTable(name = "purchase_item", joinColumns = @JoinColumn(name = "purchase_id"), inverseJoinColumns = @JoinColumn(name = "inventory_id"))
-	private List<Inventory> inventoryItems;
 	
-	@OneToMany(mappedBy = "purchse")
+	@OneToMany(mappedBy = "purchase")
 	private List<Inventory> inventory;
 
 
@@ -50,30 +45,6 @@ public class Purchase {
 		this.inventory = inventory;
 	}
 
-	public List<Inventory> getInventoryItems() {
-		return inventoryItems;
-	}
-
-	public void setInventoryItems(List<Inventory> inventoryItems) {
-		this.inventoryItems = inventoryItems;
-	}
-
-	public void addInventoryItem(Inventory inventory) {
-		if (inventoryItems == null) {
-			inventoryItems = new ArrayList<>();
-		}
-		if (!inventoryItems.contains(inventory)) {
-			inventoryItems.add(inventory);
-			inventory.addPurchase(this);
-		}
-	}
-
-	public void removeInventoryItem(Inventory inventory) {
-		if (inventoryItems != null && inventoryItems.contains(inventory)) {
-			inventoryItems.remove(inventory);
-			inventory.removePurchase(this);
-		}
-	}
 
 	public void addPayment(Payment payment) {
 		if (payments == null) {
@@ -132,16 +103,7 @@ public class Purchase {
 		this.payments = payments;
 	}
 
-	public Purchase(int id, Buyer buyer, PurchaseStatus purchaseStatus, DeliveryDetails deliveryDetails,
-			List<Payment> payments, List<Inventory> inventoryItems) {
-		super();
-		this.id = id;
-		this.buyer = buyer;
-		this.purchaseStatus = purchaseStatus;
-		this.deliveryDetails = deliveryDetails;
-		this.payments = payments;
-		this.inventoryItems = inventoryItems;
-	}
+
 
 	public Purchase() {
 		super();
@@ -169,36 +131,6 @@ public class Purchase {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Purchase [id=");
-		builder.append(id);
-		builder.append(", buyer=");
-		builder.append(buyer);
-		builder.append(", purchaseStatus=");
-		builder.append(purchaseStatus);
-		builder.append(", deliveryDetails=");
-		builder.append(deliveryDetails);
-		builder.append(", payments=");
-		builder.append(payments);
-		builder.append(", inventoryItemsCount=");
 
-		if (inventoryItems != null) {
-			builder.append(inventoryItems.size());
-			builder.append("\n");
-
-			for (Inventory inventory : inventoryItems) {
-				builder.append("itemName= ");
-				builder.append(inventory);
-				builder.append("\n");
-			}
-		} else {
-			builder.append(", No Items in this purchase");
-		}
-
-		builder.append("]");
-		return builder.toString();
-	}
 
 }
