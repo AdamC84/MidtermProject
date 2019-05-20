@@ -95,13 +95,13 @@ public class UserController {
 		Item i = new Item();
 		Seller seller = d.getSellerById(id);
 		List<Unit> u = iDao.getAllUnits();
-		List<Variety> v = iDao.getAllVariety();
+//		List<Variety> v = iDao.getAllVariety();
 		List<Category> c = iDao.getAllCategory();
-		List<Commodity> com = iDao.getAllCommodities();
+//		List<Commodity> com = iDao.getAllCommodities();
 		model.addAttribute(u);
-		model.addAttribute(v);
+//		model.addAttribute(v);
 		model.addAttribute(c);
-		model.addAttribute(com);
+//		model.addAttribute(com);
 		model.addAttribute(seller);
 		model.addAttribute(i);
 		

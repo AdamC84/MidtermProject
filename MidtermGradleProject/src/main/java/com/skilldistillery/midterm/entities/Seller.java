@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -28,9 +28,9 @@ public class Seller {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "seller_id")
-	private List<Inventory> inventories;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "inventory_id")
+	private Inventory inventory;
 	@Column(name = "store_name")
 	private String storeName;
 	private int active;
@@ -45,14 +45,6 @@ public class Seller {
 		this.active = active;
 	}
 
-	public List<Inventory> getInventories() {
-		return inventories;
-	}
-
-	public void setInventories(List<Inventory> inventories) {
-		this.inventories = inventories;
-	}
-
 	public String getStoreName() {
 		return storeName;
 	}
@@ -61,24 +53,7 @@ public class Seller {
 		this.storeName = storeName;
 	}
 
-	public void addInventory(Inventory inventory) {
-		if(inventories == null) {
-			inventories = new ArrayList<>();
-		}
-		if(! inventories.contains(inventory)) {
-			inventories.add(inventory);
-			
-			
-		}
-		inventory.setSeller(this);
-	}
-	
-	public void removeInventory(Inventory inventory) {
-		inventory.setSeller(null);
-		if(inventories != null) {
-			inventories.remove(inventory);
-		}
-	}
+
 	
 	public int getId() {
 		return id;
@@ -114,24 +89,29 @@ public class Seller {
 
 	
 	
-	public List<Inventory> getInventory() {
-		return inventories;
-	}
-	public void setInventory(List<Inventory> inventory) {
-		this.inventories = inventory;
-	}
+	
+	
+	
 	
 	
 
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
+
 	public Seller(int id, String bankAcctNum, String bankRouting, String bankName, User user,
-			List<Inventory> inventory) {
+			Inventory inventory) {
 		super();
 		this.id = id;
 		this.bankAcctNum = bankAcctNum;
 		this.bankRouting = bankRouting;
 		this.bankName = bankName;
 		this.user = user;
-		this.inventories = inventory;
+		this.inventory = inventory;
 	}
 	public Seller() {
 		super();

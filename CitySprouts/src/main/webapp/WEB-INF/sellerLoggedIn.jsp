@@ -162,7 +162,7 @@
 		</form:select>
   		</div>
  	</div>
-    <div class="form-row">
+   <%--  <div class="form-row">
   		<div class="col-md-4 mb-3">
   		Commodity<form:select class="form-control" path="commodity.name" value="unit">
   		<c:forEach var="commodity" items="${commodityList}">
@@ -171,8 +171,8 @@
   		
 		</form:select>
   		</div>
- 	</div>
-    <div class="form-row">
+ 	</div> --%>
+  <%--   <div class="form-row">
   		<div class="col-md-4 mb-3">
   		Variety<form:select class="form-control" path="variety.name" value="unit">
   		<c:forEach var="variety" items="${varietyList}">
@@ -181,7 +181,7 @@
   		
 		</form:select>
   		</div>
- 	</div>
+ 	</div> --%>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
   		Category<form:select class="form-control" path="category.name" value="unit">
@@ -215,7 +215,7 @@
 					<ul class="list-group">
 					<c:forEach var="inventory" items="${seller.inventory}">
 					<li class="list-group-item list-group-item-action">
-					<a href="getItemById.do?itemid=${seller.inventory.itemId }">
+					<a href="getItemById.do?itemid=${seller.inventory.item.id }">
 					Item: ${inventory.item.name }<br>
 					Description: ${inventory.item.description }<br>
 					Price: $${inventory.item.price }<br>

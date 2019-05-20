@@ -109,6 +109,7 @@ public class LoginController {
 	public String registerUser(Seller seller, Model model, RedirectAttributes redir, HttpSession session) {
 		User user =(User) session.getAttribute("user");
 		seller.setUser(user);
+		seller.setActive(1);
 		System.out.println("USER  ***** " + user);
 		System.out.println("****"+seller);
 		session.setAttribute("seller", seller);

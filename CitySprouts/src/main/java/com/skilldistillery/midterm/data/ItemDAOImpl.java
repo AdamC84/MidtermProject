@@ -172,7 +172,6 @@ public class ItemDAOImpl implements ItemDAO {
 	public Inventory addItemToInventory(Inventory inventory) {
 		Inventory i = new Inventory();
 		i.setItem(inventory.getItem());
-		i.setSeller(inventory.getSeller());
 		em.persist(i);
 		em.flush();
 		return i;

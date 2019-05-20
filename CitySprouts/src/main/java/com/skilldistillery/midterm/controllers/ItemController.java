@@ -3,6 +3,8 @@ package com.skilldistillery.midterm.controllers;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,13 +38,15 @@ public class ItemController {
 	}
 	
 	@RequestMapping(path="addItem.do", method = RequestMethod.POST)
-	public String addItem(Model model, Item item, Seller seller ){
-		item = itemDao.addItem(item);
-		Inventory i = new Inventory();
-		i.setItem(item);
-		i.setSeller(seller);
-		itemDao.addItemToInventory(i);
+	public String addItem(Model model, Item item, HttpSession session ){
 		item.setActive(1);
+		Seller seller = (Seller) session.getAttribute("seller");
+		
+		Inventory i = seller.getInventory();
+		i.setItem(item);
+		
+		item = itemDao.addItem(item);
+		itemDao.addItemToInventory(i);
 		
 		model.addAttribute("seller",seller);
 		model.addAttribute("item", item);
