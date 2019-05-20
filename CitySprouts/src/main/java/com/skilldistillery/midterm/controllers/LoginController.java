@@ -27,10 +27,12 @@ public class LoginController {
 	@Autowired
 	ItemDAO itemDAO;
 
-	@RequestMapping(path = "login.do")
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView login(String username, String password, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println("**********************"+username + " " + password);
 		User u = d.login(username, password);
+		if (u != null) {
 		u.setLastLogin(new Date());
 		session.setAttribute("user", u);
 		String role = u.getRole().toString();
@@ -42,6 +44,7 @@ public class LoginController {
 			if (itemDAO.getSellerInventory(seller) != null) {
 				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
 			}
+			mv.addObject(seller);
 			mv.setViewName("sellerLoggedIn");
 			return mv;
 		} else if (role.equals("DRIVER")) {
@@ -54,12 +57,14 @@ public class LoginController {
 			mv.setViewName("index");
 			return mv;
 		}
+		} else {
+			mv.addObject("error", "Login failed, please try again.");
+			return mv;
+		}
 	}
 
 	@RequestMapping(path = "login")
 	public String login(Model model) {
-		User user = new User();
-		model.addAttribute(user);
 		return "login";
 	}
 

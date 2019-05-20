@@ -101,19 +101,19 @@
 					</div>
 				</div>
 				<div class="card-body">
- 				<form:form action="login.do" method="POST" modelAttribute="user">
+ 				<form action="login.do" method="POST" >
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<form:input autofocus="autofocus" path="username" class="form-control" placeholder="Enter username" />
+						<input autofocus="autofocus" name="username" class="form-control" placeholder="Enter username" />
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<form:input path="password" type="password" class="form-control" placeholder="Enter password" />
+						<input name="password" type="password" class="form-control" placeholder="Enter password" />
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
@@ -121,11 +121,13 @@
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn"/>
 					</div>
-				</form:form>
+				</form>
 				</div>
 				<div class="card-footer">
 					<div class="d-flex justify-content-center links text-warning font-weight-bold" >
-
+				<c:if test="${ ! empty error }">
+				<h3>${error }</h3>
+				</c:if>
 				</div>
 			</div>
 		</div>
