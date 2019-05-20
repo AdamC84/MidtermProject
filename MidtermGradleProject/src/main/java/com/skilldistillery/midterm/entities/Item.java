@@ -233,7 +233,7 @@ public class Item {
 			return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
 					+ ", bestBy=" + bestBy + ", picked=" + picked + ", category=" + category + ", lastUpdated="
 					+ lastUpdated + ", inventories=" + "0" + ", unit=" + unit + ", commodity=" + commodity
-					+ ", variety=" + variety + ", active=" + active + "]";
+					+ ", variety=" + variety + ", active=" + active +" seller, "+ seller +  "]";
 		} else {
 			return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
 					+ ", bestBy=" + bestBy + ", picked=" + picked + ", category=" + category + ", lastUpdated="

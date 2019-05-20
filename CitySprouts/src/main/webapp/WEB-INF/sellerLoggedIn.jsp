@@ -196,43 +196,6 @@
 	
 	</c:if>
 	
-	<c:if test="${not empty seller }">
-		<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10"><hr>
-				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-
-					<div class="form-group input-group">
-
-					</div><h2>Inventory - All</h2>
-					<ul class="list-group">
-					<c:if test="${! empty inventory}">
-					<c:forEach var="inventory" items="${seller.inventory}">
-					<li class="list-group-item list-group-item-action">
-					<a href="getItemById.do?itemid=${seller.inventory.item.id }">
-					Item: ${inventory.item.name }<br>
-					Description: ${inventory.item.description }<br>
-					Price: $${inventory.item.price }<br>
-					Category: ${inventory.item.category.name }
-					Commodity:${inventory.item.commodity.name }
-					Variety:${inventory.item.variety.name }
-					</a></li>
-					<hr>
-					</c:forEach> 
-					</c:if>
-					</ul>
-					<br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	</c:if>
 
 
 
@@ -242,7 +205,6 @@
 
 
 
-	</div>
 	
 	
 	
