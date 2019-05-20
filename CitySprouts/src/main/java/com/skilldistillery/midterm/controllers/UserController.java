@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -88,6 +89,19 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("OrderHistory");
+		return mv;
+	}
+	@RequestMapping(path = "getStoreNames.do")
+	public ModelAndView storeList() {
+		ModelAndView mv = new ModelAndView();
+		List<String> storeList = new ArrayList<String>();
+		List<Seller> seller = d.getAllSellers();
+		for (Seller seller2 : seller) {
+			storeList.add(seller2.getStoreName());
+		}
+		
+		mv.addObject("storeList", storeList);
+		mv.setViewName("storeNames");
 		return mv;
 	}
 	@RequestMapping(path = "addItemView.do")

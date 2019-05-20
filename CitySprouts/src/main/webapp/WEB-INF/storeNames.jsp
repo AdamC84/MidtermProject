@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>City Sprouts - Buy</title>
+<title>City Sprouts - Sell</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -19,7 +19,6 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -27,7 +26,7 @@
 
 
 <style>
-<%@include file="css/style.css" %>
+<%@include file="css/style.css"%>
 </style>
 </head>
 <body>
@@ -46,7 +45,7 @@
 				<li class="nav-item active"><a class="nav-link" href="home.do">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
+				<!-- <li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li> -->
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -73,16 +72,34 @@
 			</div>
 			<div class="nav-item">
 				<a class="nav-link" href="login.do"> <span
-					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
-				</span></a>
-				<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+					style="font-size: 2em;"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
 			</div>
 		</div>
 	</nav>
 
+	<div id="home" class="landing-text pagination-centered">
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+					<div id="panel-grey">
+						<br>
+						<h1>Local Urban Farms</h1>
+						<p>
+						<ol>
+						<c:forEach var="names" items="${storeList }">
+						<li>${names }
+						</c:forEach>
+						</ol>
+					</div>
 
+				</div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			</div>
+		</div>
+	</div>
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
@@ -92,27 +109,10 @@
 				<hr>
 				<div id="panel-green">
 					<div id="white-text">
-							<h3>buyer Id</h3>
-							${buyer.id}
-							<h3>User Id</h3>
-							${buyer.user.id}
-							<h3>Personal Info</h3>
-							Name: ${buyer.user.firstName }, ${buyer.user.lastName }<br>
-							Username: ${buyer.user.username }<br>
-							Password: ${buyer.user.password }<br>
-							Last Login: ${buyer.user.lastLogin }<br>
-							Role: ${buyer.user.role }<br>
-							<h4>Address Details</h4>
-							Street: ${buyer.user.address.streetAddress }<br>
-							Street2: ${buyer.user.address.address2 }<br>
-							City: ${buyer.user.address.city }<br>
-							State: ${buyer.user.address.state }<br>
-							Zip Code: ${buyer.user.address.zipCode }<br>
-							<h2>Payment Methods</h2>
-							Credit Card Number: ${buyer.creditCardNum }<br>
-							Credit Card Exp Date: ${buyer.creditCardExpDate }<br>
-							Credit Card CCV: ${buyer.creditCardCcv }<br>
-
+						<h3>It couldn't be easier...</h3>
+						<h4>
+							<a href="registerPage.do">sign up today!</a>
+						</h4>
 					</div>
 				</div>
 			</div>
@@ -120,68 +120,32 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 
-	<c:if test="${! empty purchases }">
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
+		<div class="row" style="padding: 0% 0% 3% 0%">
 			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10"><hr>
+			<div class="col-md-8 col-sm-10">
 				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-
-					<div class="form-group input-group">
-
+				<div id="panel-green" style="padding: 0% 0% 3% 0%">
+					<div id="white-text-lg">
+						<h1>Local Urban Farm Connections</h1>
+						<h4>
+							<small>Sell it local...</small>
+						</h4>
+						<h3>Denver Area</h3>
 					</div>
-					<ul class="list-group">
-						<c:forEach var="buyer" items="${buyer.purchases}">
-							<li class="list-group-item list-group-item-action"
-							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.purchase.id }">
-								Date purchased: ${buyer.purchase.payment.paymentDate }
-									Total: $${buyer.purchase.payment.amount }</a></li>
-									<hr>
-						</c:forEach>
-					</ul>
-					<br>
-					</div>
+				</div>
+				<div id="Container"
+					style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+					<iframe width="100%" height="100%" frameborder="0"
+						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+						allowfullscreen="" style="position: absolute; top: 0; left: 0">
+					</iframe>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
-	</c:if>
-	
-		<c:if test="${! empty buyer.purchasesList }">
-		<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10"><hr>
-				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-
-					<div class="form-group input-group">
-
-					</div>
-					<ul class="list-group">
-						<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
-							<li class="list-group-item list-group-item-action"
-							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.inventory.itemId }">
-								Item: ${buyer.purchase.inventory.item.name }
-									$${buyer.purchase.inventory.price }</a></li>
-									<hr>
-						</c:forEach>
-					</ul>
-					<br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	</c:if>
-	
 
 	<footer class="container-fluid text-center">
 		<div class="row">
