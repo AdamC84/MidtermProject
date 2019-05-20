@@ -197,6 +197,24 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `inventory`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inventory` ;
+
+CREATE TABLE IF NOT EXISTS `inventory` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `item_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_inventory_item1_idx` (`item_id` ASC),
+  CONSTRAINT `fk_inventory_item1`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `item` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `seller`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `seller` ;
@@ -209,36 +227,18 @@ CREATE TABLE IF NOT EXISTS `seller` (
   `active` TINYINT NULL,
   `user_id` INT NULL,
   `store_name` VARCHAR(20) NULL,
+  `inventory_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_seller_user1_idx` (`user_id` ASC),
+  INDEX `fk_seller_inventory1_idx` (`inventory_id` ASC),
   CONSTRAINT `fk_seller_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `inventory`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `inventory` ;
-
-CREATE TABLE IF NOT EXISTS `inventory` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `item_id` INT NULL,
-  `seller_id` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_inventory_item1_idx` (`item_id` ASC),
-  INDEX `fk_inventory_seller1_idx` (`seller_id` ASC),
-  CONSTRAINT `fk_inventory_item1`
-    FOREIGN KEY (`item_id`)
-    REFERENCES `item` (`id`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_inventory_seller1`
-    FOREIGN KEY (`seller_id`)
-    REFERENCES `seller` (`id`)
+  CONSTRAINT `fk_seller_inventory1`
+    FOREIGN KEY (`inventory_id`)
+    REFERENCES `inventory` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -1266,61 +1266,61 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `seller`
+-- Data for table `inventory`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1, NULL);
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`) VALUES (2, '746295823', 'Chase', '84967563', 1, 2, NULL);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (1, 5);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (2, 5);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (3, 5);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (4, 1);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (5, 1);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (6, 1);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (7, 6);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (8, 6);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (9, 6);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (10, 8);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (11, 8);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (12, 8);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (13, 13);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (14, 13);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (15, 13);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (16, 18);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (17, 18);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (18, 18);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (19, 18);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (20, 11);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (21, 2);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (22, 2);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (23, 2);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (24, 5);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (25, 5);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (26, 6);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (27, 6);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (28, 14);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (29, 14);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (30, 14);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (31, 7);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (32, 7);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (33, 7);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (34, 7);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (35, 9);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (36, 9);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (37, 9);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (38, 2);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (39, 2);
+INSERT INTO `inventory` (`id`, `item_id`) VALUES (40, 2);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `inventory`
+-- Data for table `seller`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (1, 5, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (2, 5, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (3, 5, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (4, 1, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (5, 1, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (6, 1, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (7, 6, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (8, 6, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (9, 6, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (10, 8, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (11, 8, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (12, 8, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (13, 13, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (14, 13, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (15, 13, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (16, 18, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (17, 18, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (18, 18, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (19, 18, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (20, 11, 1);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (21, 2, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (22, 2, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (23, 2, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (24, 5, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (25, 5, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (26, 6, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (27, 6, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (28, 14, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (29, 14, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (30, 14, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (31, 7, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (32, 7, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (33, 7, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (34, 7, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (35, 9, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (36, 9, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (37, 9, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (38, 2, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (39, 2, 2);
-INSERT INTO `inventory` (`id`, `item_id`, `seller_id`) VALUES (40, 2, 2);
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`, `inventory_id`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1, 'Farmer John\'s Store', NULL);
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`, `inventory_id`) VALUES (2, '746295823', 'Chase', '84967563', 1, 2, 'Urban Jane\'s Store', NULL);
 
 COMMIT;
 
