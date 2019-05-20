@@ -60,6 +60,8 @@
 							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
 							Learn More</a>
+							<a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
