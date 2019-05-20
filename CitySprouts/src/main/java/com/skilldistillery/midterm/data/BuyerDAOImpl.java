@@ -22,16 +22,15 @@ public class BuyerDAOImpl implements BuyerDAO {
 	@Override
 	public List<Purchase> getAllPurchases(Buyer buyer) {
 		int buyerId = buyer.getId();
-		String query = "Select p from Purchase p WHERE p.buyerId = :buyerId";
+		String query = "Select p from Purchase p WHERE p.buyer.id = :buyerId";
 		List<Purchase> purchases = em.createQuery(query, Purchase.class).setParameter("buyerId", buyerId).getResultList();
 		return purchases;
 	}
 
 	@Override
-	public Purchase getPurchase(Buyer buyer, int id) {
-		int buyerId = buyer.getId();
-		String query = "Select p from Purchase p WHERE p.buyerId = :buyerId AND p.id = :id";
-		Purchase purchase = em.createQuery(query, Purchase.class).setParameter("id",  id).setParameter("buyerId", buyerId).getResultList().get(0);
+	public Purchase getPurchase(int id) {
+		String query = "Select p from Purchase p WHERE p.id = :id";
+		Purchase purchase = em.createQuery(query, Purchase.class).setParameter("id",  id).getResultList().get(0);
 		return purchase;
 	}
 }

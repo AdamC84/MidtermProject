@@ -1,38 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>City Sprouts - Connecting Urban Growers</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>City Sprouts - Connecting Urban Growers</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 <%@include file="css/style.css" %>
 </style>
-
 </head>
 <body>
+
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
 			class="icon">
@@ -77,67 +66,63 @@
 				<span style="font-size: 2em;">
 				<i class="fa fa-user-circle-o"></i>
 				</span></a>
-			<div class="nav-item"><a class="nav-link" href="cart.do">
-				<span style="font-size: 12px;">
-				<img src="img/shopping-cart.png">
+								<a class="nav-link" href="cart.do?id=${user.id }"> <span
+					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
 				</span></a>
 			</div>
 		</div>
-		</div>
 	</nav>
 
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
-				<div id="white-text">
-			<div id="panel-green">
-		<div class="row">
-				<div class="col-md-1 col-sm-1">
-			<c:forEach var="pur" items="${purchases }">
-			<ul>
-			Id: <li>${pur.id }
-			Delivery Details <li>${pur.deliveryDetails }
-			Payment Details<li>${pur.payments }
-			Delivery Details <li>${pur.deliveryDetailsId }
-			<c:forEach var="item" items="${inventory}">
-			<ol>
-			Item: <li> ${item }
-			</ol>
-			</c:forEach>
-			</ul>
-			</c:forEach>
-		
-		
-		
-		
-		
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row" style="padding: 0% 0% 3% 0%">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green" style="padding: 0% 0% 3% 0%">
-				<div id="white-text-lg">
-			<h1>Your Local Market Activity</h1>
-			<h4><small>Sell it local...</small></h4>
-			<h3>Denver Area</h3>
-			</div>
-		</div>
-		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-			<iframe width="100%" height="100%" frameborder="0"
-				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-				allowfullscreen=""style="position:absolute; top:0; left: 0"> </iframe>
-		</div>
-		</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
 
-	<footer class="container-fluid text-center">
+
+
+  
+<div class="container-fluid">
+<h1 class="text-center mb-3">City Sprouts</h1>
+<header class="text-center">
+  <h4 class="text-uppercase"><small>Connecting Urban farmers with the local market.</small></h4>
+  <h2>Our Featured Picks</h2> <!--@@ fore through inventory item.lastUpdated -->
+</header>
+</div>
+
+	<c:if test="${not empty seller.ordersList }">
+		<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10"><hr>
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+
+					<div class="form-group input-group">
+
+					</div>
+					<ul class="list-group">
+					<c:forEach var="inventory" items="${seller.ordersList}">
+					<li class="list-group-item list-group-item-action">
+					<a href="getItemById.do?itemid=${seller.inventory.itemId }">
+					Item: ${inventory.item.name }<br>
+					Description: ${inventory.item.description }<br>
+					Price: $${inventory.item.price }<br>
+					Category: ${inventory.item.category.name }
+					Commodity:${inventory.item.commodity.name }
+					Variety:${inventory.item.variety.name }
+					</a></li>
+					<hr>
+					</c:forEach>
+					</ul>
+					<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+	</c:if>
+
+
+<footer class="container-fluid text-center">
 		<div class="row">
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
@@ -158,17 +143,9 @@
 	</footer>
 
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-</body>
+  </body>
 </html>

@@ -27,13 +27,13 @@
 
 
 <style>
-<%@include file="css/style.css" %>
+<%@ include file="css/style.css"%>
 </style>
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="home.do"></a> <img src="img/logo_trans.png"
-			class="icon">
+		<a class="navbar-brand" href="home.do"></a> <img
+			src="img/logo_trans.png" class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -69,11 +69,11 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login.do">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+				<a class="nav-link" href="login.do"> <span
+					style="font-size: 2em;"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
 			</div>
 		</div>
@@ -87,15 +87,20 @@
 			<div class="row">
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-				<div id="panel-grey">
-				<br>
-					<h1>City Sprouts</h1>
-					<h3>Connecting Urban farmers with the local market</h3>
+					<div id="panel-grey">
+						<br>
+						<h1>City Sprouts</h1>
+						<h3>Connecting Urban farmers with the local market</h3>
 						<p>City Sprouts brings locally grown produce to the market.
-							Targeting the urban community, we enable all growers to get their
-							crops to you directly!</p>
+							Targeting the urban community, City Sprouts is transforming the way
+							goods move around cities by enabling anyone to have any produce
+							delivered on-demand. Our revolutionary Urban Logistics platform
+							connects customers with local couriers who can deliver produce
+							from any urban farm in minutes. We empower communities
+							to shop local with no waiting, and empower businesses through our
+							API to offer delivery.</p>
 					</div>
-					
+
 				</div>
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 			</div>
@@ -104,39 +109,47 @@
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green">
-				<div id="white-text">
-			<h2>  How it works... </h2>
-						<p>Buying on City Sprouts is easy. Simply sign up, select your
-							items, chose to pick up your order or have a driver deliver to
-							your door and we take care of the rest!</p>
-			<h3>It couldn't be easier...</h3><h4><a href="registerPage.do">sign up today!</a></h4>
-			</div></div>
-		</div>
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+						<h3>It couldn't be easier...</h3>
+						<h4>
+							<a href="registerPage.do">sign up today!</a>
+						</h4>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
-	
-			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row"  style="padding: 0% 0% 3% 0%">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green" style="padding: 0% 0% 3% 0%">
-				<div id="white-text-lg">
-					<h1>Find your Urban Farmer</h1>
-						<h4>	<small>Get it local...</small></h4>
+
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row" style="padding: 0% 0% 3% 0%">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green" style="padding: 0% 0% 3% 0%">
+					<div id="white-text-lg">
+						<h1>Find your Urban Farmer</h1>
+						<h4>
+							<small>Get it local...</small>
+						</h4>
 						<h3>Denver Area</h3>
+					</div>
+					<div id="Container"
+						style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+						<iframe width="100%" height="100%" frameborder="0"
+							src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+							allowfullscreen=""
+							style="position: absolute; top: 0; left: 0; padding: 10px">
+						</iframe>
+					</div>
+				</div>
 			</div>
-		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-			<iframe width="100%" height="100%" frameborder="0"
-				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-				allowfullscreen=""style="position: absolute; top:0; left: 0; padding: 10px"> </iframe>
-		</div>
-		</div>
-		</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>

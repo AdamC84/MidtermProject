@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Purchase;
+
 @Controller
 public class BuyerController {
 	@Autowired
@@ -18,12 +19,25 @@ public class BuyerController {
 	@RequestMapping(path = "purchaseResults.do")
 	public ModelAndView getPurchaseResults(Buyer buyer) {
 		ModelAndView mv = new ModelAndView();
+
 		List<Purchase> purchases = bd.getAllPurchases(buyer);
 		mv.addObject("purchases", purchases);
-		
-			return mv;
-		}
+		mv.setViewName("purchaseResults");
+
+		return mv;
 	}
+
+	@RequestMapping(path = "purchase.do")
+	public ModelAndView getPurchaseResults(int id) {
+		ModelAndView mv = new ModelAndView();
+
+		Purchase purchase = bd.getPurchase(id);
+		mv.addObject("purchases", purchase);
+		mv.setViewName("purchaseResults");
+
+		return mv;
+	}
+}
 //	@RequestMapping(path = "logout.do")
 //	public ModelAndView logout(HttpSession session) {
 //		ModelAndView mv = new ModelAndView();
@@ -58,6 +72,5 @@ public class BuyerController {
 //			return "index";
 //		}
 //	}
-	
-//}
 
+//}
