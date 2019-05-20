@@ -75,7 +75,7 @@
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login.do">
+			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
 				<i class="fa fa-user-circle-o"></i>
 				</span></a>
@@ -114,17 +114,17 @@
 		<div class="col-md-8 col-sm-10"><hr>
 		<div id="panel-green">
 				<div id="white-text">
-			<h2>  How it works... </h2>
+			<h2>Selling and buying with City Sprouts is easy.  
+			</h2>
+			<h3><a href="registerPage.do">Sign up today!</a></h3>
 			<form method="get" action="buyerLearnMore.do">
                 <button type="submit">Buyer Info</button>
             </form>
 			<form method="get" action="sellerLearnMore.do">
                 <button type="submit">Seller Info</button>
             </form>
-			<p>Selling on City Sprouts is easy.  Simply sign up, list your items, set your price, and we take care of the rest! City Sprouts gets 1% of the sale.  We make purchases available for either pickup by the buyer or the buy can select to have their purchase delivered by one of City Sprouts connected delivery drivers.			
-			</p>
-			<h3>It couldn't be easier...</h3><h4><a href="registerPage.do">sign up today!</a></h4>
-			</div></div>
+			</div>
+		</div>
 		</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
