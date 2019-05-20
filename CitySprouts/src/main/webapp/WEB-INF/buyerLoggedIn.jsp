@@ -76,7 +76,7 @@
 					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
 				<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 2em; position:relative"> <i class="fa fa-shopping-cart"></i>
+					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
 				</span></a>
 			</div>
 		</div>
@@ -92,7 +92,26 @@
 				<hr>
 				<div id="panel-green">
 					<div id="white-text">
-						<h2>Buyer Logged in stuff here</h2>
+							<h3>buyer Id</h3>
+							${buyer.id}
+							<h3>User Id</h3>
+							${buyer.user.id}
+							<h3>Personal Info</h3>
+							Name: ${buyer.user.firstName }, ${buyer.user.lastName }<br>
+							Username: ${buyer.user.username }<br>
+							Password: ${buyer.user.password }<br>
+							Last Login: ${buyer.user.lastLogin }<br>
+							Role: ${buyer.user.role }<br>
+							<h4>Address Details</h4>
+							Street: ${buyer.user.address.streetAddress }<br>
+							Street2: ${buyer.user.address.address2 }<br>
+							City: ${buyer.user.address.city }<br>
+							State: ${buyer.user.address.state }<br>
+							Zip Code: ${buyer.user.address.zipCode }<br>
+							<h2>Payment Methods</h2>
+							Credit Card Number: ${buyer.creditCardNum }<br>
+							Credit Card Exp Date: ${buyer.creditCardExpDate }<br>
+							Credit Card CCV: ${buyer.creditCardCcv }<br>
 
 					</div>
 				</div>

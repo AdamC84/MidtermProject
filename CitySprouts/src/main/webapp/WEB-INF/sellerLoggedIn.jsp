@@ -32,7 +32,7 @@
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="home.do"></a> <img src="img/logo.png"
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
 			class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -50,7 +50,7 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Menu </a>
+					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
@@ -63,18 +63,66 @@
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
-			<li class="nav-item"><a class="nav-link" href="register.do">Login/Sign
-					up</a></li>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			<div class="nav-item">
+			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			</div>
+			<div class="nav-item"><a class="nav-link" href="login.do">
+				<span style="font-size: 2em;">
+				<i class="fa fa-user-circle-o"></i>
+				</span></a>
+								<a class="nav-link" href="cart.do?id=${user.id }"> <span
+					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+				</span></a>
+			</div>
 		</div>
 	</nav>
 
-
-	${seller.id} is your seller id;
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+						<h3>Seller Id</h3>
+						${seller.id}
+						<h3>User Id</h3>
+						${seller.user.id}
+						<h3>Personal Info</h3>
+						Name: ${seller.user.firstName }, ${seller.user.lastName }<br>
+						Username: ${seller.user.username }<br>
+						Password: ${seller.user.password }<br>
+						Last Login: ${seller.user.lastLogin }<br>
+						Role: ${seller.user.role }<br>
+						<h4>Address Details</h4>
+						Street: ${seller.user.address.streetAddress }<br>
+						Street2: ${seller.user.address.address2 }<br>
+						City: ${seller.user.address.city }<br>
+						State: ${seller.user.address.state }<br>
+						Zip Code: ${seller.user.address.zipCode }<br>
+						
+						
+						<h3>Bank Info</h3>
+						${seller.bankName }<br>
+						${seller.bankAcctNum }<br>
+						${seller.bankRouting }<br>
+						<h3>Store</h3>
+						${seller.storeName }<br>
+	
+	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+	
 	<div class="container">
 	<c:if test="${empty item}">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
@@ -150,10 +198,10 @@
 	</c:if>
 	<c:if test="${not empty inventory }">
 	<c:forEach var="inventory" items="${inventory}">
-	${inventory.item.name }
-	${inventory.item.description }
-	${inventory.item.price }
-	${inventory.item.category.name }
+	${inventory.item.name }<br>
+	${inventory.item.description }<br>
+	${inventory.item.price }<br>
+	${inventory.item.category.name }<br>
 	
 	
 	</c:forEach>
@@ -180,7 +228,7 @@
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
 				<br>
-				<h4>Address and contact info</h4>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
@@ -190,7 +238,7 @@
 					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
-				<img src="img/logo.png" class="icon">
+				<img src="img/logo_rd.png" class="icon">
 			</div>
 		</div>
 	</footer>
