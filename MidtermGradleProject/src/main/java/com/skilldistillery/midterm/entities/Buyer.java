@@ -95,9 +95,25 @@ public class Buyer {
 	}
 	@Override
 	public String toString() {
-		return "Buyer [id=" + id + ", creditCardNum=" + creditCardNum + ", creditCardExpDate=" + creditCardExpDate
-				+ ", creditCardCcv=" + creditCardCcv + ", user=" + user + ", purchases="
-				+ purchases.size() + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Buyer [id=");
+		builder.append(id);
+		builder.append(", creditCardNum=");
+		builder.append(creditCardNum);
+		builder.append(", creditCardExpDate=");
+		builder.append(creditCardExpDate);
+		builder.append(", creditCardCcv=");
+		builder.append(creditCardCcv);
+		builder.append(", user=");
+		builder.append(user);
+		
+		if (purchases != null) {
+		builder.append(", purchases=");
+		builder.append(purchases);
+		}
+		
+		builder.append("]");
+		return builder.toString();
 	}
 	@Override
 	public int hashCode() {

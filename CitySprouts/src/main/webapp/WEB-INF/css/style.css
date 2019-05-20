@@ -94,6 +94,11 @@ footer {
 	font-size: medium;
 }
 
+#navbarSupportedContent > div:nth-child(4) > div > a {
+	color: tomato !important;
+	font-size: medium;
+}
+
 
 #navbarSupportedContent > form {
 	padding-top: 20px;

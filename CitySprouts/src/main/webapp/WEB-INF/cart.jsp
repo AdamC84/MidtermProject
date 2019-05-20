@@ -33,8 +33,9 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
+			class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -51,37 +52,95 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Dropdown </a>
+					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Order History</a> <a
-							class="dropdown-item" href="#"></a>
+						<a class="dropdown-item" href="cart.do">Cart</a> <a
+							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a>
+						<a class="dropdown-item" href="searchResults.do">Search
+							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
-			<li class="nav-item"><a class="nav-link" href="#">Login/Sign
-					up</a></li>
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			<div class="nav-item">
+			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			</div>
+			<div class="nav-item"><a class="nav-link" href="login.do">
+				<span style="font-size: 2em;">
+				<i class="fa fa-user-circle-o"></i>
+				</span></a>
+			<div class="nav-item"><a class="nav-link" href="cart.do">
+				<span style="font-size: 2em;">
+				<i class="fa fa-shopping-cart"></i>
+				</span></a>
+			</div>
+		</div>
 		</div>
 	</nav>
 
-
-
-
-
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+				<div id="white-text">
+			<div id="panel-green">
+		<div class="row">
+				<div class="col-md-1 col-sm-1">
+		
+		
+		
+				</div>
+				<div class="col-md-2 col-sm-1">
+			item img
+				</div>
+				<div class="col-md-6 col-sm-6">
+		item details
+				</div>
+				<div class="col-md-2 col-sm-1">
+		Qty, add, rem
+				</div>
+				<div class="col-md-1 col-sm-1">
+		
+		
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+			<div class="container-fluid text-center align-items-center justify-content-center">
+	<div class="row" style="padding: 0% 0% 3% 0%">
+		<div class="col-md-2 col-sm-1"></div>
+		<div class="col-md-8 col-sm-10"><hr>
+		<div id="panel-green" style="padding: 0% 0% 3% 0%">
+				<div id="white-text-lg">
+			<h1>Your Local Market Activity</h1>
+			<h4><small>Sell it local...</small></h4>
+			<h3>Denver Area</h3>
+			</div>
+		</div>
+		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
+			<iframe width="100%" height="100%" frameborder="0"
+				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+				allowfullscreen=""style="position:absolute; top:0; left: 0"> </iframe>
+		</div>
+		</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
 	<footer class="container-fluid text-center">
 		<div class="row">
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
 				<br>
-				<h4>Address and contact info</h4>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
@@ -91,10 +150,11 @@
 					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
-				<img src="img/b.png" class="icon">
+				<img src="img/logo_rd.png" class="icon">
 			</div>
 		</div>
 	</footer>
+
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
