@@ -45,6 +45,20 @@ public class Item {
 	private int active;
 	@Column(name = "img_url")
 	private String imgUrl;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "seller_id")
+	private Seller seller;
+
+	
+	
+	
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
 
 	public void addInventory(Inventory inventory) {
 		if (inventories == null) {

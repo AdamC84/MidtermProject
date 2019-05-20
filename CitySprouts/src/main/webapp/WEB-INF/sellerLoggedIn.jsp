@@ -213,7 +213,7 @@
 
 					</div><h2>Inventory - All</h2>
 					<ul class="list-group">
-					<c:forEach var="inventory" items="${seller.inventory}">
+				<%-- 	<c:forEach var="inventory" items="${seller.inventory}">
 					<li class="list-group-item list-group-item-action">
 					<a href="getItemById.do?itemid=${seller.inventory.item.id }">
 					Item: ${inventory.item.name }<br>
@@ -224,7 +224,7 @@
 					Variety:${inventory.item.variety.name }
 					</a></li>
 					<hr>
-					</c:forEach>
+					</c:forEach> --%>
 					</ul>
 					<br>
 					</div>
