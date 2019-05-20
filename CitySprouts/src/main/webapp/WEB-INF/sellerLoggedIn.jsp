@@ -75,11 +75,13 @@
 
 
 	${seller.id} is your seller id;
-	
 	<div class="container">
-	<form:form action="addItemView.do" method="POST">
+	<c:if test="${empty item}">
+	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
+		<form:input type="hidden" value="${seller.id}" path="id"/>
 	  <button type="submit" class="btn btn-primary">add Item</button>
 	</form:form>
+	</c:if>
 	
 	
 	<c:if test="${not empty item}">
@@ -87,26 +89,22 @@
 	<form:form action="addItem.do" method="POST" modelAttribute="item">
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01">Name</label>
-      <form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
+      Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
     </div>
     </div>
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01">Description</label>
-      <form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
+      Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
     </div>
     </div>
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01">Price</label>
-      <form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
+      Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
     </div>
     </div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-      	<label for="validationDefault01">Unit</label>
-  		<form:select class="form-control" path="unit.name" value="unit">
+  		Unit<form:select class="form-control" path="unit.name" value="unit">
   		<c:forEach var="unit" items="${unitList}">
   			<option>${unit.name}</option>
   		</c:forEach>
@@ -116,8 +114,7 @@
  	</div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-      	<label for="validationDefault01">Commodity</label>
-  		<form:select class="form-control" path="commodity.name" value="unit">
+  		Commodity<form:select class="form-control" path="commodity.name" value="unit">
   		<c:forEach var="commodity" items="${commodityList}">
   			<option>${commodity.name}</option>
   		</c:forEach>
@@ -127,8 +124,7 @@
  	</div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-      	<label for="validationDefault01">Variety</label>
-  		<form:select class="form-control" path="variety.name" value="unit">
+  		Variety<form:select class="form-control" path="variety.name" value="unit">
   		<c:forEach var="variety" items="${varietyList}">
   			<option>${variety.name}</option>
   		</c:forEach>
@@ -138,8 +134,7 @@
  	</div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-      	<label for="validationDefault01">Category</label>
-  		<form:select class="form-control" path="category.name" value="unit">
+  		Category<form:select class="form-control" path="category.name" value="unit">
   		<c:forEach var="category" items="${categoryList}">
   			<option>${category.name}</option>
   		</c:forEach>
@@ -147,25 +142,33 @@
 		</form:select>
   		</div>
  	</div>
-  <%--   <div class="form-row">
-  		<div class="col-md-4 mb-3">
-  		<label for="example-datetime-local-input">Best By</label>
-  		<fmt:formatDate value="${item.bestBy}" var="dateString" pattern="yyyy-mm-dd" />
-    	<form:input class="form-control" type="date" value="${dateString}" id="example-datetime-local-input" path="bestBy"/>
-  		</div>
- 	</div>
-    <div class="form-row">
-  		<div class="col-md-4 mb-3">
-  		<label for="example-datetime-local-input">Picked/Harvested</label>
-  		<fmt:formatDate value="${item.picked}" var="dateString1" pattern="yyyy-mm-dd" />
-    	<form:input class="form-control" type="date" value="${dateString1}" id="example-datetime-local-input" path="picked"/>
-  		</div>
- 	</div> --%>
+
 	  <button type="submit" class="btn btn-primary">add Item</button>
 	</form:form>
 	
 	
 	</c:if>
+	<c:if test="${not empty inventory }">
+	<c:forEach var="inventory" items="${inventory}">
+	${inventory.item.name }
+	${inventory.item.description }
+	${inventory.item.price }
+	${inventory.item.category.name }
+	
+	
+	</c:forEach>
+	
+	
+	
+	</c:if>
+
+
+
+
+
+
+
+
 
 	</div>
 	

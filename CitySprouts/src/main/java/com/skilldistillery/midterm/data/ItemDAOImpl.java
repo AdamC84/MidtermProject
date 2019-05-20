@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Commodity;
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
 import com.skilldistillery.midterm.entities.Variety;
 
@@ -165,5 +167,27 @@ public class ItemDAOImpl implements ItemDAO {
 		Item item = em.find(Item.class, i.getId());
 		em.remove(item);
 		return item;
+	}
+	@Override
+	public Inventory addItemToInventory(Inventory inventory) {
+		Inventory i = new Inventory();
+		i.setItem(inventory.getItem());
+		i.setSeller(inventory.getSeller());
+		em.persist(i);
+		em.flush();
+		return i;
+	}
+	@Override
+	public List<Inventory> getSellerInventory(Seller seller) {
+		String query = "Select i from Inventory i where i.sellerId = :id";
+		List<Inventory> inventories = em.createQuery(query, Inventory.class).setParameter("id", seller.getId()).getResultList();
+		return inventories;
+	}
+	@Override
+	public List<Inventory> getSellerInventoryById(int id) {
+		String query = "Select i from Inventory i where i.sellerId = :id";
+		List<Inventory> inventories = em.createQuery(query, Inventory.class).setParameter("id", id).getResultList();
+		return inventories;
+		
 	}
 }
