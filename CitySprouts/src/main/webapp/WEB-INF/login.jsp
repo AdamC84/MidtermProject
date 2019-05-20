@@ -79,15 +79,65 @@
 				<a class="nav-link" href="login.do"> <span
 					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
+			
 				<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+					style="font-size: 1em; position:relative"> <img src="img/shopping-cart.png"></img>
 				</span></a>
+
 			</div>
 		</div>
 	</nav>
 	
-			<div
-		class="container-fluid text-center align-items-center justify-content-center">
+	
+	
+		<div class="container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card">
+				<div class="card-header">
+					<h3>Sign In</h3>
+					<div class="d-flex justify-content-end social_icon">
+						<span><i class="fab fa-facebook-square"></i></span> <span><i class="fab fa-google-plus-square"></i></span> 
+						<span><i class="fab fa-twitter-square"></i></span>
+					</div>
+				</div>
+				<div class="card-body">
+ 				<form:form action="login.do" method="POST" modelAttribute="user">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<form:input autofocus="autofocus" path="username" class="form-control" placeholder="Enter username" />
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<form:input path="password" type="password" class="form-control" placeholder="Enter password" />
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn"/>
+					</div>
+				</form:form>
+				</div>
+				<div class="card-footer">
+					<div class="d-flex justify-content-center links text-warning font-weight-bold" >
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	
+	
+	
+	
+	
+			<div class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10"><hr>

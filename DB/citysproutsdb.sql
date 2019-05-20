@@ -128,6 +128,29 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `seller`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `seller` ;
+
+CREATE TABLE IF NOT EXISTS `seller` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `bank_routing` VARCHAR(15) NULL,
+  `bank_name` VARCHAR(45) NULL,
+  `bank_acct_num` VARCHAR(20) NULL,
+  `active` TINYINT NULL,
+  `user_id` INT NULL,
+  `store_name` VARCHAR(20) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_seller_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_seller_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `item`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `item` ;
@@ -146,11 +169,13 @@ CREATE TABLE IF NOT EXISTS `item` (
   `unit_id` INT NULL,
   `variety_id` INT NULL,
   `img_url` VARCHAR(1000) NULL,
+  `seller_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_item_category1_idx` (`category_id` ASC),
   INDEX `fk_item_commodity1_idx` (`commodity_id` ASC),
   INDEX `fk_item_unit1_idx` (`unit_id` ASC),
   INDEX `fk_item_variety1_idx` (`variety_id` ASC),
+  INDEX `fk_item_seller1_idx` (`seller_id` ASC),
   CONSTRAINT `fk_item_category1`
     FOREIGN KEY (`category_id`)
     REFERENCES `category` (`id`)
@@ -169,6 +194,11 @@ CREATE TABLE IF NOT EXISTS `item` (
   CONSTRAINT `fk_item_variety1`
     FOREIGN KEY (`variety_id`)
     REFERENCES `variety` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_item_seller1`
+    FOREIGN KEY (`seller_id`)
+    REFERENCES `seller` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -191,54 +221,6 @@ CREATE TABLE IF NOT EXISTS `driver` (
   CONSTRAINT `fk_driver_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `inventory`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `inventory` ;
-
-CREATE TABLE IF NOT EXISTS `inventory` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `item_id` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_inventory_item1_idx` (`item_id` ASC),
-  CONSTRAINT `fk_inventory_item1`
-    FOREIGN KEY (`item_id`)
-    REFERENCES `item` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `seller`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `seller` ;
-
-CREATE TABLE IF NOT EXISTS `seller` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `bank_routing` VARCHAR(15) NULL,
-  `bank_name` VARCHAR(45) NULL,
-  `bank_acct_num` VARCHAR(20) NULL,
-  `active` TINYINT NULL,
-  `user_id` INT NULL,
-  `store_name` VARCHAR(20) NULL,
-  `inventory_id` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_seller_user1_idx` (`user_id` ASC),
-  INDEX `fk_seller_inventory1_idx` (`inventory_id` ASC),
-  CONSTRAINT `fk_seller_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_seller_inventory1`
-    FOREIGN KEY (`inventory_id`)
-    REFERENCES `inventory` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -311,6 +293,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `inventory`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inventory` ;
+
+CREATE TABLE IF NOT EXISTS `inventory` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `item_id` INT NULL,
+  `seller_id` INT NULL,
+  `purchase_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_inventory_item1_idx` (`item_id` ASC),
+  INDEX `fk_inventory_seller1_idx` (`seller_id` ASC),
+  INDEX `fk_inventory_purchase1_idx` (`purchase_id` ASC),
+  CONSTRAINT `fk_inventory_item1`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `item` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_inventory_seller1`
+    FOREIGN KEY (`seller_id`)
+    REFERENCES `seller` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_inventory_purchase1`
+    FOREIGN KEY (`purchase_id`)
+    REFERENCES `purchase` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `payment`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `payment` ;
@@ -325,30 +339,6 @@ CREATE TABLE IF NOT EXISTS `payment` (
   CONSTRAINT `fk_payment_to_purchase`
     FOREIGN KEY (`purchase_id`)
     REFERENCES `purchase` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `purchase_item`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `purchase_item` ;
-
-CREATE TABLE IF NOT EXISTS `purchase_item` (
-  `purchase_id` INT NOT NULL,
-  `inventory_id` INT NOT NULL,
-  PRIMARY KEY (`purchase_id`, `inventory_id`),
-  INDEX `fk_purchase_item_purchase1_idx` (`purchase_id` ASC),
-  INDEX `fk_purchase_item_inventory1_idx` (`inventory_id` ASC),
-  CONSTRAINT `fk_purchase_item_purchase1`
-    FOREIGN KEY (`purchase_id`)
-    REFERENCES `purchase` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_purchase_item_inventory1`
-    FOREIGN KEY (`inventory_id`)
-    REFERENCES `inventory` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -1226,30 +1216,41 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `seller`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `citysproutsdb`;
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1, 'Farmer John\'s Store');
+INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`) VALUES (2, '746295823', 'Chase', '84967563', 1, 2, 'Urban Jane\'s Store');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `item`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (1, 'SellerSupplied Name', 'Seller Supplied Description', 1.69, '2019-05-30', '2019-05-16', '2019-05-17 12:00:00', 1, 2, 7, 2, 284, 'https://image.shutterstock.com/z/stock-photo-pink-lady-apples-isolated-on-white-background-1122706196.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (2, 'SellerSupplied Name', 'Seller Supplied Description', 1.79, '2019-05-23', '2019-05-16', '2019-05-17 12:00:00', 1, 2, 56, 2, 405, 'https://image.shutterstock.com/z/stock-photo-isolated-berries-red-currant-fruits-isolated-on-white-background-137215997.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (3, 'SellerSupplied Name', 'Seller Supplied Description', 1.49, '2019-05-20', '2019-05-16', '2019-05-17 12:00:00', 1, 2, 110, 2, 205, 'https://image.shutterstock.com/z/stock-vector-honeydew-melon-whole-fresh-ripe-sweet-fruit-with-sliced-juicy-piece-of-cut-melon-realistic-fruits-1157387923.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (4, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-21', '2019-04-10', '2019-05-17 12:00:00', 1, 2, 134, 2, 205, 'https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (5, 'SellerSupplied Name', 'Seller Supplied Description', 2.99, '2019-05-22', '2019-04-04', '2019-05-17 12:00:00', 1, 3, 111, 2, 376, 'https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (6, 'SellerSupplied Name', 'Seller Supplied Description', 2.89, '2019-05-30', '2019-04-24', '2019-05-17 12:00:00', 1, 3, 17, 2, 351, 'https://image.shutterstock.com/z/stock-photo-woman-in-style-apron-holding-pot-with-fresh-organic-basil-white-kitchen-interior-design-copy-737608135.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (7, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-31', '2019-05-02', '2019-05-17 12:00:00', 1, 3, 59, 2, 27, 'https://image.shutterstock.com/z/stock-photo-chopped-fresh-dill-on-a-cutting-board-and-a-bunch-of-dill-on-a-wooden-table-top-view-673632799.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (8, 'SellerSupplied Name', 'Seller Supplied Description', 0.99, '2019-05-21', '2019-04-30', '2019-05-17 12:00:00', 1, 3, 94, 2, 183, 'https://image.shutterstock.com/z/stock-photo-lemongrass-plants-vegetables-and-herbs-of-thailand-have-medicinal-properties-1073949626.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (9, 'SellerSupplied Name', 'Seller Supplied Description', 3.99, '2019-05-24', '2019-05-06', '2019-05-17 12:00:00', 1, 4, 2, 2, 404, 'https://image.shutterstock.com/z/stock-photo-almond-on-branch-hull-split-almond-leaves-almond-tree-branch-1237846879.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (10, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-24', '2019-04-28', '2019-05-17 12:00:00', 1, 4, 189, 2, 51, 'https://image.shutterstock.com/z/stock-photo-walnut-picking-season-walnut-tree-branches-of-walnuts-opened-the-shell-and-the-collected-walnuts-1142106452.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (11, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-23', '2019-05-12', '2019-05-17 12:00:00', 1, 4, 135, 2, 405, 'https://image.shutterstock.com/z/stock-photo-dried-peanuts-in-closeup-peanuts-in-shells-on-wood-background-peanuts-peanuts-background-peanuts-613243670.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (12, 'SellerSupplied Name', 'Seller Supplied Description', 4.99, '2019-05-29', '2019-05-13', '2019-05-17 12:00:00', 1, 4, 144, 2, 405, 'https://image.shutterstock.com/z/stock-photo-pistachio-texture-nuts-green-fresh-pistachios-as-texture-590494409.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (13, 'SellerSupplied Name', 'Seller Supplied Description', 1.39, '2019-05-21', '2019-05-14', '2019-05-17 12:00:00', 1, 5, 173, 2, 539, 'https://image.shutterstock.com/z/stock-photo-butternut-squash-isolated-on-white-background-205302238.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (14, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-23', '2019-05-21', '2019-05-17 12:00:00', 1, 5, 186, 2, 42, 'https://image.shutterstock.com/z/stock-photo-beautiful-red-ripe-heirloom-tomatoes-grown-in-a-greenhouse-gardening-tomato-photograph-with-copy-776379370.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (15, 'SellerSupplied Name', 'Seller Supplied Description', 3.99, '2019-05-24', '2019-05-21', '2019-05-17 12:00:00', 1, 5, 12, 2, 396, 'https://image.shutterstock.com/z/stock-photo-asparagus-fresh-asparagus-green-asparagus-in-basket-1045645381.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (16, 'SellerSupplied Name', 'Seller Supplied Description', 1.89, '2019-05-29', '2019-05-21', '2019-05-17 12:00:00', 1, 5, 31, 2, 141, 'https://image.shutterstock.com/z/stock-photo-fresh-broccoli-with-spinach-in-bowl-on-wooden-table-close-up-318831905.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (17, 'SellerSupplied Name', 'Seller Supplied Description', 1.79, '2019-05-23', '2019-05-22', '2019-05-17 12:00:00', 1, 1, 159, 2, 51, 'https://images.unsplash.com/photo-1556843824-256570ca21c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (18, 'SellerSupplied Name', 'Seller Supplied Description', 1.89, '2019-05-23', '2019-05-22', '2019-05-17 12:00:00', 1, 1, 159, 2, 211, 'https://image.shutterstock.com/z/stock-photo-yellow-golden-raisins-isolated-on-white-background-1064872322.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (19, 'SellerSupplied Name', 'Seller Supplied Description', 2.99, '2019-05-23', '2019-04-28', '2019-05-17 12:00:00', 1, 1, 68, 2, 1, 'https://image.shutterstock.com/z/stock-photo-dried-figs-fruit-isolated-on-white-background-1155666961.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`) VALUES (20, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-23', '2019-04-30', '2019-05-17 12:00:00', 1, 1, 6, 2, 1, 'https://image.shutterstock.com/z/stock-photo-homemade-dried-organic-apple-sliced-on-wood-background-1324418675.jpg');
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (1, 'SellerSupplied Name', 'Seller Supplied Description', 1.69, '2019-05-30', '2019-05-16', '2019-05-17 12:00:00', 1, 2, 7, 2, 284, 'https://image.shutterstock.com/z/stock-photo-pink-lady-apples-isolated-on-white-background-1122706196.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (2, 'SellerSupplied Name', 'Seller Supplied Description', 1.79, '2019-05-23', '2019-05-16', '2019-05-17 12:00:00', 1, 2, 56, 2, 405, 'https://image.shutterstock.com/z/stock-photo-isolated-berries-red-currant-fruits-isolated-on-white-background-137215997.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (3, 'SellerSupplied Name', 'Seller Supplied Description', 1.49, '2019-05-20', '2019-05-16', '2019-05-17 12:00:00', 1, 2, 110, 2, 205, 'https://image.shutterstock.com/z/stock-vector-honeydew-melon-whole-fresh-ripe-sweet-fruit-with-sliced-juicy-piece-of-cut-melon-realistic-fruits-1157387923.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (4, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-21', '2019-04-10', '2019-05-17 12:00:00', 1, 2, 134, 2, 205, 'https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (5, 'SellerSupplied Name', 'Seller Supplied Description', 2.99, '2019-05-22', '2019-04-04', '2019-05-17 12:00:00', 1, 3, 111, 2, 376, 'https://image.shutterstock.com/z/stock-photo-ripe-peaches-in-basket-on-wooden-background-297863489.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (6, 'SellerSupplied Name', 'Seller Supplied Description', 2.89, '2019-05-30', '2019-04-24', '2019-05-17 12:00:00', 1, 3, 17, 2, 351, 'https://image.shutterstock.com/z/stock-photo-woman-in-style-apron-holding-pot-with-fresh-organic-basil-white-kitchen-interior-design-copy-737608135.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (7, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-31', '2019-05-02', '2019-05-17 12:00:00', 1, 3, 59, 2, 27, 'https://image.shutterstock.com/z/stock-photo-chopped-fresh-dill-on-a-cutting-board-and-a-bunch-of-dill-on-a-wooden-table-top-view-673632799.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (8, 'SellerSupplied Name', 'Seller Supplied Description', 0.99, '2019-05-21', '2019-04-30', '2019-05-17 12:00:00', 1, 3, 94, 2, 183, 'https://image.shutterstock.com/z/stock-photo-lemongrass-plants-vegetables-and-herbs-of-thailand-have-medicinal-properties-1073949626.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (9, 'SellerSupplied Name', 'Seller Supplied Description', 3.99, '2019-05-24', '2019-05-06', '2019-05-17 12:00:00', 1, 4, 2, 2, 404, 'https://image.shutterstock.com/z/stock-photo-almond-on-branch-hull-split-almond-leaves-almond-tree-branch-1237846879.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (10, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-24', '2019-04-28', '2019-05-17 12:00:00', 1, 4, 189, 2, 51, 'https://image.shutterstock.com/z/stock-photo-walnut-picking-season-walnut-tree-branches-of-walnuts-opened-the-shell-and-the-collected-walnuts-1142106452.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (11, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-23', '2019-05-12', '2019-05-17 12:00:00', 1, 4, 135, 2, 405, 'https://image.shutterstock.com/z/stock-photo-dried-peanuts-in-closeup-peanuts-in-shells-on-wood-background-peanuts-peanuts-background-peanuts-613243670.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (12, 'SellerSupplied Name', 'Seller Supplied Description', 4.99, '2019-05-29', '2019-05-13', '2019-05-17 12:00:00', 1, 4, 144, 2, 405, 'https://image.shutterstock.com/z/stock-photo-pistachio-texture-nuts-green-fresh-pistachios-as-texture-590494409.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (13, 'SellerSupplied Name', 'Seller Supplied Description', 1.39, '2019-05-21', '2019-05-14', '2019-05-17 12:00:00', 1, 5, 173, 2, 539, 'https://image.shutterstock.com/z/stock-photo-butternut-squash-isolated-on-white-background-205302238.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (14, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-23', '2019-05-21', '2019-05-17 12:00:00', 1, 5, 186, 2, 42, 'https://image.shutterstock.com/z/stock-photo-beautiful-red-ripe-heirloom-tomatoes-grown-in-a-greenhouse-gardening-tomato-photograph-with-copy-776379370.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (15, 'SellerSupplied Name', 'Seller Supplied Description', 3.99, '2019-05-24', '2019-05-21', '2019-05-17 12:00:00', 1, 5, 12, 2, 396, 'https://image.shutterstock.com/z/stock-photo-asparagus-fresh-asparagus-green-asparagus-in-basket-1045645381.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (16, 'SellerSupplied Name', 'Seller Supplied Description', 1.89, '2019-05-29', '2019-05-21', '2019-05-17 12:00:00', 1, 5, 31, 2, 141, 'https://image.shutterstock.com/z/stock-photo-fresh-broccoli-with-spinach-in-bowl-on-wooden-table-close-up-318831905.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (17, 'SellerSupplied Name', 'Seller Supplied Description', 1.79, '2019-05-23', '2019-05-22', '2019-05-17 12:00:00', 1, 1, 159, 2, 51, 'https://images.unsplash.com/photo-1556843824-256570ca21c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (18, 'SellerSupplied Name', 'Seller Supplied Description', 1.89, '2019-05-23', '2019-05-22', '2019-05-17 12:00:00', 1, 1, 159, 2, 211, 'https://image.shutterstock.com/z/stock-photo-yellow-golden-raisins-isolated-on-white-background-1064872322.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (19, 'SellerSupplied Name', 'Seller Supplied Description', 2.99, '2019-05-23', '2019-04-28', '2019-05-17 12:00:00', 1, 1, 68, 2, 1, 'https://image.shutterstock.com/z/stock-photo-dried-figs-fruit-isolated-on-white-background-1155666961.jpg', NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `price`, `best_by`, `picked`, `last_updated`, `active`, `category_id`, `commodity_id`, `unit_id`, `variety_id`, `img_url`, `seller_id`) VALUES (20, 'SellerSupplied Name', 'Seller Supplied Description', 1.99, '2019-05-23', '2019-04-30', '2019-05-17 12:00:00', 1, 1, 6, 2, 1, 'https://image.shutterstock.com/z/stock-photo-homemade-dried-organic-apple-sliced-on-wood-background-1324418675.jpg', NULL);
 
 COMMIT;
 
@@ -1266,66 +1267,6 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `inventory`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `citysproutsdb`;
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (1, 5);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (2, 5);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (3, 5);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (4, 1);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (5, 1);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (6, 1);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (7, 6);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (8, 6);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (9, 6);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (10, 8);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (11, 8);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (12, 8);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (13, 13);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (14, 13);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (15, 13);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (16, 18);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (17, 18);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (18, 18);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (19, 18);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (20, 11);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (21, 2);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (22, 2);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (23, 2);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (24, 5);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (25, 5);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (26, 6);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (27, 6);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (28, 14);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (29, 14);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (30, 14);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (31, 7);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (32, 7);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (33, 7);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (34, 7);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (35, 9);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (36, 9);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (37, 9);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (38, 2);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (39, 2);
-INSERT INTO `inventory` (`id`, `item_id`) VALUES (40, 2);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `seller`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `citysproutsdb`;
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`, `inventory_id`) VALUES (1, '123456789', 'US Bank', '58394586', 1, 1, 'Farmer John\'s Store', NULL);
-INSERT INTO `seller` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`, `store_name`, `inventory_id`) VALUES (2, '746295823', 'Chase', '84967563', 1, 2, 'Urban Jane\'s Store', NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `purchase_status`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -1337,6 +1278,55 @@ INSERT INTO `purchase_status` (`id`, `status`) VALUES (4, 'Fulfilled');
 INSERT INTO `purchase_status` (`id`, `status`) VALUES (5, 'Pending');
 INSERT INTO `purchase_status` (`id`, `status`) VALUES (6, 'Picked up');
 INSERT INTO `purchase_status` (`id`, `status`) VALUES (7, 'Rejected');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `inventory`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `citysproutsdb`;
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (1, 5, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (2, 5, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (3, 5, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (4, 1, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (5, 1, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (6, 1, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (7, 6, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (8, 6, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (9, 6, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (10, 8, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (11, 8, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (12, 8, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (13, 13, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (14, 13, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (15, 13, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (16, 18, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (17, 18, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (18, 18, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (19, 18, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (20, 11, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (21, 2, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (22, 2, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (23, 2, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (24, 5, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (25, 5, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (26, 6, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (27, 6, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (28, 14, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (29, 14, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (30, 14, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (31, 7, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (32, 7, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (33, 7, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (34, 7, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (35, 9, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (36, 9, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (37, 9, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (38, 2, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (39, 2, NULL, NULL);
+INSERT INTO `inventory` (`id`, `item_id`, `seller_id`, `purchase_id`) VALUES (40, 2, NULL, NULL);
 
 COMMIT;
 
