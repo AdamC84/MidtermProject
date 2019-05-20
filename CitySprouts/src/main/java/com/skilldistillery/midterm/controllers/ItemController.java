@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.ItemDAO;
@@ -52,5 +53,21 @@ public class ItemController {
 		model.addAttribute("seller",seller);
 		model.addAttribute("item", item);
 		return "sellerLoggedIn";
+	}
+	@RequestMapping(path="search.do", method = RequestMethod.GET)
+	public ModelAndView keywordSearch(String keyword ){
+		ModelAndView mv = new ModelAndView();
+		List<Item> items = itemDao.getItemsByName(keyword);
+		System.out.println(items);
+		mv.addObject("items", items);
+		mv.setViewName("buyerLoggedIn");
+		return mv;
+	}
+	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
+	public ModelAndView addItemToCart(@RequestParam("item")Item item ){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("item", item);
+		mv.setViewName("cart");
+		return mv;
 	}
 }

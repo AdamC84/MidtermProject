@@ -21,7 +21,7 @@ public class BuyerController {
 		ModelAndView mv = new ModelAndView();
 
 		List<Purchase> purchases = bd.getAllPurchases(buyer);
-		mv.addObject("purchases", purchases);
+		mv.addObject("purchasesList", purchases);
 		mv.setViewName("purchaseResults");
 
 		return mv;
@@ -32,7 +32,7 @@ public class BuyerController {
 		ModelAndView mv = new ModelAndView();
 
 		Purchase purchase = bd.getPurchase(id);
-		mv.addObject("purchases", purchase);
+		mv.addObject("purchasesList", purchase);
 		mv.setViewName("purchaseResults");
 
 		return mv;
