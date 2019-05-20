@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
@@ -69,8 +70,8 @@ public class LoginController {
 		return mv;
 	}
 	@RequestMapping(path = "registerUser.do", method = RequestMethod.POST)
-	public String register( Model model, User user, HttpSession session) {
-		user = d.addUser(user);
+	public String register( Model model, User user, HttpSession session, RedirectAttributes redir) {
+		user = d.addUser(user); 
 		d.addAddress(user.getAddress());
 		model.addAttribute(user);
 		session.setAttribute("user", user);
@@ -79,12 +80,10 @@ public class LoginController {
 			Buyer b = new Buyer();
 			b.setUser(user);
 			model.addAttribute("buyer",b);
-			return "registerBuyer";
+			return "redirect:buyerCreated.do";
 		}else if(role.equals("SELLER")) {
-			Seller s = new Seller();
-			s.setUser(user);
-			model.addAttribute("seller",s);
-			return "registerSeller";
+			redir.addFlashAttribute("user", user);
+			return "redirect:sellerCreated.do";
 		}else if(role.equals("DRIVER")) {
 			Driver d = new Driver();
 			d.setUser(user);
@@ -96,22 +95,63 @@ public class LoginController {
 			return "index";
 		}
 	}
-	
-	@RequestMapping(path="registerSeller.do", method = RequestMethod.POST)
-	public String registerUser(Seller seller, Model model) {
+	@RequestMapping(path = "sellerCreated.do", method = RequestMethod.GET)
+	public String redirectSeller(Model model) {
+		Seller s = new Seller();
+		model.addAttribute("seller", s);
 		
+		return "registerSeller";
+	}
+
+	@RequestMapping(path="registerSeller.do", method = RequestMethod.POST)
+	public String registerUser(Seller seller, Model model, RedirectAttributes redir, HttpSession session) {
+		User user =(User) session.getAttribute("user");
+		seller.setUser(user);
+		System.out.println("****"+seller);
+		session.setAttribute("seller", seller);
 		seller = d.addSeller(seller);
+		
+		redir.addFlashAttribute(seller); 
+		System.out.println("*************"+seller);
+		return "redirect:sellerLoggedInView.do";
+	}
+	
+	@RequestMapping(path= "sellerLoggedInView.do", method = RequestMethod.GET)
+	public String registeredSeller(Model model, HttpSession session) {
+		Seller seller = (Seller)session.getAttribute("seller");
 		model.addAttribute("seller", seller);
 		return "sellerLoggedIn";
 	}
-	@RequestMapping(path="registerBuyer.do")
+	
+	
+	
+	@RequestMapping(path = "buyerCreated.do", method = RequestMethod.GET)
+	public String redirectBuyer(Model model, Buyer buyer) {
+		
+		
+		return "registerBuyer";
+	}
+	@RequestMapping(path="registerBuyer.do", method = RequestMethod.POST)
 	public String registerBuyer(Buyer buyer, HttpSession session, Model model) {
 		buyer = d.addBuyer(buyer);
 		session.setAttribute("user", buyer);
 		model.addAttribute("buyer", buyer);
 		
-		return "buyerLoggedIn";
+		return "redirect:buyerLoggedIn";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping(path="registerDriver.do")
 	public String registerDriver(Driver driver, HttpSession session, Model model) {
 		driver = d.addDriver(driver);
