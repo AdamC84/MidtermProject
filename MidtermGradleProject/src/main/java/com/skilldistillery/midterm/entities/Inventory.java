@@ -21,16 +21,47 @@ public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@OneToMany(mappedBy = "inventory")
-	private List<Seller> sellers;
+	@ManyToOne
+	@JoinColumn(name = "seller_id")
+	private Seller seller;
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Item item;
 	
-	@ManyToMany(mappedBy="inventoryItems",
-			fetch = FetchType.EAGER)	
+	@ManyToMany(mappedBy="inventoryItems", fetch = FetchType.EAGER)	
 	private List<Purchase> purchases;
+	@ManyToOne
+	@JoinColumn(name = "purchase_id")
+	private Purchase purchase;
 	
+	
+	
+	
+	
+	
+	public Inventory(int id, Seller seller, Item item, List<Purchase> purchases, Purchase purchase) {
+		super();
+		this.id = id;
+		this.seller = seller;
+		this.item = item;
+		this.purchases = purchases;
+		this.purchase = purchase;
+	}
+
+	@Override
+	public String toString() {
+		return "Inventory [id=" + id + ", seller=" + seller + ", item=" + item + ", purchases=" + purchases
+				+ ", purchase=" + purchase + "]";
+	}
+
+	public Purchase getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(Purchase purchase) {
+		this.purchase = purchase;
+	}
+
 	public List<Purchase> getPurchases() {
 		return purchases;
 	}
@@ -83,25 +114,16 @@ public class Inventory {
 
 
 
-	public Inventory(int id, List<Seller> sellers, Item item, List<Purchase> purchases) {
-		super();
-		this.id = id;
-		this.sellers = sellers;
-		this.item = item;
-		this.purchases = purchases;
+	
+
+	
+
+	public Seller getSeller() {
+		return seller;
 	}
 
-	@Override
-	public String toString() {
-		return "Inventory [id=" + id + ", sellers=" + sellers + ", item=" + item + ", purchases=" + "" + "]";
-	}
-
-	public List<Seller> getSellers() {
-		return sellers;
-	}
-
-	public void setSellers(List<Seller> sellers) {
-		this.sellers = sellers;
+	public void setSeller(Seller seller) {
+		this.seller = seller;
 	}
 
 	@Override

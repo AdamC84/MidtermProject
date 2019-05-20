@@ -35,9 +35,21 @@ public class Purchase {
 	@ManyToMany
 	@JoinTable(name = "purchase_item", joinColumns = @JoinColumn(name = "purchase_id"), inverseJoinColumns = @JoinColumn(name = "inventory_id"))
 	private List<Inventory> inventoryItems;
+	
+	@OneToMany(mappedBy = "purchse")
+	private List<Inventory> inventory;
+
 
 	
 	
+	public List<Inventory> getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(List<Inventory> inventory) {
+		this.inventory = inventory;
+	}
+
 	public List<Inventory> getInventoryItems() {
 		return inventoryItems;
 	}
