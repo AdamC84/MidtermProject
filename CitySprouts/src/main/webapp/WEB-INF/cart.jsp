@@ -93,17 +93,21 @@
 		<div class="row">
 				<div class="col-md-1 col-sm-1">
 				<ul>
-				<c:forEach var="item1" items="${item }">
+				<c:forEach var="item" items="${items }">
 		
 		item details
-		<li>${item.name }</li>
-		<li>${item.category }</li>
-		<li>${item.price }</li>
+		<!-- <div class="thumbnail"> -->
+      <a class="nav-link" href="itemDetails.do?id=${item.id }">
+		<img src="${item.imgUrl }"  class="img-fluid" alt="img-thumbnail"> 
+		</a>
 		
+		${item.name }
+		${item.category.name }
+		${item.price }
 		</c:forEach>
 		</ul>
 				</div>
-				<div class="col-md-2 col-sm-1">
+				<!-- <div class="col-md-2 col-sm-1">
 			item img
 				</div>
 				<div class="col-md-6 col-sm-6">
@@ -111,13 +115,13 @@
 				<div class="col-md-2 col-sm-1">
 		Qty, add, rem
 				</div>
-				<div class="col-md-1 col-sm-1">
+				<div class="col-md-1 col-sm-1"> -->
 		
 				</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	<!-- </div> -->
 	
 			<div class="container-fluid text-center align-items-center justify-content-center">
 	<div class="row" style="padding: 0% 0% 3% 0%">

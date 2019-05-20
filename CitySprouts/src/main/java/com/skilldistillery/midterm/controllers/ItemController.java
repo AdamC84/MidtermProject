@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -64,10 +65,25 @@ public class ItemController {
 		return mv;
 	}
 	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
-	public ModelAndView addItemToCart(@RequestParam("item")Item item ){
+	public ModelAndView addItemToCart(@RequestParam("id")int id ){
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("item", item);
+		Item i = itemDao.getItemByItemId(id);
+		List<Item> items = new ArrayList<>();
+		items.add(i);
+		mv.addObject("items", items);
 		mv.setViewName("cart");
+		return mv;
+	}
+	@RequestMapping(path="itemDetails.do", method = RequestMethod.GET)
+	public ModelAndView itemDetails(@RequestParam("id")int id ){
+		ModelAndView mv = new ModelAndView();
+		Item i = itemDao.getItemByItemId(id);
+		System.out.println("*********" + i);
+		List<Item> items = new ArrayList<>();
+		items.add(i);
+		System.out.println("*******************" + items);
+		mv.addObject("items", items);
+		mv.setViewName("itemDetails");
 		return mv;
 	}
 }

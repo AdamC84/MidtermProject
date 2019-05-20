@@ -35,4 +35,5 @@ public interface ItemDAO {
 	List<Inventory> getSellerInventory(Seller seller);
 	List<Inventory> getSellerInventoryById(int id);
 	List<Item> getItemsByName(String keyword);
+	Item getItemByItemId(int id);
 }
