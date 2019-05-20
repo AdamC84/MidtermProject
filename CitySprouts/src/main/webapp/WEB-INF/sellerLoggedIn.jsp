@@ -198,18 +198,41 @@
 	
 	
 	</c:if>
-	<c:if test="${not empty inventory }">
-	<c:forEach var="inventory" items="${inventory}">
-	${inventory.item.name }<br>
-	${inventory.item.description }<br>
-	${inventory.item.price }<br>
-	${inventory.item.category.name }<br>
 	
-	
-	</c:forEach>
-	
-	
-	
+	<c:if test="${not empty seller.inventory }">
+		<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10"><hr>
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+
+					<div class="form-group input-group">
+
+					</div><h2>Inventory - All</h2>
+					<ul class="list-group">
+					<c:forEach var="inventory" items="${seller.inventory}">
+					<li class="list-group-item list-group-item-action">
+					<a href="getItemById.do?itemid=${seller.inventory.itemId }">
+					Item: ${inventory.item.name }<br>
+					Description: ${inventory.item.description }<br>
+					Price: $${inventory.item.price }<br>
+					Category: ${inventory.item.category.name }
+					Commodity:${inventory.item.commodity.name }
+					Variety:${inventory.item.variety.name }
+					</a></li>
+					<hr>
+					</c:forEach>
+					</ul>
+					<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 	</c:if>
 
 
