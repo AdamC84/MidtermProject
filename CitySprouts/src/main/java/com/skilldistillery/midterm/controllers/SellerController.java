@@ -15,14 +15,14 @@ public class SellerController {
 	@Autowired
 	private SellerDAO sellDAO;
 
-	@RequestMapping(path = "purchaseResults.do")
+	@RequestMapping(path = "getAllOrders.do")
 	public String getAllOrders(Model model, Seller seller) {
 		List<Purchase> orders = sellDAO.getAllOrders(seller);
 		model.addAttribute(orders);
 			return "orderHistory";
 		}
 
-	@RequestMapping(path = "purchaseResults.do")
+	@RequestMapping(path = "getOrderById.do")
 	public String getOrderById(Model model, int orderId) {
 		Purchase order = (sellDAO.getOrder(orderId));
 		model.addAttribute(order);
