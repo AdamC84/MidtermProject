@@ -84,39 +84,36 @@
 
 
 	<div
-		class="container-fluid text-center align-items-center justify-content-center">
+		class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
-				<hr>
-				<div id="panel-green">
+				<div id="panel-green"><br>
 					<div id="white-text">
-						<h3>Seller Id</h3>
-						${seller.id}
-						<h3>User Id</h3>
-						${seller.user.id}
-						<h3>Personal Info</h3>
+						<h2>Store</h2>
+						${seller.storeName }<br>
+						<hr>
+						<h4>Personal Info</h4>
+						Seller Id: ${seller.id}
+						User Id: ${seller.user.id}
 						Name: ${seller.user.firstName }, ${seller.user.lastName }<br>
 						Username: ${seller.user.username }<br>
 						Password: ${seller.user.password }<br>
 						Last Login: ${seller.user.lastLogin }<br>
 						Role: ${seller.user.role }<br>
+						<hr>
 						<h4>Address Details</h4>
 						Street: ${seller.user.address.streetAddress }<br>
 						Street2: ${seller.user.address.address2 }<br>
 						City: ${seller.user.address.city }<br>
 						State: ${seller.user.address.state }<br>
-						Zip Code: ${seller.user.address.zipcode }<br>
-						
-						
-						<h3>Bank Info</h3>
-						${seller.bankName }<br>
-						${seller.bankAcctNum }<br>
-						${seller.bankRouting }<br>
-						<h3>Store</h3>
-						${seller.storeName }<br>
-	
-	
+						Zipcode: ${seller.user.address.zipcode }<br>
+						<hr>
+						<h4>Bank Info</h4>
+						Bank: ${seller.bankName }<br>
+						Account #:${seller.bankAcctNum }<br>
+						ABA Routing: ${seller.bankRouting }<br>
+
 					</div>
 				</div>
 			</div>
@@ -199,41 +196,6 @@
 	
 	</c:if>
 	
-	<c:if test="${not empty seller.inventory }">
-		<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10"><hr>
-				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-
-					<div class="form-group input-group">
-
-					</div><h2>Inventory - All</h2>
-					<ul class="list-group">
-				<%-- 	<c:forEach var="inventory" items="${seller.inventory}">
-					<li class="list-group-item list-group-item-action">
-					<a href="getItemById.do?itemid=${seller.inventory.item.id }">
-					Item: ${inventory.item.name }<br>
-					Description: ${inventory.item.description }<br>
-					Price: $${inventory.item.price }<br>
-					Category: ${inventory.item.category.name }
-					Commodity:${inventory.item.commodity.name }
-					Variety:${inventory.item.variety.name }
-					</a></li>
-					<hr>
-					</c:forEach> --%>
-					</ul>
-					<br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	</c:if>
 
 
 
@@ -243,7 +205,6 @@
 
 
 
-	</div>
 	
 	
 	

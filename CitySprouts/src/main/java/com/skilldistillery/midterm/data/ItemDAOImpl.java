@@ -190,15 +190,21 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 	@Override
 	public List<Inventory> getSellerInventory(Seller seller) {
-		String query = "Select i from Inventory i where i.sellerId = :id";
+		String query = "Select i from Inventory i where i.seller.id = :id";
 		List<Inventory> inventories = em.createQuery(query, Inventory.class).setParameter("id", seller.getId()).getResultList();
 		return inventories;
 	}
 	@Override
 	public List<Inventory> getSellerInventoryById(int id) {
-		String query = "Select i from Inventory i where i.sellerId = :id";
+		String query = "Select i from Inventory i where i.seller.id = :id";
 		List<Inventory> inventories = em.createQuery(query, Inventory.class).setParameter("id", id).getResultList();
 		return inventories;
 		
+	}
+	@Override
+	public List<Item> getAllItemsNotInInventory(Seller seller){
+		String query = "Select i from Item i where Inventory.item.id = null and Inventory.seller.id = :id";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("id", seller.getId()).getResultList();
+		return items;
 	}
 }

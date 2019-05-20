@@ -41,18 +41,17 @@ public class ItemController {
 	@RequestMapping(path="addItem.do", method = RequestMethod.POST)
 	public String addItem(Model model, Item item, HttpSession session ){
 		item.setActive(1);
+		System.out.println("************");
 		Seller seller = (Seller) session.getAttribute("seller");
-		System.out.println("seller ****  " + seller);
-		
-//		Inventory i = seller.getInventory();
-//		i.setItem(item);
+		item.setSeller(seller);
+		System.out.println("ITEM *****  "+item);
 		
 		item = itemDao.addItem(item);
-//		itemDao.addItemToInventory(i);
-		System.out.println("************" + item);
-		
+		List<Item> items = itemDao.getAllItemsNotInInventory(seller);
 		model.addAttribute("seller",seller);
-		model.addAttribute("item", item);
+		model.addAttribute("itemNot", item);
+		model.addAttribute("itemNotInInventory", items);
+		System.out.println("*******  "+items);
 		return "sellerLoggedIn";
 	}
 	@RequestMapping(path="search.do", method = RequestMethod.GET)

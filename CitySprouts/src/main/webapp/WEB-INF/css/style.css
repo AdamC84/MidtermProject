@@ -142,17 +142,17 @@ form{
 	padding-bottom: 20px;
 }
 
-    .panel-transparent {
-        background: none;
-    }
+.panel-transparent {
+    background: none;
+}
 
-    .panel-transparent .panel-heading{
-        background: rgba(122, 130, 136, 0.3)!important;
-    }
+.panel-transparent .panel-heading{
+    background: rgba(122, 130, 136, 0.3)!important;
+}
 
-    .panel-transparent .panel-body{
-        background: rgba(46, 51, 56, 0.3)!important;
-    }
+.panel-transparent .panel-body{
+    background: rgba(46, 51, 56, 0.3)!important;
+}
 
 #panel-grey {
 	border-radius: 15px;
@@ -174,22 +174,6 @@ form{
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-html,body{
-background-image: url('http://54.214.129.164/img/overlay-bg.jpg');
-/* background-image: url('http://54.214.129.164/img/counters-bg.jpg'); */
-/* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
-background-attachment: fixed;
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
-}
-
-.container{
-height: 100%;
-align-content: center;
-}
-
 .card{
 height: 370px;
 margin-top: auto;
@@ -201,7 +185,7 @@ background-color: rgba(0,0,0,0.5) !important;
 .social_icon span{
 font-size: 60px;
 margin-left: 10px;
-color: #FFC312;
+color: #FF6347;
 }
 
 .social_icon span:hover{
@@ -221,8 +205,8 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #FFC312;
-color: black;
+background-color: #FF6347;
+color: rgba(0, 128, 0, 0.2);
 border:0 !important;
 }
 
@@ -245,8 +229,8 @@ margin-right: 5px;
 }
 
 .login_btn{
-color: black;
-background-color: #FFC312;
+color: rgba(0, 128, 0, 0.2);
+background-color: #FF6347;
 width: 100px;
 }
 
