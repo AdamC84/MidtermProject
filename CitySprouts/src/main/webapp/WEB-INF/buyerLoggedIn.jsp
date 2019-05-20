@@ -65,7 +65,7 @@
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
+					placeholder="Search" aria-label="Search" name="keyword">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
@@ -92,6 +92,38 @@
 				<hr>
 				<div id="panel-green">
 					<div id="white-text">
+						<c:if test="${! empty items }">
+							<h3>Items</h3>
+						<ul>
+						<c:forEach var="item" items="${items}">
+							<li>${item.name }</li>
+							<li>${item.category.name }</li>
+							</span></a>
+				                  <a class="nav-link" href="addToCart.do?item=${item }"> <span
+					              style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+				            </span></a>
+							<%-- <form method="get" action="addItemToCart.do">
+                                <button type="submit">Add to Cart</button>
+                            </form> --%>
+									<hr>
+						</c:forEach>
+						</ul>
+						</c:if>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
 							<h3>buyer Id</h3>
 							${buyer.id}
 							<h3>User Id</h3>
@@ -107,7 +139,7 @@
 							Street2: ${buyer.user.address.address2 }<br>
 							City: ${buyer.user.address.city }<br>
 							State: ${buyer.user.address.state }<br>
-							Zip Code: ${buyer.user.address.zipCode }<br>
+							Zip Code: ${buyer.user.address.zipcode }<br>
 							<h2>Payment Methods</h2>
 							Credit Card Number: ${buyer.creditCardNum }<br>
 							Credit Card Exp Date: ${buyer.creditCardExpDate }<br>
@@ -151,7 +183,7 @@
 	</div>
 	</c:if>
 	
-		<c:if test="${! empty buyer.purchasesList }">
+		<c:if test="${! empty buyer.purchases }">
 		<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">

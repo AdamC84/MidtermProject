@@ -92,21 +92,26 @@
 			<div id="panel-green">
 		<div class="row">
 				<div class="col-md-1 col-sm-1">
+				<ul>
+				<c:forEach var="item1" items="${item }">
 		
+		item details
+		<li>${item.name }</li>
+		<li>${item.category }</li>
+		<li>${item.price }</li>
 		
-		
+		</c:forEach>
+		</ul>
 				</div>
 				<div class="col-md-2 col-sm-1">
 			item img
 				</div>
 				<div class="col-md-6 col-sm-6">
-		item details
 				</div>
 				<div class="col-md-2 col-sm-1">
 		Qty, add, rem
 				</div>
 				<div class="col-md-1 col-sm-1">
-		
 		
 				</div>
 				</div>
