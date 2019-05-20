@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.ItemDAO;
-import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Seller;
 
@@ -42,12 +41,14 @@ public class ItemController {
 	public String addItem(Model model, Item item, HttpSession session ){
 		item.setActive(1);
 		Seller seller = (Seller) session.getAttribute("seller");
+		System.out.println("seller ****  " + seller);
 		
-		Inventory i = seller.getInventory();
-		i.setItem(item);
+//		Inventory i = seller.getInventory();
+//		i.setItem(item);
 		
 		item = itemDao.addItem(item);
-		itemDao.addItemToInventory(i);
+//		itemDao.addItemToInventory(i);
+		System.out.println("************" + item);
 		
 		model.addAttribute("seller",seller);
 		model.addAttribute("item", item);

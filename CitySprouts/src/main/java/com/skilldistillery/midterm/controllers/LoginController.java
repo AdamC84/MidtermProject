@@ -39,7 +39,9 @@ public class LoginController {
 			return mv;
 		} else if (role.equals("SELLER")) {
 			Seller seller = d.getSellerByUserId(u.getId());
-			mv.addObject("inventory", itemDAO.getSellerInventory(seller));
+			if (itemDAO.getSellerInventory(seller) != null) {
+				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
+			}
 			mv.setViewName("sellerLoggedIn");
 			return mv;
 		} else if (role.equals("DRIVER")) {
@@ -53,6 +55,14 @@ public class LoginController {
 			return mv;
 		}
 	}
+
+	@RequestMapping(path = "login")
+	public String login(Model model) {
+		User user = new User();
+		model.addAttribute(user);
+		return "login";
+	}
+
 
 	@RequestMapping(path = "logout.do")
 	public ModelAndView logout(HttpSession session) {
@@ -129,12 +139,14 @@ public class LoginController {
 		model.addAttribute("seller", seller);
 		return "sellerLoggedIn";
 	}
+
 	@RequestMapping(path = "buyerLoggedInView.do", method = RequestMethod.GET)
 	public String registeredBuyer(Model model, HttpSession session) {
 		Buyer buyer = (Buyer) session.getAttribute("buyer");
 		model.addAttribute("buyer", buyer);
 		return "buyerLoggedIn";
 	}
+
 
 	@RequestMapping(path = "buyerCreated.do", method = RequestMethod.GET)
 	public String redirectBuyer(Model model, Buyer buyer) {
@@ -148,13 +160,11 @@ public class LoginController {
 		buyer.setUser(user);
 		buyer.setActive(1);
 		buyer = d.addBuyer(buyer);
-		session.setAttribute("user", buyer);
 		model.addAttribute("buyer", buyer);
 
 		System.out.println("USER  ***** " + user);
 		System.out.println("****" + buyer);
 		session.setAttribute("buyer", buyer);
-		buyer = d.addBuyer(buyer);
 
 		redir.addFlashAttribute(buyer);
 		System.out.println("*************" + buyer);

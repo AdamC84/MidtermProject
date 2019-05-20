@@ -1,19 +1,13 @@
 package com.skilldistillery.midterm.entities;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
@@ -21,23 +15,44 @@ public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@OneToMany(mappedBy = "inventory")
-	private List<Seller> sellers;
+	@ManyToOne
+	@JoinColumn(name = "seller_id")
+	private Seller seller;
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Item item;
 	
-	@ManyToMany(mappedBy="inventoryItems",
-			fetch = FetchType.EAGER)	
-	private List<Purchase> purchases;
+	@ManyToOne
+	@JoinColumn(name = "purchase_id")
+	private Purchase purchase;
 	
-	public List<Purchase> getPurchases() {
-		return purchases;
-	}
 	
-	public void setPurchases(List<Purchase> purchases) {
-		this.purchases = purchases;
+	
+	
+
+
+	public Inventory(int id, Seller seller, Item item, Purchase purchase) {
+		super();
+		this.id = id;
+		this.seller = seller;
+		this.item = item;
+		this.purchase = purchase;
 	}
+
+	@Override
+	public String toString() {
+		return "Inventory [id=" + id + ", seller=" + seller + ", item=" + item + ", purchase=" + purchase + "]";
+	}
+
+	public Purchase getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(Purchase purchase) {
+		this.purchase = purchase;
+	}
+
+	
 
 	public Item getItem() {
 		return item;
@@ -55,24 +70,9 @@ public class Inventory {
 		this.id = id;
 	}
 
-	public void addPurchase(Purchase purchase) {
-		if(purchases == null) {
-			purchases = new ArrayList<>();
-		}
-		
-		if (!purchases.contains(purchase)) {
-			purchases.add(purchase);
-			purchase.addInventoryItem(this);
-		}
-	}
 	
-	public void removePurchase(Purchase purchase) {
-		if(purchases != null &&
-				purchases.contains(purchase)) {
-			purchases.remove(purchase);
-			purchase.removeInventoryItem(this);
-		}
-	}
+	
+
 
 	
 
@@ -83,25 +83,16 @@ public class Inventory {
 
 
 
-	public Inventory(int id, List<Seller> sellers, Item item, List<Purchase> purchases) {
-		super();
-		this.id = id;
-		this.sellers = sellers;
-		this.item = item;
-		this.purchases = purchases;
+	
+
+	
+
+	public Seller getSeller() {
+		return seller;
 	}
 
-	@Override
-	public String toString() {
-		return "Inventory [id=" + id + ", sellers=" + sellers + ", item=" + item + ", purchases=" + "" + "]";
-	}
-
-	public List<Seller> getSellers() {
-		return sellers;
-	}
-
-	public void setSellers(List<Seller> sellers) {
-		this.sellers = sellers;
+	public void setSeller(Seller seller) {
+		this.seller = seller;
 	}
 
 	@Override

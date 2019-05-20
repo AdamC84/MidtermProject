@@ -1,16 +1,14 @@
 package com.skilldistillery.midterm.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -28,15 +26,30 @@ public class Seller {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "inventory_id")
-	private Inventory inventory;
+	@OneToMany(mappedBy = "seller")
+	private List<Inventory> inventory;
 	@Column(name = "store_name")
 	private String storeName;
 	private int active;
+	@OneToMany(mappedBy = "seller")
+	private List<Item> items;
 	
 	
 	
+	
+	
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+
+	public void setInventory(List<Inventory> inventory) {
+		this.inventory = inventory;
+	}
+
 	public int getActive() {
 		return active;
 	}
@@ -93,18 +106,10 @@ public class Seller {
 	
 	
 	
+
 	
-
-	public Inventory getInventory() {
-		return inventory;
-	}
-
-	public void setInventory(Inventory inventory) {
-		this.inventory = inventory;
-	}
-
-	public Seller(int id, String bankAcctNum, String bankRouting, String bankName, User user,
-			Inventory inventory) {
+	public Seller(int id, String bankAcctNum, String bankRouting, String bankName, User user, List<Inventory> inventory,
+			String storeName, int active, List<Item> items) {
 		super();
 		this.id = id;
 		this.bankAcctNum = bankAcctNum;
@@ -112,7 +117,11 @@ public class Seller {
 		this.bankName = bankName;
 		this.user = user;
 		this.inventory = inventory;
+		this.storeName = storeName;
+		this.active = active;
+		this.items = items;
 	}
+
 	public Seller() {
 		super();
 	}
