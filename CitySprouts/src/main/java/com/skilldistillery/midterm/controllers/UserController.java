@@ -2,8 +2,12 @@ package com.skilldistillery.midterm.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,6 +16,7 @@ import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Commodity;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
 import com.skilldistillery.midterm.entities.User;
 import com.skilldistillery.midterm.entities.Variety;
@@ -80,21 +85,21 @@ public class UserController {
 		return mv;
 	}
 	@RequestMapping(path = "addItemView.do")
-	public ModelAndView addItemV() {
-		ModelAndView mv = new ModelAndView();
+	public String addItemV(Model model, int id) {
 		Item i = new Item();
+		Seller seller = d.getSellerById(id);
 		List<Unit> u = iDao.getAllUnits();
 		List<Variety> v = iDao.getAllVariety();
 		List<Category> c = iDao.getAllCategory();
 		List<Commodity> com = iDao.getAllCommodities();
-		System.out.println(u);
-		mv.addObject("item", i);
-		mv.addObject("unitList", u);
-		mv.addObject("varietyList", v);
-		mv.addObject("categoryList", c);
-		mv.addObject("commodityList", com);
-		mv.setViewName("sellerLoggedIn");
-		return mv;
+		model.addAttribute(u);
+		model.addAttribute(v);
+		model.addAttribute(c);
+		model.addAttribute(com);
+		model.addAttribute(seller);
+		model.addAttribute(i);
+		
+		return "sellerLoggedIn";
 	}
 
 }

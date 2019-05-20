@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.ItemDAO;
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Seller;
 
 @Controller
 public class ItemController {
@@ -32,11 +35,16 @@ public class ItemController {
 		return mv;
 	}
 	
-	@RequestMapping(path="addItem.do")
-	public String addItem(Model model, Item item){
-	    item.setActive(1);
+	@RequestMapping(path="addItem.do", method = RequestMethod.POST)
+	public String addItem(Model model, Item item, Seller seller ){
 		item = itemDao.addItem(item);
+		Inventory i = new Inventory();
+		i.setItem(item);
+		i.setSeller(seller);
+		itemDao.addItemToInventory(i);
+		item.setActive(1);
 		
+		model.addAttribute("seller",seller);
 		model.addAttribute("item", item);
 		return "sellerLoggedIn";
 	}

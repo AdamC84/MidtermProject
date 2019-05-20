@@ -3,6 +3,7 @@ package com.skilldistillery.midterm.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Seller {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "seller_id")
 	private List<Inventory> inventories;
 	

@@ -70,7 +70,7 @@
 			</form>
 		</div>
 	</nav>
-	Welcom seller!!!!!
+	Welcome seller!!!!!
 	
  <div class="container">
  <form:form action="registerSeller.do" method="POST" modelAttribute="seller">

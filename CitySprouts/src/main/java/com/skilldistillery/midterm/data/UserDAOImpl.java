@@ -297,13 +297,19 @@ public class UserDAOImpl implements UserDAO {
 		em.flush();
 		return a;
 	}
-	
+	@Override
 	public User login(String username, String password) {
 		User user = null;
 		String query = "Select u from User u where username = :username and password = :password";
 		 user = em.createQuery(query, User.class).setParameter("username", username).setParameter("password", password).getResultList().get(0);
 		
 		return user;
+	}
+	@Override
+	public Seller getSellerByUserId(int id) {
+		String query = "Select s from Seller s where s.user.id = :id";
+		Seller s = em.createQuery(query, Seller.class).setParameter("id", id).getResultList().get(0);
+		return s;
 	}
 
 	

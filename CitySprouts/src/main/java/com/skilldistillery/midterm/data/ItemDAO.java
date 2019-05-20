@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Commodity;
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
 import com.skilldistillery.midterm.entities.Variety;
 
@@ -29,4 +31,7 @@ public interface ItemDAO {
 	List<Commodity> getAllCommodities();
 	List<Variety> getAllVariety();
 	List<Category> getAllCategory();
+	Inventory addItemToInventory(Inventory inventory);
+	List<Inventory> getSellerInventory(Seller seller);
+	List<Inventory> getSellerInventoryById(int id);
 }

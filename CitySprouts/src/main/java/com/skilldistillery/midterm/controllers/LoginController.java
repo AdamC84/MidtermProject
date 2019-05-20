@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Driver;
@@ -23,6 +24,8 @@ public class LoginController {
 
 	@Autowired
 	UserDAO d;
+	@Autowired
+	ItemDAO itemDAO;
 	
 	@RequestMapping(path = "login.do")
 	public ModelAndView login(String username, String password, HttpSession session) {
@@ -35,6 +38,8 @@ public class LoginController {
 			mv.setViewName("buyerLoggedIn");
 			return mv;
 		}else if(role.equals("SELLER")) {
+			Seller seller = d.getSellerByUserId(u.getId());
+			mv.addObject("inventory", itemDAO.getSellerInventory(seller));
 			mv.setViewName("sellerLoggedIn");
 			return mv;
 		}else if(role.equals("DRIVER")) {
@@ -92,10 +97,10 @@ public class LoginController {
 		}
 	}
 	
-	@RequestMapping(path="registerSeller.do")
-	public String registerUser(Seller seller, HttpSession session, Model model) {
+	@RequestMapping(path="registerSeller.do", method = RequestMethod.POST)
+	public String registerUser(Seller seller, Model model) {
+		
 		seller = d.addSeller(seller);
-		session.setAttribute("user", seller);
 		model.addAttribute("seller", seller);
 		return "sellerLoggedIn";
 	}
