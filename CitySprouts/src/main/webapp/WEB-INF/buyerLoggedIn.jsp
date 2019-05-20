@@ -120,7 +120,7 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 
-	<c:if test="${! empty buyer.purchasesList }">
+	<c:if test="${! empty purchases }">
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -134,7 +134,7 @@
 
 					</div>
 					<ul class="list-group">
-						<c:forEach var="buyer" items="${buyer.purchasesList}">
+						<c:forEach var="buyer" items="${buyer.purchases}">
 							<li class="list-group-item list-group-item-action"
 							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.purchase.id }">
 								Date purchased: ${buyer.purchase.payment.paymentDate }
