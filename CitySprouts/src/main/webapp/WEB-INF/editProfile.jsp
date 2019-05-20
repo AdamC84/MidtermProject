@@ -35,8 +35,9 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
+			class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,31 +54,157 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Dropdown </a>
+					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="orderHistory.do">Order History</a> 
-							<a class="dropdown-item" href="addItem.do">Add Item</a>
-							<a class="dropdown-item" href="editItem.do">Edit Item</a>
+						<a class="dropdown-item" href="cart.do">Cart</a> <a
+							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="buyerLearnMore.do">Buyer Learn More</a>
-						<a class="dropdown-item" href="sellerLearnMore.do">Seller Learn More</a>
+						<a class="dropdown-item" href="searchResults.do">Search
+							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
-			<li class="nav-item"><a class="nav-link" href="#">Login/Sign
-					up</a></li>
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			<div class="nav-item">
+			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			</div>
+			<div class="nav-item"><a class="nav-link" href="login.do">
+				<span style="font-size: 2em;">
+				<i class="fa fa-user-circle-o"></i>
+				</span></a>
+				<c:if test="${user.role = BUYER} ">
+				<a class="nav-link" href="cart.do?id=${user.id }"> <span
+					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+				</span></a>
+				</c:if>
+			</div>
 		</div>
 	</nav>
 
 
+<form:form action="registerUser.do" method="POST" modelAttribute="user">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">First</label>
+      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Last</label>
+      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="lastName" value="${user.lastName}"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">User Name</label>
+      <form:input type="text" class="form-control" id="userName" placeholder="userName" path="username" value="${user.username}"/>
+    </div>
+    </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="email" value="${user.email}"/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="password" value="${user.password}"/>
+    </div>
+   <fieldset class="form-group">
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="BUYER" checked/>
+          <label class="form-check-label" for="gridRadios1">
+            Buyer
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="SELLER"/>
+          <label class="form-check-label" for="gridRadios2">
+            Seller
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="role" id="gridRadios3" value="DRIVER" disabled/>
+          <label class="form-check-label" for="gridRadios3">
+            Driver
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  </div>
+ <!--  <button type="submit" class="btn btn-primary">Next</button> -->
+<%--   </form:form> --%>
+<%--  </c:when>
+ <c:otherwise> --%>
+  <%-- <c:if test="${not empty user.firstName}"> --%>
+  
+<%--  --- ${user.firstName }--- --%>
+ <%--  <form:form action="registerUserAddress.do" method="POST" modelAttribute="address"> --%>
+  
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <form:input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" path="address.streetAddress"/>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <form:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" path="address.address2"/>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <form:input type="text" class="form-control" id="inputCity" path="address.city"/>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <form:select id="inputState" class="form-control" path="address.state">
+        <option selected>Choose...</option>
+        <option>Alabama</option>
+        <option>Alaska</option>
+        <option>Colorado</option>
+      </form:select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <form:input type="text" class="form-control" id="inputZip" path="address.zipcode"/>
+    </div>
+  </div>
 
-
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form:form>
+<c:if test="${user.role = BUYER }">
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Credit Card Number</label>
+      <form:input type="test" class="form-control" id="firstName" placeholder="44444" path="creditCardNum" />
+    </div>
+  
+  </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">CCV</label>
+      <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv"/>
+    </div>
+</c:if>
+<c:if test="${user.role = SELLER }">
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Credit Card Number</label>
+      <form:input type="test" class="form-control" id="firstName" placeholder="44444" path="creditCardNum" />
+    </div>
+  
+  </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">CCV</label>
+      <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv"/>
+    </div>
+</c:if>
 
 
 	<footer class="container-fluid text-center">
@@ -85,7 +212,7 @@
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
 				<br>
-				<h4>Address and contact info</h4>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
@@ -95,10 +222,11 @@
 					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
-				<img src="img/b.png" class="icon">
+				<img src="img/logo_rd.png" class="icon">
 			</div>
 		</div>
 	</footer>
+
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
