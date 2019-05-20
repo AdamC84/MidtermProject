@@ -27,10 +27,12 @@ public class LoginController {
 	@Autowired
 	ItemDAO itemDAO;
 
-	@RequestMapping(path = "login.do")
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView login(String username, String password, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println("**********************"+username + " " + password);
 		User u = d.login(username, password);
+		if (u != null) {
 		u.setLastLogin(new Date());
 		session.setAttribute("user", u);
 		String role = u.getRole().toString();
@@ -42,6 +44,7 @@ public class LoginController {
 			if (itemDAO.getSellerInventory(seller) != null) {
 				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
 			}
+			mv.addObject(seller);
 			mv.setViewName("sellerLoggedIn");
 			return mv;
 		} else if (role.equals("DRIVER")) {
@@ -54,14 +57,17 @@ public class LoginController {
 			mv.setViewName("index");
 			return mv;
 		}
+		} else {
+			mv.addObject("error", "Login failed, please try again.");
+			return mv;
+		}
 	}
 
 	@RequestMapping(path = "login")
 	public String login(Model model) {
-		User user = new User();
-		model.addAttribute(user);
 		return "login";
 	}
+
 
 	@RequestMapping(path = "logout.do")
 	public ModelAndView logout(HttpSession session) {
@@ -139,6 +145,14 @@ public class LoginController {
 		return "sellerLoggedIn";
 	}
 
+	@RequestMapping(path = "buyerLoggedInView.do", method = RequestMethod.GET)
+	public String registeredBuyer(Model model, HttpSession session) {
+		Buyer buyer = (Buyer) session.getAttribute("buyer");
+		model.addAttribute("buyer", buyer);
+		return "buyerLoggedIn";
+	}
+
+
 	@RequestMapping(path = "buyerCreated.do", method = RequestMethod.GET)
 	public String redirectBuyer(Model model, Buyer buyer) {
 
@@ -146,12 +160,21 @@ public class LoginController {
 	}
 
 	@RequestMapping(path = "registerBuyer.do", method = RequestMethod.POST)
-	public String registerBuyer(Buyer buyer, HttpSession session, Model model) {
+	public String registerBuyer(Buyer buyer, RedirectAttributes redir, HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		buyer.setUser(user);
+		buyer.setActive(1);
 		buyer = d.addBuyer(buyer);
-		session.setAttribute("user", buyer);
 		model.addAttribute("buyer", buyer);
 
-		return "redirect:buyerLoggedIn";
+		System.out.println("USER  ***** " + user);
+		System.out.println("****" + buyer);
+		session.setAttribute("buyer", buyer);
+
+		redir.addFlashAttribute(buyer);
+		System.out.println("*************" + buyer);
+
+		return "redirect:buyerLoggedInView.do";
 	}
 
 	@RequestMapping(path = "registerDriver.do")
