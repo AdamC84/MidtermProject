@@ -29,9 +29,26 @@ public class Buyer {
 	private User user;
 	@OneToMany(mappedBy = "buyer")
 	private List<Purchase> purchases;
+	private int active;
 	
 	
 	
+	public List<Purchase> getPurchases() {
+		return purchases;
+	}
+
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
+	}
+
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
 	public void addPurchase(Purchase purchase) {
 		if(purchases == null) {
 			purchases = new ArrayList<>();
