@@ -189,4 +189,10 @@ public class ItemDAOImpl implements ItemDAO {
 		return inventories;
 		
 	}
+	@Override
+	public List<Item> getAllItemsNotInInventory(Seller seller){
+		String query = "Select i from Item i where Inventory.item.id = null and Inventory.seller.id = :id";
+		List<Item> items = em.createQuery(query, Item.class).setParameter("id", seller.getId()).getResultList();
+		return items;
+	}
 }

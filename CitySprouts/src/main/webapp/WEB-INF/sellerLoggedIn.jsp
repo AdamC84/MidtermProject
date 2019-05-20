@@ -199,7 +199,7 @@
 	
 	</c:if>
 	
-	<c:if test="${not empty seller.inventory }">
+	<c:if test="${not empty itemNotInInventory }">
 		<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -211,20 +211,14 @@
 
 					<div class="form-group input-group">
 
-					</div><h2>Inventory - All</h2>
+					</div><h2>Items to add to Inventory</h2>
 					<ul class="list-group">
-				<%-- 	<c:forEach var="inventory" items="${seller.inventory}">
+					<c:forEach var="inventory" items="${itemNotInInventory}">
 					<li class="list-group-item list-group-item-action">
-					<a href="getItemById.do?itemid=${seller.inventory.item.id }">
-					Item: ${inventory.item.name }<br>
-					Description: ${inventory.item.description }<br>
-					Price: $${inventory.item.price }<br>
-					Category: ${inventory.item.category.name }
-					Commodity:${inventory.item.commodity.name }
-					Variety:${inventory.item.variety.name }
-					</a></li>
+					${inventory.name}
+					</li>
 					<hr>
-					</c:forEach> --%>
+					</c:forEach>
 					</ul>
 					<br>
 					</div>
