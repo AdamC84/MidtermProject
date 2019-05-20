@@ -120,6 +120,68 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 
+	<c:if test="${! empty buyer.purchasesList }">
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10"><hr>
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+
+					<div class="form-group input-group">
+
+					</div>
+					<ul class="list-group">
+						<c:forEach var="buyer" items="${buyer.purchasesList}">
+							<li class="list-group-item list-group-item-action"
+							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.purchase.id }">
+								Date purchased: ${buyer.purchase.payment.paymentDate }
+									Total: $${buyer.purchase.payment.amount }</a></li>
+									<hr>
+						</c:forEach>
+					</ul>
+					<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+	</c:if>
+	
+		<c:if test="${! empty buyer.purchasesList }">
+		<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10"><hr>
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+
+					<div class="form-group input-group">
+
+					</div>
+					<ul class="list-group">
+						<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
+							<li class="list-group-item list-group-item-action"
+							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.inventory.itemId }">
+								Item: ${buyer.purchase.inventory.item.name }
+									$${buyer.purchase.inventory.price }</a></li>
+									<hr>
+						</c:forEach>
+					</ul>
+					<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+	</c:if>
+	
 
 	<footer class="container-fluid text-center">
 		<div class="row">
