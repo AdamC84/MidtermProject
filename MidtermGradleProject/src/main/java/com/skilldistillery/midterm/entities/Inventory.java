@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
@@ -20,9 +21,8 @@ public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "seller_id")
-	private Seller seller;
+	@OneToMany(mappedBy = "inventory")
+	private List<Seller> sellers;
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Item item;
@@ -74,29 +74,34 @@ public class Inventory {
 		}
 	}
 
-	public Inventory(int id, Seller seller, Item item) {
-		super();
-		this.id = id;
-		this.seller = seller;
-		this.item = item;
-	}
+	
 
 	public Inventory() {
 		super();
 	}
 	
 
-	public Seller getSeller() {
-		return seller;
-	}
 
-	public void setSeller(Seller seller) {
-		this.seller = seller;
+
+	public Inventory(int id, List<Seller> sellers, Item item, List<Purchase> purchases) {
+		super();
+		this.id = id;
+		this.sellers = sellers;
+		this.item = item;
+		this.purchases = purchases;
 	}
 
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", seller=" + seller + ", item=" + item + ", purchases=" + purchases.size() + "]";
+		return "Inventory [id=" + id + ", sellers=" + sellers + ", item=" + item + ", purchases=" + "" + "]";
+	}
+
+	public List<Seller> getSellers() {
+		return sellers;
+	}
+
+	public void setSellers(List<Seller> sellers) {
+		this.sellers = sellers;
 	}
 
 	@Override
