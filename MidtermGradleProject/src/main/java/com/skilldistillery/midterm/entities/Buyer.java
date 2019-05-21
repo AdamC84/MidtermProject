@@ -126,7 +126,7 @@ public class Buyer {
 		
 		if (purchases != null) {
 		builder.append(", purchases=");
-		builder.append(purchases);
+		builder.append(purchases.size());
 		}
 		
 		builder.append("]");

@@ -101,9 +101,7 @@
 				                  <a class="nav-link" href="addToCart.do?id=${item.id }"> <span
 					              style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
 				            </span></a>
-							<%-- <form method="get" action="addItemToCart.do">
-                                <button type="submit">Add to Cart</button>
-                            </form> --%>
+					
 									<hr>
 						</c:forEach>
 						</ul>
@@ -164,14 +162,14 @@
 
 					</div>
 					<ul class="list-group">
-						<c:forEach var="buyer" items="${buyer.purchases}">
+				<%-- 		<c:forEach var="purchase" items="${buyer.purchases}">
 							<li class="list-group-item list-group-item-action"
-							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.purchase.id }">
-								Date purchased: ${buyer.purchase.payment.paymentDate }
-									Total: $${buyer.purchase.payment.amount }</a></li>
+							><a href="getPurchaseById.do?purchaseid=${purchase.id }">
+								Date purchased: ${purchase.payment.paymentDate }
+									Total: $${purchase.payment.amount }</a></li>
 									<hr>
 						</c:forEach>
-					</ul>
+ --%>					</ul>
 					<br>
 					</div>
 				</div>
@@ -195,7 +193,7 @@
 
 					</div>
 					<ul class="list-group">
-						<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
+				<%-- 		<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
 							<li class="list-group-item list-group-item-action"
 							><a href="itemDetails.do?purchaseid=${buyer.purchase.inventory.itemId }">
 								Item: ${buyer.purchase.inventory.item.name }</a>
@@ -204,7 +202,7 @@
 									
 									</li>
 									<hr>
-						</c:forEach>
+						</c:forEach> --%>
 					</ul>
 					<br>
 					</div>
