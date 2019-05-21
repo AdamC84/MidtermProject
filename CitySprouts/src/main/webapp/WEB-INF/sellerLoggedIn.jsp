@@ -121,8 +121,13 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 	
-
-	<div class="container">
+	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+						<h2>Add Item</h2>
 	<c:if test="${empty item}">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
 		<form:input type="hidden" value="${seller.id}" path="id"/>
@@ -136,22 +141,22 @@
 	<form:form action="addItem.do" method="POST" modelAttribute="item">
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
+      *Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
     </div>
     </div>
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
+      *Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
     </div>
     </div>
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
+      *Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
     </div>
     </div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-  		Unit<form:select class="form-control" path="unit.name" value="unit">
+  		*Unit<form:select class="form-control" path="unit.name" value="unit" required="required">
   		<c:forEach var="unit" items="${unitList}">
   			<option>${unit.name}</option>
   		</c:forEach>
@@ -181,20 +186,49 @@
  	</div> --%>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-  		Category<form:select class="form-control" path="category.name" value="unit">
+  		*Category<form:select class="form-control" path="category.name" value="unit">
   		<c:forEach var="category" items="${categoryList}">
   			<option>${category.name}</option>
   		</c:forEach>
-  		
 		</form:select>
+ 	      *Quantity<input type="number" class="form-control" id="quantity" placeholder="0" value="0" name="qty" required/>
   		</div>
  	</div>
-
 	  <button type="submit" class="btn btn-primary">add Item</button>
 	</form:form>
-	
-	
 	</c:if>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	
+		<div
+		class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+						<h2>Store</h2>
+						<c:if test="${! empty inventory }">
+						<c:forEach var="siteuser" items="${inventory}">
+							<li class="list-group-item list-group-item-action"
+							><a href="getItemById.do?suid=${inventory.id }">
+								Item Id: ${inventory.item.id }
+								</a></li>
+								Seller Id:${inventory.seller.id}
+						</c:forEach>
+						</c:if>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	
 	
 
 

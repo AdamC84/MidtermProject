@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.ItemDAO;
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Seller;
 
@@ -39,19 +40,36 @@ public class ItemController {
 	}
 	
 	@RequestMapping(path="addItem.do", method = RequestMethod.POST)
-	public String addItem(Model model, Item item, HttpSession session ){
-		item.setActive(1);
-		System.out.println("************");
+	public String addItem(Model model, Item item, HttpSession session, @RequestParam int qty ){
+//		System.out.println("Quantity: " + qty);
 		Seller seller = (Seller) session.getAttribute("seller");
 		item.setSeller(seller);
-		System.out.println("ITEM *****  "+item);
-		
-		item = itemDao.addItem(item);
-		List<Item> items = itemDao.getAllItemsNotInInventory(seller);
+		item.setActive(1);
+		item = itemDao.addItem(item, seller);
 		model.addAttribute("seller",seller);
-		model.addAttribute("itemNot", item);
-		model.addAttribute("itemNotInInventory", items);
-		System.out.println("*******  "+items);
+		model.addAttribute("item", item);
+		
+		if (qty != 0) {
+			for (int i = qty; i < qty - 1; i ++) {
+			itemDao.addItemToInventory(item);
+			}
+		} else {
+			model.addAttribute("error", "A quantity must be entered");
+		}
+		List<Inventory> inventory = new ArrayList<Inventory>();
+		
+		inventory = itemDao.getSellerInventory(seller);
+		model.addAttribute(inventory);
+
+		//		System.out.println("Seller: **" + seller);
+//		System.out.println("Session" + session.getAttribute("user"));
+//		User currUser = (User) session.getAttribute("user");
+//		System.out.println("User role: " + currUser.getRole());
+//		System.out.println("ITEM *****  "+item);
+		
+//		System.out.println("****************"+item);
+//		System.out.println("Cat:" + item.getCategory());
+
 		return "sellerLoggedIn";
 	}
 	@RequestMapping(path="search.do", method = RequestMethod.GET)
@@ -85,4 +103,10 @@ public class ItemController {
 		mv.setViewName("itemDetails");
 		return mv;
 	}
+	@RequestMapping(path="getItem.do", method = RequestMethod.POST)
+	public String getItemById(Model model, Item item ){
+		model.addAttribute(item);
+		return "itemDetails";
+	}
+	
 }

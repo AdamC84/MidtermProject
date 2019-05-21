@@ -13,7 +13,7 @@ import com.skilldistillery.midterm.entities.Variety;
 public interface ItemDAO {
 	
 	public List<Item> getItemsByCategoryId(int id);
-	public Item addItem(Item i);
+//	public Item addItem(Item i);
 	public Item updateItem(Item i);
 	public Item deleteItem(Item i);
 	List<Item> getItemsByVarietyId(int id);
@@ -31,12 +31,11 @@ public interface ItemDAO {
 	List<Commodity> getAllCommodities();
 	List<Variety> getAllVariety();
 	List<Category> getAllCategory();
-	Inventory addItemToInventory(Inventory inventory);
+	Inventory addItemToInventory(Item item);
 	List<Inventory> getSellerInventory(Seller seller);
 	List<Inventory> getSellerInventoryById(int id);
-	List<Item> getAllItemsNotInInventory(Seller seller);
-
 	List<Item> getItemsByName(String keyword);
+	Item addItem(Item i, Seller s);
 
 	Item getItemByItemId(int id);
 

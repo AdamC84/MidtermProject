@@ -49,48 +49,9 @@ public class Item {
 	@JoinColumn(name = "seller_id")
 	private Seller seller;
 
-	
-	
-	
-	public Seller getSeller() {
-		return seller;
-	}
 
-	public void setSeller(Seller seller) {
-		this.seller = seller;
-	}
-
-	public void addInventory(Inventory inventory) {
-		if (inventories == null) {
-			inventories = new ArrayList<>();
-		}
-		if (!inventories.contains(inventory)) {
-			inventories.add(inventory);
-		}
-		inventory.setItem(this);
-	}
-
-	public void removeInventory(Inventory inventory) {
-		inventory.setItem(null);
-		if (inventories != null) {
-			inventories.remove(inventory);
-		}
-	}
-
-	public String getImgUrl() {
-		return imgUrl;
-	}
-
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-
-	public int getActive() {
-		return active;
-	}
-
-	public void setActive(int active) {
-		this.active = active;
+	public Item() {
+		super();
 	}
 
 	public int getId() {
@@ -165,26 +126,6 @@ public class Item {
 		this.inventories = inventories;
 	}
 
-	public Item(int id, String name, String description, double price, Date bestBy, Date picked, Category category,
-			String lastUpdated, List<Inventory> inventories, Unit unit, Commodity commodity, Variety variety,
-			int active, String imgUrl) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.price = price;
-		this.bestBy = bestBy;
-		this.picked = picked;
-		this.category = category;
-		this.lastUpdated = lastUpdated;
-		this.inventories = inventories;
-		this.unit = unit;
-		this.commodity = commodity;
-		this.variety = variety;
-		this.active = active;
-		this.imgUrl = imgUrl;
-	}
-
 	public Unit getUnit() {
 		return unit;
 	}
@@ -209,9 +150,69 @@ public class Item {
 		this.variety = variety;
 	}
 
-	public Item() {
-		super();
+	public int getActive() {
+		return active;
 	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+
+	public void addInventory(Inventory inventory) {
+		if (inventories == null) {
+			inventories = new ArrayList<>();
+		}
+		if (!inventories.contains(inventory)) {
+			inventories.add(inventory);
+		}
+		inventory.setItem(this);
+	}
+
+	public void removeInventory(Inventory inventory) {
+		inventory.setItem(null);
+		if (inventories != null) {
+			inventories.remove(inventory);
+		}
+	}
+
+
+	public Item(int id, String name, String description, double price, Date bestBy, Date picked, Category category,
+			String lastUpdated, List<Inventory> inventories, Unit unit, Commodity commodity, Variety variety,
+			int active, String imgUrl) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.bestBy = bestBy;
+		this.picked = picked;
+		this.category = category;
+		this.lastUpdated = lastUpdated;
+		this.inventories = inventories;
+		this.unit = unit;
+		this.commodity = commodity;
+		this.variety = variety;
+		this.active = active;
+		this.imgUrl = imgUrl;
+	}
+
+
 
 	public Item(int id, String name, String description, double price, Date bestBy, Date picked, Category category,
 			String lastUpdated, List<Inventory> inventories) {
