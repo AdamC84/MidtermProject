@@ -96,29 +96,25 @@
   </form:form>
   </div>
   
-
-
-
- 
-
-
-
 	<footer class="container-fluid text-center">
 		<div class="row">
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
 				<br>
-				<h4>Address and contact info</h4>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
-				<a href="#" class="fa fa-youtube"></a> <a href="#"
-					class="fa fa-github"></a>
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
 			</div>
 			<div class="col-sm-4">
-				<img src="img/b.png" class="icon">
+				<img src="img/logo_rd.png" class="icon">
 			</div>
 		</div>
 	</footer>

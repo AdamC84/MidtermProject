@@ -92,12 +92,14 @@
 				<div id="panel-grey">
 				<br>
 					<h1>City Sprouts</h1>
-					<h3>Connecting Urban farmers with the local market</h3>
+					<h3>About the team...</h3>
 					<p>
-						City Sprouts brings locally grown produce to the market. Targeting
-						the urban community, we enable all growers to get their crops to
-						buyers <em>directly</em> ensuring you get the best price for your
-						crop!
+						City Sprouts is the brainchild of Randy Beach. The concept is simple, connect urban farmers with the local market while making fresh produce more widely available to urban markets.<p>
+						<p>
+						Teammates Adam Crawford and Rob Lounsbury are helping Randy bring this idea to life while fulfilling the requirements for the Skill Distillery Midterm Project Full-Stack Webapp.  
+						</p>
+						<p>
+						Stay tuned as this project continues to sprout!
 						</p>
 					</div>
 					

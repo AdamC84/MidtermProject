@@ -99,6 +99,10 @@ footer {
 	font-size: medium;
 }
 
+#navbarSupportedContent > div:nth-child(2) > a {
+		color: tomato !important;
+}
+
 
 #navbarSupportedContent > form {
 	padding-top: 20px;
@@ -106,6 +110,10 @@ footer {
 
 body > nav > img {
 	left: 50px;
+}
+
+#tomato-text > div > h3 > a {
+	color: tomato;
 }
 
 #white-text > h4 > a {
