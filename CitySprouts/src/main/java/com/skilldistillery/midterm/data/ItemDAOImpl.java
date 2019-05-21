@@ -184,10 +184,15 @@ public class ItemDAOImpl implements ItemDAO {
 		return item;
 	}
 	@Override
-	public Inventory addItemToInventory(Item item) {
+	public Inventory addItemToInventory(Item item, Seller s) {
 		Inventory i = new Inventory();
+		Seller seller = em.find(Seller.class, s.getId());
 		Item addItem = em.find(Item.class, item.getId());
 		i.setItem(addItem);
+		i.setSeller(seller);
+		
+		System.out.println("In inventory: " + i);
+		
 		em.persist(i);
 		em.flush();
 		return i;

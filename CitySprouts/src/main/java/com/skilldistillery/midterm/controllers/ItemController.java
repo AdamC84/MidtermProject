@@ -41,25 +41,27 @@ public class ItemController {
 	
 	@RequestMapping(path="addItem.do", method = RequestMethod.POST)
 	public String addItem(Model model, Item item, HttpSession session, @RequestParam int qty ){
-//		System.out.println("Quantity: " + qty);
+		System.out.println("Quantity: " + qty);
 		Seller seller = (Seller) session.getAttribute("seller");
 		item.setSeller(seller);
 		item.setActive(1);
 		item = itemDao.addItem(item, seller);
 		model.addAttribute("seller",seller);
 		model.addAttribute("item", item);
+		System.out.println("Item in controller b4 add to inv" + item);
 		
 		if (qty != 0) {
-			for (int i = qty; i < qty - 1; i ++) {
-			itemDao.addItemToInventory(item);
+			for (int i = 1; i < qty; i ++) {
+			itemDao.addItemToInventory(item, seller);
+			System.out.println("adding to inventory");
 			}
 		} else {
 			model.addAttribute("error", "A quantity must be entered");
+			return "sellerLoggedIn";
 		}
 		List<Inventory> inventory = new ArrayList<Inventory>();
-		
 		inventory = itemDao.getSellerInventory(seller);
-		model.addAttribute(inventory);
+		model.addAttribute("inventory", inventory);
 
 		//		System.out.println("Seller: **" + seller);
 //		System.out.println("Session" + session.getAttribute("user"));
@@ -104,7 +106,7 @@ public class ItemController {
 		return mv;
 	}
 	@RequestMapping(path="getItem.do", method = RequestMethod.POST)
-	public String getItemById(Model model, Item item ){
+	public String getItemById(Model model, Item item){
 		model.addAttribute(item);
 		return "itemDetails";
 	}
