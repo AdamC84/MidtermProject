@@ -35,11 +35,16 @@ public class LoginController {
 		if (u != null) {
 		u.setLastLogin(new Date());
 		session.setAttribute("user", u);
+		System.out.println(u);
 		String role = u.getRole().toString();
 		if (role.equals("BUYER")) {
+			Buyer buyer = d.getBuyerByUserId(u.getId());
+			session.setAttribute("buyer", buyer);
 			mv.setViewName("buyerLoggedIn");
 			return mv;
 		} else if (role.equals("SELLER")) {
+			Seller s = d.getSellerByUserId(u.getId());
+			session.setAttribute("seller", s);
 			Seller seller = d.getSellerByUserId(u.getId());
 			if (itemDAO.getSellerInventory(seller) != null) {
 				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
@@ -131,17 +136,19 @@ public class LoginController {
 	@RequestMapping(path = "registerSeller.do", method = RequestMethod.POST)
 	public String registerUser(Seller seller, Model model, RedirectAttributes redir, HttpSession session) {
 		User user = (User) session.getAttribute("user");
+		seller.getUser().setAddress(seller.getUser().getAddress());
 		seller.setUser(user);
+	
+		
+		d.addAddress(user.getAddress());
 		seller.setActive(1);
-		System.out.println("USER  ***** " + user);
-		System.out.println("****" + seller);
 		session.setAttribute("seller", seller);
 		seller = d.addSeller(seller);
 
 		redir.addFlashAttribute(seller);
-		System.out.println("*************" + seller);
 		return "redirect:sellerLoggedInView.do";
 	}
+
 
 	@RequestMapping(path = "sellerLoggedInView.do", method = RequestMethod.GET)
 	public String registeredSeller(Model model, HttpSession session) {
@@ -180,6 +187,43 @@ public class LoginController {
 		System.out.println("*************" + buyer);
 
 		return "redirect:buyerLoggedInView.do";
+	}
+	
+	
+	@RequestMapping(path = "updateSeller.do", method = RequestMethod.POST)
+	public String updateSeller(Seller seller, Model model, RedirectAttributes redir, HttpSession session) {
+		System.out.println(seller);
+		User user = (User) session.getAttribute("user");
+		Seller seller1 = (Seller) session.getAttribute("seller");
+		seller.getUser().setId(user.getId());
+		seller.getUser().getAddress().setId(user.getAddress().getId());
+		user.setAddress(d.updateAddress(seller.getUser().getAddress()));
+		seller.setUser(d.updateUser(seller.getUser()));
+		seller.setId(seller1.getId());
+		seller = d.updateSeller(seller);
+		
+		
+		
+		return "sellerLoggedIn";
+	}
+	@RequestMapping(path = "updateBuyer.do", method = RequestMethod.POST)
+	public String updateBuyer(Buyer buyer, Model model, RedirectAttributes redir, HttpSession session) {
+		System.out.println(buyer);
+		User user = (User) session.getAttribute("user");
+		Buyer buyer1 = (Buyer) session.getAttribute("buyer");
+		System.out.println("IN UPDATEBUYER.DO    **    "+user);
+		buyer.getUser().setId(user.getId());
+		buyer.setId(buyer1.getId());
+		System.out.println("********"+buyer);
+		buyer.getUser().getAddress().setId(user.getAddress().getId());
+		user.setAddress(d.updateAddress(buyer.getUser().getAddress()));
+		buyer.setUser(d.updateUser(buyer.getUser()));
+		buyer = d.updateBuyer(buyer);
+		System.out.println("********"+buyer);
+		
+		
+		
+		return "buyerLoggedIn";
 	}
 
 	@RequestMapping(path = "registerDriver.do")

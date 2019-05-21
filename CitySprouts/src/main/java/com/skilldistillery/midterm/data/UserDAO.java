@@ -57,5 +57,6 @@ public interface UserDAO {
 	public Address updateAddress(Address a);
 	public Address deleteAddress(Address a);
 	Seller getSellerByUserId(int id);
+	public Buyer getBuyerByUserId(int id);
 	
 }
