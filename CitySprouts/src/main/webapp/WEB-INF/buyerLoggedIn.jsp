@@ -123,11 +123,10 @@
 				<hr>
 				<div id="panel-green">
 					<div id="white-text">
-							<h3>buyer Id</h3>
-							${buyer.id}
-							<h3>User Id</h3>
-							${buyer.user.id}
-							<h3>Personal Info</h3>
+						<h4>Personal Info</h4>
+							Buyer Id: ${buyer.id}
+							User Id: ${buyer.user.id}
+						<h3>Personal Info</h3>
 							Name: ${buyer.user.firstName }, ${buyer.user.lastName }<br>
 							Username: ${buyer.user.username }<br>
 							Password: ${buyer.user.password }<br>
@@ -198,9 +197,12 @@
 					<ul class="list-group">
 						<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
 							<li class="list-group-item list-group-item-action"
-							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.inventory.itemId }">
-								Item: ${buyer.purchase.inventory.item.name }
-									$${buyer.purchase.inventory.price }</a></li>
+							><a href="itemDetails.do?purchaseid=${buyer.purchase.inventory.itemId }">
+								Item: ${buyer.purchase.inventory.item.name }</a>
+									$${buyer.purchase.inventory.price }
+								Store: ${buyer.purchase.inventory.seller.storeName }
+									
+									</li>
 									<hr>
 						</c:forEach>
 					</ul>

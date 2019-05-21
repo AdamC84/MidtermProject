@@ -3,6 +3,8 @@ package com.skilldistillery.midterm.data;
 
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
+
 import com.skilldistillery.midterm.entities.Address;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Driver;
@@ -57,5 +59,8 @@ public interface UserDAO {
 	public Address updateAddress(Address a);
 	public Address deleteAddress(Address a);
 	Seller getSellerByUserId(int id);
+	Buyer getBuyerByUserId(int id);
+	Driver getDriverByUserId(int id);
+	Admin getAdminByUserId(int id);
 	
 }

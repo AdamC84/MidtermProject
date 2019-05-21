@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
@@ -25,6 +26,8 @@ public class LoginController {
 	@Autowired
 	UserDAO d;
 	@Autowired
+	BuyerDAO b;
+	@Autowired
 	ItemDAO itemDAO;
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
@@ -37,6 +40,12 @@ public class LoginController {
 		session.setAttribute("user", u);
 		String role = u.getRole().toString();
 		if (role.equals("BUYER")) {
+			Buyer buyer = d.getBuyerByUserId(u.getId());
+			if (b.getAllPurchases(buyer) != null) {
+				mv.addObject("purchases", b.getAllPurchases(buyer));
+			}
+			session.setAttribute("buyer", buyer);
+			mv.addObject(buyer);
 			mv.setViewName("buyerLoggedIn");
 			return mv;
 		} else if (role.equals("SELLER")) {

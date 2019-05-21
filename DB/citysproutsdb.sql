@@ -393,8 +393,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `active`, `user_id`) VALUES (1, '1234765434560987', '2022-11-30', '123', 1, 5);
-INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `active`, `user_id`) VALUES (2, '5434876534560987', '2023-03-31', '456', 1, 6);
+INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `active`, `user_id`) VALUES (1, '1234765434560987', '2022-11-30', '123', 1, 3);
+INSERT INTO `buyer` (`id`, `credit_card_num`, `credit_card_exp_date`, `credit_card_ccv`, `active`, `user_id`) VALUES (2, '5434876534560987', '2023-03-31', '456', 1, 4);
 
 COMMIT;
 
@@ -1260,8 +1260,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `citysproutsdb`;
-INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (1, '123456789', 'US Bank', '4837265', 1, 3);
-INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (2, '746295823', 'Chase', '5048377', 1, 4);
+INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (1, '123456789', 'US Bank', '4837265', 1, 5);
+INSERT INTO `driver` (`id`, `bank_routing`, `bank_name`, `bank_acct_num`, `active`, `user_id`) VALUES (2, '746295823', 'Chase', '5048377', 1, 6);
 
 COMMIT;
 

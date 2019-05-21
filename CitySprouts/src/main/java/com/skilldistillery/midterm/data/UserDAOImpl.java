@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Address;
@@ -310,6 +311,24 @@ public class UserDAOImpl implements UserDAO {
 		String query = "Select s from Seller s where s.user.id = :id";
 		Seller s = em.createQuery(query, Seller.class).setParameter("id", id).getResultList().get(0);
 		return s;
+	}
+	@Override
+	public Buyer getBuyerByUserId(int id) {
+		String query = "Select b from Buyer b where b.user.id = :id";
+		Buyer b = em.createQuery(query, Buyer.class).setParameter("id", id).getResultList().get(0);
+		return b;
+	}
+	@Override
+	public Driver getDriverByUserId(int id) {
+		String query = "Select d from Driver d where d.user.id = :id";
+		Driver d = em.createQuery(query, Driver.class).setParameter("id", id).getResultList().get(0);
+		return d;
+	}
+	@Override
+	public Admin getAdminByUserId(int id) {
+		String query = "Select a from Admin a where a.user.id = :id";
+		Admin a = em.createQuery(query, Admin.class).setParameter("id", id).getResultList().get(0);
+		return a;
 	}
 
 	
