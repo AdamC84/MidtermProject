@@ -179,6 +179,7 @@ public class UserDAOImpl implements UserDAO {
 		updatedBuyer.setCreditCardExpDate(b.getCreditCardExpDate());
 		updatedBuyer.setCreditCardNum(b.getCreditCardNum());
 		updatedBuyer.setUser(em.find(User.class, b.getUser().getId()));
+		updatedBuyer.setPurchases(b.getPurchases());
 		em.persist(updatedBuyer);
 		em.flush();
 		return updatedBuyer;

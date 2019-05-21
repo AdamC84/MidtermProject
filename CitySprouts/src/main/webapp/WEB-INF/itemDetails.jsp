@@ -56,20 +56,8 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="searchResults.do">Search
 							Results</a> 
-							<c:choose>
-							<c:if test="${ user.role equals SELLER}">
-							<a class="dropdown-item" href="getProfile.do">Seller Profile</a>
-							</c:if>
-							<c:if test="${ user.role equals ADMIN}">
-							<a class="dropdown-item" href="getProfile.do">Admin Profile</a>
-							</c:if>
-							<c:if test="${ user.role equals DRIVER}">
-							<a class="dropdown-item" href="getProfile.do">Driver Profile</a>
-							</c:if>
-							<c:otherwise>
-							<a class="dropdown-item" href="getProfile.do">Buyer Profile</a>
-							</c:otherwise>
-							</c:choose>
+							<a class="dropdown-item" href="getProfile.do">Profile</a>
+						
 							<a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> 
 							<a class="dropdown-item" href="sellerLearnMore.do">Seller

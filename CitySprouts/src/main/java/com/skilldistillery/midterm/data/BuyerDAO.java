@@ -9,7 +9,7 @@ public interface BuyerDAO {
 
 	public List<Purchase> getAllPurchases(Buyer buyer);
 	public Purchase getPurchase(int id);
-//	public 
+	Purchase addPurchase(Purchase pp);
 	
 	
 }
