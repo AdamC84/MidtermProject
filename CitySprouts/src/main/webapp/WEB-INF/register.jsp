@@ -35,8 +35,13 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
+			class="icon"></a>
+			<div style="padding:20px 0px 0px 0px;">
+		<a class="navbar-brand navbar-left" href="home.do"> 
+			<img src="img/favicon-32x32.png" class="icon"></a>
+			</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,22 +58,30 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Menu </a>
+					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="buyerLearnMore.do">Buyer Learn More</a>
-						<a class="dropdown-item" href="sellerLearnMore.do">Seller Learn More</a>
-					<!-- 	<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a> -->
+						<div class="dropdown-divider"></div>
+ <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
+							Learn More</a>
+							<a class="dropdown-item" href="about">About</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li>
+<!-- 				<li class="nav-item"><a class="nav-link disabled" href="#"
+					tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 			</ul>
-			 <a class="nav-link" href="#">Login/Sign up</a>
-			<form class="form-inline my-2 my-lg-0">
+<%-- 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+			</form> --%>
+			<div class="nav-item">
+			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			</div>
+			<div class="nav-item"><a class="nav-link" href="login">
+				<span style="font-size: 2em;">
+				<i class="fa fa-user-circle-o"></i>
+				</span></a>
+			</div>
 		</div>
 	</nav>
  <div class="container">
@@ -178,17 +191,20 @@
 			<div class="col-sm-4">
 				<h3>Contact Us</h3>
 				<br>
-				<h4>Address and contact info</h4>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
-				<a href="#" class="fa fa-youtube"></a> <a href="#"
-					class="fa fa-github"></a>
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
 			</div>
 			<div class="col-sm-4">
-				<img src="img/b.png" class="icon">
+				<img src="img/logo_rd.png" class="icon">
 			</div>
 		</div>
 	</footer>

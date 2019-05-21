@@ -68,6 +68,10 @@ public class LoginController {
 	public String login(Model model) {
 		return "login";
 	}
+	@RequestMapping(path = "about")
+	public String about(Model model) {
+		return "about";
+	}
 
 
 	@RequestMapping(path = "logout.do")
