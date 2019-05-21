@@ -239,7 +239,7 @@ public class Item {
 			return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
 					+ ", bestBy=" + bestBy + ", picked=" + picked + ", category=" + category + ", lastUpdated="
 					+ lastUpdated + ", inventories=" + inventories.size() + ", unit=" + unit + ", commodity="
-					+ commodity + ", variety=" + variety + ", active=" + active + "]";
+					+ commodity + ", variety=" + variety + ", active=" + active + "seller = " + seller+ "]";
 		}
 	}
 

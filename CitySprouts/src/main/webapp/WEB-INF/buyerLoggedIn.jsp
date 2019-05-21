@@ -86,6 +86,7 @@
 
 
 
+
 	<div class="container-fluid text-center align-items-center justify-content-center">
 		<div id="panel-green">
 			<div id="white-text">
@@ -185,6 +186,30 @@
 
 								</div>
 
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+						<c:if test="${! empty items }">
+							<h3>Items</h3>
+						<ul>
+						<c:forEach var="item" items="${items}">
+							<li>${item.name }</li>
+							<li>${item.category.name }</li>
+				                  <a class="nav-link" href="addToCart.do?id=${item.id }"> <span
+					              style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+				            </span></a>
+					
+									<hr>
+						</c:forEach>
+						</ul>
+						</c:if>
+
+
 							</div>
 						</div>
 					</div>
@@ -236,6 +261,7 @@
 					<div id="panel-green">
 						<div id="white-text">
 
+
 							<div class="form-group input-group"></div>
 							<ul class="list-group">
 								<c:forEach var="buyer" items="${buyer.purchases}">
@@ -248,6 +274,17 @@
 							</ul>
 							<br>
 						</div>
+					</div>
+					<ul class="list-group">
+				<%-- 		<c:forEach var="purchase" items="${buyer.purchases}">
+							<li class="list-group-item list-group-item-action"
+							><a href="getPurchaseById.do?purchaseid=${purchase.id }">
+								Date purchased: ${purchase.payment.paymentDate }
+									Total: $${purchase.payment.amount }</a></li>
+									<hr>
+						</c:forEach>
+ --%>					</ul>
+					<br>
 					</div>
 				</div>
 			</div>
@@ -278,7 +315,21 @@
 								</c:forEach>
 							</ul>
 							<br>
-						</div>
+            </div>
+					</div>
+					<ul class="list-group">
+				<%-- 		<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
+							<li class="list-group-item list-group-item-action"
+							><a href="itemDetails.do?purchaseid=${buyer.purchase.inventory.itemId }">
+								Item: ${buyer.purchase.inventory.item.name }</a>
+									$${buyer.purchase.inventory.price }
+								Store: ${buyer.purchase.inventory.seller.storeName }
+									
+									</li>
+									<hr>
+						</c:forEach> --%>
+					</ul>
+					<br>
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,7 @@ package com.skilldistillery.midterm.entities;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,7 @@ public class Inventory {
 	@JoinColumn(name = "item_id")
 	private Item item;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "purchase_id")
 	private Purchase purchase;
 	
