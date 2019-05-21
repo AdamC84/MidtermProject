@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
@@ -25,6 +26,8 @@ public class UserController {
 
 	@Autowired
 	UserDAO d;
+	@Autowired
+	BuyerDAO b;
 	@Autowired
 	ItemDAO iDao;
 	
@@ -126,5 +129,48 @@ public class UserController {
 		
 		return "sellerLoggedIn";
 	}
+	@RequestMapping(path = "getProfile.do")
+	public String getUserProfile(Model model, User user, HttpSession session) {
+		String error = "Issue returning results. Please try again.";
+		User u = d.getUserById(user.getId());
+		if (u != null) {
+		session.setAttribute("user", u);
+		String role = u.getRole().toString();
+		if (role.equals("BUYER")) {
+			Buyer buyer = d.getBuyerByUserId(u.getId());
+			if (b.getAllPurchases(buyer) != null) {
+				model.addAttribute("purchases", b.getAllPurchases(buyer));
+				session.setAttribute("buyer", buyer);
+				model.addAttribute(buyer);
+				return "buyerLoggedIn";
+			} else {
+				model.addAttribute("error", error);
+				return "buyerLoggedIn";
+			}
+		} else if (role.equals("SELLER")) {
+			Seller seller = d.getSellerByUserId(u.getId());
+			if (iDao.getSellerInventory(seller) != null) {
+				model.addAttribute("inventory", iDao.getSellerInventory(seller));
+				session.setAttribute("seller", seller);
+				model.addAttribute(seller);
+				return "sellerLoggedIn";
+			}else {
+				model.addAttribute("error", error);
+				return "buyerLoggedIn";
+			}
+		} else if (role.equals("DRIVER")) {
+			return "driverLoggedIn";
+		} else if (role.equals("ADMIN")) {
+			return "adminLoggedIn";
+		} else {
+			return "index";
+		}
+		} else {
+			model.addAttribute("error", error);
+		return error;
+		}
+	}
+	
+	
 
 }
