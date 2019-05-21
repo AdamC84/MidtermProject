@@ -84,7 +84,19 @@ public class LoginController {
 	}
 
 	@RequestMapping(path = "login")
-	public String login(Model model) {
+	public String login(Model model, HttpSession session) {
+		User user =(User) session.getAttribute("user");
+		String role;
+		try {
+			role = user.getRole().toString();
+		} catch (Exception e) {
+			return "login";
+		}
+		if(role.equals("BUYER")) {
+			return "buyerLoggedIn";
+		}else if(role.equals("SELLER")) {
+			return "sellerLoggedIn";
+		}else
 		return "login";
 	}
 	@RequestMapping(path = "about")
