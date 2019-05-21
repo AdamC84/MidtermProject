@@ -38,12 +38,6 @@ public class UserController {
 		mv.setViewName("index");
 		return mv;
 	}
-//	@RequestMapping(path = "purchaseResults.do")
-//	public ModelAndView purchaseResults() {
-//		ModelAndView mv = new ModelAndView();		
-//		mv.setViewName("purchaseResults");
-//		return mv;
-//	}
 	
 	@RequestMapping(path = "cart.do")
 	public ModelAndView cart() {
@@ -70,10 +64,27 @@ public class UserController {
 		return mv;
 	}
 	@RequestMapping(path = "editProfile.do")
-	public ModelAndView edit() {
-		ModelAndView mv = new ModelAndView();		
-		mv.setViewName("editProfile");
-		return mv;
+	public String edit(HttpSession session, Model model) {
+		User u = (User)session.getAttribute("user");
+		String role = u.getRole().toString();
+		if (role.equals("BUYER")) {
+			Buyer buyer = d.getBuyerByUserId(u.getId());
+			model.addAttribute(buyer);
+			return "editBuyer";
+		} else if (role.equals("SELLER")) {
+			Seller seller = d.getSellerByUserId(u.getId());
+			if (iDao.getSellerInventory(seller) != null) {
+				model.addAttribute("inventory", iDao.getSellerInventory(seller));
+			}
+			model.addAttribute(seller);
+			return "editProfile";
+		} else if (role.equals("DRIVER")) {
+			return "driverLoggedIn";
+		} else if (role.equals("ADMIN")) {
+			return "adminLoggedIn";
+		} else {
+			return "index";
+		}
 	}
 	
 	@RequestMapping(path = "getDrivers.do")

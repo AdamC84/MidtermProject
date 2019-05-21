@@ -106,7 +106,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
 				+ ", createTime=" + createTime + ", lastLogin=" + lastLogin + ", firstName=" + firstName + ", lastName="
-				+ lastName + "]";
+				+ lastName +"address= " + address+ "]";
 	}
 	public User(int id, String username, String password, String email, Date createTime, Date lastLogin, Role role,
 			String firstName, String lastName) {

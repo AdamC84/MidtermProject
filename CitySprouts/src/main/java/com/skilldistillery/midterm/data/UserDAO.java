@@ -58,9 +58,10 @@ public interface UserDAO {
 	public Address addAddress(Address a);
 	public Address updateAddress(Address a);
 	public Address deleteAddress(Address a);
-	Seller getSellerByUserId(int id);
-	Buyer getBuyerByUserId(int id);
-	Driver getDriverByUserId(int id);
-	Admin getAdminByUserId(int id);
+	public Seller getSellerByUserId(int id);
+	public Buyer getBuyerByUserId(int id);
+	public Driver getDriverByUserId(int id);
+	public Admin getAdminByUserId(int id);
+
 	
 }

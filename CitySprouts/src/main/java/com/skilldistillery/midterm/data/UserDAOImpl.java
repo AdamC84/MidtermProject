@@ -91,7 +91,6 @@ public class UserDAOImpl implements UserDAO {
 		updatedUser.setEmail(u.getEmail());
 		updatedUser.setPassword(u.getPassword());
 		updatedUser.setUsername(u.getUsername());
-		updatedUser.setRole(u.getRole());
 		em.persist(updatedUser);
 		return updatedUser;
 	}
@@ -179,7 +178,7 @@ public class UserDAOImpl implements UserDAO {
 		updatedBuyer.setCreditCardCcv(b.getCreditCardCcv());
 		updatedBuyer.setCreditCardExpDate(b.getCreditCardExpDate());
 		updatedBuyer.setCreditCardNum(b.getCreditCardNum());
-		updatedBuyer.setUser(em.find(User.class, b.getId()));
+		updatedBuyer.setUser(em.find(User.class, b.getUser().getId()));
 		em.persist(updatedBuyer);
 		em.flush();
 		return updatedBuyer;
@@ -221,7 +220,7 @@ public class UserDAOImpl implements UserDAO {
 		updatedSeller.setBankAcctNum(s.getBankAcctNum());
 		updatedSeller.setBankName(s.getBankName());
 		updatedSeller.setBankRouting(s.getBankRouting());
-		updatedSeller.setUser(em.find(User.class, s.getId()));
+		updatedSeller.setUser(em.find(User.class, s.getUser().getId()));
 		em.persist(updatedSeller);
 		em.flush();
 		return updatedSeller;
@@ -290,7 +289,7 @@ public class UserDAOImpl implements UserDAO {
 		a.setZipcode(address.getZipcode());
 		em.persist(a);
 		em.flush();
-		return null;
+		return a;
 	}
 	@Override
 	public Address deleteAddress(Address a) {
@@ -330,6 +329,7 @@ public class UserDAOImpl implements UserDAO {
 		Admin a = em.createQuery(query, Admin.class).setParameter("id", id).getResultList().get(0);
 		return a;
 	}
+
 
 	
 }

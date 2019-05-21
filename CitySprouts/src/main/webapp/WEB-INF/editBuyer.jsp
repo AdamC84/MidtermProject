@@ -26,7 +26,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+
 
 <style>
 <%@include file="css/style.css" %>
@@ -89,31 +89,31 @@
 	</nav>
 
 
-<form:form action="updateSeller.do" method="POST" modelAttribute="seller">
+<form:form action="updateBuyer.do" method="POST" modelAttribute="buyer">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">First</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="user.firstName" value="${seller.user.firstName}"/>
+      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="user.firstName" value="${buyer.user.firstName}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="user.lastName" value="${seller.user.lastName}"/>
+      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="user.lastName" value="${buyer.user.lastName}"/>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">User Name</label>
-      <form:input type="text" class="form-control" id="userName" placeholder="userName" path="user.username" value="${seller.user.username}"/>
+      <form:input type="text" class="form-control" id="userName" placeholder="userName" path="user.username" value="${buyer.user.username}"/>
     </div>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="user.email" value="${seller.user.email}"/>
+      <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="user.email" value="${buyer.user.email}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="user.password" value="${seller.user.password}"/>
+      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="user.password" value="${buyer.user.password}"/>
     </div>
    
   </div>
@@ -146,19 +146,18 @@
       <form:input type="text" class="form-control" id="inputZip" path="user.address.zipcode"/>
     </div>
   </div>
+  <div class="container">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Bank Routing</label>
-      <form:input type="text" class="form-control" id="firstName" placeholder="first" path="bankRouting" />
+      <label for="inputEmail4">Credit Card Number</label>
+      <form:input type="test" class="form-control" id="firstName" placeholder="44444" path="creditCardNum" />
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank Name</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankName"/>
-    </div>
+  
   </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank acct number</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankAcctNum" />
+      <label for="inputPassword4">CCV</label>
+      <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv"/>
+    </div>
     </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
@@ -175,13 +174,10 @@
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
-				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
-				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
-				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> 
-					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
-<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
+					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
+				<a href="#" class="fa fa-youtube"></a> <a href="#"
+					class="fa fa-github"></a>
 			</div>
 			<div class="col-sm-4">
 				<img src="img/logo_rd.png" class="icon">
