@@ -6,6 +6,7 @@ import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Commodity;
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.PurchaseStatus;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
@@ -41,6 +42,10 @@ public interface ItemDAO {
 	List<Item> getItemsByKeyword(String keyword)
 	Inventory getInventoryByItemId(int id);
 	public PurchaseStatus getPurchaseStatusById(int i);
+	int getPriceOfAllItemsInCart(int id);
+	Purchase getPurchaseById(int id);
+	Purchase getPurchaseByBuyerId(int id);
+	PurchaseStatus getPurchaseStatusByName(String name);
 
 
 
