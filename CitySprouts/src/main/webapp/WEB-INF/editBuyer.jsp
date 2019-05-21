@@ -89,31 +89,31 @@
 	</nav>
 
 
-<form:form action="updateSeller.do" method="POST" modelAttribute="seller">
+<form:form action="updateBuyer.do" method="POST" modelAttribute="buyer">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">First</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="user.firstName" value="${seller.user.firstName}"/>
+      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="user.firstName" value="${buyer.user.firstName}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="user.lastName" value="${seller.user.lastName}"/>
+      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="user.lastName" value="${buyer.user.lastName}"/>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">User Name</label>
-      <form:input type="text" class="form-control" id="userName" placeholder="userName" path="user.username" value="${seller.user.username}"/>
+      <form:input type="text" class="form-control" id="userName" placeholder="userName" path="user.username" value="${buyer.user.username}"/>
     </div>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="user.email" value="${seller.user.email}"/>
+      <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="user.email" value="${buyer.user.email}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="user.password" value="${seller.user.password}"/>
+      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="user.password" value="${buyer.user.password}"/>
     </div>
    
   </div>
@@ -146,19 +146,18 @@
       <form:input type="text" class="form-control" id="inputZip" path="user.address.zipcode"/>
     </div>
   </div>
+  <div class="container">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Bank Routing</label>
-      <form:input type="text" class="form-control" id="firstName" placeholder="first" path="bankRouting" />
+      <label for="inputEmail4">Credit Card Number</label>
+      <form:input type="test" class="form-control" id="firstName" placeholder="44444" path="creditCardNum" />
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank Name</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankName"/>
-    </div>
+  
   </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank acct number</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankAcctNum" />
+      <label for="inputPassword4">CCV</label>
+      <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv"/>
+    </div>
     </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

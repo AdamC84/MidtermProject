@@ -71,7 +71,7 @@
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login.do">
+			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
 				<i class="fa fa-user-circle-o"></i>
 				</span></a>
@@ -94,8 +94,8 @@
 						${seller.storeName }<br>
 						<hr>
 						<h4>Personal Info</h4>
-						Seller Id: ${seller.id}
-						User Id: ${seller.user.id}
+						Seller Id: ${seller.id}<br>
+						User Id: ${seller.user.id}<br>
 						Name: ${seller.user.firstName }, ${seller.user.lastName }<br>
 						Username: ${seller.user.username }<br>
 						Password: ${seller.user.password }<br>
@@ -159,26 +159,7 @@
 		</form:select>
   		</div>
  	</div>
-   <%--  <div class="form-row">
-  		<div class="col-md-4 mb-3">
-  		Commodity<form:select class="form-control" path="commodity.name" value="unit">
-  		<c:forEach var="commodity" items="${commodityList}">
-  			<option>${commodity.name}</option>
-  		</c:forEach>
-  		
-		</form:select>
-  		</div>
- 	</div> --%>
-  <%--   <div class="form-row">
-  		<div class="col-md-4 mb-3">
-  		Variety<form:select class="form-control" path="variety.name" value="unit">
-  		<c:forEach var="variety" items="${varietyList}">
-  			<option>${variety.name}</option>
-  		</c:forEach>
-  		
-		</form:select>
-  		</div>
- 	</div> --%>
+ 
     <div class="form-row">
   		<div class="col-md-4 mb-3">
   		Category<form:select class="form-control" path="category.name" value="unit">

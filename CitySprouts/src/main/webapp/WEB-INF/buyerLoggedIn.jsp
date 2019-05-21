@@ -72,7 +72,7 @@
 				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
 			<div class="nav-item">
-				<a class="nav-link" href="login.do"> <span
+				<a class="nav-link" href="login"> <span
 					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
 				<a class="nav-link" href="cart.do?id=${user.id }"> <span
