@@ -56,12 +56,10 @@
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="searchResults.do">Search
-							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
-							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
-							Learn More</a>
+							Results</a> 
+							<a class="dropdown-item" href="getProfile.do">Profile</a> 
+							<a class="dropdown-item" href="pastOrders.do">Past Orders</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
@@ -71,12 +69,9 @@
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login">
+			<div class="nav-item"><a class="nav-link" href="getProfile.do">
 				<span style="font-size: 2em;">
 				<i class="fa fa-user-circle-o"></i>
-				</span></a>
-								<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
 				</span></a>
 			</div>
 		</div>
@@ -131,7 +126,7 @@
 	<c:if test="${empty item}">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
 		<form:input type="hidden" value="${seller.id}" path="id"/>
-	  <button type="submit" class="btn btn-primary">add Item</button>
+	  <button type="submit" class="btn btn-success">add Item</button>
 	</form:form>
 	</c:if>
 	
@@ -143,39 +138,39 @@
     <div class="col-md-4 mb-3">
       *Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
     </div>
-    </div>
-  	<div class="form-row">
     <div class="col-md-4 mb-3">
-      *Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
-    </div>
-    </div>
-  	<div class="form-row">
-    <div class="col-md-4 mb-3">
-      *Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
-    </div>
-    </div>
-    <div class="form-row">
-  		<div class="col-md-4 mb-3">
-  		*Unit<form:select class="form-control" path="unit.name" value="unit" required="required">
-  		<c:forEach var="unit" items="${unitList}">
-  			<option>${unit.name}</option>
-  		</c:forEach>
-  		
-		</form:select>
-  		</div>
- 	</div>
- 
-    <div class="form-row">
-  		<div class="col-md-4 mb-3">
   		*Category<form:select class="form-control" path="category.name" value="unit">
   		<c:forEach var="category" items="${categoryList}">
   			<option>${category.name}</option>
   		</c:forEach>
 		</form:select>
- 	      *Quantity<input type="number" class="form-control" id="quantity" placeholder="0" value="0" name="qty" required/>
-  		</div>
+    </div>
+    <div class="col-md-4 mb-3"></div>
+    		</div>
+    <div class="form-row">
+  		<div class="col-md-4 mb-3">
+  				*Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
+		</div>
+  		<div class="col-md-4 mb-3">
+ 			    *Quantity<input type="number" class="form-control" id="quantity" placeholder="0" value="0" name="qty" required/>
+	  	</div>
+  		<div class="col-md-4 mb-3">
+ 		       *Unit<form:select class="form-control" path="unit.name" value="unit" required="required">
+  				<c:forEach var="unit" items="${unitList}">
+  					<option>${unit.name}</option>
+  				</c:forEach>
+				</form:select> 	   
+	  	</div>
  	</div>
-	  <button type="submit" class="btn btn-primary">add Item</button>
+    		<div class="form-row">
+    		<div class="col-md-12 mb-3">
+      			*Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
+    		</div>
+    		</div>
+ 
+    <div class="form-row">
+ 	</div>
+	  <button type="submit" class="btn btn-success">add Item</button>
 	</form:form>
 	</c:if>
 	</div>
@@ -197,6 +192,7 @@
 						<c:forEach var="inventory" items="${inventory}">
 							<li class="list-group-item list-group-item-action"
 							><a href="itemDetails.do?id=${inventory.item.id }">
+								Inventory Id: ${inventory.id }
 								Item Id: ${inventory.item.id }
 								</a>
 								Seller Id:${inventory.seller.id}
@@ -221,7 +217,51 @@
 			</div>
 		</div>
 	
-	
+			<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+				<h2>Orders - Fulfilled</h2>
+					<c:if test="${! empty purchases }">
+						<c:forEach var="inventory" items="${purchases}">
+							<li class="list-group-item list-group-item-action">
+							<a href="itemDetails.do?id=${purchases.inventory.item.id }">
+								Item Id: ${purchases.inventory.item.id }
+								</a>
+								Buyer Id:${purchase.buyer.id}
+								Item Name:${purchase.inventory.item.name }
+								
+								Price:${purchase.inventory.item.price }
+								Active:${purchase.inventory.item.active }
+								Category:${purchase.inventory.item.category.name }
+								Unit:${purchase.inventory.item.unit.name }
+								Image URL:${purchase.inventory.item.imgUrl }
+								Quantity:${ quantity}
+								Delivery Y/N: <c:choose><c:when test="${! empty purchase.deliveryDetails.id }">Y</c:when>
+								<c:otherwise>N	</c:otherwise>
+								</c:choose>
+								  
+						  <form:form action="addItem.do" method="POST" modelAttribute="sellerChangeStatus">>
+					  		Status:<form:select class="form-control" path="purchase.purchaseStatus.status" value="status">
+					  				<option selected>${purchase.purchaseStatus.status}</option>
+					 	 			<c:forEach var="unit" items="${purchaseStatusList}">
+					  				<option>${purchaseStatus.status}</option>
+					  				</c:forEach>
+								</form:select>
+							  <button type="submit" class="btn btn-success">add Item</button>
+						</form:form>
+							<hr>
+							</li>
+						</c:forEach>
+					</c:if>
+		  			</div>
+				</div>
+				</div>
+			</div>
+		</div>
 	
 	<footer class="container-fluid text-center">
 		<div class="row">
