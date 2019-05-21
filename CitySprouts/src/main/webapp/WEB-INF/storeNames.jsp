@@ -23,16 +23,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
 <style>
 <%@include file="css/style.css"%>
 </style>
 </head>
 <body>
-	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"></a> <img
-			src="img/logo_trans.png" class="icon">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
+			class="icon"></a>
+			<div style="padding:20px 0px 0px 0px;">
+		<a class="navbar-brand navbar-left" href="home.do"> 
+			<img src="img/favicon-32x32.png" class="icon"></a>
+			</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -45,34 +49,32 @@
 				<li class="nav-item active"><a class="nav-link" href="home.do">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<!-- <li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li> -->
+				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="cart.do">Cart</a> <a
-							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search
-							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+ <a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
 							Learn More</a>
+							<a class="dropdown-item" href="about">About</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li>
+<!-- 				<li class="nav-item"><a class="nav-link disabled" href="#"
+					tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 			</ul>
-			<form class="form-inline my-2 my-lg-0" action="search.do">
+<%-- 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+			</form> --%>
 			<div class="nav-item">
-				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
-			<div class="nav-item">
-				<a class="nav-link" href="login.do"> <span
-					style="font-size: 2em;"> <i class="fa fa-user-circle-o"></i>
+			<div class="nav-item"><a class="nav-link" href="login">
+				<span style="font-size: 2em;">
+				<i class="fa fa-user-circle-o"></i>
 				</span></a>
 			</div>
 		</div>
@@ -111,7 +113,7 @@
 					<div id="white-text">
 						<h3>It couldn't be easier...</h3>
 						<h4>
-							<a href="registerPage.do">sign up today!</a>
+							<a href="registerPage.do">Sign up today!</a>
 						</h4>
 					</div>
 				</div>
@@ -130,7 +132,7 @@
 					<div id="white-text-lg">
 						<h1>Local Urban Farm Connections</h1>
 						<h4>
-							<small>Sell it local...</small>
+							<small>Buy it / Sell it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>
@@ -156,10 +158,13 @@
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
-				<a href="#" class="fa fa-youtube"></a> <a href="#"
-					class="fa fa-github"></a>
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
 			</div>
 			<div class="col-sm-4">
 				<img src="img/logo_rd.png" class="icon">
