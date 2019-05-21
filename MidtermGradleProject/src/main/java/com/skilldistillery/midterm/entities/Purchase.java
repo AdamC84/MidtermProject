@@ -3,6 +3,7 @@ package com.skilldistillery.midterm.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +19,10 @@ public class Purchase {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "buyer_id")
 	private Buyer buyer;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "purchase_status_id")
 	private PurchaseStatus purchaseStatus;
 	@OneToOne
@@ -60,6 +61,21 @@ public class Purchase {
 		payment.setPurchase(null);
 		if (payments != null) {
 			payments.remove(payment);
+		}
+	}
+	public void addInventory(Inventory inventory) {
+		if (this.inventory == null) {
+			this.inventory = new ArrayList<>();
+		}
+		if (!this.inventory.contains(inventory)) {
+			this.inventory.add(inventory);
+		}
+		inventory.setPurchase(this);
+	}
+	public void removeInventory(Inventory inventory) {
+		inventory.setPurchase(null);
+		if (this.inventory != null) {
+			this.inventory.remove(inventory);
 		}
 	}
 
@@ -129,6 +145,12 @@ public class Purchase {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Purchase [id=" + id + ", buyer=" + buyer + ", purchaseStatus=" + purchaseStatus + ", deliveryDetails=";
+//				+ deliveryDetails + ", payments=" + payments.size() + ", inventory=" + inventory.size() + "]";
 	}
 
 
