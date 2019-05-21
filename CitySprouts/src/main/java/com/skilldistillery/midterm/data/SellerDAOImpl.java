@@ -1,6 +1,8 @@
 package com.skilldistillery.midterm.data;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,5 +34,20 @@ public class SellerDAOImpl implements SellerDAO {
 		Purchase purchase = em.createQuery(query, Purchase.class).setParameter("oId",  oId).getResultList().get(0);
 		return purchase;
 	}
+
+	@Override
+	public List<Object[]> getInventoryItemsQtyBySeller(int sId) {
+		String query = "Select i.item.id, i.item.name, count(distinct i.item.id) from Inventory i WHERE i.seller.id = :sId GROUP BY i.item.id";
+		
+		List<Object[]> invSummary = em.createQuery(query, Object[].class)
+				.setParameter("sId", sId)
+				.getResultList();
+		
+		System.out.println("impl query: *************" + invSummary);
+		
+		return invSummary;
+	}
+	
+	
 
 }

@@ -4,6 +4,25 @@ width: 100%;
 overflow: scroll;
 background: rgba(0, 128, 0, 0.3)!important;
 }
+.card-text{
+	overflow: scroll;
+}
+div.card.search-results{
+	align-self: auto;
+	align-content: space-around;
+	column-gap: normal;
+	height: auto;
+	width: auto;
+}
+
+body.learnMore{
+		background-image: url(img/urbanFarm.jpeg);
+		/* background-color: rgba(255, 255, 255, 0.7) !important; */
+		background-blend-mode: color;
+		background-repeat: repeat-y;
+		background-size: 100%;
+
+	}
 
 .navbar {
   background-color: #23415C;
@@ -121,7 +140,7 @@ body > nav > img {
 }
 
 .fa-user-circle-o {
-	color: tomato; 
+	color: tomato;
 }
 
 @media (max-width: 768px) {
@@ -136,7 +155,7 @@ body > nav > img {
     padding-top: 5%;
     max-width: 100px;
   }
-  
+
   .navbar-brand padding img {
     height: auto;
     width: 75%;

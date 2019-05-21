@@ -60,13 +60,11 @@
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search
+						<a class="dropdown-item" href="search.do">Search
 							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
 							Learn More</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
@@ -89,38 +87,78 @@
 		</div>
 	</nav>
 
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
+	<div class="container text-center align-items-center justify-content-center">
+	<h3>Your Cart</h3>
 		<div id="white-text">
 			<div id="panel-green">
-				<div class="row">
-					<div class="col-md-1 col-sm-1">
+			<h5>Your current cart</h5>
+					<div class="col-md-4 py-2">
 						<ul>
 							<c:forEach var="p" items="${buyer.purchases }">
 
 								<c:if test="${p.purchaseStatus.status.equals('PENDING')}">
 									<c:forEach var="i" items="${p.inventory}">
-													${i.item.name }
-													${i.item.description }
-													${i.item.price }
-													${i.item.seller.store}
-			
-									</c:forEach>
-
-
-
+										<div class="row">
+											<div class="card" style="width: 18rem;">
+											  	<div class="card-body">
+												    <h5 class="card-title">${i.item.name }</h5>
+												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>
+												    <p class="card-text">${i.item.price }<br>${i.item.category.name}<br>${i.item.seller.store}</p>
+												    <a href="#" class="card-link">Remove</a>
+												    <a href="#" class="card-link">Another link</a>
+										  		</div>
+											</div>
+										</div>
+									</c:forEach><br>
 								</c:if>
-
-
 							</c:forEach>
-
 						</ul>
+						<form:form>
+							<c:if test="${not empty buyer.purchases }">
+							Total ${total}<br>
+						<button type="button" class="btn btn-primary">Submit Order</button>
+							</c:if>						
+						</form:form>
 					</div>
-				</div>
+													
+
+			</div>
+			<div id="panel-green">
+			<h5>Your purchase history</h5>
+					<div class="col-md-4 py-2">
+						<ul>
+							<c:forEach var="p" items="${buyer.purchases }">
+
+								<c:if test="${p.purchaseStatus.status.equals('fulfilled')}">
+									<c:forEach var="i" items="${p.inventory}">
+										<div class="row">
+											<div class="card" style="width: 18rem;">
+											  	<div class="card-body">
+												    <h5 class="card-title">${i.item.name }</h5>
+												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>
+												    <p class="card-text">${i.item.price }<br>${i.item.category.name}<br>${i.item.seller.store}</p>
+												    <a href="#" class="card-link">Remove</a>
+												    <a href="#" class="card-link">Another link</a>
+										  		</div>
+											</div>
+										</div>
+									</c:forEach><br>
+								</c:if>
+							</c:forEach>
+						</ul>
+						<form:form>
+													
+						</form:form>
+					</div>
+													
+
 			</div>
 		</div>
 	</div>
 	<div
+
+
+
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row" style="padding: 0% 0% 3% 0%">
 			<div class="col-md-2 col-sm-1"></div>

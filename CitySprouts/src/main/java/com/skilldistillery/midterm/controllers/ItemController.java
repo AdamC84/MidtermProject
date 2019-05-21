@@ -1,5 +1,7 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,11 +20,13 @@ import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
+import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.PurchaseStatus;
 import com.skilldistillery.midterm.entities.Seller;
+import com.skilldistillery.midterm.entities.Unit;
 
 @Controller
 public class ItemController {
@@ -50,15 +54,25 @@ public class ItemController {
 	}
 	
 	@RequestMapping(path="addItem.do", method = RequestMethod.POST)
-	public String addItem(Model model, Item item, HttpSession session, @RequestParam int qty ){
+	public String addItem(Model model, Item item, HttpSession session, @RequestParam int qty,
+				@RequestParam String picked_on, @RequestParam String best_by){
 		System.out.println("Quantity: " + qty);
 		Seller seller = (Seller) session.getAttribute("seller");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			item.setBestBy(format.parse(best_by));
+			item.setPicked(format.parse(picked_on));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		item.setSeller(seller);
 		item.setActive(1);
 		item = itemDao.addItem(item, seller);
 		model.addAttribute("seller",seller);
-		model.addAttribute("item", item);
-		System.out.println("Item in controller b4 add to inv" + item);
+		model.addAttribute("item", new Item());
+		
 		
 		if (qty != 0) {
 			for (int i = 1; i < qty; i ++) {
@@ -72,7 +86,10 @@ public class ItemController {
 		List<Inventory> inventory = new ArrayList<Inventory>();
 		inventory = itemDao.getSellerInventory(seller);
 		model.addAttribute("inventory", inventory);
-
+		List<Unit> u = itemDao.getAllUnits();
+		List<Category> c = itemDao.getAllCategory();
+		model.addAttribute(u);
+		model.addAttribute(c);
 		//		System.out.println("Seller: **" + seller);
 //		System.out.println("Session" + session.getAttribute("user"));
 //		User currUser = (User) session.getAttribute("user");
@@ -87,10 +104,10 @@ public class ItemController {
 	@RequestMapping(path="search.do", method = RequestMethod.GET)
 	public ModelAndView keywordSearch(String keyword ){
 		ModelAndView mv = new ModelAndView();
-		List<Item> items = itemDao.getItemsByName(keyword);
+		List<Item> items = itemDao.getItemsByKeyword(keyword);
 		System.out.println(items);
 		mv.addObject("items", items);
-		mv.setViewName("buyerLoggedIn");
+		mv.setViewName("searchResults");
 		return mv;
 	}
 	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
@@ -99,21 +116,24 @@ public class ItemController {
 		Buyer buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
 		
 		Item i = itemDao.getItemByItemId(id);
-		System.out.println("**** ITEM  ****    " + i);
-		
-		Purchase purchase = new Purchase();
-		PurchaseStatus ps = itemDao.getPurchaseStatusById(8);
+
+		Purchase purchase = itemDao.getPurchaseByBuyerId(buyer.getId());
+		PurchaseStatus ps = itemDao.getPurchaseStatusByName("pending");
 		purchase.setPurchaseStatus( ps);
 		
 		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
 		purchase.addInventory(inventory);
 		buyer.addPurchase(purchase);
-		System.out.println("**************   " + buyer);
 		buyer = d.updateBuyer(buyer);
-//		b.addPurchase(purchase);
 		
-		System.out.println(buyer.getPurchases());
-		
+		double total = 0;
+		for (Purchase p : buyer.getPurchases()) {
+			for (Inventory in : p.getInventory()) {
+				total += in.getItem().getPrice();
+			}
+		}
+		System.out.println("**** TOTAL ****  " + total);
+		mv.addObject("total", total);
 		
 		mv.addObject("buyer", buyer);
 		mv.setViewName("cart");
