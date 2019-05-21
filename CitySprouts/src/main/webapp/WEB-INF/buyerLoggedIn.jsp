@@ -185,9 +185,7 @@
 									</div>
 
 								</div>
-
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
+	<div class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
@@ -208,8 +206,6 @@
 						</c:forEach>
 						</ul>
 						</c:if>
-
-
 							</div>
 						</div>
 					</div>
@@ -260,8 +256,6 @@
 					<hr>
 					<div id="panel-green">
 						<div id="white-text">
-
-
 							<div class="form-group input-group"></div>
 							<ul class="list-group">
 								<c:forEach var="buyer" items="${buyer.purchases}">
@@ -315,6 +309,7 @@
 								</c:forEach>
 							</ul>
 							<br>
+						</div>
             </div>
 					</div>
 					<ul class="list-group">
