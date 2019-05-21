@@ -77,10 +77,10 @@ public class ItemController {
 	@RequestMapping(path="search.do", method = RequestMethod.GET)
 	public ModelAndView keywordSearch(String keyword ){
 		ModelAndView mv = new ModelAndView();
-		List<Item> items = itemDao.getItemsByName(keyword);
+		List<Item> items = itemDao.getItemsByKeyword(keyword);
 		System.out.println(items);
 		mv.addObject("items", items);
-		mv.setViewName("buyerLoggedIn");
+		mv.setViewName("searchResults");
 		return mv;
 	}
 	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
