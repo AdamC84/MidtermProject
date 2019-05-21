@@ -245,6 +245,7 @@ public class ItemDAOImpl implements ItemDAO {
 	public PurchaseStatus getPurchaseStatusById(int i) {
 		return em.find(PurchaseStatus.class, i);
 	}
+
 	@Override
 	public int getPriceOfAllItemsInCart(int id) {
 		String query = "Select sum(item.price) from Item item where purchase.id  = id:";
@@ -270,5 +271,10 @@ public class ItemDAOImpl implements ItemDAO {
 		return em.createQuery(query, PurchaseStatus.class).setParameter("name", name).getResultList().get(0);
 		
 	}
-	
+
+ 	@Override
+	public List<Item> getItemsByName(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

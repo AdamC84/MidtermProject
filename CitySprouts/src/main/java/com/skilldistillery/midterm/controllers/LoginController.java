@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
+import com.skilldistillery.midterm.data.SellerDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Driver;
@@ -29,6 +30,8 @@ public class LoginController {
 	BuyerDAO b;
 	@Autowired
 	ItemDAO itemDAO;
+	@Autowired
+	SellerDAO sDAO;
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView login(String username, String password, HttpSession session) {
@@ -53,8 +56,12 @@ public class LoginController {
 			Seller s = d.getSellerByUserId(u.getId());
 			session.setAttribute("seller", s);
 			Seller seller = d.getSellerByUserId(u.getId());
-			if (itemDAO.getSellerInventory(seller) != null) {
-				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
+			if (sDAO.getInventoryItemsQtyBySeller(seller.getId()) != null) {
+//				if (iDao.getSellerInventory(seller) != null) {
+//				model.addAttribute("inventory", iDao.getSellerInventory(seller));
+				mv.addObject("invSummary", sDAO.getInventoryItemsQtyBySeller(seller.getId()));
+			//			if (itemDAO.getSellerInventory(seller) != null) {
+//				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
 			}
 			session.setAttribute("seller", seller);
 			mv.addObject(seller);
@@ -77,7 +84,19 @@ public class LoginController {
 	}
 
 	@RequestMapping(path = "login")
-	public String login(Model model) {
+	public String login(Model model, HttpSession session) {
+		User user =(User) session.getAttribute("user");
+		String role;
+		try {
+			role = user.getRole().toString();
+		} catch (Exception e) {
+			return "login";
+		}
+		if(role.equals("BUYER")) {
+			return "buyerLoggedIn";
+		}else if(role.equals("SELLER")) {
+			return "sellerLoggedIn";
+		}else
 		return "login";
 	}
 	@RequestMapping(path = "about")
