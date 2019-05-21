@@ -2,6 +2,8 @@ package com.skilldistillery.midterm.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,13 @@ public class SellerController {
 		return "orderHistory";
 	}
 	
-	
-	
+	@RequestMapping(path = "getInvSummary.do")
+	public String getInvSummary(Model model, HttpSession session) {
+		Seller seller = (Seller) session.getAttribute("seller");
+		model.addAttribute("invSummary", sellDAO.getInventoryItemsQtyBySeller(seller.getId()));
+		return "sellerLoggedIn";
 	}
+	
+	
+	
+}
