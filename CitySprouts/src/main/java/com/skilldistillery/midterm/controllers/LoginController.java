@@ -44,6 +44,7 @@ public class LoginController {
 			if (itemDAO.getSellerInventory(seller) != null) {
 				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
 			}
+			session.setAttribute("seller", seller);
 			mv.addObject(seller);
 			mv.setViewName("sellerLoggedIn");
 			return mv;
