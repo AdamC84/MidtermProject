@@ -86,7 +86,7 @@
 
 
 
-<<<<<<< HEAD
+
 	<div class="container-fluid text-center align-items-center justify-content-center">
 		<div id="panel-green">
 			<div id="white-text">
@@ -185,7 +185,6 @@
 									</div>
 
 								</div>
-=======
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -208,8 +207,6 @@
 						</c:forEach>
 						</ul>
 						</c:if>
->>>>>>> 3059b67f25000a557537ad361e9065ab2afa2d94
-
 							</div>
 						</div>
 					</div>
@@ -260,8 +257,6 @@
 					<hr>
 					<div id="panel-green">
 						<div id="white-text">
-
-<<<<<<< HEAD
 							<div class="form-group input-group"></div>
 							<ul class="list-group">
 								<c:forEach var="buyer" items="${buyer.purchases}">
@@ -274,7 +269,6 @@
 							</ul>
 							<br>
 						</div>
-=======
 					</div>
 					<ul class="list-group">
 				<%-- 		<c:forEach var="purchase" items="${buyer.purchases}">
@@ -286,7 +280,6 @@
 						</c:forEach>
  --%>					</ul>
 					<br>
->>>>>>> 3059b67f25000a557537ad361e9065ab2afa2d94
 					</div>
 				</div>
 			</div>
@@ -305,7 +298,6 @@
 					<div id="panel-green">
 						<div id="white-text">
 
-<<<<<<< HEAD
 							<div class="form-group input-group"></div>
 							<ul class="list-group">
 								<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
@@ -319,7 +311,7 @@
 							</ul>
 							<br>
 						</div>
-=======
+            </div>
 					</div>
 					<ul class="list-group">
 				<%-- 		<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
@@ -334,7 +326,6 @@
 						</c:forEach> --%>
 					</ul>
 					<br>
->>>>>>> 3059b67f25000a557537ad361e9065ab2afa2d94
 					</div>
 				</div>
 			</div>
