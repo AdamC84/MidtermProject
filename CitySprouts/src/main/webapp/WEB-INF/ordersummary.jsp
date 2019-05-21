@@ -8,12 +8,24 @@
   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>City Sprouts - Connecting Urban Growers</title>
+    <title>City Sprouts - Order Summary</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    
 
 
 <style>
@@ -218,31 +230,28 @@
     </div>
 </figure>
 -->
-
-
-
-
-
-<footer class="container-fluid text-center">
-    <div class="row">
-      <div class="col-sm-4">
-        <h3>Contact Us</h3>
-        <br>
-        <h4>Address and contact info</h4>
-      </div>
-      <div class="col-sm-4">
-        <h3> Connect</h3>
-        <a href="#" class="fa fa-facebook"></a>
-        <a href="#" class="fa fa-twitter"></a>
-        <a href="#" class="fa fa-linkedin"></a>
-        <a href="#" class="fa fa-youtube"></a>
-        <a href="#" class="fa fa-github"></a>
-      </div>
-      <div class="col-sm-4">
-        <img src="img/logo.png" class="icon">
-      </div>
-    </div>
-  </footer>
+	<footer class="container-fluid text-center">
+		<div class="row">
+			<div class="col-sm-4">
+				<h3>Contact Us</h3>
+				<br>
+				<h6>7400 E Orchard, Denver, CO 80327</h6>
+			</div>
+			<div class="col-sm-4">
+				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
+				<a href="#" class="fa fa-facebook"></a> <a href="#"
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
+			</div>
+			<div class="col-sm-4">
+				<img src="img/logo_rd.png" class="icon">
+			</div>
+		</div>
+	</footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

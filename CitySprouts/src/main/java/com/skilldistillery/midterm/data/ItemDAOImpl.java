@@ -44,6 +44,12 @@ public class ItemDAOImpl implements ItemDAO {
 		List<Item> items = em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 		return items;
 	}
+	@Override
+	public Item getItemByItemId(int id) {
+		String query = "Select item from Item item where item.id = :id";
+		Item item = em.createQuery(query, Item.class).setParameter("id", id).getResultList().get(0);
+		return item;
+	}
 		@Override
 		public List<Item> getItemsByName(String keyword) {
 			String query = "Select item from Item item where item.name LIKE :keyword";
@@ -131,8 +137,11 @@ public class ItemDAOImpl implements ItemDAO {
 		return items;
 	}
 	@Override
-	public Item addItem(Item i) {
+	public Item addItem(Item i, Seller s) {
 		Item item = new Item();
+		System.out.println(item);
+		Seller seller = em.find(Seller.class, s.getId());
+		item.setSeller(seller);
 		item.setBestBy(i.getBestBy());
 		item.setCategory(i.getCategory());
 		item.setCommodity(i.getCommodity());
@@ -175,9 +184,15 @@ public class ItemDAOImpl implements ItemDAO {
 		return item;
 	}
 	@Override
-	public Inventory addItemToInventory(Inventory inventory) {
+	public Inventory addItemToInventory(Item item, Seller s) {
 		Inventory i = new Inventory();
-		i.setItem(inventory.getItem());
+		Seller seller = em.find(Seller.class, s.getId());
+		Item addItem = em.find(Item.class, item.getId());
+		i.setItem(addItem);
+		i.setSeller(seller);
+		
+		System.out.println("In inventory: " + i);
+		
 		em.persist(i);
 		em.flush();
 		return i;
@@ -195,10 +210,6 @@ public class ItemDAOImpl implements ItemDAO {
 		return inventories;
 		
 	}
-	@Override
-	public List<Item> getAllItemsNotInInventory(Seller seller){
-		String query = "Select i from Item i where Inventory.item.id = null and Inventory.seller.id = :id";
-		List<Item> items = em.createQuery(query, Item.class).setParameter("id", seller.getId()).getResultList();
-		return items;
-	}
+
+	
 }

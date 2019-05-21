@@ -49,6 +49,7 @@ public class LoginController {
 			if (itemDAO.getSellerInventory(seller) != null) {
 				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
 			}
+			session.setAttribute("seller", seller);
 			mv.addObject(seller);
 			mv.setViewName("sellerLoggedIn");
 			return mv;
@@ -71,6 +72,10 @@ public class LoginController {
 	@RequestMapping(path = "login")
 	public String login(Model model) {
 		return "login";
+	}
+	@RequestMapping(path = "about")
+	public String about(Model model) {
+		return "about";
 	}
 
 

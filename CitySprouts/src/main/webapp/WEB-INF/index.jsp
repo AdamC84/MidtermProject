@@ -24,6 +24,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
 <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
     
 
 <style>
@@ -33,8 +34,12 @@
 <body>
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
-			class="icon">
+		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
+			class="icon"></a>
+			<div style="padding:20px 0px 0px 0px;">
+		<a class="navbar-brand navbar-left" href="home.do"> 
+			<img src="img/favicon-32x32.png" class="icon"></a>
+			</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,25 +58,20 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="cart.do">Cart</a> <a
-							class="dropdown-item" href="editProfile.do">Edit Profile</a>
-							<a class="dropdown-item" href="purchaseResults.do">Purchase Results</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search
-							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+ <a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
 							Learn More</a>
-							<a class="dropdown-item" href="sellerLearnMore.do">Seller
-							Learn More</a>
+							<a class="dropdown-item" href="about">About</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li>
+<!-- 				<li class="nav-item"><a class="nav-link disabled" href="#"
+					tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 			</ul>
-			<form class="form-inline my-2 my-lg-0" action="search.do">
+<%-- 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+			</form> --%>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
@@ -113,16 +113,15 @@
 		<div class="col-md-2 col-sm-1"></div>
 		<div class="col-md-8 col-sm-10"><hr>
 		<div id="panel-green">
-				<div id="white-text">
+				<div id="tomato-text">
 			<h2>Selling and buying with City Sprouts is easy.  
 			</h2>
-			<h3><a href="registerPage.do">Sign up today!</a></h3>
-			<form method="get" action="buyerLearnMore.do">
-                <button type="submit">Buyer Info</button>
-            </form>
-			<form method="get" action="sellerLearnMore.do">
-                <button type="submit">Seller Info</button>
-            </form>
+			
+			<div class="nav-item">
+				<h3><a class="nav-link" href="registerPage.do">Sign up today!</a></h3>
+			</div>
+			<a class="btn btn-success" title="Buyer Learn More" href="buyerLearnMore.do">Buyer Learn More</a>
+			<a class="btn btn-success" title="Buyer Learn More" href="sellerLearnMore.do">Seller Learn More</a>
 			</div>
 		</div>
 		</div>
@@ -137,7 +136,7 @@
 		<div id="panel-green" style="padding: 0% 0% 3% 0%">
 				<div id="white-text-lg">
 			<h1>Local Urban Farmer Connections</h1>
-			<h4><small>Sell it local...</small></h4>
+			<h4><small>Buy it / Sell it local...</small></h4>
 			<h3>Denver Area</h3>
 			</div>
 		</div>
@@ -160,10 +159,13 @@
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
-				<a href="#" class="fa fa-youtube"></a> <a href="#"
-					class="fa fa-github"></a>
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
 			</div>
 			<div class="col-sm-4">
 				<img src="img/logo_rd.png" class="icon">

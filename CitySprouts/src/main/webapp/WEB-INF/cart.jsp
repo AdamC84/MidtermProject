@@ -26,7 +26,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 <style>
 <%@include file="css/style.css" %>
 </style>
@@ -93,17 +93,21 @@
 		<div class="row">
 				<div class="col-md-1 col-sm-1">
 				<ul>
-				<c:forEach var="item1" items="${item }">
+				<c:forEach var="item" items="${items }">
 		
 		item details
-		<li>${item.name }</li>
-		<li>${item.category }</li>
-		<li>${item.price }</li>
+		<!-- <div class="thumbnail"> -->
+      <a class="nav-link" href="itemDetails.do?id=${item.id }">
+		<img src="${item.imgUrl }"  class="img-fluid" alt="img-thumbnail"> 
+		</a>
 		
+		${item.name }
+		${item.category.name }
+		${item.price }
 		</c:forEach>
 		</ul>
 				</div>
-				<div class="col-md-2 col-sm-1">
+				<!-- <div class="col-md-2 col-sm-1">
 			item img
 				</div>
 				<div class="col-md-6 col-sm-6">
@@ -111,13 +115,13 @@
 				<div class="col-md-2 col-sm-1">
 		Qty, add, rem
 				</div>
-				<div class="col-md-1 col-sm-1">
+				<div class="col-md-1 col-sm-1"> -->
 		
 				</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	<!-- </div> -->
 	
 			<div class="container-fluid text-center align-items-center justify-content-center">
 	<div class="row" style="padding: 0% 0% 3% 0%">
@@ -149,10 +153,13 @@
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
-				<a href="#" class="fa fa-youtube"></a> <a href="#"
-					class="fa fa-github"></a>
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
 			</div>
 			<div class="col-sm-4">
 				<img src="img/logo_rd.png" class="icon">

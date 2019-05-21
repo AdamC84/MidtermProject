@@ -24,7 +24,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
 <style>
 <%@include file="css/style.css" %>
@@ -121,8 +121,13 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 	
-
-	<div class="container">
+	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+						<h2>Add Item</h2>
 	<c:if test="${empty item}">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
 		<form:input type="hidden" value="${seller.id}" path="id"/>
@@ -136,22 +141,22 @@
 	<form:form action="addItem.do" method="POST" modelAttribute="item">
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
+      *Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
     </div>
     </div>
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
+      *Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
     </div>
     </div>
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
+      *Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
     </div>
     </div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-  		Unit<form:select class="form-control" path="unit.name" value="unit">
+  		*Unit<form:select class="form-control" path="unit.name" value="unit" required="required">
   		<c:forEach var="unit" items="${unitList}">
   			<option>${unit.name}</option>
   		</c:forEach>
@@ -162,31 +167,59 @@
  
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-  		Category<form:select class="form-control" path="category.name" value="unit">
+  		*Category<form:select class="form-control" path="category.name" value="unit">
   		<c:forEach var="category" items="${categoryList}">
   			<option>${category.name}</option>
   		</c:forEach>
-  		
 		</form:select>
+ 	      *Quantity<input type="number" class="form-control" id="quantity" placeholder="0" value="0" name="qty" required/>
   		</div>
  	</div>
-
 	  <button type="submit" class="btn btn-primary">add Item</button>
 	</form:form>
-	
-	
 	</c:if>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
 	
-
-
-
-
-
-
-
-
-
 	
+		<div
+		class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+						<h2>Inventory</h2>
+						<c:if test="${! empty inventory }">
+						<c:forEach var="inventory" items="${inventory}">
+							<li class="list-group-item list-group-item-action"
+							><a href="itemDetails.do?id=${inventory.item.id }">
+								Item Id: ${inventory.item.id }
+								</a>
+								Seller Id:${inventory.seller.id}
+								Item Name:${inventory.item.name }
+								Description:${inventory.item.description }
+								Price:${inventory.item.price }
+								Best By:${inventory.item.bestBy }
+								Picked:${inventory.item.picked }
+								Last Updated:${inventory.item.lastUpdated }
+								Active:${inventory.item.active }
+								Category:${inventory.item.category.name }
+								Unit:${inventory.item.unit.name }
+								Image URL:${inventory.item.imgUrl }
+								</li>
+								<hr>
+						</c:forEach>
+						</c:if>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	
 	
 	
@@ -199,10 +232,13 @@
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
-				<a href="#" class="fa fa-youtube"></a> <a href="#"
-					class="fa fa-github"></a>
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
 			</div>
 			<div class="col-sm-4">
 				<img src="img/logo_rd.png" class="icon">
