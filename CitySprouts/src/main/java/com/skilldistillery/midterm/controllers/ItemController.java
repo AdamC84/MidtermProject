@@ -99,21 +99,24 @@ public class ItemController {
 		Buyer buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
 		
 		Item i = itemDao.getItemByItemId(id);
-		System.out.println("**** ITEM  ****    " + i);
-		
-		Purchase purchase = new Purchase();
-		PurchaseStatus ps = itemDao.getPurchaseStatusById(8);
+
+		Purchase purchase = itemDao.getPurchaseByBuyerId(buyer.getId());
+		PurchaseStatus ps = itemDao.getPurchaseStatusByName("pending");
 		purchase.setPurchaseStatus( ps);
 		
 		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
 		purchase.addInventory(inventory);
 		buyer.addPurchase(purchase);
-		System.out.println("**************   " + buyer);
 		buyer = d.updateBuyer(buyer);
-//		b.addPurchase(purchase);
 		
-		System.out.println(buyer.getPurchases());
-		
+		double total = 0;
+		for (Purchase p : buyer.getPurchases()) {
+			for (Inventory in : p.getInventory()) {
+				total += in.getItem().getPrice();
+			}
+		}
+		System.out.println("**** TOTAL ****  " + total);
+		mv.addObject("total", total);
 		
 		mv.addObject("buyer", buyer);
 		mv.setViewName("cart");

@@ -12,6 +12,7 @@ import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Commodity;
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.PurchaseStatus;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
@@ -222,5 +223,29 @@ public class ItemDAOImpl implements ItemDAO {
 	public PurchaseStatus getPurchaseStatusById(int i) {
 		return em.find(PurchaseStatus.class, i);
 	}
-	
+	@Override
+	public int getPriceOfAllItemsInCart(int id) {
+		String query = "Select sum(item.price) from Item item where purchase.id  = id:";
+		long sum = em.createQuery(query, Long.class).setParameter("id", id).getResultList().get(0);
+		
+		return (int)sum;
+	}
+	@Override
+	public Purchase getPurchaseByBuyerId(int id) {
+		String query = "Select p from Purchase p where p.buyer.id = :id";
+		Purchase p = em.createQuery(query, Purchase.class).setParameter("id", id).getResultList().get(0);
+		return p;
+		}
+	@Override
+	public Purchase getPurchaseById(int id) {
+		String query = "Select p from Purchase p where p.id = :id";
+		Purchase p = em.createQuery(query, Purchase.class).setParameter("id", id).getResultList().get(0);
+		return p;
+	}
+	@Override
+	public PurchaseStatus getPurchaseStatusByName(String name) {
+		String query = "Select p from PurchaseStatus p where p.status = :name";
+		return em.createQuery(query, PurchaseStatus.class).setParameter("name", name).getResultList().get(0);
+		
+	}
 }
