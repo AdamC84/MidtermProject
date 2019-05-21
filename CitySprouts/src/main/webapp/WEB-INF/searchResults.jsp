@@ -71,6 +71,43 @@
 			</form>
 		</div>
 	</nav>
+	
+		<div class="container">
+			<c:forEach var="item" items="${items}">
+					<div class="row">
+					<div class="col-lg-2"></div>
+						<div class="col-lg-8">
+							<div class="card search-results">
+								<img class="card-img-top search-results" src="${item.imgUrl }"
+									alt="Card image cap">
+								<div class="card-body">
+									<h5 class="card-title">${item.name}</h5>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">Price: ${item.price }</li>
+										<li class="list-group-item">Unit ${item.unit.name }</li>
+										<li class="list-group-item">Category: ${item.category.name }</li>
+										<li class="list-group-item">Harvested: ${item.picked }</li>
+									</ul>
+									<div class="card-body">
+										<a href="addToCart.do?id=${item.id }" class="btn btn-info"
+											role="button">Add to Cart</a><br> <a
+											href="itemDetails.do?id=${item.id }" class="btn btn-info"
+											role="button">Item Details</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+	</c:forEach>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+				</div>
+		</div>
+
 
 
 	<footer class="container-fluid text-center">
