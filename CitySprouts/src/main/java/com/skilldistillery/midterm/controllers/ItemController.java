@@ -125,12 +125,12 @@ public class ItemController {
 		}
 		PurchaseStatus ps = itemDao.getPurchaseStatusByName("Pending");
 		purchase.setPurchaseStatus( ps);
-		
+		System.out.println(purchase.getPurchaseStatus());
 		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
 		purchase.addInventory(inventory);
 		buyer.addPurchase(purchase);
 		buyer = d.updateBuyer(buyer);
-		
+		System.out.println(buyer);
 		double total = 0;
 		for (Purchase p : buyer.getPurchases()) {
 			for (Inventory in : p.getInventory()) {

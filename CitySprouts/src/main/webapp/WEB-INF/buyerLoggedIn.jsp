@@ -210,6 +210,7 @@
 			</c:forEach>
 		</div>
 	</div>
+	
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -242,6 +243,7 @@
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
+	
 
 	<c:if test="${! empty purchases }">
 		<div
@@ -255,6 +257,7 @@
 						<div id="white-text">
 							<div class="form-group input-group"></div>
 							<ul class="list-group">
+							
 								<c:forEach var="p" items="${buyer.purchases}">
 									<li class="list-group-item list-group-item-action"><a
 										href="getPurchaseById.do?purchaseid=${id }">
@@ -280,7 +283,6 @@
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-1"></div>
-		</div>
 	</c:if>
 
 	<c:if test="${! empty buyer.purchases }">

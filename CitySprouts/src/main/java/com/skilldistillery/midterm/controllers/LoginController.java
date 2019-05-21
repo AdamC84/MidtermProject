@@ -1,6 +1,8 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +20,7 @@ import com.skilldistillery.midterm.data.SellerDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Driver;
+import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.User;
 
@@ -45,8 +48,16 @@ public class LoginController {
 		String role = u.getRole().toString();
 		if (role.equals("BUYER")) {
 			Buyer buyer = d.getBuyerByUserId(u.getId());
+			List<Purchase> fulfilled = new ArrayList<>();
 			if (b.getAllPurchases(buyer) != null) {
-				mv.addObject("purchases", b.getAllPurchases(buyer));
+				List<Purchase> purchases = b.getAllPurchases(buyer);
+				for (Purchase purchase : purchases) {
+					if(purchase.getPurchaseStatus().getStatus().equals("Fulfilled")) {
+						fulfilled.add(purchase);
+					}
+				}
+				
+				mv.addObject("fulfilled", fulfilled);
 			}
 			session.setAttribute("buyer", buyer);
 			mv.addObject(buyer);

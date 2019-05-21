@@ -94,7 +94,7 @@
 						<ul>
 							<c:forEach var="p" items="${buyer.purchases }">
 
-								<c:if test="${p.purchaseStatus.status.equals('PENDING')}">
+								<c:if test="${p.purchaseStatus.status.equals('Pending')}">
 									<c:forEach var="i" items="${p.inventory}">
 										<div class="row">
 											<div class="card" style="width: 18rem;">
@@ -121,6 +121,7 @@
 													
 
 			</div>
+			<hr>
 			<div id="panel-green">
 			<h5>Your purchase history</h5>
 					<div class="col-md-4 py-2">
