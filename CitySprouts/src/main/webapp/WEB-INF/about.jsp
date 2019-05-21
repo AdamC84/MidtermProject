@@ -99,7 +99,7 @@
 						Teammates Adam Crawford and Rob Lounsbury are helping Randy bring this idea to life while fulfilling the requirements for the Skill Distillery Midterm Project Full-Stack Webapp.  
 						</p>
 						<p>
-						Stay tuned as this project continues to sprout!
+						Initial site is the results of a one week sprint.<br> Stay tuned as this project continues to sprout!
 						</p>
 					</div>
 					
