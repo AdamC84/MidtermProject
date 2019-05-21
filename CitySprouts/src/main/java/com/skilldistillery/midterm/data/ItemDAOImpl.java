@@ -253,9 +253,9 @@ public class ItemDAOImpl implements ItemDAO {
 		return (int)sum;
 	}
 	@Override
-	public Purchase getPurchaseByBuyerId(int id) {
+	public List<Purchase> getPurchaseByBuyerId(int id) {
 		String query = "Select p from Purchase p where p.buyer.id = :id";
-		Purchase p = em.createQuery(query, Purchase.class).setParameter("id", id).getResultList().get(0);
+		List<Purchase> p = em.createQuery(query, Purchase.class).setParameter("id", id).getResultList();
 		return p;
 		}
 	@Override
@@ -270,4 +270,5 @@ public class ItemDAOImpl implements ItemDAO {
 		return em.createQuery(query, PurchaseStatus.class).setParameter("name", name).getResultList().get(0);
 		
 	}
+	
 }
