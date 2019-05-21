@@ -60,7 +60,7 @@
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search
+						<a class="dropdown-item" href="search.do">Search
 							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
 							Learn More</a>
