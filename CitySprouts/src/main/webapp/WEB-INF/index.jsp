@@ -113,16 +113,15 @@
 		<div class="col-md-2 col-sm-1"></div>
 		<div class="col-md-8 col-sm-10"><hr>
 		<div id="panel-green">
-				<div id="white-text">
+				<div id="tomato-text">
 			<h2>Selling and buying with City Sprouts is easy.  
 			</h2>
-			<h3><a href="registerPage.do">Sign up today!</a></h3>
-			<form method="get" action="buyerLearnMore.do">
-                <button type="submit">Buyer Info</button>
-            </form>
-			<form method="get" action="sellerLearnMore.do">
-                <button type="submit">Seller Info</button>
-            </form>
+			
+			<div class="nav-item">
+				<h3><a class="nav-link" href="registerPage.do">Sign up today!</a></h3>
+			</div>
+			<a class="btn btn-primary" title="Buyer Learn More" href="buyerLearnMore.do">Buyer Learn More</a>
+			<a class="btn btn-primary" title="Buyer Learn More" href="sellerLearnMore.do">Seller Learn More</a>
 			</div>
 		</div>
 		</div>
@@ -137,7 +136,7 @@
 		<div id="panel-green" style="padding: 0% 0% 3% 0%">
 				<div id="white-text-lg">
 			<h1>Local Urban Farmer Connections</h1>
-			<h4><small>Sell it local...</small></h4>
+			<h4><small>Buy it / Sell it local...</small></h4>
 			<h3>Denver Area</h3>
 			</div>
 		</div>

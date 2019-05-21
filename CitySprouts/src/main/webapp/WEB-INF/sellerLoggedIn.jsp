@@ -211,14 +211,26 @@
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
-						<h2>Store</h2>
+						<h2>Inventory</h2>
 						<c:if test="${! empty inventory }">
-						<c:forEach var="siteuser" items="${inventory}">
+						<c:forEach var="inventory" items="${inventory}">
 							<li class="list-group-item list-group-item-action"
-							><a href="getItemById.do?suid=${inventory.id }">
+							><a href="itemDetails.do?id=${inventory.item.id }">
 								Item Id: ${inventory.item.id }
-								</a></li>
+								</a>
 								Seller Id:${inventory.seller.id}
+								Item Name:${inventory.item.name }
+								Description:${inventory.item.description }
+								Price:${inventory.item.price }
+								Best By:${inventory.item.bestBy }
+								Picked:${inventory.item.picked }
+								Last Updated:${inventory.item.lastUpdated }
+								Active:${inventory.item.active }
+								Category:${inventory.item.category.name }
+								Unit:${inventory.item.unit.name }
+								Image URL:${inventory.item.imgUrl }
+								</li>
+								<hr>
 						</c:forEach>
 						</c:if>
 						

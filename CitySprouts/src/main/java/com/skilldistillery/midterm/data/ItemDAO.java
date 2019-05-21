@@ -31,7 +31,7 @@ public interface ItemDAO {
 	List<Commodity> getAllCommodities();
 	List<Variety> getAllVariety();
 	List<Category> getAllCategory();
-	Inventory addItemToInventory(Item item);
+	Inventory addItemToInventory(Item item, Seller seller);
 	List<Inventory> getSellerInventory(Seller seller);
 	List<Inventory> getSellerInventoryById(int id);
 	List<Item> getItemsByName(String keyword);

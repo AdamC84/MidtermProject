@@ -79,11 +79,6 @@
 				<a class="nav-link" href="login.do"> <span
 					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
-			
-				<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 1em; position:relative"> <img src="img/shopping-cart.png"></img>
-				</span></a>
-
 			</div>
 		</div>
 	</nav>
