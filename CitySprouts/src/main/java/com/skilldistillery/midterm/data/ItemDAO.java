@@ -35,12 +35,13 @@ public interface ItemDAO {
 	Inventory addItemToInventory(Item item, Seller seller);
 	List<Inventory> getSellerInventory(Seller seller);
 	List<Inventory> getSellerInventoryById(int id);
-	List<Item> getItemsByName(String keyword);
 	Item addItem(Item i, Seller s);
 
 	Item getItemByItemId(int id);
+	List<Item> getItemsByKeyword(String keyword)
 	Inventory getInventoryByItemId(int id);
 	public PurchaseStatus getPurchaseStatusById(int i);
+
 
 
 
