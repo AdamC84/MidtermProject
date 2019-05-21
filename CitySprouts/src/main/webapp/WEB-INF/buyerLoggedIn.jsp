@@ -255,11 +255,11 @@
 						<div id="white-text">
 							<div class="form-group input-group"></div>
 							<ul class="list-group">
-								<c:forEach var="buyer" items="${buyer.purchases}">
+								<c:forEach var="p" items="${buyer.purchases}">
 									<li class="list-group-item list-group-item-action"><a
-										href="getPurchaseById.do?purchaseid=${buyer.purchase.purchase.id }">
-											Date purchased: ${buyer.purchase.payment.paymentDate } Total:
-											$${buyer.purchase.payment.amount }</a></li>
+										href="getPurchaseById.do?purchaseid=${id }">
+											Date purchased: ${payment.paymentDate } Total:
+											$${payment.amount }</a></li>
 									<hr>
 								</c:forEach>
 							</ul>
@@ -296,14 +296,14 @@
 
 							<div class="form-group input-group"></div>
 							<ul class="list-group">
-								<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
+							<%-- 	<c:forEach var="p" items="${buyer.purchases.inventoryItemsList}">
 									<li class="list-group-item list-group-item-action"><a
-										href="itemDetails.do?purchaseid=${buyer.purchase.inventory.itemId }">
-											Item: ${buyer.purchase.inventory.item.name }</a>
-										$${buyer.purchase.inventory.price } Store:
-										${buyer.purchase.inventory.seller.storeName }</li>
+										href="itemDetails.do?purchaseid=${inventory.itemId }">
+											Item: ${inventory.item.name }</a>
+										$${inventory.price } Store:
+										${inventory.seller.storeName }</li>
 									<hr>
-								</c:forEach>
+								</c:forEach> --%>
 							</ul>
 							<br>
 						</div>

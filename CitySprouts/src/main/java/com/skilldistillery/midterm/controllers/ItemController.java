@@ -117,8 +117,13 @@ public class ItemController {
 		
 		Item i = itemDao.getItemByItemId(id);
 
-		Purchase purchase = itemDao.getPurchaseByBuyerId(buyer.getId());
-		PurchaseStatus ps = itemDao.getPurchaseStatusByName("pending");
+		Purchase purchase;
+		try {
+			purchase = itemDao.getPurchaseByBuyerId(buyer.getId()).get(0);
+		} catch (Exception e) {
+			 purchase = new Purchase();
+		}
+		PurchaseStatus ps = itemDao.getPurchaseStatusByName("Pending");
 		purchase.setPurchaseStatus( ps);
 		
 		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
