@@ -17,7 +17,9 @@ import com.skilldistillery.midterm.data.SellerDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Category;
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
 import com.skilldistillery.midterm.entities.User;
@@ -43,10 +45,18 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "cart.do")
-	public ModelAndView cart() {
-		ModelAndView mv = new ModelAndView();		
-		mv.setViewName("cart");
-		return mv;
+	public String cart(HttpSession session, Model model) {
+		Buyer buyer = (Buyer)session.getAttribute("buyer");
+		System.out.println(buyer);
+		double total = 0;
+		for (Purchase p : buyer.getPurchases()) {
+			for (Inventory in : p.getInventory()) {
+				total += in.getItem().getPrice();
+			}
+		}
+		System.out.println("**** TOTAL ****  " + total);
+		model.addAttribute("total", total);
+		return "cart";
 	}
 	@RequestMapping(path = "buyerLearnMore.do")
 	public ModelAndView bLearnMore() {

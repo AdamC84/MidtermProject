@@ -104,10 +104,10 @@ public class ItemController {
 	@RequestMapping(path="search.do", method = RequestMethod.GET)
 	public ModelAndView keywordSearch(String keyword ){
 		ModelAndView mv = new ModelAndView();
-		List<Item> items = itemDao.getItemsByName(keyword);
+		List<Item> items = itemDao.getItemsByKeyword(keyword);
 		System.out.println(items);
 		mv.addObject("items", items);
-		mv.setViewName("buyerLoggedIn");
+		mv.setViewName("searchResults");
 		return mv;
 	}
 	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
@@ -116,21 +116,24 @@ public class ItemController {
 		Buyer buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
 		
 		Item i = itemDao.getItemByItemId(id);
-		System.out.println("**** ITEM  ****    " + i);
-		
-		Purchase purchase = new Purchase();
-		PurchaseStatus ps = itemDao.getPurchaseStatusById(8);
+
+		Purchase purchase = itemDao.getPurchaseByBuyerId(buyer.getId());
+		PurchaseStatus ps = itemDao.getPurchaseStatusByName("pending");
 		purchase.setPurchaseStatus( ps);
 		
 		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
 		purchase.addInventory(inventory);
 		buyer.addPurchase(purchase);
-		System.out.println("**************   " + buyer);
 		buyer = d.updateBuyer(buyer);
-//		b.addPurchase(purchase);
 		
-		System.out.println(buyer.getPurchases());
-		
+		double total = 0;
+		for (Purchase p : buyer.getPurchases()) {
+			for (Inventory in : p.getInventory()) {
+				total += in.getItem().getPrice();
+			}
+		}
+		System.out.println("**** TOTAL ****  " + total);
+		mv.addObject("total", total);
 		
 		mv.addObject("buyer", buyer);
 		mv.setViewName("cart");

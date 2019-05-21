@@ -82,37 +82,6 @@
 		</div>
 	</nav>
 
-	<div id="home" class="landing-text pagination-centered">
-		<div
-			class="container-fluid text-center align-items-center justify-content-center">
-			<div class="row">
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-					<div id="panel-grey">
-						<br>
-						<h1>Item Details</h1>
-						<c:forEach var="item" items="${items}">
-						<h3>${item.name }</h3>
-						<img src="${item.imgUrl }"  class="img-fluid" alt="img-thumbnail">
-						<ul>
-						<li>Description: ${item.description}</li>
-						<li>Price: ${item.price}</li>
-						<li>Best By Date: ${item.bestBy}</li>
-						<li>Picked Date: ${item.picked}</li>
-						<li>Category: ${item.category.name}</li>
-						<li>Unit: ${item.unit.name}</li>
-						<li>Seller: ${item.seller.storeName}</li>
-						</ul>
-						<p>
-						</c:forEach>
-					</div>
-
-				</div>
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-			</div>
-		</div>
-	</div>
-
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -121,10 +90,25 @@
 				<hr>
 				<div id="panel-green">
 					<div id="white-text">
-						<h3>It couldn't be easier...</h3>
-						<h4>
-							<a href="registerPage.do">sign up today!</a>
-						</h4>
+							<h1>Item Details</h1>
+						<c:forEach var="item" items="${items}">
+						<h3>${item.name }</h3>
+						<img src="${item.imgUrl }"  class="img-fluid" alt="img-thumbnail">
+						
+						Description: ${item.description}<br>
+						Price: ${item.price}<br>
+						Best By Date: ${item.bestBy}<br>
+						Picked Date: ${item.picked}<br>
+						Category: ${item.category.name}<br>
+						Unit: ${item.unit.name}<br>
+						Seller: ${item.seller.storeName}<br>
+						
+						<p>
+						<div class="card-body">
+										<a href="addToCart.do?id=${item.id }" class="btn btn-info"
+											role="button">Add to Cart</a><br> 
+									</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
