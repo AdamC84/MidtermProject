@@ -21,11 +21,8 @@ import com.skilldistillery.midterm.entities.Variety;
 @Service
 public class ItemDAOImpl implements ItemDAO {
 
-	
 	@PersistenceContext
 	private EntityManager em;
-	
-	
 	
 	@Override
 	public List<Item> getAllItems() {

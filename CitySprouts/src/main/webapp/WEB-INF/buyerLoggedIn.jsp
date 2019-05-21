@@ -52,16 +52,14 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="cart.do">Cart</a> <a
-							class="dropdown-item" href="editProfile.do">Edit Profile</a>
+							<a class="dropdown-item" href="getProfile.do">Profile</a> 
+						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="cart.do">Cart</a> 
+							<a class="dropdown-item" href="purchaseHistory.do">Purchase History</a>
 						<a class="dropdown-item" href="searchResults.do">Search
-							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
-							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
-							Learn More</a>
+							Results</a> 
 					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
@@ -74,9 +72,9 @@
 			<div class="nav-item">
 				<a class="nav-link" href="login"> <span
 					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
-				</span></a>
-				<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+				</span></a>				
+				<a class="nav-link" href="cart.do"> <span
+						style="font-size: 12px; padding: 0px 0px 0px 15px"> <img src="img/shopping-cart.png">
 				</span></a>
 			</div>
 		</div>

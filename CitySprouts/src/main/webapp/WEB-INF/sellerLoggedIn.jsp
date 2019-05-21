@@ -52,13 +52,11 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="cart.do">Cart</a> <a
-							class="dropdown-item" href="editProfile.do">Edit Profile</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search
-							Results</a> 
 							<a class="dropdown-item" href="getProfile.do">Profile</a> 
+						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
+						<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="pastOrders.do">Past Orders</a>
+						<a class="dropdown-item" href="searchResults.do">Search 	Results</a> 
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
@@ -85,8 +83,10 @@
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
+					<div class="text-center">
 						<h2>Store</h2>
 						${seller.storeName }<br>
+					</div>
 						<hr>
 						<h4>Personal Info</h4>
 						Seller Id: ${seller.id}<br>
@@ -115,14 +115,15 @@
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
-	
+	<hr>
 	<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
-						<h2>Add Item</h2>
+					<div class="text-center">
+						<h2>Add Item</h2></div>
 	<c:if test="${empty item}">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
 		<form:input type="hidden" value="${seller.id}" path="id"/>
@@ -138,12 +139,20 @@
     <div class="col-md-4 mb-3">
       *Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
     </div>
-    <div class="col-md-4 mb-3">
+    <div class="col-md-2 mb-3">
   		*Category<form:select class="form-control" path="category.name" value="unit">
   		<c:forEach var="category" items="${categoryList}">
   			<option>${category.name}</option>
   		</c:forEach>
 		</form:select>
+    </div>
+    <div class="col-md-3 mb-3">
+  		*Best By:<input type="date" class="form-control" name="best_by"/>
+
+    </div>
+    <div class="col-md-3 mb-3">
+  		*Picked:<input type="date" class="form-control" name="picked_on" />
+
     </div>
     <div class="col-md-4 mb-3"></div>
     		</div>
@@ -178,7 +187,7 @@
 	</div>
 	</div>
 	</div>
-	
+	<hr>
 	
 		<div
 		class="container-fluid text-left align-items-center justify-content-center">
@@ -187,25 +196,17 @@
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
-						<h2>Inventory</h2>
-						<c:if test="${! empty inventory }">
-						<c:forEach var="inventory" items="${inventory}">
+					<div class="text-center">
+						<h2>Inventory Summary</h2>
+						</div>
+						<c:if test="${! empty invSummary }">
+						<c:forEach var="invSum" items="${invSummary}">
 							<li class="list-group-item list-group-item-action"
-							><a href="itemDetails.do?id=${inventory.item.id }">
-								Inventory Id: ${inventory.id }
-								Item Id: ${inventory.item.id }
+							><a href="itemDetails.do?id=${invSum[0] }">
+								Item Id: ${invSum[0] }
+								Item: ${invSum[1]}
+								Qty: ${invSum[2]}
 								</a>
-								Seller Id:${inventory.seller.id}
-								Item Name:${inventory.item.name }
-								Description:${inventory.item.description }
-								Price:${inventory.item.price }
-								Best By:${inventory.item.bestBy }
-								Picked:${inventory.item.picked }
-								Last Updated:${inventory.item.lastUpdated }
-								Active:${inventory.item.active }
-								Category:${inventory.item.category.name }
-								Unit:${inventory.item.unit.name }
-								Image URL:${inventory.item.imgUrl }
 								</li>
 								<hr>
 						</c:forEach>
@@ -216,7 +217,7 @@
 				</div>
 			</div>
 		</div>
-	
+	<hr>
 			<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 
@@ -224,7 +225,9 @@
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
-				<h2>Orders - Fulfilled</h2>
+				<div class="text-center">
+					<h2>Orders - Fulfilled</h2>
+				</div>
 					<c:if test="${! empty purchases }">
 						<c:forEach var="inventory" items="${purchases}">
 							<li class="list-group-item list-group-item-action">

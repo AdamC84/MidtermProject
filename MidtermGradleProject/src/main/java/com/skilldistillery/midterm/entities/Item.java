@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 
@@ -25,7 +27,9 @@ public class Item {
 	private String description;
 	private double price;
 	@Column(name = "best_by")
+	@Temporal(TemporalType.DATE)
 	private Date bestBy;
+	@Temporal(TemporalType.DATE)
 	private Date picked;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "category_id")

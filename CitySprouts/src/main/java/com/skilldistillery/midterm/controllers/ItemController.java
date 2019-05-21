@@ -1,5 +1,7 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,11 +20,13 @@ import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
+import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.PurchaseStatus;
 import com.skilldistillery.midterm.entities.Seller;
+import com.skilldistillery.midterm.entities.Unit;
 
 @Controller
 public class ItemController {
@@ -50,15 +54,25 @@ public class ItemController {
 	}
 	
 	@RequestMapping(path="addItem.do", method = RequestMethod.POST)
-	public String addItem(Model model, Item item, HttpSession session, @RequestParam int qty ){
+	public String addItem(Model model, Item item, HttpSession session, @RequestParam int qty,
+				@RequestParam String picked_on, @RequestParam String best_by){
 		System.out.println("Quantity: " + qty);
 		Seller seller = (Seller) session.getAttribute("seller");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			item.setBestBy(format.parse(best_by));
+			item.setPicked(format.parse(picked_on));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		item.setSeller(seller);
 		item.setActive(1);
 		item = itemDao.addItem(item, seller);
 		model.addAttribute("seller",seller);
-		model.addAttribute("item", item);
-		System.out.println("Item in controller b4 add to inv" + item);
+		model.addAttribute("item", new Item());
+		
 		
 		if (qty != 0) {
 			for (int i = 1; i < qty; i ++) {
@@ -72,7 +86,10 @@ public class ItemController {
 		List<Inventory> inventory = new ArrayList<Inventory>();
 		inventory = itemDao.getSellerInventory(seller);
 		model.addAttribute("inventory", inventory);
-
+		List<Unit> u = itemDao.getAllUnits();
+		List<Category> c = itemDao.getAllCategory();
+		model.addAttribute(u);
+		model.addAttribute(c);
 		//		System.out.println("Seller: **" + seller);
 //		System.out.println("Session" + session.getAttribute("user"));
 //		User currUser = (User) session.getAttribute("user");
