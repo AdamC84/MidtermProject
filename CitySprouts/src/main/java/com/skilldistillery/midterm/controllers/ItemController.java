@@ -14,9 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
+import com.skilldistillery.midterm.data.UserDAO;
+import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Purchase;
+import com.skilldistillery.midterm.entities.PurchaseStatus;
 import com.skilldistillery.midterm.entities.Seller;
 
 @Controller
@@ -24,6 +29,11 @@ public class ItemController {
 
 	@Autowired
 	private ItemDAO itemDao;
+	@Autowired
+	UserDAO d;
+	@Autowired
+	BuyerDAO b;
+
 	
 	@RequestMapping(path = "")
 	public ModelAndView homePage() {
@@ -84,12 +94,28 @@ public class ItemController {
 		return mv;
 	}
 	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
-	public ModelAndView addItemToCart(@RequestParam("id")int id ){
+	public ModelAndView addItemToCart(@RequestParam("id")int id , HttpSession session){
 		ModelAndView mv = new ModelAndView();
+		Buyer buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
+		
 		Item i = itemDao.getItemByItemId(id);
-		List<Item> items = new ArrayList<>();
-		items.add(i);
-		mv.addObject("items", items);
+		System.out.println("**** ITEM  ****    " + i);
+		
+		Purchase purchase = new Purchase();
+		PurchaseStatus ps = itemDao.getPurchaseStatusById(8);
+		purchase.setPurchaseStatus( ps);
+		
+		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
+		purchase.addInventory(inventory);
+		buyer.addPurchase(purchase);
+		System.out.println("**************   " + buyer);
+		buyer = d.updateBuyer(buyer);
+//		b.addPurchase(purchase);
+		
+		System.out.println(buyer.getPurchases());
+		
+		
+		mv.addObject("buyer", buyer);
 		mv.setViewName("cart");
 		return mv;
 	}

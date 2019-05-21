@@ -30,7 +30,7 @@
 <%@ include file="css/style.css"%>
 </style>
 </head>
-<body>
+<body class="learnMore">
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
 			class="icon"></a>
@@ -80,17 +80,14 @@
 			</div>
 		</div>
 	</nav>
-
-
-
-	<div id="home" class="landing-text pagination-centered">
-		<div
-			class="container-fluid text-center align-items-center justify-content-center">
-			<div class="row">
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-					<div id="panel-grey">
-						<br>
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
 						<h1>City Sprouts</h1>
 						<h3>Connecting Urban farmers with the local market</h3>
 						<p>City Sprouts brings locally grown produce to the market.
@@ -101,26 +98,7 @@
 							from any urban farm in minutes. We empower communities
 							to shop local with no waiting, and empower businesses through our
 							API to offer delivery.</p>
-					</div>
-
-				</div>
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-			</div>
-		</div>
-	</div>
-
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10">
-				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-						<h3>It couldn't be easier...</h3>
-						<h4>
 							<a href="registerPage.do">Sign up today!</a>
-						</h4>
 					</div>
 				</div>
 			</div>

@@ -26,16 +26,18 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <style>
-<%@include file="css/style.css" %>
+
+
+<%@include file="css/style.css"%>
 </style>
 
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
-			class="icon">
+		<a class="navbar-brand navbar-left" href="home.do"></a> <img
+			src="img/logo_trans.png" class="icon">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,7 +50,8 @@
 				<li class="nav-item active"><a class="nav-link" href="home.do">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -57,7 +60,7 @@
 						<a class="dropdown-item" href="cart.do">Cart</a> <a
 							class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search
+						<a class="dropdown-item" href="search.do">Search
 							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
 							Learn More</a>
@@ -71,75 +74,75 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login.do">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span style="font-size: 2em;">
+						<i class="fa fa-user-circle-o"></i>
 				</span></a>
-			<div class="nav-item"><a class="nav-link" href="cart.do">
-				<span style="font-size: 12px;">
-				<img src="img/shopping-cart.png">
-				</span></a>
+				<div class="nav-item">
+					<a class="nav-link" href="cart.do"> <span
+						style="font-size: 12px;"> <img src="img/shopping-cart.png">
+					</span></a>
+				</div>
 			</div>
-		</div>
 		</div>
 	</nav>
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
-				<div id="white-text">
+		<div id="white-text">
 			<div id="panel-green">
-		<div class="row">
-				<div class="col-md-1 col-sm-1">
-				<ul>
-				<c:forEach var="item" items="${items }">
-		
-		item details
-		<!-- <div class="thumbnail"> -->
-      <a class="nav-link" href="itemDetails.do?id=${item.id }">
-		<img src="${item.imgUrl }"  class="img-fluid" alt="img-thumbnail"> 
-		</a>
-		
-		${item.name }
-		${item.category.name }
-		${item.price }
-		</c:forEach>
-		</ul>
-				</div>
-				<!-- <div class="col-md-2 col-sm-1">
-			item img
-				</div>
-				<div class="col-md-6 col-sm-6">
-				</div>
-				<div class="col-md-2 col-sm-1">
-		Qty, add, rem
-				</div>
-				<div class="col-md-1 col-sm-1"> -->
-		
-				</div>
+				<div class="row">
+					<div class="col-md-1 col-sm-1">
+						<ul>
+							<c:forEach var="p" items="${buyer.purchases }">
+
+								<c:if test="${p.purchaseStatus.status.equals('PENDING')}">
+									<c:forEach var="i" items="${p.inventory}">
+													${i.item.name }
+													${i.item.description }
+													${i.item.price }
+													${i.item.seller.store}
+			
+									</c:forEach>
+
+
+
+								</c:if>
+
+
+							</c:forEach>
+
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-	<!-- </div> -->
-	
-			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row" style="padding: 0% 0% 3% 0%">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green" style="padding: 0% 0% 3% 0%">
-				<div id="white-text-lg">
-			<h1>Your Local Market Activity</h1>
-			<h4><small>Sell it local...</small></h4>
-			<h3>Denver Area</h3>
+	</div>
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row" style="padding: 0% 0% 3% 0%">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green" style="padding: 0% 0% 3% 0%">
+					<div id="white-text-lg">
+						<h1>Your Local Market Activity</h1>
+						<h4>
+							<small>Sell it local...</small>
+						</h4>
+						<h3>Denver Area</h3>
+					</div>
+				</div>
+				<div id="Container"
+					style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+					<iframe width="100%" height="100%" frameborder="0"
+						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+						allowfullscreen="" style="position: absolute; top: 0; left: 0">
+					</iframe>
+				</div>
 			</div>
-		</div>
-		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-			<iframe width="100%" height="100%" frameborder="0"
-				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-				allowfullscreen=""style="position:absolute; top:0; left: 0"> </iframe>
-		</div>
-		</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
@@ -153,13 +156,14 @@
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
-				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
-				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
-				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a> <a
+					href="https://github.com/AdamC84" class="fa fa-github"></a> <a
+					href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> 
-					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
-<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
+					class="fa fa-twitter"></a> <a
+					href="https://www.linkedin.com/in/roblounsbury"
+					class="fa fa-linkedin"></a>
+				<!-- 				<a href="#" class="fa fa-youtube"></a>  -->
 			</div>
 			<div class="col-sm-4">
 				<img src="img/logo_rd.png" class="icon">

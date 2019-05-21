@@ -13,8 +13,16 @@ div.card.search-results{
 	column-gap: normal;
 	height: auto;
 	width: auto;
-
 }
+
+body.learnMore{
+		background-image: url(img/urbanFarm.jpeg);
+		/* background-color: rgba(255, 255, 255, 0.7) !important; */
+		background-blend-mode: color;
+		background-repeat: repeat-y;
+		background-size: 100%;
+
+	}
 
 .navbar {
   background-color: #23415C;

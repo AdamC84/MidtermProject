@@ -12,6 +12,7 @@ import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Commodity;
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.PurchaseStatus;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
 import com.skilldistillery.midterm.entities.Variety;
@@ -232,4 +233,15 @@ public class ItemDAOImpl implements ItemDAO {
 
 	}
 
+	@Override
+	public Inventory getInventoryByItemId(int id) {
+		String query = "Select i from Inventory i where i.item.id = :id";
+		Inventory i = em.createQuery(query, Inventory.class).setParameter("id", id).getResultList().get(0);
+		return i;
+	}
+	@Override
+	public PurchaseStatus getPurchaseStatusById(int i) {
+		return em.find(PurchaseStatus.class, i);
+	}
+	
 }
