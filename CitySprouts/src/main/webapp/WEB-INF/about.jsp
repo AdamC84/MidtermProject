@@ -32,14 +32,9 @@
 </style>
 </head>
 <body>
-
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
 			class="icon"></a>
-			<div style="padding:20px 0px 0px 0px;">
-		<a class="navbar-brand navbar-left" href="home.do"> 
-			<img src="img/favicon-32x32.png" class="icon"></a>
-			</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -49,9 +44,6 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="home.do">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
 				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -64,14 +56,12 @@
 							Learn More</a>
 							<a class="dropdown-item" href="about">About</a>
 					</div></li>
-<!-- 				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 			</ul>
-<%-- 			<form class="form-inline my-2 my-lg-0" action="search.do">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form> --%>
+				<form class="form-inline my-2 my-lg-0" action="search.do">
+					<input class="form-control mr-sm-2" type="search"
+						placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
@@ -113,18 +103,18 @@
 		class="container-fluid text-center align-items-center justify-content-center">
 	<div class="row">
 		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
+		<div class="col-md-8 col-sm-10">
 		<div id="panel-green">
-				<div id="tomato-text">
-			<h2>Selling and buying with City Sprouts is easy.  
-			</h2>
-			
+		<div id="text-white">
+			<h2>Selling and buying with City Sprouts is easy. </h2>
+		</div>
+			<div id="tomato-text">
 			<div class="nav-item">
 				<h3><a class="nav-link" href="registerPage.do">Sign up today!</a></h3>
 			</div>
+			</div>
 			<a class="btn btn-success" title="Buyer Learn More" href="buyerLearnMore.do">Buyer Learn More</a>
 			<a class="btn btn-success" title="Buyer Learn More" href="sellerLearnMore.do">Seller Learn More</a>
-			</div>
 		</div>
 		</div>
 		</div>
@@ -132,7 +122,7 @@
 	</div>
 	
 			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row" style="padding: 0% 0% 3% 0%">
+	<div class="row">
 		<div class="col-md-2 col-sm-1"></div>
 		<div class="col-md-8 col-sm-10"><hr>
 		<div id="panel-green" style="padding: 0% 0% 3% 0%">

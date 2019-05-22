@@ -79,7 +79,6 @@
 				</span></a>				
 				<a class="nav-link" href="cart.do"> <span
 						style="font-size: 12px; padding: 0px 0px 0px 15px"> <img src="img/shopping-cart.png">
-
 				</span></a>
 			</div>
 		</div>
