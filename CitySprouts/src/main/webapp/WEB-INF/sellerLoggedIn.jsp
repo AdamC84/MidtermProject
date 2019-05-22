@@ -62,10 +62,12 @@
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
+			<div class="nav-item">
+			<a class="nav-link tomato-text" id="btn_height" href="registerPage.do">Sign up</a>
 			<div class="nav-item" style="padding: 0px 0px 0px 0px">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="getProfile.do">
+			<div class="nav-item" id="btn_height"><a class="nav-link" href="getProfile.do">
 				<span style="font-size: 2em;">
 				<i class="fa fa-user-circle-o"></i>
 				</span></a>

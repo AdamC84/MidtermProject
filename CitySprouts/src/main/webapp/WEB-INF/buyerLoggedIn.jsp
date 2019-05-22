@@ -64,12 +64,11 @@
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
-			<div class="nav-item"  style="padding: 0px 0px 0px 0px">
-				<a class="nav-link" href="getProvile.do"> <span style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
-				</span></a>	
-				</div>
-				<div class="nav-item"  style="padding: 0px 0px 0px 0px">			
-				<a class="nav-link" href="cart.do"> <span
+			<div class="nav-item">
+				<a class="nav-link" id="btn_height" href="login.do"> <span
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
+				</span></a>
+				<a class="nav-link" id="btn_height" href="cart.do?id=${user.id }"> <span
 						style="font-size: 12px; padding: 0px 0px 0px 0px"> <img src="img/basket.png">
 				</span></a>
 			</div>

@@ -250,6 +250,9 @@ position: absolute;
 right: 20px;
 top: -45px;
 }
+#btn_height {
+	max-height: 40px;
+}
 
 .input-group-prepend span{
 width: 50px;
