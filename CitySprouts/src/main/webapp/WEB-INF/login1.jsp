@@ -76,33 +76,52 @@
 		</div>
 	</nav>
 	
-		<div id="home" class="landing-text pagination-centered">
-		<div
-			class="container-fluid text-center align-items-center justify-content-center">
-			<div class="row">
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-	
-	<div class="container">
-		<div class="d-flex justify-content-center h-100">
-			<div class="card">
-				<div class="card-header">
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-4 col-sm-1"></div>
+			<div class="col-md-4 col-sm-10">
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
 					<h3>Sign In</h3>
+					<form action="login.do" method="POST" >
+					<div class="form-group">
 
-				</div>
-				<div class="card-body">
- 				<form action="login.do" method="POST">
-					<div class="input-group form-group">
-						<div class="input-group-prepend" style="max-height: 38px">
-							<span class="input-group-text"><i class="fa fa-user"></i></span>
-						</div>
 						<input autofocus="autofocus" name="username" class="form-control" placeholder="Enter username" />
 						
 					</div>
 					<div class="input-group form-group">
-						<div class="input-group-prepend" style="max-height: 38px">
-							<span class="input-group-text"><i class="fa fa-key"></i></span>
-						</div>
+						<input name="password" type="password" class="form-control" placeholder="Enter password" />
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn"/>
+					</div>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-1"></div>
+	</div>
+	
+	<div class="container" style="padding: 20px 0px 0px 0px">
+		<div class="d-flex justify-content-center h-100"><br>
+			<div class="card">
+				<div class="card-header">
+					<h3>Sign In</h3>
+				</div>
+				<div class="card-body">
+ 				<form action="login.do" method="POST" >
+					<div class="form-group">
+
+						<input autofocus="autofocus" name="username" class="form-control" placeholder="Enter username" />
+						
+					</div>
+					<div class="input-group form-group">
 						<input name="password" type="password" class="form-control" placeholder="Enter password" />
 					</div>
 					<div class="row align-items-center remember">
@@ -114,28 +133,39 @@
 				</form>
 				</div>
 				<div class="card-footer">
-					<div class="d-flex justify-content-center links text-warning font-weight-bold" >
-						<c:if test="${! empty error }">
-							${error }
-						</c:if>
-					</div>
-					<div class="d-flex justify-content-center text-white">
-						Don't have an account?<div id="tomato-text2"><a href="register.do"> &nbsp Sign Up</a></div>
-					</div>
-					<!-- 				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
-				</div> -->
+					<div class="justify-content-center text-warning font-weight-bold" >
+				<c:if test="${ ! empty error }">
+				<h3>${error }</h3>
+				</c:if>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	</div>
+	
+ 	
+			<div class="container-fluid text-center align-items-center justify-content-center" style="padding: 20px 0px 0px 0px">
+			</div>
+<%--	<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10"><hr>
+				<hr>
+				<div id="panel-green">
+					<div id="white-text">
+ 
+ 				<div  style="width: 24rem;">
+					<form action="login" method="GET">
+							<input autofocus="autofocus" type="submit" value="Login"
+								class="btn float-none login_btn">
+						</form>
 				</div>
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+									<br>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-
+		<div class="col-md-2 col-sm-1"></div>
+	</div> --%>
 
 
 	<footer class="container-fluid text-center">

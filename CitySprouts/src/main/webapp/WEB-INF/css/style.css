@@ -59,6 +59,12 @@ body.learnMore{
 /*   background-size: contain;
   background-repeat: no-repeat; */
 }
+div.nav-item:nth-child(1) > h3:nth-child(1) > a:nth-child(1)v {
+	color: tomato;
+	font-size: 500%;
+  	font-weight: 700;
+}
+
 .landing-text {
   display: table-cell;
   text-align: center;
@@ -92,7 +98,7 @@ footer {
 }
 
 .fa {
-  padding: 15px;
+  padding: 2px;
   font-size: 25;
   color: #FFF;
 }
@@ -106,7 +112,6 @@ footer {
   max-width: 200px;
 
 }
-
 #white-text {
 	color: #FFF;
 }
@@ -147,6 +152,9 @@ body > nav > img {
 #tomato-text > div > h3 > a {
 	color: tomato;
 }
+#tomato-text2 > a {
+	color: tomato;
+}
 
 #white-text > h4 > a {
 	color: tomato;
@@ -162,7 +170,7 @@ body > nav > img {
   }
   .fa {
     font-size: 20px;
-    padding: 10px;
+    padding: 2px;
   }
   .icon {
     padding-top: 5%;
@@ -272,7 +280,7 @@ margin-right: 5px;
 }
 
 .login_btn{
-color: rgba(0, 128, 0, 0.2);
+color: white;
 background-color: #FF6347;
 width: 100px;
 }

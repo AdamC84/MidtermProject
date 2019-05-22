@@ -32,6 +32,7 @@
 </style>
 </head>
 <body>
+
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
 			class="icon"></a>
@@ -63,7 +64,7 @@
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
 			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
@@ -79,18 +80,11 @@
 			<div class="row">
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-				<div id="panel-grey">
+				<div id="panel-grey" style="padding: 0% 0% 2% 0%">
 				<br>
-					<h1>City Sprouts</h1>
-					<h3>About the team...</h3>
-					<p>
-						City Sprouts is the brainchild of Randy Beach. The concept is simple, connect urban farmers with the local market while making fresh produce more widely available to urban markets.<p>
-						<p>
-						Teammates Adam Crawford and Rob Lounsbury are helping Randy bring this idea to life while fulfilling the requirements for the Skill Distillery Midterm Project Full-Stack Webapp.  
-						</p>
-						<p>
-						Initial site is the results of a one week sprint.<br> Stay tuned as this project continues to sprout!
-						</p>
+					<h1>About</h1>
+					<h3></h3>
+
 					</div>
 					
 				</div>
@@ -106,38 +100,45 @@
 		<div class="col-md-8 col-sm-10">
 		<div id="panel-green">
 		<div id="text-white">
-			<h2>Selling and buying with City Sprouts is easy. </h2>
+			<h3>About the team...</h3>
+		<p>	City Sprouts is the brainchild of Randy Beach. The concept is simple, connect urban farmers with the local market while making fresh produce more widely available to urban markets.<p>
+			<p>
+			Teammates Adam Crawford and Rob Lounsbury are helping Randy bring this idea to life while fulfilling the requirements for the Skill Distillery Midterm Project Full-Stack Webapp.  
+			</p>
+			<p>
+			Initial site is the results of a one week sprint.<br> Stay tuned as this project continues to sprout!
+			</p>
 		</div>
-			<div id="tomato-text">
-			<div class="nav-item">
-				<h3><a class="nav-link" href="registerPage.do">Sign up today!</a></h3>
-			</div>
-			</div>
-			<a class="btn btn-success" title="Buyer Learn More" href="buyerLearnMore.do">Buyer Learn More</a>
-			<a class="btn btn-success" title="Buyer Learn More" href="sellerLearnMore.do">Seller Learn More</a>
 		</div>
 		</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 	
-			<div class="container-fluid text-center align-items-center justify-content-center">
-	<div class="row">
-		<div class="col-md-2 col-sm-1"></div>
-		<div class="col-md-8 col-sm-10"><hr>
-		<div id="panel-green" style="padding: 0% 0% 3% 0%">
-				<div id="white-text-lg">
-			<h1>Local Urban Farmer Connections</h1>
-			<h4><small>Buy it / Sell it local...</small></h4>
-			<h3>Denver Area</h3>
+	<div
+		class="container-fluid text-center align-items-center justify-content-center">
+		<div class="row" style="padding: 0% 0% 3% 1.5%">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<hr>
+				<div id="panel-green" style="padding: 0% 0% 3% 0%">
+					<div id="white-text-lg">
+						<h1>Find your Urban Farmer</h1>
+						<h4>
+							<small>Buy / Sell it local...</small>
+						</h4>
+						<h3>Denver Area</h3>
+					</div>
+					<div id="Container"
+						style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+						<iframe width="100%" height="100%" frameborder="0"
+							src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+							allowfullscreen=""
+							style="position: absolute; top: 0; left: 0; padding: 10px">
+						</iframe>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div id="Container" style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-			<iframe width="100%" height="100%" frameborder="0"
-				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-				allowfullscreen=""style="position:absolute; top:0; left: 0"> </iframe>
-		</div>
-		</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
