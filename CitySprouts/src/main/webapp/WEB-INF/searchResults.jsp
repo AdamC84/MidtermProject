@@ -97,7 +97,8 @@
 							Unit ${item.unit.name }<br>
 							<div style="font-size: 15px; padding: 0px 0px 10px 0px">
 							Category: ${item.category.name } &nbsp;|&nbsp; 
-							Harvested: ${item.picked }
+							Harvested: ${item.picked }<br>
+							Seller: <a href="getItemsFromStore.do?id=${item.seller.id}">${item.seller.storeName}</a>
 							</div>
                     	<a href="itemDetails.do?id=${item.id }" class="btn btn-info" role="button">Item Details</a>
                     	<a href="addToCart.do?id=${item.id }" class="btn btn-success">Add to Cart</a>
