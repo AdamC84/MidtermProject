@@ -76,8 +76,15 @@
 		</div>
 	</nav>
 	
+		<div id="home" class="landing-text pagination-centered">
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+	
 	<div class="container">
-		<div class="d-flex justify-content-center h-100" style="padding: 20px 0px 20px 0px">
+		<div class="d-flex justify-content-center h-100" >
 			<div class="card">
 				<div class="card-header">
 					<h3>Sign In</h3>
@@ -121,6 +128,13 @@
 			</div>
 		</div>
 	</div>
+
+				</div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			</div>
+		</div>
+	</div>
+
 
 
 
