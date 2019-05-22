@@ -61,11 +61,12 @@
 			</ul>
 				<form class="form-inline my-2 my-lg-0" action="search.do">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search" name="keyword">
+
+						placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
+			<a class="nav-link tomato-text" id="btn_height" href="registerPage.do">Sign up</a>
 			</div>
 			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
