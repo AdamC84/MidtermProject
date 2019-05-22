@@ -98,7 +98,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">First</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
+      <form:input autofocus="autofocus" type="test" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last</label>
@@ -110,16 +110,18 @@
       <label for="inputEmail4">User Name</label>
       <form:input type="text" class="form-control" id="userName" placeholder="userName" path="username" value="${user.username}"/>
     </div>
+        <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="password" value="${user.password}"/>
+    </div>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
       <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="email" value="${user.email}"/>
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="password" value="${user.password}"/>
     </div>
+
    <fieldset class="form-group">
     <div class="row">
       <div class="col-sm-10">
@@ -129,6 +131,8 @@
             Buyer
           </label>
         </div>
+        </div>
+             <div class="col-sm-3">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="SELLER"/>
           <label class="form-check-label" for="gridRadios2">
@@ -144,7 +148,6 @@
       </div>
     </div>
   </fieldset>
-  </div>
  <!--  <button type="submit" class="btn btn-primary">Next</button> -->
 <%--   </form:form> --%>
 <%--  </c:when>
@@ -153,14 +156,20 @@
   
 <%--  --- ${user.firstName }--- --%>
  <%--  <form:form action="registerUserAddress.do" method="POST" modelAttribute="address"> --%>
-  
+  <hr>
+  	<div class="form-row">
+  	     <div class="col-sm-6">
   <div class="form-group">
     <label for="inputAddress">Address</label>
     <form:input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" path="address.streetAddress"/>
   </div>
+  </div>
+  <div class="col-sm-6">
   <div class="form-group">
     <label for="inputAddress2">Address 2</label>
     <form:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" path="address.address2"/>
+  </div>
+  </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -229,7 +238,7 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form:form>
 <%--   </c:if> --%>
 <%--  </c:otherwise>
