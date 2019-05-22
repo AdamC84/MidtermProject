@@ -175,10 +175,10 @@ public class UserController {
 			}
 		} else if (role.equals("SELLER")) {
 			Seller seller = d.getSellerByUserId(u.getId());
-			if (sDAO.getInventoryItemsQtyBySeller(seller.getId()) != null) {
+			if (sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()) != null) {
 //				if (iDao.getSellerInventory(seller) != null) {
 //				model.addAttribute("inventory", iDao.getSellerInventory(seller));
-				model.addAttribute("invSummary", sDAO.getInventoryItemsQtyBySeller(seller.getId()));
+				model.addAttribute("invSummary", sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()));
 				session.setAttribute("seller", seller);
 				model.addAttribute(seller);
 				return "sellerLoggedIn";

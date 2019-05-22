@@ -35,19 +35,27 @@ public class SellerDAOImpl implements SellerDAO {
 	}
 
 	@Override
-	public List<Object[]> getInventoryItemsQtyBySeller(int sId) {
-		String query = "Select i.item.id, i.item.name, count( i.item.id) from Inventory i WHERE i.seller.id = :sId GROUP BY i.item.id";
+	public List<Object[]> getPendingInventoryItemsQtyBySeller(int sId) {
+		String query = "Select i.item.id, i.item.name, count( i.item.id) from Inventory i WHERE i.seller.id = :sId And i.purchase = null GROUP BY i.item.id";
 		
-		List<Object[]> invSummary = em.createQuery(query, Object[].class)
-				.setParameter("sId", sId)
-				.getResultList();
-		
+		List<Object[]> invSummary = em.createQuery(query, Object[].class).setParameter("sId", sId).getResultList();
 		System.out.println("impl query: *************" + invSummary);
-		System.out.println("COUNT : *************" + invSummary.get(0)[2]);
 		
 		
 		return invSummary;
 	}
+	@Override
+	public List<Object[]> getFulfilledInventoryItemsQtyBySeller(int sId) {
+		String query = "Select i.item.id, i.item.name, count( i.item.id) from Inventory i WHERE i.seller.id = :sId And i.purchase.purchaseStatus.id = 4 GROUP BY i.item.id";
+		
+		List<Object[]> invSummary = em.createQuery(query, Object[].class).setParameter("sId", sId).getResultList();
+		System.out.println("impl query: *************" + invSummary);
+		
+		
+		return invSummary;
+	}
+
+
 	@Override
 	public List<Item> getInventoryItemsBySellerId(int sId) {
 		String query = "Select i from Item i WHERE i.seller.id = :sId";

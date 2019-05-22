@@ -54,9 +54,9 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public List<Item> getItemsByKeyword(String keyword) {
-		String query = "Select item from Item item where (item.name LIKE :keyword OR item.description LIKE :keyword OR item.category.name LIKE :keyword) AND  item.active = 1";
-		List<Item> items = em.createQuery(query, Item.class).setParameter("keyword", '%' + keyword + '%')
+	public List<Inventory> getItemsByKeyword(String keyword) {
+		String query = "Select i from Inventory i where (i.item.name LIKE :keyword OR i.item.description LIKE :keyword OR i.item.category.name LIKE :keyword) AND  i.purchase = null";
+		List<Inventory> items = em.createQuery(query, Inventory.class).setParameter("keyword", '%' + keyword + '%')
 				.getResultList();
 		return items;
 	}
@@ -171,6 +171,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setUnit(i.getUnit());
 		item.setVariety(i.getVariety());
 		item.setActive(i.getActive());
+		item.setImgUrl(i.getImgUrl());
 		em.persist(item);
 		em.flush();
 		return item;
@@ -191,6 +192,7 @@ public class ItemDAOImpl implements ItemDAO {
 		item.setUnit(i.getUnit());
 		item.setVariety(i.getVariety());
 		item.setActive(i.getActive());
+		item.setImgUrl(i.getImgUrl());
 		em.persist(item);
 		em.flush();
 		return item;

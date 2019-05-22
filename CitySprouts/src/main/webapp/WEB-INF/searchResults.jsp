@@ -79,7 +79,7 @@
 	
 	<div
         class="container-fluid text-left align-items-center justify-content-center">
-                    <c:forEach var="item" items="${items}">
+                    <c:forEach var="i" items="${items}">
         <div class="row">
             <div class="col-md-2 col-sm-1"></div>
             <div class="col-md-8 col-sm-10" >
@@ -91,22 +91,22 @@
                         <div class="col-md-4 col-lg-4 col-sm-2 inner" style="">
                         <div class="container" id="sResults">
                         <div class="inner">
-                        <img src="${item.imgUrl }" class="img-fluid" alt="">
+                        <img src="${i.item.imgUrl }" class="img-fluid" alt="">
                         </div>
                         </div>
                         </div>
                         <div class="col">
                         <div class="card-block px-2" style="color: black">
-                        <h5 class="card-title">${item.name}</h5>
-                                Price: ${item.price }<br>
-                            Unit ${item.unit.name }<br>
+                        <h5 class="card-title">${i.item.name}</h5>
+                                Price: ${i.item.price }<br>
+                            Unit ${i.item.unit.name }<br>
                             <div style="font-size: 15px; padding: 0px 0px 10px 0px">
-                            Category: ${item.category.name } &nbsp;|&nbsp; 
-                            Harvested: ${item.picked }<br>
-                            <a href="getItemsFromStore.do?id=${item.seller.id }">${item.seller.storeName }</a>
+                            Category: ${i.item.category.name } &nbsp;|&nbsp; 
+                            Harvested: ${i.item.picked }<br>
+                            <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
-                        <a href="itemDetails.do?id=${item.id }" class="btn btn-info" role="button">Item Details</a>
-                        <a href="addToCart.do?id=${item.id }" class="btn btn-success">Add to Cart</a>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
+                        <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a>
                     </div>
                 </div>
                 </div>
