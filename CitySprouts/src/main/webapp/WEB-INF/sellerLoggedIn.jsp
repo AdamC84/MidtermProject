@@ -54,7 +54,7 @@
 							<a class="dropdown-item" href="login">Profile</a> 
 						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="getProfile.do">Past Orders</a>
+							<a class="dropdown-item" href="cart.do">Cart</a>
 						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
 			</ul>
@@ -65,6 +65,13 @@
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
+			</div>
+			<div class="nav-item">
+			<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
+				</span></a>
+				</div>
 			</div>
 			<div class="nav-item">
 				<a class="nav-link" href="login"> <span  
