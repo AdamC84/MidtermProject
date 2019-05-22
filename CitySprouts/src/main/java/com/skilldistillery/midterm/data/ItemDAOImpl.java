@@ -195,6 +195,13 @@ public class ItemDAOImpl implements ItemDAO {
 		em.flush();
 		return item;
 	}
+	
+	@Override
+	public Purchase addPurchase(Purchase p) {
+		em.persist(p);
+		em.flush();
+		return p;
+	}
 
 	@Override
 	public Item deleteItem(Item i) {
@@ -277,4 +284,5 @@ public class ItemDAOImpl implements ItemDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+ 	
 }
