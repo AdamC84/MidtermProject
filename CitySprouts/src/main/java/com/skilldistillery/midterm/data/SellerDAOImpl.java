@@ -48,7 +48,7 @@ public class SellerDAOImpl implements SellerDAO {
 	}
 	@Override
 	public List<Item> getInventoryItemsBySellerId(int sId) {
-		String query = "Select i.item from Inventory i WHERE i.seller.id = :sId";
+		String query = "Select i from Item i WHERE i.seller.id = :sId";
 		
 		List<Item> invSummary = em.createQuery(query, Item.class)
 				.setParameter("sId", sId)

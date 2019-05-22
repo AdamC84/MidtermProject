@@ -137,10 +137,8 @@ public class UserController {
 	public ModelAndView itemList(@RequestParam("id")int id) {
 		ModelAndView mv = new ModelAndView();
 		List<Item> items = sDAO.getInventoryItemsBySellerId(id);
-		Seller seller = d.getSellerById(id);
 		System.out.println(items);
 		mv.addObject("items", items);
-		mv.addObject("seller", seller);
 		mv.setViewName("searchResults");
 		return mv;
 	}
