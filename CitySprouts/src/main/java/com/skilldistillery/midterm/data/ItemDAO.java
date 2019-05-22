@@ -48,6 +48,7 @@ public interface ItemDAO {
 	PurchaseStatus getPurchaseStatusByName(String name);
 
 	Purchase addPurchase(Purchase p);
+	Inventory addInventory(Inventory p);
 
 
 
