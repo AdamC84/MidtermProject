@@ -1,8 +1,6 @@
 package com.skilldistillery.midterm.data;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.Seller;
 
@@ -40,6 +39,18 @@ public class SellerDAOImpl implements SellerDAO {
 		String query = "Select i.item.id, i.item.name, count(distinct i.item.id) from Inventory i WHERE i.seller.id = :sId GROUP BY i.item.id";
 		
 		List<Object[]> invSummary = em.createQuery(query, Object[].class)
+				.setParameter("sId", sId)
+				.getResultList();
+		
+		System.out.println("impl query: *************" + invSummary);
+		
+		return invSummary;
+	}
+	@Override
+	public List<Item> getInventoryItemsBySellerId(int sId) {
+		String query = "Select i from Item i WHERE i.seller.id = :sId";
+		
+		List<Item> invSummary = em.createQuery(query, Item.class)
 				.setParameter("sId", sId)
 				.getResultList();
 		

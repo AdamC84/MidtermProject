@@ -83,8 +83,48 @@
 			</div>
 		</div>
 	</nav>
-	
-		<div class="container">
+	<div
+        class="container-fluid text-left align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-md-2 col-sm-1"></div>
+            <div class="col-md-8 col-sm-10" >
+                <div id="panel-green">
+                    <div id="white-text">
+                    <div class="text-center">
+                    <c:forEach var="item" items="${items}">
+                    <div class="card">
+                        <div class="row">
+                        <div class="col-md-3">
+                        <img src="${item.imgUrl }" class="img-fluid" alt="">
+                        </div>
+                        <div class="col">
+                        <div class="card-block px-2" style="color: black">
+                        <h5 class="card-title">${item.name}</h5>
+                                Price: ${item.price }<br>
+                            Unit ${item.unit.name }<br>
+                            <div style="font-size: 15px; padding: 0px 0px 10px 0px">
+                            Category: ${item.category.name } &nbsp;|&nbsp; 
+                            Harvested: ${item.picked }<br>
+                            <a href="getItemsFromStore.do?id=${item.seller.id }">Seller: ${item.seller.storeName }</a>
+                            </div>
+                        <a href="itemDetails.do?id=${item.id }" class="btn btn-info" role="button">Item Details</a>
+                        <a href="addToCart.do?id=${item.id }" class="btn btn-success">Add to Cart</a>
+                    </div>
+                </div>
+                </div>
+                <div class="card-footer w-20" style="background-color: tomato; color: tomato">
+                    Footer 
+                </div>
+              </div>
+              </c:forEach>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-1"></div>
+    </div>
+    </div>                    
+		<%-- <div class="container">
 			<c:forEach var="item" items="${items}">
 					<div class="row">
 					<div class="col-lg-2"></div>
@@ -99,6 +139,7 @@
 										<li class="list-group-item">Unit ${item.unit.name }</li>
 										<li class="list-group-item">Category: ${item.category.name }</li>
 										<li class="list-group-item">Harvested: ${item.picked }</li>
+										<li class="list-group-item"></li>
 									</ul>
 									<div class="card-body">
 										<a href="addToCart.do?id=${item.id }" class="btn btn-info"
@@ -118,7 +159,7 @@
 	<br>
 	<br>
 				</div>
-		</div>
+		</div> --%>
 
 
 

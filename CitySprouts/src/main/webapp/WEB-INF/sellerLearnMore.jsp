@@ -105,7 +105,7 @@
 							Targeting the urban community, City Sprouts emerged from the idea
 							that Farmers should profit more from the products they
 							sell—without a middleman marking up prices. 
-							</p><p>We know people areonline 4+ hours and day and prefer self-service ordering (in as
+							</p><p>We know people are online 4+ hours and day and prefer self-service ordering (in as
 							few clicks and as little time as possible). Further, we believe
 							food should be as convenient to buy direct from local Farmers as
 							it is to go to the grocery store or buy from an online grocer. We
