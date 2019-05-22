@@ -85,7 +85,73 @@
 	</nav>
 	
 		
-	
+	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
+						<h2>Checkout</h2>
+						
+					</div>
+						<hr>
+						<h4>Personal Info</h4>
+						Buyer Id: ${buyer.id}<br>
+						User Id: ${buyer.user.id}<br>
+						Name: ${buyer.user.firstName }, ${buyer.user.lastName }<br>
+						Username: ${buyer.user.username }<br>
+						Email: ${buyer.user.email }<br>
+						Last Login: ${buyer.user.lastLogin }<br>
+						<hr>
+						<h4>Address Details</h4>
+						Street: ${buyer.user.address.streetAddress }<br>
+						Street2: ${buyer.user.address.address2 }<br>
+						City: ${buyer.user.address.city }<br>
+						State: ${buyer.user.address.state }<br>
+						Zipcode: ${buyer.user.address.zipcode }<br>
+						<hr>
+						<h4>Bank Info</h4>
+						Credit Card On File: ${buyer.creditCardNum }<br>
+						EXP Date:${buyer.creditCardExpDate}<br>
+						CCV: ${buyer.creditCardCcv }<br>
+						<hr>
+					</div>
+						<div id="panel-green"><br>
+							<c:forEach var="p" items="${buyer.purchases }">
+
+								<c:if test="${p.purchaseStatus.status.equals('Pending')}">
+									<c:forEach var="i" items="${p.inventory}">
+										<!-- <div class="row"> -->
+											<div class="card" style="width: 18rem;">
+											  	<div class="card-body">
+												    <h5 class="card-title">${i.item.name }</h5>
+												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>
+												    <p class="card-text">${i.item.price }<br>${i.item.category.name}<br>${i.item.seller.store}</p>
+												    <a href="#" class="card-link">Remove</a>
+												    <a href="#" class="card-link">Another link</a>
+										  		</div>
+											</div>
+										<!-- </div> -->
+									</c:forEach><br>
+								</c:if>
+							</c:forEach>
+						
+						<form action="submitOrder.do">
+							<c:if test="${not empty buyer.purchases }">
+							<h4>Total ${sum}</h4><br>
+							<input type="hidden" name="sum"  value="${sum}">
+							<button type="submit" class="btn btn-primary">Submit Order</button>
+							</c:if>						
+						</form>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+
 
 
 

@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.BuyerDAO;
+import com.skilldistillery.midterm.data.ItemDAO;
+import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Purchase;
 
@@ -18,6 +21,10 @@ import com.skilldistillery.midterm.entities.Purchase;
 public class BuyerController {
 	@Autowired
 	private BuyerDAO bd;
+	@Autowired
+	private ItemDAO i;
+	@Autowired
+	UserDAO uDao;
 
 	@RequestMapping(path = "purchaseResults.do")
 	public ModelAndView getPurchaseResults(Buyer buyer) {
@@ -41,12 +48,25 @@ public class BuyerController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "submitOrder.do")
-	public String submitOrder(Model model, HttpSession session) {
+	@RequestMapping(path = "checkout.do")
+	public String checkout(Model model, HttpSession session,@RequestParam("total") double total) {
 		
-		
+		model.addAttribute("sum", total);
 		
 		return "ordersummary";
+	}
+	
+	@RequestMapping(path = "submitOrder.do")
+	public String submitOrder(Model model, HttpSession session, @RequestParam("sum") double sum) {
+		Buyer buyer = uDao.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
+		List<Purchase> purchases = i.getPurchaseByBuyerId(buyer.getId());
+		for (Purchase purchase : purchases) {
+			purchase.getPurchaseStatus().setStatus("Fulfilled");
+			buyer.addPurchase(purchase);
+			System.out.println(purchase);
+		}
+		buyer = uDao.updateBuyer(buyer);
+		return "buyerLoggedIn";
 	}
 }
 //	@RequestMapping(path = "logout.do")
