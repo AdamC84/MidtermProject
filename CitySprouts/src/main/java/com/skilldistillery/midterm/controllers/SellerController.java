@@ -34,7 +34,7 @@ public class SellerController {
 	@RequestMapping(path = "getInvSummary.do")
 	public String getInvSummary(Model model, HttpSession session) {
 		Seller seller = (Seller) session.getAttribute("seller");
-		model.addAttribute("invSummary", sellDAO.getInventoryItemsQtyBySeller(seller.getId()));
+		model.addAttribute("invSummary", sellDAO.getPendingInventoryItemsQtyBySeller(seller.getId()));
 		return "sellerLoggedIn";
 	}
 	
