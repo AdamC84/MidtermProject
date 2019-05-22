@@ -120,10 +120,12 @@
 						<div id="panel-green"><br>
 							<c:forEach var="p" items="${buyer.purchases }">
 
-								<c:if test="${p.purchaseStatus.status.equals('Pending')}">
+								<c:if test="${p.purchaseStatus.id == 5}">
 									<c:forEach var="i" items="${p.inventory}">
 										<!-- <div class="row"> -->
 											<div class="card" style="width: 18rem;">
+											<img class="card-img-top search-results" src="${i.item.imgUrl }"
+													alt="Card image cap">
 											  	<div class="card-body">
 												    <h5 class="card-title">${i.item.name }</h5>
 												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>

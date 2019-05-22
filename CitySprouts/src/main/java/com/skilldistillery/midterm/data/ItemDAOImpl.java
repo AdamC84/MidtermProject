@@ -195,6 +195,13 @@ public class ItemDAOImpl implements ItemDAO {
 		em.flush();
 		return item;
 	}
+	
+	@Override
+	public Purchase addPurchase(Purchase p) {
+		em.persist(p);
+		em.flush();
+		return p;
+	}
 
 	@Override
 	public Item deleteItem(Item i) {
@@ -271,6 +278,7 @@ public class ItemDAOImpl implements ItemDAO {
 		return em.createQuery(query, PurchaseStatus.class).setParameter("name", name).getResultList().get(0);
 		
 	}
+
 
  	
 }
