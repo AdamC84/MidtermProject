@@ -7,13 +7,6 @@ background: rgba(0, 128, 0, 0.3)!important;
 .card-text{
 	overflow: scroll;
 }
-div.card.search-results{
-	align-self: auto;
-	align-content: space-around;
-	column-gap: normal;
-	height: auto;
-	width: auto;
-}
 
 .row {
 	padding: 10px 0px 10px 20px;
@@ -222,15 +215,19 @@ form{
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-.card #card-login{
+.container{
+height: 100%;
+align-content: center;
+}
+
+
+#card-login{
 height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
-
-
 
 .social_icon span{
 font-size: 60px;
@@ -258,8 +255,8 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #FF6347;
-color: rgba(0, 128, 0, 0.2);
+background-color: tomato;
+color: black;
 border:0 !important;
 }
 
@@ -283,7 +280,7 @@ margin-right: 5px;
 
 .login_btn{
 color: white;
-background-color: #FF6347;
+background-color: tomato;
 width: 100px;
 }
 
@@ -301,7 +298,17 @@ margin-left: 4px;
 }
 
 
+.inner {
+  overflow: hidden;
+}
 
+.inner img {
+  transition: all 1s ease;
+}
+
+.inner:hover img {
+  transform: scale(1.5);
+}
 
 /*--- iOS Landing Page Fix
 section {
