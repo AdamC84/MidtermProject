@@ -48,6 +48,9 @@ public class UserController {
 	@RequestMapping(path = "cart.do")
 	public String cart(HttpSession session, Model model) {
 		Buyer buyer = (Buyer)session.getAttribute("buyer");
+		if(buyer == null) {
+			return "login";
+		}
 		System.out.println(buyer);
 		double total = 0;
 		List<Purchase> purchasesPending = new ArrayList<>();
