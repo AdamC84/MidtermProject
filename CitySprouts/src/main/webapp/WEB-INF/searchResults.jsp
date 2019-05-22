@@ -99,6 +99,7 @@
 										<li class="list-group-item">Unit ${item.unit.name }</li>
 										<li class="list-group-item">Category: ${item.category.name }</li>
 										<li class="list-group-item">Harvested: ${item.picked }</li>
+										<li class="list-group-item">Seller: ${seller.storeName }</li>
 									</ul>
 									<div class="card-body">
 										<a href="addToCart.do?id=${item.id }" class="btn btn-info"

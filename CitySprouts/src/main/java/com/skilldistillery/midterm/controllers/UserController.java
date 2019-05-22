@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.BuyerDAO;
@@ -119,14 +120,21 @@ public class UserController {
 	@RequestMapping(path = "getStoreNames.do")
 	public ModelAndView storeList() {
 		ModelAndView mv = new ModelAndView();
-		List<String> storeList = new ArrayList<String>();
-		List<Seller> seller = d.getAllSellers();
-		for (Seller seller2 : seller) {
-			storeList.add(seller2.getStoreName());
-		}
+		List<Seller> sellers = d.getAllSellers();
 		
-		mv.addObject("storeList", storeList);
+		mv.addObject("sellers", sellers);
 		mv.setViewName("storeNames");
+		return mv;
+	}
+	@RequestMapping(path = "getItemsFromStore.do")
+	public ModelAndView itemList(@RequestParam("id")int id) {
+		ModelAndView mv = new ModelAndView();
+		List<Item> items = sDAO.getInventoryItemsBySellerId(id);
+		Seller seller = d.getSellerById(id);
+		System.out.println(items);
+		mv.addObject("items", items);
+		mv.addObject("seller", seller);
+		mv.setViewName("searchResults");
 		return mv;
 	}
 	@RequestMapping(path = "addItemView.do")
