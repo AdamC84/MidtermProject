@@ -87,42 +87,62 @@
 	<div class="container text-center align-items-center justify-content-center">
 	<h3>Your Cart</h3>
 		<div id="white-text">
-			<div id="panel-green">
 			<h5>Your current cart</h5>
-					<div class="col-md-4 py-2">
-						<ul>
-							<c:forEach var="p" items="${buyer.purchases }">
-
-								<c:if test="${p.purchaseStatus.id == 5}">
-									<c:forEach var="i" items="${p.inventory}">
-										<div class="row">
-											<div class="card" style="width: 18rem;">
-												<img class="card-img-top search-results" src="${i.item.imgUrl }"
-													alt="Card image cap">
-											  	<div class="card-body">
-												    <h5 class="card-title">${i.item.name }</h5>
-												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>
-												    <p class="card-text">${i.item.price }<br>${i.item.category.name}<br>${i.item.seller.store}</p>
-												    <a href="#" class="card-link">Remove</a>
-												    <a href="#" class="card-link">Another link</a>
-										  		</div>
-											</div>
-										</div>
-									</c:forEach><br>
-						<form action="checkout.do">
+		
+			<div class="container-fluid text-left align-items-center justify-content-center">
+                    <c:forEach var="p" items="${buyer.purchases}">
+                    <c:if test="${p.purchaseStatus.id == 5}">
+                    <c:forEach var="i" items="${p.inventory}">
+        <div class="row">
+            <div class="col-md-2 col-sm-1"></div>
+            <div class="col-md-8 col-sm-10" >
+                <div id="panel-green">
+                    <div id="white-text">
+                    <div class="text-center">
+                    <div class="card">
+                        <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-2 inner" style="">
+                        <div class="container" id="sResults">
+                        <img src="${i.item.imgUrl }" class="img-fluid" alt="">
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div class="card-block px-2" style="color: black">
+                        <h5 class="card-title">${i.item.name}</h5>
+                                Price: ${i.item.price }<br>
+                            Unit ${i.item.unit.name }<br>
+                            <div style="font-size: 15px; padding: 0px 0px 10px 0px">
+                            Category: ${i.item.category.name } &nbsp;|&nbsp; 
+                            Harvested: ${i.item.picked }<br>
+                            <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
+                            </div>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
+                       <%--  <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a> --%>
+                    </div>
+                </div>
+                </div>
+                 <div class="card-footer w-20" style="background-color: tomato">
+                </div>
+              </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-1"></div>
+    </div>
+    </c:forEach>
+    </c:if>
+              </c:forEach>
+              <form action="checkout.do">
 							<%-- <c:if test="${not empty buyer.purchases }"> --%>
 							Total ${total}<br>
 							<input type="hidden" name="total"  value="${total}">
 							<button type="submit" class="btn btn-primary">Checkout</button>
 							<%-- </c:if>		 --%>				
 						</form>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</div>
-													
-
-			</div>
+    </div>  
+    
+                      
 			<hr>
 			<div id="panel-green">
 			<h5>Your purchase history</h5>
