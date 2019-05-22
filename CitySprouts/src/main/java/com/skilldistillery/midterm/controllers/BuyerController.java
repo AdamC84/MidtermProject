@@ -61,11 +61,14 @@ public class BuyerController {
 		Buyer buyer = uDao.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
 		List<Purchase> purchases = i.getPurchaseByBuyerId(buyer.getId());
 		for (Purchase purchase : purchases) {
-			purchase.getPurchaseStatus().setStatus("Fulfilled");
+//			purchase.getPurchaseStatus().setStatus(i.getPurchaseStatusById(4).getStatus());
+			purchase.setPurchaseStatus(i.getPurchaseStatusById(4));
 			buyer.addPurchase(purchase);
 			System.out.println(purchase);
 		}
 		buyer = uDao.updateBuyer(buyer);
+		session.setAttribute("buyer", buyer);
+		System.out.println("***************     " + i.getPurchaseByBuyerId(buyer.getId()));
 		return "buyerLoggedIn";
 	}
 }
