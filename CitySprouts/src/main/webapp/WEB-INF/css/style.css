@@ -269,7 +269,8 @@ margin-right: 5px;
 }
 
 .login_btn{
-color: rgba(0, 128, 0, 0.2);
+color: black;
+/* color: rgba(0, 128, 0, 0.2); */
 background-color: #FF6347;
 width: 100px;
 }
