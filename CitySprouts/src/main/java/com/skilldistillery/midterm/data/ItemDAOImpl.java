@@ -204,6 +204,12 @@ public class ItemDAOImpl implements ItemDAO {
 		em.flush();
 		return p;
 	}
+	@Override
+	public Inventory addInventory(Inventory p) {
+		em.persist(p);
+		em.flush();
+		return p;
+	}
 
 	@Override
 	public Item deleteItem(Item i) {

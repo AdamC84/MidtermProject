@@ -133,7 +133,11 @@ public class ItemController {
 		
 		System.out.println(purchase.getPurchaseStatus());
 		System.out.println("**** Item ID : " + id);
-		Inventory inventory = itemDao.getInventoryByItemId(id);
+		Inventory inventory = new Inventory(); 
+		inventory.setItem(itemDao.getItemByItemId(id));
+		inventory.setSeller(itemDao.getItemByItemId(id).getSeller());
+		inventory.setPurchase(purchase);
+		inventory = itemDao.addInventory(inventory);
 		purchase.addInventory(inventory);
 		buyer.addPurchase(purchase);
 		buyer = d.updateBuyer(buyer);
