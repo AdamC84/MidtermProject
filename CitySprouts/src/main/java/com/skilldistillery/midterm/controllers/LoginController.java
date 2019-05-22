@@ -120,6 +120,9 @@ public class LoginController {
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		session.removeAttribute("user");
+		session.removeAttribute("buyer");
+		session.removeAttribute("seller");
+		
 		mv.setViewName("index");
 		return mv;
 	}

@@ -47,6 +47,7 @@ public interface ItemDAO {
 	List<Purchase> getPurchaseByBuyerId(int id);
 	PurchaseStatus getPurchaseStatusByName(String name);
 	List<Item> getItemsByName(String keyword);
+	Purchase addPurchase(Purchase p);
 
 
 

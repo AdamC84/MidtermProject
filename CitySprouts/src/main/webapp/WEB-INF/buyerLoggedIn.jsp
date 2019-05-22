@@ -81,7 +81,7 @@
 						<ul>
 							<c:forEach var="p" items="${buyer.purchases }">
 
-								<c:if test="${p.purchaseStatus.status.equals('Fulfilled')}">
+								<c:if test="${p.purchaseStatus.id == 4}">
 									<c:forEach var="i" items="${p.inventory}">
 										<div class="row">
 											<div class="card" style="width: 18rem;">
