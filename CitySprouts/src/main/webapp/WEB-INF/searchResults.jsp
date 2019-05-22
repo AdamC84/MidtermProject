@@ -90,7 +90,9 @@
                         <div class="row">
                         <div class="col-md-4 col-lg-4 col-sm-2 inner" style="">
                         <div class="container" id="sResults">
+                        <div class="inner">
                         <img src="${item.imgUrl }" class="img-fluid" alt="">
+                        </div>
                         </div>
                         </div>
                         <div class="col">

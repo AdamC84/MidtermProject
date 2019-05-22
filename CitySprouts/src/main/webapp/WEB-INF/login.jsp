@@ -114,7 +114,7 @@
 				</form>
 				</div>
 				<div class="card-footer">
-					<div class="d-flex justify-content-center links text-warning font-weight-bold" >
+					<div class="d-flex justify-content-center links text-warning font-weight-bold" style="color: tomato">
 						<c:if test="${! empty error }">
 							${error }
 						</c:if>
