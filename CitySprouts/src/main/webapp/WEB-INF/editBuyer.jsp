@@ -36,8 +36,8 @@
 </head>
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
-			class="icon">
+		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
+			class="icon"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -47,52 +47,58 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="home.do">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
 				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="cart.do">Cart</a> <a
-							class="dropdown-item" href="editProfile.do">Edit Profile</a>
+							<a class="dropdown-item" href="login">Profile</a> 
+						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="searchResults.do">Search
-							Results</a> <a class="dropdown-item" href="buyerLearnMore.do">Buyer
-							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
-							Learn More</a>
+							<a class="dropdown-item" href="cart.do">Cart</a>
+						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
+					placeholder="Search" aria-label="Search" name="keyword">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
+			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+						<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
-				<c:if test="${user.role = BUYER} ">
-				<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 1em; position:relative"> <i class="fa fa-basket"></i>
+				</div>
+
+				</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
 				</span></a>
-				</c:if>
 			</div>
 		</div>
 	</nav>
 
-
+	<div
+		class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
+						<h2>Edit Profile</h2>
+						<br>
+					</div>
 <form:form action="updateBuyer.do" method="POST" modelAttribute="buyer">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">First</label>
+      <label for="inputEmail4">First <br></label>
       <form:input type="test" class="form-control" id="firstName" placeholder="first" path="user.firstName" value="${buyer.user.firstName}"/>
     </div>
     <div class="form-group col-md-6">
@@ -105,28 +111,32 @@
       <label for="inputEmail4">User Name</label>
       <form:input type="text" class="form-control" id="userName" placeholder="userName" path="user.username" value="${buyer.user.username}"/>
     </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="user.password" value="${buyer.user.password}"/>
+    </div>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
       <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="user.email" value="${buyer.user.email}"/>
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="user.password" value="${buyer.user.password}"/>
-    </div>
    
   </div>
-
+<hr>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Address</label>
+      <form:input type="text" class="form-control" id="address" placeholder="1234 Main St" path="user.address.streetAddress" value="${user.address.streetAddress}"/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Address 2</label>
+      <form:input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" path="user.address.address2" value="${user.address.address2}"/>
+    </div>
+    </div>
   
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <form:input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" path="user.address.streetAddress"/>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <form:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" path="user.address.address2"/>
-  </div>
+  
+  
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">City</label>
@@ -134,11 +144,57 @@
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
-      <form:select id="inputState" class="form-control" path="user.address.state">
-        <option selected>${seller.user.address.state}</option>
-        <option>Alabama</option>
-        <option>Alaska</option>
-        <option>Colorado</option>
+      <form:select id="inputState" class="form-control" path="user.address.state" value="${user.address.state}">
+		<option>Alabama</option>
+		<option>Alaska</option>
+		<option>Arizona</option>
+		<option>Arkansas</option>
+		<option>California</option>
+		<option>Colorado</option>
+		<option>Connecticut</option>
+		<option>Delaware</option>
+		<option>Florida</option>
+		<option>Georgia</option>
+		<option>Hawaii</option>
+		<option>Idaho</option>
+		<option>Illinois</option>
+		<option>Indiana</option>
+		<option>Iowa</option>
+		<option>Kansas</option>
+		<option>Kentucky</option>
+		<option>Louisiana</option>
+		<option>Maine</option>
+		<option>Maryland</option>
+		<option>Massachusetts</option>
+		<option>Michigan</option>
+		<option>Minnesota</option>
+		<option>Mississippi</option>
+		<option>Missouri</option>
+		<option>Montana</option>
+		<option>Nebraska</option>
+		<option>Nevada</option>
+		<option>New Hampshire</option>
+		<option>New Jersey</option>
+		<option>New Mexico</option>
+		<option>New York</option>
+		<option>North Carolina</option>
+		<option>North Dakota</option>
+		<option>Ohio</option>
+		<option>Oklahoma</option>
+		<option>Oregon</option>
+		<option>Pennsylvania</option>
+		<option>Rhode Island</option>
+		<option>South Carolina</option>
+		<option>South Dakota</option>
+		<option>Tennessee</option>
+		<option>Texas</option>
+		<option>Utah</option>
+		<option>Vermont</option>
+		<option>Virginia</option>
+		<option>Washington</option>
+		<option>West Virginia</option>
+		<option>Wisconsin</option>
+		<option>Wyoming</option>
       </form:select>
     </div>
     <div class="form-group col-md-2">
@@ -146,24 +202,27 @@
       <form:input type="text" class="form-control" id="inputZip" path="user.address.zipcode"/>
     </div>
   </div>
-  <div class="container">
-  <div class="form-row">
+  <hr>
+    <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Credit Card Number</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="44444" path="creditCardNum" />
+      <label for="inputCCNum">Credit Card Number</label>
+      <form:input type="test" class="form-control" id="firstName" placeholder="XXXXXXXXXXXXXXXX" path="creditCardNum" value="${buyer.creditCardNum}"/>
     </div>
-  
-  </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">CCV</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv"/>
+      <label for="inputCCV">CCV</label>
+      <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv" value="${buyer.creditCardCcv}"/>
     </div>
     </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form:form>
 
-
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
 	<footer class="container-fluid text-center">
 		<div class="row">

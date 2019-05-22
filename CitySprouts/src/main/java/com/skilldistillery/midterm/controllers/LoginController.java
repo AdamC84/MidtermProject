@@ -40,7 +40,14 @@ public class LoginController {
 	public ModelAndView login(String username, String password, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("**********************"+username + " " + password);
-		User u = d.login(username, password);
+		User u = new User();
+		try {
+		u = d.login(username, password);
+		} catch(Exception e) {
+			mv.addObject("error", "Invalid login attempt. Please try again.");
+			return mv;
+		}
+		
 		if (u != null) {
 		u.setLastLogin(new Date());
 		session.setAttribute("user", u);

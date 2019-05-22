@@ -65,16 +65,17 @@
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
 			<div class="nav-item">
-				<a class="nav-link" href="login"> <span  
-					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
-				</span></a>
-				</div>
-			<div class="nav-item">
-			<div id="btn_height" >				
+						<div id="btn_height" >				
 				<a class="nav-link" href="cart.do?id=${user.id }"> 
 				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
 				</div>
+
+				</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
+				</span></a>
 			</div>
 		</div>
 	</nav>
@@ -116,7 +117,7 @@
 		</div>			
 	</div>
 
-
+	<hr>
 	
 	<div
 		class="container-fluid text-left align-items-center justify-content-center">
