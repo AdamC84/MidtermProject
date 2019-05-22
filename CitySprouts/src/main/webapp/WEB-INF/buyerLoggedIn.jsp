@@ -49,36 +49,46 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="getProfile.do">Profile</a> 
+							<a class="dropdown-item" href="login">Profile</a> 
 						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="pastOrders.do">Past Orders</a>
-						<a class="dropdown-item" href="searchResults.do">Search 	Results</a> 
+							<a class="dropdown-item" href="cart.do">Cart</a>
+						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
+					placeholder="Search" aria-label="Search" name="keyword">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
+			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
 			<div class="nav-item">
-				<a class="nav-link" id="btn_height" href="login.do"> <span
-					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
 				</span></a>
-				<a class="nav-link" id="btn_height" href="cart.do?id=${user.id }"> <span
-						style="font-size: 12px; padding: 0px 0px 0px 0px"> <img src="img/basket.png">
+				</div>
+			<div class="nav-item">
+			<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
+				</div>
 			</div>
 		</div>
 	</nav>
 
-<div id="panel-green">
-			<h5>Your purchase history</h5>
+	<div
+		class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
+						<h2>Your Purchase History</h2>
 					<div class="col-md-4 py-2">
-						<ul>
 							<c:forEach var="p" items="${buyer.purchases }">
 
 								<c:if test="${p.purchaseStatus.id == 4}">
@@ -97,73 +107,41 @@
 									</c:forEach><br>
 								</c:if>
 							</c:forEach>
-						</ul>
-						<form:form>
-													
-						</form:form>
 					</div>
-													
-
-			</div>
-
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10">
-				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-						<c:if test="${! empty items }">
-							<h3>Items</h3>
-						<ul>
-						<c:forEach var="item" items="${items}">
-							<li>${item.name }</li>
-							<li>${item.category.name }</li>
-				                  <a class="nav-link" href="addToCart.do?id=${item.id }"> <span
-					              style="font-size: 1em; position:relative"> <i class="fa fa-basket"></i>
-				            </span></a>
-							<%-- <form method="get" action="addItemToCart.do">
-                                <button type="submit">Add to Cart</button>
-                            </form> --%>
-									<hr>
-						</c:forEach>
-						</ul>
-						</c:if>
-
 					</div>
+					</div>
+					
 				</div>
 			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
+		</div>			
 	</div>
-	
+
+
 	
 	<div
-		class="container-fluid text-center align-items-center justify-content-center">
+		class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10">
-				<hr>
+			<div class="col-md-8 col-sm-10" >
 				<div id="panel-green">
 					<div id="white-text">
-							<h3>buyer Id</h3>
-							${buyer.id}
-							<h3>User Id</h3>
-							${buyer.user.id}
-							<h3>Personal Info</h3>
+					<div class="text-center">
+							<h2>Personal Info</h2>
+					</div>
 							Name: ${buyer.user.firstName }, ${buyer.user.lastName }<br>
 							Username: ${buyer.user.username }<br>
 							Password: ${buyer.user.password }<br>
 							Last Login: ${buyer.user.lastLogin }<br>
 							Role: ${buyer.user.role }<br>
+							<hr>
 							<h4>Address Details</h4>
 							Street: ${buyer.user.address.streetAddress }<br>
 							Street2: ${buyer.user.address.address2 }<br>
 							City: ${buyer.user.address.city }<br>
 							State: ${buyer.user.address.state }<br>
 							Zip Code: ${buyer.user.address.zipcode }<br>
-							<h2>Payment Methods</h2>
+							<hr>
+							<h4>Payment Methods</h4>
 							Credit Card Number: ${buyer.creditCardNum }<br>
 							Credit Card Exp Date: ${buyer.creditCardExpDate }<br>
 							Credit Card CCV: ${buyer.creditCardCcv }<br>
