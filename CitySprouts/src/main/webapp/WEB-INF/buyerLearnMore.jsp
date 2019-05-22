@@ -62,7 +62,7 @@
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
 			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
@@ -71,6 +71,27 @@
 			</div>
 		</div>
 	</nav>
+	
+	
+		<div id="home" class="landing-text pagination-centered">
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+				<div id="panel-grey" style="padding: 0% 0% 2% 0%">
+				<br>
+					<h1>Buying...</h1>
+					<h3></h3>
+
+					</div>
+					
+				</div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			</div>
+		</div>
+	</div>
+	
 	
 	<div class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -83,12 +104,16 @@
 						<p>City Sprouts brings locally grown produce to the market.
 							Targeting the urban community, City Sprouts is transforming the way
 							goods move around cities by enabling anyone to have any produce
-							delivered on-demand. Our revolutionary Urban Logistics platform
+							delivered on-demand. </p><p>Our revolutionary Urban Logistics platform
 							connects customers with local couriers who can deliver produce
 							from any urban farm in minutes. We empower communities
 							to shop local with no waiting, and empower businesses through our
 							API to offer delivery.</p>
-							<a href="registerPage.do">Sign up today!</a>
+							<div id="tomato-text">
+							<div class="nav-item">
+							<h3><a href="registerPage.do">Sign Up today!</a></h3>
+							</div>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -98,7 +123,7 @@
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row" style="padding: 0% 0% 3% 0%">
+		<div class="row" style="padding: 0% 0% 3% 1.5%">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
 				<hr>
@@ -106,7 +131,7 @@
 					<div id="white-text-lg">
 						<h1>Find your Urban Farmer</h1>
 						<h4>
-							<small>Buy it local...</small>
+							<small>Sell it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>
