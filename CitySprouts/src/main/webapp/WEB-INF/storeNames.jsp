@@ -33,10 +33,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
 			class="icon"></a>
-			<div style="padding:20px 0px 0px 0px;">
-		<a class="navbar-brand navbar-left" href="home.do"> 
-			<img src="img/favicon-32x32.png" class="icon"></a>
-			</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,9 +42,6 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="home.do">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
 				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -61,16 +54,14 @@
 							Learn More</a>
 							<a class="dropdown-item" href="about">About</a>
 					</div></li>
-<!-- 				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 			</ul>
-<%-- 			<form class="form-inline my-2 my-lg-0" action="search.do">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form> --%>
+				<form class="form-inline my-2 my-lg-0" action="search.do">
+					<input class="form-control mr-sm-2" type="search"
+						placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
 			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
@@ -86,15 +77,9 @@
 			<div class="row">
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-					<div id="panel-grey">
+					<div id="panel-grey" style="padding: 0% 0% 2% 0%">
 						<br>
 						<h1>Local Urban Farms</h1>
-						<p>
-						<ol>
-						<c:forEach var="names" items="${storeList }">
-						<li>${names }
-						</c:forEach>
-						</ol>
 					</div>
 
 				</div>
@@ -108,12 +93,15 @@
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
-				<hr>
 				<div id="panel-green">
 					<div id="white-text">
-						<h3>It couldn't be easier...</h3>
+						<h3>Your Local Farms...</h3>
+						<c:forEach var="names" items="${storeList }">
+						${names }<br>
+						</c:forEach>
+						
 						<h4>
-							<a href="registerPage.do">Sign up today!</a>
+							<a href="registerPage.do">Sign Up today!</a>
 						</h4>
 					</div>
 				</div>
@@ -124,25 +112,26 @@
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row" style="padding: 0% 0% 3% 0%">
+		<div class="row" style="padding: 0% 0% 3% 1.5%">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
 				<hr>
 				<div id="panel-green" style="padding: 0% 0% 3% 0%">
 					<div id="white-text-lg">
-						<h1>Local Urban Farm Connections</h1>
+						<h1>Find your Urban Farmer</h1>
 						<h4>
-							<small>Buy it / Sell it local...</small>
+							<small>Sell it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>
-				</div>
-				<div id="Container"
-					style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
-					<iframe width="100%" height="100%" frameborder="0"
-						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-						allowfullscreen="" style="position: absolute; top: 0; left: 0">
-					</iframe>
+					<div id="Container"
+						style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+						<iframe width="100%" height="100%" frameborder="0"
+							src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+							allowfullscreen=""
+							style="position: absolute; top: 0; left: 0; padding: 10px">
+						</iframe>
+					</div>
 				</div>
 			</div>
 		</div>

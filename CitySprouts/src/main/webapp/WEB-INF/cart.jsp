@@ -72,7 +72,7 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+				<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
 			<div class="nav-item">
 				<a class="nav-link" href="login"> <span 	style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>

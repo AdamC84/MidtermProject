@@ -62,7 +62,7 @@
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
+			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
 			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
@@ -71,6 +71,27 @@
 			</div>
 		</div>
 	</nav>
+	
+		<div id="home" class="landing-text pagination-centered">
+		<div
+			class="container-fluid text-center align-items-center justify-content-center">
+			<div class="row">
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
+				<div id="panel-grey" style="padding: 0% 0% 2% 0%">
+				<br>
+					<h1>Selling...</h1>
+					<h3></h3>
+
+					</div>
+					
+				</div>
+				<div class="col-sm-2 col-md-3 col-lg-3"></div>
+			</div>
+		</div>
+	</div>
+	
+	
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
@@ -83,16 +104,19 @@
 						<p>City Sprouts brings locally grown produce to the market.
 							Targeting the urban community, City Sprouts emerged from the idea
 							that Farmers should profit more from the products they
-							sell—without a middleman marking up prices. We know people are
-							online 4+ hours and day and prefer self-service ordering (in as
+							sell—without a middleman marking up prices. 
+							</p><p>We know people areonline 4+ hours and day and prefer self-service ordering (in as
 							few clicks and as little time as possible). Further, we believe
 							food should be as convenient to buy direct from local Farmers as
 							it is to go to the grocery store or buy from an online grocer. We
 							are passionate about powering Farmers’ online success, including
 							one-click access for their customers to purchase anytime across
 							web, social, and mobile.</p>
-							<a href="registerPage.do">Sign up today!</a>
-						</h4>
+							<div id="tomato-text">
+							<div class="nav-item">
+							<h3><a href="registerPage.do">Sign Up today!</a></h3>
+							</div>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -102,25 +126,26 @@
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row" style="padding: 0% 0% 3% 0%">
+		<div class="row" style="padding: 0% 0% 3% 1.5%">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
 				<hr>
 				<div id="panel-green" style="padding: 0% 0% 3% 0%">
 					<div id="white-text-lg">
-						<h1>Local Urban Farm Connections</h1>
+						<h1>Find your Urban Farmer</h1>
 						<h4>
 							<small>Sell it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>
-				</div>
-				<div id="Container"
-					style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
-					<iframe width="100%" height="100%" frameborder="0"
-						src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
-						allowfullscreen="" style="position: absolute; top: 0; left: 0">
-					</iframe>
+					<div id="Container"
+						style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
+						<iframe width="100%" height="100%" frameborder="0"
+							src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+							allowfullscreen=""
+							style="position: absolute; top: 0; left: 0; padding: 10px">
+						</iframe>
+					</div>
 				</div>
 			</div>
 		</div>
