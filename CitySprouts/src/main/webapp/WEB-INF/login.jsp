@@ -76,31 +76,23 @@
 		</div>
 	</nav>
 	
-		<div id="home" class="landing-text pagination-centered">
-		<div
-			class="container-fluid text-center align-items-center justify-content-center">
-			<div class="row">
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
-				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-	
 	<div class="container">
-		<div class="d-flex justify-content-center h-100">
+		<div class="d-flex justify-content-center h-100" style="padding: 20px 0px 20px 0px">
 			<div class="card">
 				<div class="card-header">
 					<h3>Sign In</h3>
-
 				</div>
 				<div class="card-body">
  				<form action="login.do" method="POST">
 					<div class="input-group form-group">
-						<div class="input-group-prepend" style="max-height: 38px">
+						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fa fa-user"></i></span>
 						</div>
 						<input autofocus="autofocus" name="username" class="form-control" placeholder="Enter username" />
 						
 					</div>
 					<div class="input-group form-group">
-						<div class="input-group-prepend" style="max-height: 38px">
+						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fa fa-key"></i></span>
 						</div>
 						<input name="password" type="password" class="form-control" placeholder="Enter password" />
@@ -120,18 +112,12 @@
 						</c:if>
 					</div>
 					<div class="d-flex justify-content-center text-white">
-						Don't have an account?<div id="tomato-text2"><a href="register.do"> &nbsp Sign Up</a></div>
+						Don't have an account? <div id="tomato-text2"> <a href="register.do">&nbspSign Up</a></div>
 					</div>
 					<!-- 				<div class="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>
 				</div> -->
 				</div>
-			</div>
-		</div>
-	</div>
-
-				</div>
-				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 			</div>
 		</div>
 	</div>
