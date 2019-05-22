@@ -55,7 +55,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public List<Item> getItemsByKeyword(String keyword) {
-		String query = "Select item from Item item where item.name LIKE :keyword OR item.description LIKE :keyword OR item.category.name LIKE :keyword AND item.active =1";
+		String query = "Select item from Item item where (item.name LIKE :keyword OR item.description LIKE :keyword OR item.category.name LIKE :keyword) AND  item.active = 1";
 		List<Item> items = em.createQuery(query, Item.class).setParameter("keyword", '%' + keyword + '%')
 				.getResultList();
 		return items;
@@ -279,10 +279,6 @@ public class ItemDAOImpl implements ItemDAO {
 		
 	}
 
- 	@Override
-	public List<Item> getItemsByName(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
  	
 }

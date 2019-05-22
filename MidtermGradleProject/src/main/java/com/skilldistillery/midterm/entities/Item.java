@@ -54,6 +54,8 @@ public class Item {
 	private Seller seller;
 
 
+	
+
 	public Item() {
 		super();
 	}

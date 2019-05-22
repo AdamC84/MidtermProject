@@ -96,8 +96,8 @@
 				<div id="panel-green">
 					<div id="white-text">
 						<h3>Your Local Farms...</h3>
-						<c:forEach var="names" items="${storeList }">
-						${names }<br>
+						<c:forEach var="seller" items="${sellers }">
+						<a class="nav-link" href="getItemsFromStore.do?id=${seller.id}">${seller.storeName }</a><br>
 						</c:forEach>
 						
 						<h4>
