@@ -31,9 +31,10 @@
 </style>
 </head>
 <body>
+
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"></a> <img src="img/logo_trans.png"
-			class="icon">
+		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
+			class="icon"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -50,32 +51,30 @@
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="home.do">Home</a> 
-							<a class="dropdown-item" href="getProfile.do">Profile</a> 
+							<a class="dropdown-item" href="login">Profile</a> 
 						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="pastOrders.do">Past Orders</a>
-						<a class="dropdown-item" href="searchResults.do">Search Results</a> 
+							<a class="dropdown-item" href="getProfile.do">Past Orders</a>
+						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
+					placeholder="Search" aria-label="Search" name="keyword">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
-			<div class="nav-item" style="padding: 0px 0px 0px 0px">
+			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
-			<div class="nav-item" id="btn_height"><a class="nav-link" href="getProfile.do">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
 				</span></a>
-			</div>
+				</div>
 		</div>
 	</nav>
 
-
-	<div
-		class="container-fluid text-left align-items-center justify-content-center">
+	<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
@@ -114,21 +113,21 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 	
-	<hr>
-	
 	<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10">
+			<div class="col-md-8 col-sm-10"><hr>
 				<div id="panel-green"><br>
 					<div id="white-text">
 					<div class="text-center">
 						<h2>Add Item</h2></div>
 	<c:if test="${empty item}">
+	<div style="padding: 0px 0px 10px 0px">
 	<form:form action="addItemView.do" method="POST" modelAttribute="seller">
 		<form:input type="hidden" value="${seller.id}" path="id"/>
-	  <button type="submit" class="btn btn-success">add Item</button>
+	  <button type="submit" class="btn btn-success float-right">add Item</button>
 	</form:form>
+	</div>
 	</c:if>
 	
 	
@@ -192,13 +191,12 @@
 	</div>
 	</div>
 	</div>
-	<hr>
 	
 		<div
 		class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10">
+			<div class="col-md-8 col-sm-10"><hr>
 				<div id="panel-green"><br>
 					<div id="white-text">
 					<div class="text-center">
