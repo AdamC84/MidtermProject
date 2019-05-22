@@ -110,10 +110,11 @@
 								</c:if>
 							</c:forEach>
 						</ul>
-						<form action="submitOrder.do">
+						<form action="checkout.do">
 							<c:if test="${not empty buyer.purchases }">
 							Total ${total}<br>
-							<button type="submit" class="btn btn-primary">Submit Order</button>
+							<input type="hidden" name="total"  value="${total}">
+							<button type="submit" class="btn btn-primary">Checkout</button>
 							</c:if>						
 						</form>
 					</div>
