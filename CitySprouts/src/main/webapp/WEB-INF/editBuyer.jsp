@@ -81,7 +81,7 @@
 				</span></a>
 				<c:if test="${user.role = BUYER} ">
 				<a class="nav-link" href="cart.do?id=${user.id }"> <span
-					style="font-size: 1em; position:relative"> <i class="fa fa-shopping-cart"></i>
+					style="font-size: 1em; position:relative"> <i class="fa fa-basket"></i>
 				</span></a>
 				</c:if>
 			</div>

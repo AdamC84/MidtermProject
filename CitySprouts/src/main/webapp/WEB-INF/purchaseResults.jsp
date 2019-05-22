@@ -79,7 +79,7 @@
 				</span></a>
 			<div class="nav-item"><a class="nav-link" href="cart.do">
 				<span style="font-size: 12px;">
-				<img src="img/shopping-cart.png">
+				<img src="img/basket.png">
 				</span></a>
 			</div>
 		</div>

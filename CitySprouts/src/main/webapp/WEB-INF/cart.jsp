@@ -78,7 +78,7 @@
 				<a class="nav-link" href="login"> <span 	style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
 				</span></a>				
 				<a class="nav-link" href="cart.do"> <span
-						style="font-size: 12px; padding: 0px 0px 0px 15px"> <img src="img/shopping-cart.png">
+						style="font-size: 12px; padding: 0px 0px 0px 15px"> <img src="img/basket.png">
 				</span></a>
 			</div>
 		</div>
