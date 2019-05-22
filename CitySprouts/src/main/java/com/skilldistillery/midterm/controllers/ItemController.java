@@ -123,7 +123,13 @@ public class ItemController {
 		} catch (Exception e) {
 			 purchase = new Purchase();
 		}
-		PurchaseStatus ps = itemDao.getPurchaseStatusByName("Pending");
+		PurchaseStatus ps;
+		try {
+			ps = itemDao.getPurchaseStatusByName("Pending");
+		} catch (Exception e) {
+			ps = new PurchaseStatus("Pending");
+			e.printStackTrace();
+		}
 		purchase.setPurchaseStatus( ps);
 		System.out.println(purchase.getPurchaseStatus());
 		Inventory inventory = itemDao.getInventoryByItemId(i.getId());

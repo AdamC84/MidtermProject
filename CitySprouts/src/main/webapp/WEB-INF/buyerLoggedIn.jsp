@@ -72,7 +72,7 @@
 				<a class="nav-link tomato-text" href="registerPage.do">Sign up</a>
 			</div>
 			<div class="nav-item">
-				<a class="nav-link" href="login.do"> <span
+				<a class="nav-link" href="login"> <span
 					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
 				</span></a>
 				<a class="nav-link" href="cart.do?id=${user.id }"> <span
@@ -82,7 +82,36 @@
 		</div>
 	</nav>
 
+<div id="panel-green">
+			<h5>Your purchase history</h5>
+					<div class="col-md-4 py-2">
+						<ul>
+							<c:forEach var="p" items="${buyer.purchases }">
 
+								<c:if test="${p.purchaseStatus.status.equals('Fulfilled')}">
+									<c:forEach var="i" items="${p.inventory}">
+										<div class="row">
+											<div class="card" style="width: 18rem;">
+											  	<div class="card-body">
+												    <h5 class="card-title">${i.item.name }</h5>
+												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>
+												    <p class="card-text">${i.item.price }<br>${i.item.category.name}<br>${i.item.seller.store}</p>
+												    <a href="#" class="card-link">Remove</a>
+												    <a href="#" class="card-link">Another link</a>
+										  		</div>
+											</div>
+										</div>
+									</c:forEach><br>
+								</c:if>
+							</c:forEach>
+						</ul>
+						<form:form>
+													
+						</form:form>
+					</div>
+													
+
+			</div>
 
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
@@ -153,67 +182,6 @@
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
 
-	<c:if test="${! empty purchases }">
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10"><hr>
-				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-
-					<div class="form-group input-group">
-
-					</div>
-					<ul class="list-group">
-						<c:forEach var="buyer" items="${buyer.purchases}">
-							<li class="list-group-item list-group-item-action"
-							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.purchase.id }">
-								Date purchased: ${buyer.purchase.payment.paymentDate }
-									Total: $${buyer.purchase.payment.amount }</a></li>
-									<hr>
-						</c:forEach>
-					</ul>
-					<br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	</c:if>
-	
-		<c:if test="${! empty buyer.purchases }">
-		<div
-		class="container-fluid text-center align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10"><hr>
-				<hr>
-				<div id="panel-green">
-					<div id="white-text">
-
-					<div class="form-group input-group">
-
-					</div>
-					<ul class="list-group">
-						<c:forEach var="buyer" items="${buyer.inventoryItemsList}">
-							<li class="list-group-item list-group-item-action"
-							><a href="getPurchaseById.do?purchaseid=${buyer.purchase.inventory.itemId }">
-								Item: ${buyer.purchase.inventory.item.name }
-									$${buyer.purchase.inventory.price }</a></li>
-									<hr>
-						</c:forEach>
-					</ul>
-					<br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	</c:if>
 	
 
 	<footer class="container-fluid text-center">
