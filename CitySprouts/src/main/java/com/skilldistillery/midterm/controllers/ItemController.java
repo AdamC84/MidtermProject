@@ -90,14 +90,6 @@ public class ItemController {
 		List<Category> c = itemDao.getAllCategory();
 		model.addAttribute(u);
 		model.addAttribute(c);
-		//		System.out.println("Seller: **" + seller);
-//		System.out.println("Session" + session.getAttribute("user"));
-//		User currUser = (User) session.getAttribute("user");
-//		System.out.println("User role: " + currUser.getRole());
-//		System.out.println("ITEM *****  "+item);
-		
-//		System.out.println("****************"+item);
-//		System.out.println("Cat:" + item.getCategory());
 
 		return "sellerLoggedIn";
 	}
@@ -114,23 +106,19 @@ public class ItemController {
 	public ModelAndView addItemToCart(@RequestParam("id")int id , HttpSession session){
 		ModelAndView mv = new ModelAndView();
 		Buyer buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
-		
 		Item i = itemDao.getItemByItemId(id);
-
-		Purchase purchase;
-		try {
-			purchase = itemDao.getPurchaseByBuyerId(buyer.getId()).get(0);
-		} catch (Exception e) {
-			 purchase = new Purchase();
+		i.setActive(0);
+		
+		Purchase purchase = new Purchase();
+		if(session.getAttribute("purchase") == null) {
+			purchase.setBuyer(buyer);
+			purchase.setPurchaseStatus(itemDao.getPurchaseStatusById(5));
+			purchase = itemDao.addPurchase(purchase);
+			session.setAttribute("purchase", purchase);
+		}else {
+			purchase = itemDao.getPurchaseById(( (Purchase) session.getAttribute("purchase")).getId());
 		}
-		PurchaseStatus ps;
-		try {
-			ps = itemDao.getPurchaseStatusByName("Pending");
-		} catch (Exception e) {
-			ps = new PurchaseStatus("Pending");
-			e.printStackTrace();
-		}
-		purchase.setPurchaseStatus( ps);
+		
 		System.out.println(purchase.getPurchaseStatus());
 		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
 		purchase.addInventory(inventory);
@@ -138,14 +126,14 @@ public class ItemController {
 		buyer = d.updateBuyer(buyer);
 		System.out.println(buyer);
 		double total = 0;
-		for (Purchase p : buyer.getPurchases()) {
-			for (Inventory in : p.getInventory()) {
+		
+			for (Inventory in : purchase.getInventory()) {
 				total += in.getItem().getPrice();
 			}
-		}
+		
 		System.out.println("**** TOTAL ****  " + total);
 		mv.addObject("total", total);
-		
+		session.setAttribute("buyer", buyer);
 		mv.addObject("buyer", buyer);
 		mv.setViewName("cart");
 		return mv;

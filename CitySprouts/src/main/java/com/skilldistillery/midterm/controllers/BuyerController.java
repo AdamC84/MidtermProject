@@ -16,6 +16,7 @@ import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Purchase;
+import com.skilldistillery.midterm.entities.PurchaseStatus;
 
 @Controller
 public class BuyerController {
@@ -49,7 +50,7 @@ public class BuyerController {
 	}
 	
 	@RequestMapping(path = "checkout.do")
-	public String checkout(Model model, HttpSession session,@RequestParam("total") double total) {
+	public String checkout(Model model, HttpSession session, @RequestParam("total") double total) {
 		
 		model.addAttribute("sum", total);
 		
@@ -61,50 +62,24 @@ public class BuyerController {
 		Buyer buyer = uDao.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
 		List<Purchase> purchases = i.getPurchaseByBuyerId(buyer.getId());
 		for (Purchase purchase : purchases) {
-//			purchase.getPurchaseStatus().setStatus(i.getPurchaseStatusById(4).getStatus());
 			purchase.setPurchaseStatus(i.getPurchaseStatusById(4));
 			buyer.addPurchase(purchase);
+			PurchaseStatus pStatusFulfilled = i.getPurchaseStatusById(4);
+			pStatusFulfilled.addPurchase(purchase);
+			
 			System.out.println(purchase);
 		}
 		buyer = uDao.updateBuyer(buyer);
 		session.setAttribute("buyer", buyer);
+		session.removeAttribute("purchase");
 		System.out.println("***************     " + i.getPurchaseByBuyerId(buyer.getId()));
+		purchases = i.getPurchaseByBuyerId(buyer.getId());
+		for (Purchase purchase : purchases) {
+			System.out.println("*** Buyer's Purchase Status: "+ purchase.getPurchaseStatus());
+			
+		}
+		
+		System.out.println("GOING TO BUYER LOGGED IN PAGE *** ");
 		return "buyerLoggedIn";
 	}
 }
-//	@RequestMapping(path = "logout.do")
-//	public ModelAndView logout(HttpSession session) {
-//		ModelAndView mv = new ModelAndView();
-//		session.removeAttribute("user"); 
-//		mv.setViewName("index");
-//		return mv;
-//	}
-//	@RequestMapping(path = "registerPage.do")
-//	public ModelAndView register() {
-//		ModelAndView mv = new ModelAndView();
-//		User u = new User();
-//		mv.addObject("user", u);
-//		mv.setViewName("register");
-//		return mv;
-//	}
-//	@RequestMapping(path = "registerUser.do", method = RequestMethod.POST)
-//	public String register( Model model, User user, HttpSession session) {
-//		user = d.addUser(user);
-//		d.addAddress(user.getAddress());
-//		model.addAttribute(user);
-//		session.setAttribute("user", user);
-//		String role = user.getRole().toString();
-//		if(role.equals("BUYER")) {
-//			return "buyerLoggedIn";
-//		}else if(role.equals("SELLER")) {
-//			return "sellerLoggedIn";
-//		}else if(role.equals("DRIVER")) {
-//			return "driverLoggedIn";
-//		}else if(role.equals("ADMIN")) {
-//			return "adminLoggedIn";
-//		}else {
-//			return "index";
-//		}
-//	}
-
-//}
