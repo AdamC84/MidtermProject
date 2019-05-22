@@ -70,10 +70,7 @@
 			</form>
 		</div>
 	</nav>
-	Welcome seller!!!!!${seller.user.id } is your seller.user id.
-	${user.id } is your user id;.
-	${user.address.streetAddress}.
-	${user.address.city}.
+
 	
  <div class="container">
  <form:form action="registerSeller.do" method="POST" modelAttribute="seller">

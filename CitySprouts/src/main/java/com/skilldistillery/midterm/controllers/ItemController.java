@@ -18,13 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
+import com.skilldistillery.midterm.data.SellerDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Category;
 import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Item;
 import com.skilldistillery.midterm.entities.Purchase;
-import com.skilldistillery.midterm.entities.PurchaseStatus;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.Unit;
 
@@ -37,6 +37,8 @@ public class ItemController {
 	UserDAO d;
 	@Autowired
 	BuyerDAO b;
+	@Autowired
+	SellerDAO sDAO;
 
 	
 	@RequestMapping(path = "")
@@ -72,20 +74,25 @@ public class ItemController {
 		item = itemDao.addItem(item, seller);
 		model.addAttribute("seller",seller);
 		model.addAttribute("item", new Item());
-		
+		List<Inventory> inventory = new ArrayList<Inventory>();
+		inventory = itemDao.getSellerInventory(seller);
 		
 		if (qty != 0) {
 			for (int i = 1; i < qty; i ++) {
-			itemDao.addItemToInventory(item, seller);
+			Inventory inv = itemDao.addItemToInventory(item, seller);
+			inventory.add(inv);
 			System.out.println("adding to inventory");
 			}
 		} else {
 			model.addAttribute("error", "A quantity must be entered");
 			return "sellerLoggedIn";
 		}
-		List<Inventory> inventory = new ArrayList<Inventory>();
-		inventory = itemDao.getSellerInventory(seller);
-		model.addAttribute("inventory", inventory);
+		seller.setInventory(inventory);
+		seller = d.updateSeller(seller);
+		if (sDAO.getInventoryItemsQtyBySeller(seller.getId()) != null) {
+			model.addAttribute("invSummary", sDAO.getInventoryItemsQtyBySeller(seller.getId()));
+		}
+//		model.addAttribute("invSummary", inventory);
 		List<Unit> u = itemDao.getAllUnits();
 		List<Category> c = itemDao.getAllCategory();
 		model.addAttribute(u);
