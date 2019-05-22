@@ -88,7 +88,7 @@
       <label for="inputPassword4">Bank acct number</label>
       <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankAcctNum" />
     </div>
- 
+ 	
   <button type="submit" class="btn btn-primary">Next</button>
   </form:form>
   </div>

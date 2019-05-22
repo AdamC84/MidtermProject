@@ -176,6 +176,11 @@
       			*Description<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="Fresh organic berries..." required="true" path="description"/>
     		</div>
     		</div>
+    		<div class="form-row">
+    		<div class="col-md-12 mb-3">
+      			*Image URL<form:input type="text" class="form-control" id="validationDefault01" placeholder="URL" value="" required="true" path="imgUrl"/>
+    		</div>
+    		</div>
  
     <div class="form-row">
  	</div>
@@ -218,53 +223,39 @@
 			</div>
 		</div>
 	<hr>
-			<div class="container-fluid text-left align-items-center justify-content-center">
+		<div
+		class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
-
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
-				<div class="text-center">
-					<h2>Orders - Fulfilled</h2>
-				</div>
-					<c:if test="${! empty purchases }">
-						<c:forEach var="inventory" items="${purchases}">
-							<li class="list-group-item list-group-item-action">
-							<a href="itemDetails.do?id=${purchases.inventory.item.id }">
-								Item Id: ${purchases.inventory.item.id }
+					<div class="text-center">
+						<h2>Fullfilled Orders</h2>
+						</div>
+						<c:if test="${! empty fulFilled }">
+						<c:forEach var="f" items="${fulFilled}">
+							<li class="list-group-item list-group-item-action"
+							><a href="itemDetails.do?id=${f[0]}">
+								Item Id: ${f[0] }
+								Item: ${f[1]}
+								Qty: ${f[2]}
 								</a>
-								Buyer Id:${purchase.buyer.id}
-								Item Name:${purchase.inventory.item.name }
-								
-								Price:${purchase.inventory.item.price }
-								Active:${purchase.inventory.item.active }
-								Category:${purchase.inventory.item.category.name }
-								Unit:${purchase.inventory.item.unit.name }
-								Image URL:${purchase.inventory.item.imgUrl }
-								Quantity:${ quantity}
-								Delivery Y/N: <c:choose><c:when test="${! empty purchase.deliveryDetails.id }">Y</c:when>
-								<c:otherwise>N	</c:otherwise>
-								</c:choose>
-								  
-						  <form:form action="addItem.do" method="POST" modelAttribute="sellerChangeStatus">>
-					  		Status:<form:select class="form-control" path="purchase.purchaseStatus.status" value="status">
-					  				<option selected>${purchase.purchaseStatus.status}</option>
-					 	 			<c:forEach var="unit" items="${purchaseStatusList}">
-					  				<option>${purchaseStatus.status}</option>
-					  				</c:forEach>
-								</form:select>
-							  <button type="submit" class="btn btn-success">add Item</button>
-						</form:form>
-							<hr>
-							</li>
+								</li>
+								<hr>
 						</c:forEach>
-					</c:if>
-		  			</div>
-				</div>
+						</c:if>
+						
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+	<hr>
+			
+							
+								
+		
 	
 	<footer class="container-fluid text-center">
 		<div class="row">
