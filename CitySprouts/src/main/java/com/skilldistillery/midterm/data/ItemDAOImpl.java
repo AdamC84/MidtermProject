@@ -218,10 +218,10 @@ public class ItemDAOImpl implements ItemDAO {
 		i.setItem(addItem);
 		i.setSeller(seller);
 
-		System.out.println("In inventory: " + i);
 
 		em.persist(i);
 		em.flush();
+		System.out.println("In inventory: " + i);
 		return i;
 	}
 

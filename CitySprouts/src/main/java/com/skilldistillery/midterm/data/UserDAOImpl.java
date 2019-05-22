@@ -222,6 +222,7 @@ public class UserDAOImpl implements UserDAO {
 		updatedSeller.setBankName(s.getBankName());
 		updatedSeller.setBankRouting(s.getBankRouting());
 		updatedSeller.setUser(em.find(User.class, s.getUser().getId()));
+		updatedSeller.setInventory(s.getInventory());
 		em.persist(updatedSeller);
 		em.flush();
 		return updatedSeller;

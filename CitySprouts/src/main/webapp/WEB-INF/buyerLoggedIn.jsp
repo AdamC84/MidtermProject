@@ -99,8 +99,7 @@
 												    <h5 class="card-title">${i.item.name }</h5>
 												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>
 												    <p class="card-text">${i.item.price }<br>${i.item.category.name}<br>${i.item.seller.store}</p>
-												    <a href="#" class="card-link">Remove</a>
-												    <a href="#" class="card-link">Another link</a>
+												    <a href="getItemsFromStore.do?${i.item.seller.id}" class="card-link">More</a>
 										  		</div>
 											</div>
 										</div>

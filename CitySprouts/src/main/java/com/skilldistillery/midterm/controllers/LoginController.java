@@ -40,7 +40,15 @@ public class LoginController {
 	public ModelAndView login(String username, String password, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("**********************"+username + " " + password);
-		User u = d.login(username, password);
+		User u = null;
+		try {
+			u = d.login(username, password);
+		} catch (Exception e) {
+			
+			mv.addObject("error", "Error. Invalid credentials" );
+			mv.setViewName("login");
+			return mv;
+		}
 		if (u != null) {
 		u.setLastLogin(new Date());
 		session.setAttribute("user", u);
@@ -176,8 +184,8 @@ public class LoginController {
 	@RequestMapping(path = "registerSeller.do", method = RequestMethod.POST)
 	public String registerUser(Seller seller, Model model, RedirectAttributes redir, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		seller.getUser().setAddress(seller.getUser().getAddress());
 		seller.setUser(user);
+		seller.getUser().setAddress(seller.getUser().getAddress());
 	
 		
 		d.addAddress(user.getAddress());

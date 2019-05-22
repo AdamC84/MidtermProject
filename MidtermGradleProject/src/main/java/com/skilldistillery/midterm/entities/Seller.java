@@ -68,6 +68,10 @@ public class Seller {
 
 
 	
+	public List<Inventory> getInventory() {
+		return inventory;
+	}
+
 	public int getId() {
 		return id;
 	}
