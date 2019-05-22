@@ -81,7 +81,7 @@
 			<div class="row">
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-				<div id="panel-grey">
+				<div id="panel-grey" style="padding: 20px">
 				<br>
 					<h1>City Sprouts</h1>
 					<h3>Connecting Urban farmers with the local market</h3>
