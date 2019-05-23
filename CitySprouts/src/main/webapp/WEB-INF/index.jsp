@@ -33,8 +33,8 @@
 </head>
 <body>
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
 			class="icon"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -51,27 +51,34 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="home.do">Home</a> 
+							<a class="dropdown-item" href="login">Profile</a> 
+						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
- <a class="dropdown-item" href="buyerLearnMore.do">Buyer
-							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
-							Learn More</a>
-							<a class="dropdown-item" href="about">About</a>
+							<a class="dropdown-item" href="cart.do">Cart</a>
+						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
 			</ul>
-				<form class="form-inline my-2 my-lg-0" action="search.do">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search" name="keyword">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
+			<form class="form-inline my-2 my-lg-0" action="search.do">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search" name="keyword">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" id="btn_height" href="registerPage.do">Sign up</a>
-
+			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+			<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
+				</div>
 			</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
+				</span></a>
+				</div>
 		</div>
 	</nav>
 
