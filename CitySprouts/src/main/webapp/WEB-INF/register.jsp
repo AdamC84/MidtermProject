@@ -35,13 +35,9 @@
 
 </head>
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
 			class="icon"></a>
-			<div style="padding:20px 0px 0px 0px;">
-		<a class="navbar-brand navbar-left" href="home.do"> 
-			<img src="img/favicon-32x32.png" class="icon"></a>
-			</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -51,47 +47,66 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="home.do">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
 				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="home.do">Home</a> 
+							<a class="dropdown-item" href="login">Profile</a> 
+						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
- <a class="dropdown-item" href="buyerLearnMore.do">Buyer
-							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
-							Learn More</a>
-							<a class="dropdown-item" href="about">About</a>
+							<a class="dropdown-item" href="cart.do">Cart</a>
+						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
-<!-- 				<li class="nav-item"><a class="nav-link disabled" href="#"
-					tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 			</ul>
-<%-- 			<form class="form-inline my-2 my-lg-0" action="search.do">
+			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
+					placeholder="Search" aria-label="Search" name="keyword">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form> --%>
+			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
+			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+			<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
+				</div>
 			</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
+				</span></a>
+				</div>
 		</div>
 	</nav>
- <div class="container">
+	
+	
+	
+	<div
+		class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
+						<h2>Registration</h2>
+						<hr>
+					</div>	
+	
+	
+	
  <%-- <c:choose>
  <c:when test="${empty user.firstName}"> --%>
  <form:form action="registerUser.do" method="POST" modelAttribute="user">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">First</label>
-      <form:input type="test" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
+      <form:input autofocus="autofocus" type="test" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last</label>
@@ -103,16 +118,18 @@
       <label for="inputEmail4">User Name</label>
       <form:input type="text" class="form-control" id="userName" placeholder="userName" path="username" value="${user.username}"/>
     </div>
+        <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="password" value="${user.password}"/>
+    </div>
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
       <form:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="email" value="${user.email}"/>
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <form:input type="password" class="form-control" id="inputPassword4" placeholder="Password" path="password" value="${user.password}"/>
     </div>
+
    <fieldset class="form-group">
     <div class="row">
       <div class="col-sm-10">
@@ -122,6 +139,8 @@
             Buyer
           </label>
         </div>
+        </div>
+             <div class="col-sm-3">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="SELLER"/>
           <label class="form-check-label" for="gridRadios2">
@@ -137,7 +156,6 @@
       </div>
     </div>
   </fieldset>
-  </div>
  <!--  <button type="submit" class="btn btn-primary">Next</button> -->
 <%--   </form:form> --%>
 <%--  </c:when>
@@ -146,14 +164,20 @@
   
 <%--  --- ${user.firstName }--- --%>
  <%--  <form:form action="registerUserAddress.do" method="POST" modelAttribute="address"> --%>
-  
+  <hr>
+  	<div class="form-row">
+  	     <div class="col-sm-6">
   <div class="form-group">
     <label for="inputAddress">Address</label>
     <form:input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" path="address.streetAddress"/>
   </div>
+  </div>
+  <div class="col-sm-6">
   <div class="form-group">
     <label for="inputAddress2">Address 2</label>
     <form:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" path="address.address2"/>
+  </div>
+  </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -164,9 +188,56 @@
       <label for="inputState">State</label>
       <form:select id="inputState" class="form-control" path="address.state">
         <option selected>Choose...</option>
-        <option>Alabama</option>
-        <option>Alaska</option>
-        <option>Colorado</option>
+			<option>Alabama</option>
+			<option>Alaska</option>
+			<option>Arizona</option>
+			<option>Arkansas</option>
+			<option>California</option>
+			<option>Colorado</option>
+			<option>Connecticut</option>
+			<option>Delaware</option>
+			<option>Florida</option>
+			<option>Georgia</option>
+			<option>Hawaii</option>
+			<option>Idaho</option>
+			<option>Illinois</option>
+			<option>Indiana</option>
+			<option>Iowa</option>
+			<option>Kansas</option>
+			<option>Kentucky</option>
+			<option>Louisiana</option>
+			<option>Maine</option>
+			<option>Maryland</option>
+			<option>Massachusetts</option>
+			<option>Michigan</option>
+			<option>Minnesota</option>
+			<option>Mississippi</option>
+			<option>Missouri</option>
+			<option>Montana</option>
+			<option>Nebraska</option>
+			<option>Nevada</option>
+			<option>New Hampshire</option>
+			<option>New Jersey</option>
+			<option>New Mexico</option>
+			<option>New York</option>
+			<option>North Carolina</option>
+			<option>North Dakota</option>
+			<option>Ohio</option>
+			<option>Oklahoma</option>
+			<option>Oregon</option>
+			<option>Pennsylvania</option>
+			<option>Rhode Island</option>
+			<option>South Carolina</option>
+			<option>South Dakota</option>
+			<option>Tennessee</option>
+			<option>Texas</option>
+			<option>Utah</option>
+			<option>Vermont</option>
+			<option>Virginia</option>
+			<option>Washington</option>
+			<option>West Virginia</option>
+			<option>Wisconsin</option>
+			<option>Wyoming</option>
       </form:select>
     </div>
     <div class="form-group col-md-2">
@@ -175,14 +246,21 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form:form>
 <%--   </c:if> --%>
 <%--  </c:otherwise>
  </c:choose> --%>
 
 
- </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+
 
 
 

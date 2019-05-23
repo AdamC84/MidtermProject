@@ -75,20 +75,25 @@ public class LoginController {
 			mv.setViewName("buyerLoggedIn");
 			return mv;
 		} else if (role.equals("SELLER")) {
+			
+			
 			Seller s = d.getSellerByUserId(u.getId());
 			session.setAttribute("seller", s);
 			Seller seller = d.getSellerByUserId(u.getId());
-			if (sDAO.getInventoryItemsQtyBySeller(seller.getId()) != null) {
-//				if (iDao.getSellerInventory(seller) != null) {
-//				model.addAttribute("inventory", iDao.getSellerInventory(seller));
-				mv.addObject("invSummary", sDAO.getInventoryItemsQtyBySeller(seller.getId()));
-			//			if (itemDAO.getSellerInventory(seller) != null) {
-//				mv.addObject("inventory", itemDAO.getSellerInventory(seller));
+			if (sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()) != null) {
+				
+				mv.addObject("invSummary", sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()));
+			}
+			if(sDAO.getFulfilledInventoryItemsQtyBySeller(seller.getId()) != null) {
+				mv.addObject("fulFilled", sDAO.getFulfilledInventoryItemsQtyBySeller(seller.getId()));
 			}
 			session.setAttribute("seller", seller);
 			mv.addObject(seller);
 			mv.setViewName("sellerLoggedIn");
 			return mv;
+			
+			
+			
 		} else if (role.equals("DRIVER")) {
 			mv.setViewName("driverLoggedIn");
 			return mv;

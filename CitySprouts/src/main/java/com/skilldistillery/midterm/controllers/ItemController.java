@@ -78,7 +78,7 @@ public class ItemController {
 		inventory = itemDao.getSellerInventory(seller);
 		
 		if (qty != 0) {
-			for (int i = 1; i < qty; i ++) {
+			for (int i = 0; i < qty; i ++) {
 			Inventory inv = itemDao.addItemToInventory(item, seller);
 			inventory.add(inv);
 			System.out.println("adding to inventory");
@@ -89,10 +89,15 @@ public class ItemController {
 		}
 		seller.setInventory(inventory);
 		seller = d.updateSeller(seller);
-		if (sDAO.getInventoryItemsQtyBySeller(seller.getId()) != null) {
-			model.addAttribute("invSummary", sDAO.getInventoryItemsQtyBySeller(seller.getId()));
+		List<Item> purchased = new ArrayList<>();
+		if (sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()) != null) {
+			
+			model.addAttribute("invSummary", sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()));
 		}
-//		model.addAttribute("invSummary", inventory);
+		if(sDAO.getFulfilledInventoryItemsQtyBySeller(seller.getId()) != null) {
+			model.addAttribute("fulFilled", sDAO.getFulfilledInventoryItemsQtyBySeller(seller.getId()));
+		}
+		session.setAttribute("purchases", purchased);
 		List<Unit> u = itemDao.getAllUnits();
 		List<Category> c = itemDao.getAllCategory();
 		model.addAttribute(u);
@@ -103,7 +108,7 @@ public class ItemController {
 	@RequestMapping(path="search.do", method = RequestMethod.GET)
 	public ModelAndView keywordSearch(String keyword ){
 		ModelAndView mv = new ModelAndView();
-		List<Item> items = itemDao.getItemsByKeyword(keyword);
+		List<Inventory> items = itemDao.getItemsByKeyword(keyword);
 		System.out.println(items);
 		mv.addObject("items", items);
 		mv.setViewName("searchResults");
@@ -112,10 +117,26 @@ public class ItemController {
 	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
 	public ModelAndView addItemToCart(@RequestParam("id")int id , HttpSession session){
 		ModelAndView mv = new ModelAndView();
-		Buyer buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
-		Item i = itemDao.getItemByItemId(id);
-		i.setActive(0);
+		Buyer buyer = null;
+		try {
+			buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
+		} catch (Exception e) {
+			mv.setViewName("login");
+			return mv;
+		}
+		double sum = 0;
+			List<Purchase> purchasesPending = new ArrayList<>();
 		
+		for (Purchase p : buyer.getPurchases()) {
+			if(p.getPurchaseStatus().getId() == 5) {
+				purchasesPending.add(p);
+			}
+		}
+		for (Purchase p : purchasesPending) {
+			for (Inventory in : p.getInventory()) {
+				sum += in.getItem().getPrice();
+			}
+		}
 		Purchase purchase = new Purchase();
 		if(session.getAttribute("purchase") == null) {
 			purchase.setBuyer(buyer);
@@ -127,17 +148,22 @@ public class ItemController {
 		}
 		
 		System.out.println(purchase.getPurchaseStatus());
-		Inventory inventory = itemDao.getInventoryByItemId(i.getId());
+		System.out.println("**** Item ID : " + id);
+		Inventory inventory = new Inventory(); 
+		inventory.setItem(itemDao.getItemByItemId(id));
+		inventory.setSeller(itemDao.getItemByItemId(id).getSeller());
+		inventory.setPurchase(purchase);
+		inventory = itemDao.addInventory(inventory);
 		purchase.addInventory(inventory);
 		buyer.addPurchase(purchase);
 		buyer = d.updateBuyer(buyer);
-		System.out.println(buyer);
+		System.out.println(buyer.getPurchases());
 		double total = 0;
 		
 			for (Inventory in : purchase.getInventory()) {
 				total += in.getItem().getPrice();
 			}
-		
+		total += sum;
 		System.out.println("**** TOTAL ****  " + total);
 		mv.addObject("total", total);
 		session.setAttribute("buyer", buyer);

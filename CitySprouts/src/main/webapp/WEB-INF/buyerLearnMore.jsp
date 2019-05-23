@@ -64,6 +64,13 @@
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
 			</div>
+						<div class="nav-item">
+			<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
+				</span></a>
+				</div>
+				</div>
 			<div class="nav-item"><a class="nav-link" href="login">
 				<span style="font-size: 2em;">
 				<i class="fa fa-user-circle-o"></i>

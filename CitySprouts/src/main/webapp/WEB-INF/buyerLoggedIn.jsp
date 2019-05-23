@@ -53,6 +53,7 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="home.do">Home</a> 
 							<a class="dropdown-item" href="login">Profile</a> 
 						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
@@ -69,25 +70,29 @@
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
 			<div class="nav-item">
-				<a class="nav-link" href="login"> <span  
-					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
-				</span></a>
-				</div>
-			<div class="nav-item">
 			<div id="btn_height" >				
 				<a class="nav-link" href="cart.do?id=${user.id }"> 
 				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
 				</div>
 			</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
+				</span></a>
+				</div>
 		</div>
 	</nav>
 
 	<div class="container-fluid text-left align-items-center justify-content-center">
-        <div class="row">
-            <div class="col-md-2 col-sm-1"></div>
-            <div class="col-md-8 col-sm-10" >
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
 						<h2>Your Purchase History</h2>
+					</div>
                     <c:forEach var="p" items="${buyer.purchases}">
                     <c:if test="${p.purchaseStatus.id == 4}">
                     <c:forEach var="i" items="${p.inventory}">
@@ -125,18 +130,18 @@
     </c:forEach>
     </c:if>
               </c:forEach>
-        </div>
-        <div class="col-md-2 col-sm-1"></div>
-    </div>
-    </div>                    
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
-
-	
 	<div
 		class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10" >
+			<div class="col-md-8 col-sm-10" ><hr>
 				<div id="panel-green">
 					<div id="white-text">
 					<div class="text-center">

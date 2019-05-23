@@ -48,6 +48,9 @@ public class UserController {
 	@RequestMapping(path = "cart.do")
 	public String cart(HttpSession session, Model model) {
 		Buyer buyer = (Buyer)session.getAttribute("buyer");
+		if(buyer == null) {
+			return "login";
+		}
 		System.out.println(buyer);
 		double total = 0;
 		List<Purchase> purchasesPending = new ArrayList<>();
@@ -136,7 +139,8 @@ public class UserController {
 	@RequestMapping(path = "getItemsFromStore.do")
 	public ModelAndView itemList(@RequestParam("id")int id) {
 		ModelAndView mv = new ModelAndView();
-		List<Item> items = sDAO.getInventoryItemsBySellerId(id);
+//		List<Item> items = sDAO.getInventoryItemsBySellerId(id);
+		List<Inventory> items = iDao.getSellerInventoryById(id);
 		System.out.println(items);
 		mv.addObject("items", items);
 		mv.setViewName("searchResults");
@@ -175,10 +179,10 @@ public class UserController {
 			}
 		} else if (role.equals("SELLER")) {
 			Seller seller = d.getSellerByUserId(u.getId());
-			if (sDAO.getInventoryItemsQtyBySeller(seller.getId()) != null) {
+			if (sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()) != null) {
 //				if (iDao.getSellerInventory(seller) != null) {
 //				model.addAttribute("inventory", iDao.getSellerInventory(seller));
-				model.addAttribute("invSummary", sDAO.getInventoryItemsQtyBySeller(seller.getId()));
+				model.addAttribute("invSummary", sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()));
 				session.setAttribute("seller", seller);
 				model.addAttribute(seller);
 				return "sellerLoggedIn";

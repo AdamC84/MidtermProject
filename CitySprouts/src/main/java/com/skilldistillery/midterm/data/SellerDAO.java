@@ -10,8 +10,9 @@ public interface SellerDAO {
 
 	public List<Purchase> getAllOrders(Seller seller);
 	public Purchase getOrder(int oId);
-	public List<Object[]> getInventoryItemsQtyBySeller(int sId);
+	public List<Object[]> getPendingInventoryItemsQtyBySeller(int sId);
 	List<Item> getInventoryItemsBySellerId(int sId);
+	List<Object[]> getFulfilledInventoryItemsQtyBySeller(int sId);
 	
 	
 	

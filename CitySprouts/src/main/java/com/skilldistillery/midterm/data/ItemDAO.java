@@ -38,7 +38,7 @@ public interface ItemDAO {
 	List<Inventory> getSellerInventoryById(int id);
 	Item addItem(Item i, Seller s);
 	Item getItemByItemId(int id);
-	List<Item> getItemsByKeyword(String keyword);
+	List<Inventory> getItemsByKeyword(String keyword);
 
 	Inventory getInventoryByItemId(int id);
 	public PurchaseStatus getPurchaseStatusById(int i);
@@ -48,7 +48,9 @@ public interface ItemDAO {
 	PurchaseStatus getPurchaseStatusByName(String name);
 
 	Purchase addPurchase(Purchase p);
+
 	Inventory[] getAllInventory();
+	Inventory addInventory(Inventory p);
 
 
 

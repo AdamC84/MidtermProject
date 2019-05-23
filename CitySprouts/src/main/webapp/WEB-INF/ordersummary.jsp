@@ -34,9 +34,9 @@
 
 </head>
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"></a> <img
-			src="img/logo_trans.png" class="icon">
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
+			class="icon"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,23 +46,18 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="home.do">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="getStoreNames.do">Urban Farms</a></li>
+				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="getProfile.do">Profile</a> 
+							<a class="dropdown-item" href="home.do">Home</a> 
+							<a class="dropdown-item" href="login">Profile</a> 
 						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="cart.do">Cart</a> 
-							<a class="dropdown-item" href="purchaseHistory.do">Purchase History</a>
-						<a class="dropdown-item" href="searchResults.do">Search
-							Results</a> 
+							<a class="dropdown-item" href="cart.do">Cart</a>
+						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" action="search.do">
@@ -71,19 +66,22 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-				<a class="nav-link tomato-text" href="registerPage.do">Sign Up</a>
+			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
 			<div class="nav-item">
-				<a class="nav-link" href="login"> <span 	style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o"></i>
-				</span></a>				
-				<a class="nav-link" href="cart.do"> <span
-						style="font-size: 12px; padding: 0px 0px 0px 15px"> <img src="img/basket.png">
-
+			<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
+				</div>
 			</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
+				</span></a>
+				</div>
 		</div>
 	</nav>
-	
 		
 	<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
@@ -96,6 +94,8 @@
 						
 					</div>
 						<hr>
+						<div class="row">
+						<div class="col-md-6">
 						<h4>Personal Info</h4>
 						Buyer Id: ${buyer.id}<br>
 						User Id: ${buyer.user.id}<br>
@@ -103,7 +103,9 @@
 						Username: ${buyer.user.username }<br>
 						Email: ${buyer.user.email }<br>
 						Last Login: ${buyer.user.lastLogin }<br>
-						<hr>
+						</div>						
+						<div class="col-md-6">
+						
 						<h4>Address Details</h4>
 						Street: ${buyer.user.address.streetAddress }<br>
 						Street2: ${buyer.user.address.address2 }<br>
@@ -111,13 +113,25 @@
 						State: ${buyer.user.address.state }<br>
 						Zipcode: ${buyer.user.address.zipcode }<br>
 						<hr>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-6">
 						<h4>Bank Info</h4>
 						Credit Card On File: ${buyer.creditCardNum }<br>
 						EXP Date:${buyer.creditCardExpDate}<br>
 						CCV: ${buyer.creditCardCcv }<br>
+						</div>
+						</div>
 						<hr>
 					</div>
-				<div class="container-fluid text-left align-items-center justify-content-center">
+				</div>
+                </div>
+        </div>
+        <div class="col-md-2 col-sm-1"></div>
+    </div>
+					
+	<div class="container-fluid text-left align-items-center justify-content-center">
                     <c:forEach var="p" items="${buyer.purchases}">
                     <c:if test="${p.purchaseStatus.id == 5}">
                     <c:forEach var="i" items="${p.inventory}">
@@ -144,7 +158,7 @@
                             Harvested: ${i.item.picked }<br>
                             <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
-                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-success float-right" role="button">Item Details</a>
                         <%-- <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a> --%>
                     </div>
                 </div>
@@ -160,17 +174,35 @@
     </div>
     </c:forEach>
     </c:if>
-              </c:forEach>
-              <form action="submitOrder.do">
-							<%-- <c:if test="${not empty buyer.purchases }"> --%>
+  </c:forEach>
+</div>
+    
+	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green">
+					<div id="white-text">
+					<div class="text-center">
+                            <form action="submitOrder.do">
+							<c:if test="${not empty buyer.purchases }">
+							<div class="text-center">
 							Total ${sum}<br>
 							<input type="hidden" name="sum"  value="${sum}">
-							<button type="submit" class="btn btn-primary">Submit Order</button>
-							<%-- </c:if>		 --%>				
+							</div>
+							<div style="padding: 0px 0px 10px 0px">
+							<button type="submit" class="btn btn-success float-right">Submit Order</button>
+							</div>
+							</c:if>
 						</form>
-    </div> 
+    					</div> 	
 
-
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-2 col-sm-1"></div>
+    </div>
+    </div>
 
 
 	<footer class="container-fluid text-center">

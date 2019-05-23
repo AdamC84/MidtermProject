@@ -34,8 +34,8 @@
 
 </head>
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand navbar-left" href="home.do"> <img src="img/logo_trans.png"
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
 			class="icon"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -52,27 +52,34 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="home.do">Home</a> 
+							<a class="dropdown-item" href="login">Profile</a> 
+						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
- <a class="dropdown-item" href="buyerLearnMore.do">Buyer
-							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
-							Learn More</a>
-							<a class="dropdown-item" href="about">About</a>
+							<a class="dropdown-item" href="cart.do">Cart</a>
+						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
 			</ul>
-				<form class="form-inline my-2 my-lg-0" action="search.do">
-					<input class="form-control mr-sm-2" type="search" name="keyword"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
+			<form class="form-inline my-2 my-lg-0" action="search.do">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search" name="keyword">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" id="btn_height" href="registerPage.do">Sign up</a>
-
+			<a class="nav-link tomato-text" href="logout.do">Logout</a>
 			</div>
-			<div class="nav-item"><a class="nav-link" href="login">
-				<span style="font-size: 2em;">
-				<i class="fa fa-user-circle-o"></i>
+			<div class="nav-item">
+			<div id="btn_height" >				
+				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
+				</div>
 			</div>
+			<div class="nav-item">
+				<a class="nav-link" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
+				</span></a>
+				</div>
 		</div>
 	</nav>
 	
@@ -120,7 +127,7 @@
 <%-- 			<c:forEach var="item" items="${items}">
 
         class="container-fluid text-left align-items-center justify-content-center">
-                    <c:forEach var="item" items="${items}">
+                    <c:forEach var="i" items="${items}">
         <div class="row">
             <div class="col-md-2 col-sm-1"></div>
             <div class="col-md-8 col-sm-10" >
@@ -132,22 +139,22 @@
                         <div class="col-md-4 col-lg-4 col-sm-2 inner" style="">
                         <div class="container" id="sResults">
                         <div class="inner">
-                        <img src="${item.imgUrl }" class="img-fluid" alt="">
+                        <img src="${i.item.imgUrl }" class="img-fluid" alt="">
                         </div>
                         </div>
                         </div>
                         <div class="col">
                         <div class="card-block px-2" style="color: black">
-                        <h5 class="card-title">${item.name}</h5>
-                                Price: ${item.price }<br>
-                            Unit ${item.unit.name }<br>
+                        <h5 class="card-title">${i.item.name}</h5>
+                                Price: ${i.item.price }<br>
+                            Unit ${i.item.unit.name }<br>
                             <div style="font-size: 15px; padding: 0px 0px 10px 0px">
-                            Category: ${item.category.name } &nbsp;|&nbsp; 
-                            Harvested: ${item.picked }<br>
-                            <a href="getItemsFromStore.do?id=${item.seller.id }">${item.seller.storeName }</a>
+                            Category: ${i.item.category.name } &nbsp;|&nbsp; 
+                            Harvested: ${i.item.picked }<br>
+                            <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
-                        <a href="itemDetails.do?id=${item.id }" class="btn btn-info" role="button">Item Details</a>
-                        <a href="addToCart.do?id=${item.id }" class="btn btn-success">Add to Cart</a>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
+                        <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a>
                     </div>
                 </div>
                 </div>
