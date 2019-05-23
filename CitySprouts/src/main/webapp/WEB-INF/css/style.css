@@ -105,6 +105,9 @@ footer {
   max-width: 200px;
 
 }
+
+
+
 #white-text {
 	color: #FFF;
 }
@@ -251,7 +254,10 @@ top: -45px;
 }
 #btn_height {
 	max-height: 50px !important;
+	padding: 0px 0px 15px 0px;
+	color: tomato;
 }
+
 
 .input-group-prepend span{
 width: 50px;

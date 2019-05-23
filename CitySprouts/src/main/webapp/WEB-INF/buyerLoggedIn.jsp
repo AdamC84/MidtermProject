@@ -5,10 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,6 +19,10 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -38,6 +38,8 @@
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
 			class="icon"></a>
+			
+			
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -45,7 +47,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent"  style="padding: 20px 0px 0px 0px">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="getStoreNames.do">Urban Farms</a></li>
 				<li class="nav-item dropdown"><a
@@ -67,24 +69,121 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="logout.do">Logout</a>
-			</div>
+				<a class="nav-link pull-right" href="login"> <span  
+					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
+				</span></a>
+				</div>
 			<div class="nav-item">
 			<div id="btn_height" >				
-				<a class="nav-link" href="cart.do?id=${user.id }"> 
+				<a class="nav-link pull-right" href="cart.do?id=${user.id }"> 
 				<span style="font-size: 12px; padding: 0px 0px 0px 0px"> <img style="padding: 0px 0px 10px 0px" id="btn_height" src="img/basket.png">
 				</span></a>
 				</div>
 			</div>
-			<div class="nav-item">
-				<a class="nav-link" href="login"> <span  
-					style="font-size: 2em; position:relative"> <i class="fa fa-user-circle-o" id="btn_height"></i>
-				</span></a>
-				</div>
+			<div class="nav-item" id="btn_height"  >
+			<a class="nav-link tomato-text pull-right" href="logout.do">Logout</a>
 		</div>
+		</div>
+		
 	</nav>
 
+
+
 	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10" >
+				<div id="panel-green">
+					<div id="white-text">
+					<div class="text-center">
+							<h2>Fresh Picks...</h2>
+                <div id="Carousel" class="carousel slide active">
+                 
+                <ol class="carousel-indicators">
+                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#Carousel" data-slide-to="1"></li>
+                    <li data-target="#Carousel" data-slide-to="2"></li>
+                </ol>
+                 
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    
+                <div class="item active">
+                	<div class="row">
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[0].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[1].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[2].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[3].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	</div><!--.row-->
+                </div><!--.item-->
+                 
+                <div class="item">
+                	<div class="row">
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[4].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[5].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[6].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[7].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	</div><!--.row-->
+                </div><!--.item-->
+                 
+                <div class="item">
+                	<div class="row">
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[8].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[9].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[10].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[11].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div> 
+                	</div><!--.row-->
+                </div><!--.item-->
+                 
+                </div><!--.carousel-inner-->
+                  <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+                  <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+                </div><!--.Carousel-->
+                 
+					</div>
+				</div>
+			</div>
+			</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+</div>
+
+	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10" >
+				<div id="panel-green">
+					<div id="white-text">
+					<div class="text-center">
+							<h2>Personal Info</h2>
+					</div>
+							Name: ${buyer.user.firstName }, ${buyer.user.lastName }<br>
+							Username: ${buyer.user.username }<br>
+							Password: ${buyer.user.password }<br>
+							Last Login: ${buyer.user.lastLogin }<br>
+							Role: ${buyer.user.role }<br>
+							<hr>
+							<h4>Address Details</h4>
+							Street: ${buyer.user.address.streetAddress }<br>
+							Street2: ${buyer.user.address.address2 }<br>
+							City: ${buyer.user.address.city }<br>
+							State: ${buyer.user.address.state }<br>
+							Zip Code: ${buyer.user.address.zipcode }<br>
+							<hr>
+							<h4>Payment Methods</h4>
+							Credit Card Number: ${buyer.creditCardNum }<br>
+							Credit Card Exp Date: ${buyer.creditCardExpDate }<br>
+							Credit Card CCV: ${buyer.creditCardCcv }<br>
+
+					</div>
+				</div>
+			</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
+</div>
+
+	
+		<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
@@ -133,102 +232,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		<div class="col-md-2 col-sm-1"></div>
-	</div>
-
-	<div
-		class="container-fluid text-left align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10" ><hr>
-				<div id="panel-green">
-					<div id="white-text">
-					<div class="text-center">
-							<h2>Personal Info</h2>
-					</div>
-							Name: ${buyer.user.firstName }, ${buyer.user.lastName }<br>
-							Username: ${buyer.user.username }<br>
-							Password: ${buyer.user.password }<br>
-							Last Login: ${buyer.user.lastLogin }<br>
-							Role: ${buyer.user.role }<br>
-							<hr>
-							<h4>Address Details</h4>
-							Street: ${buyer.user.address.streetAddress }<br>
-							Street2: ${buyer.user.address.address2 }<br>
-							City: ${buyer.user.address.city }<br>
-							State: ${buyer.user.address.state }<br>
-							Zip Code: ${buyer.user.address.zipcode }<br>
-							<hr>
-							<h4>Payment Methods</h4>
-							Credit Card Number: ${buyer.creditCardNum }<br>
-							Credit Card Exp Date: ${buyer.creditCardExpDate }<br>
-							Credit Card CCV: ${buyer.creditCardCcv }<br>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>
-	<script>
-	$(document).ready(function() {
-	    $('#Carousel').carousel({
-	        interval: 5000
-	    })
-	});
-</script>
-
-<div class="container">
-    <div class="row">
-		<div class="col-md-12">
-                <div id="Carousel" class="carousel slide active">
-                 
-                <ol class="carousel-indicators">
-                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#Carousel" data-slide-to="1"></li>
-                    <li data-target="#Carousel" data-slide-to="2"></li>
-                </ol>
-                 
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                    
-                <div class="item active">
-                	<div class="row">
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[0].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[1].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[2].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[3].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	</div><!--.row-->
-                </div><!--.item-->
-                 
-                <div class="item">
-                	<div class="row">
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[4].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[5].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[6].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[7].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	</div><!--.row-->
-                </div><!--.item-->
-                 
-                <div class="item">
-                	<div class="row">
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[8].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[9].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[10].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[11].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div> --%>
-                	</div><!--.row-->
-                </div><!--.item-->
-                 
-                </div><!--.carousel-inner-->
-                  <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
-                  <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
-                </div><!--.Carousel-->
-                 
 		</div>
 	</div>
-</div><!--.container-->
-	
 
 	<footer class="container-fluid text-center">
 		<div class="row">
@@ -264,6 +270,12 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-
+	<script>
+	$(document).ready(function() {
+	    $('#Carousel').carousel({
+	        interval: 5000
+	    })
+	});
+</script>
 </body>
 </html>

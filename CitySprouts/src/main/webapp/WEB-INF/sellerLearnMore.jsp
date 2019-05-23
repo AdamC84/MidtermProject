@@ -24,7 +24,6 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
 <style>
 <%@include file="css/style.css"%>
