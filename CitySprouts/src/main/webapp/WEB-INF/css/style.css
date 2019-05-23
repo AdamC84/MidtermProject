@@ -155,7 +155,9 @@ body > nav > img {
 #white-text > h4 > a {
 	color: tomato;
 }
-
+div.nav-item:nth-child(5) > a:nth-child(1){
+	color: tomato;
+}
 .fa-user-circle-o {
 	color: tomato;
 }

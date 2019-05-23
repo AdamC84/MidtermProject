@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>City Sprouts - Buy</title>
+<title>City Sprouts - Profile</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -28,6 +28,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script>
+$(document).ready(function() {
+	    $('#Carousel').carousel({
+	        interval: 2000
+	    })
+	});
+	
+function setFocusToTextBox(){
+    document.getElementById("Carousel").focus();
+}
+
+</script>
+	
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
 <style>
@@ -35,7 +49,7 @@
 </style>
 </head>
 <body>
-	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
 			class="icon"></a>
 			
@@ -66,7 +80,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 				<a class="nav-link pull-right" href="login"> <span  
@@ -80,8 +94,8 @@
 				</span></a>
 				</div>
 			</div>
-			<div class="nav-item" id="btn_height"  >
-			<a class="nav-link tomato-text pull-right" href="logout.do">Logout</a>
+			<div class="nav-item" id="btn_height" style="color: tomato"  >
+			<a class="nav-link pull-right" href="logout.do">Logout</a>
 		</div>
 		</div>
 		
@@ -89,7 +103,7 @@
 
 
 
-	<div class="container-fluid text-left align-items-center justify-content-center">
+	<div class="container-fluid text-left align-items-center justify-content-center" style="padding: 200px 0px 0px 0px">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10" >
@@ -97,7 +111,7 @@
 					<div id="white-text">
 					<div class="text-center">
 							<h2>Fresh Picks...</h2>
-                <div id="Carousel" class="carousel slide active">
+                <div id="Carousel" class="carousel slide">
                  
                 <ol class="carousel-indicators">
                     <li data-target="#Carousel" data-slide-to="0" class="active"></li>
@@ -110,28 +124,28 @@
                     
                 <div class="item active">
                 	<div class="row">
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[0].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[1].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[2].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[3].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[0].item.id }" class="thumbnail"><img src="${inventory[0].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[1].item.id }" class="thumbnail"><img src="${inventory[1].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[2].item.id }" class="thumbnail"><img src="${inventory[2].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[3].item.id }" class="thumbnail"><img src="${inventory[3].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
                 	</div><!--.row-->
                 </div><!--.item-->
                  
                 <div class="item">
                 	<div class="row">
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[4].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[5].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[6].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[7].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[4].item.id }" class="thumbnail"><img src="${inventory[4].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[5].item.id }" class="thumbnail"><img src="${inventory[5].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[6].item.id }" class="thumbnail"><img src="${inventory[6].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[7].item.id }" class="thumbnail"><img src="${inventory[7].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
                 	</div><!--.row-->
                 </div><!--.item-->
                  
                 <div class="item">
                 	<div class="row">
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[8].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[9].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[10].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[11].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div> 
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[8].item.id }" class="thumbnail"><img src="${inventory[8].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[9].item.id }" class="thumbnail"><img src="${inventory[9].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[10].item.id }" class="thumbnail"><img src="${inventory[10].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[11].item.id }" class="thumbnail"><img src="${inventory[11].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div> 
                 	</div><!--.row-->
                 </div><!--.item-->
                  
@@ -163,7 +177,6 @@
 							Last Login: ${buyer.user.lastLogin }<br>
 							Role: ${buyer.user.role }<br>
 							<hr>
-							<h4>Address Details</h4>
 							Street: ${buyer.user.address.streetAddress }<br>
 							Street2: ${buyer.user.address.address2 }<br>
 							City: ${buyer.user.address.city }<br>
@@ -208,14 +221,14 @@
                         <div class="col">
                         <div class="card-block px-2" style="color: black">
                         <h5 class="card-title">${i.item.name}</h5>
-                                Price: ${i.item.price }<br>
+                                Price: $${i.item.price }<br>
                             Unit ${i.item.unit.name }<br>
                             <div style="font-size: 15px; padding: 0px 0px 10px 0px">
                             Category: ${i.item.category.name } &nbsp;|&nbsp; 
                             Harvested: ${i.item.picked }<br>
                             <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
-                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-outline-success" role="button">Item Details</a>
                       <%--   <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a> --%>
                     </div>
                 </div>
@@ -270,12 +283,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-	<script>
-	$(document).ready(function() {
-	    $('#Carousel').carousel({
-	        interval: 5000
-	    })
-	});
-</script>
+
 </body>
 </html>
