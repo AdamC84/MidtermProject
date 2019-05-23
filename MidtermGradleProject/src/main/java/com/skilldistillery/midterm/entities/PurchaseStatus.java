@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class PurchaseStatus {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String status;
-	@OneToMany(mappedBy = "purchaseStatus")
+	@OneToMany(mappedBy = "purchaseStatus", fetch = FetchType.EAGER)
 	private List<Purchase> purchases;
 	
 	

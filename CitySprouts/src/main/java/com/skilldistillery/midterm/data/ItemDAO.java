@@ -52,6 +52,9 @@ public interface ItemDAO {
 	Inventory[] getAllInventory();
 	Inventory addInventory(Inventory p);
 	Inventory getInventoryById(int id);
+	Inventory getInventoryItemBySellerIdAndItemId(int sId, int itemId);
+	Item getItemByInvetoryId(int id);
+	Inventory updateInventory(Inventory inventory);
 
 
 

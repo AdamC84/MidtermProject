@@ -36,7 +36,7 @@ public class SellerDAOImpl implements SellerDAO {
 
 	@Override
 	public List<Object[]> getPendingInventoryItemsQtyBySeller(int sId) {
-		String query = "Select i.item.id, i.item.name, count( i.item.id) from Inventory i WHERE i.seller.id = :sId And i.purchase = null GROUP BY i.item.id";
+		String query = "Select i.item.id, i.item.name, count( i.item.id) from Inventory i WHERE i.seller.id = :sId And i.purchase is null GROUP BY i.item.id";
 		
 		List<Object[]> invSummary = em.createQuery(query, Object[].class).setParameter("sId", sId).getResultList();
 		System.out.println("impl query: *************" + invSummary);

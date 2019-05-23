@@ -131,7 +131,7 @@
 																Harvested: ${i.item.picked }<br> <a
 																	href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
 															</div>
-															<a href="itemDetails.do?id=${i.item.id }"
+															<a href="itemDetails.do?id=${i.id }"
 																class="btn btn-success float-right" role="button">Item
 																Details</a>
 															<a href="removeItem.do?id=${i.id }"

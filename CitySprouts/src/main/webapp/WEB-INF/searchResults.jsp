@@ -107,8 +107,8 @@
 							Harvested: ${i.item.picked }<br>
 							Seller: <a href="getItemsFromStore.do?id=${i.item.seller.id}">${i.item.seller.storeName}</a>
 							</div>
-                    	<a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
-                    	<a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a>
+                    	<a href="itemDetails.do?id=${i.id }" class="btn btn-info" role="button">Item Details</a>
+                    	<a href="addToCart.do?id=${i.id }" class="btn btn-success">Add to Cart</a>
                 	</div>
             	</div>
        		 </div>
