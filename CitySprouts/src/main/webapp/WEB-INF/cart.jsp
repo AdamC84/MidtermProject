@@ -156,47 +156,7 @@
 	</div>
 
     
-    <div class="container-fluid text-left align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10">
-			<hr>
-				<div id="panel-green"><br>
-					<div id="white-text">
-					<div class="text-center">
-						<h2>Your Purchase History</h2>
-					</div>                  
-							<hr>
-						<ul>
-							<c:forEach var="p" items="${buyer.purchases }">
-
-								<c:if test="${p.purchaseStatus.id == 4}">
-									<c:forEach var="i" items="${p.inventory}">
-										<div class="row">
-											<div class="card" style="width: 18rem;">
-											  	<div class="card-body">
-												    <h5 class="card-title">${i.item.name }</h5>
-												    <h6 class="card-subtitle mb-2 text-muted">${i.item.description }</h6>
-												    <p class="card-text">${i.item.price }<br>${i.item.category.name}<br>${i.item.seller.storeName}</p>
-												    <a href="#" class="card-link">Remove</a>
-												    <a href="#" class="card-link">Another link</a>
-										  		</div>
-											</div>
-										</div>
-									</c:forEach><br>
-								</c:if>
-							</c:forEach>
-						</ul>
-						<form:form>
-													
-						</form:form>
-					</div>
-			</div>
-		</div>
-		<div class="col-md-2 col-sm-1"></div>
-	</div>	
-	</div>		
-			
+   
 	<div class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row" style="padding: 0% 0% 3% 1.5%">
 			<div class="col-md-2 col-sm-1"></div>
