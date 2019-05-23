@@ -27,8 +27,8 @@ Users will be prompted to register as a Farmer, Buyer, or Driver and then create
 
 ## Implementation
 Description of overall project structure
+![picture alt](https://github.com/AdamC84/MidtermProject/blob/master/DB/citysproutsERD.png)
 
-citysproutsERD.png
 
 ## Technologies and Methodologies Used
 * Git

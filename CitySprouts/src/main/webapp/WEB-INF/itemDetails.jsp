@@ -79,21 +79,18 @@
 		</div>
 	</nav>
 
-	<div
-		class="container-fluid text-center align-items-center justify-content-center">
+	<div class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
-				<hr>
 				<div id="panel-green">
 					<div id="white-text">
 							<h1>Item Details</h1>
 						<h3>${i.item.name }</h3>
-						<img src="${i.item.imgUrl }"  class="img-fluid" alt="img-thumbnail">
-						
+						<img src="${i.item.imgUrl }"  class="img-fluid" style="height: 600" alt="img-thumbnail">
 
 						Description: ${i.item.description}<br>
-						Price: ${i.item.price}<br>
+						Price: $${i.item.price}<br>
 						Best By Date: ${i.item.bestBy}<br>
 						Picked Date: ${i.item.picked}<br>
 						Category: ${i.item.category.name}<br>
@@ -102,10 +99,8 @@
 						
 						<p>
 						<div class="card-body">
-										<a href="addToCart.do?id=${i.id }" class="btn btn-info"
-
-											role="button">Add to Cart</a><br> 
-									</div>
+						<a href="addToCart.do?id=${i.id }" class="btn btn-success" role="button">Add to Cart</a><br> 
+					</div>
 					</div>
 				</div>
 			</div>
