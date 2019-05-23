@@ -332,6 +332,9 @@ body{padding-top:0px;}
     border-radius: 23px 23px 23px 23px;
     margin-top: 90px;
 }
+.carousel img{
+	height: 150px;
+}
 .carousel-control.right {
 	right: -12px;
 }
@@ -350,6 +353,9 @@ body{padding-top:0px;}
 background: #428bca;
 }
 
+.img-fluid1{
+	height: 200px;
+}
 /*--- iOS Landing Page Fix
 section {
  	position: relative;

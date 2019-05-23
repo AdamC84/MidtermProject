@@ -84,12 +84,6 @@
 			<div class="row">
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-				<div id="panel-grey" style="padding: 0% 0% 2% 0%">
-				<br>
-					<h1>Selling...</h1>
-					<h3></h3>
-
-					</div>
 					
 				</div>
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
@@ -118,6 +112,7 @@
 							are passionate about powering Farmers’ online success, including
 							one-click access for their customers to purchase anytime across
 							web, social, and mobile.</p>
+							<p>Learn more about why you should become an urban farmer<a href="https://www.thepennyhoarder.com/make-money/urban-farmer/"> here</a> 
 							<div id="tomato-text">
 							<div class="nav-item">
 							<h3><a href="registerPage.do">Sign Up today!</a></h3>

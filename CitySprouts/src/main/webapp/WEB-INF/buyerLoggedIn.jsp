@@ -122,28 +122,28 @@ $(document).ready(function() {
                     
                 <div class="item active">
                 	<div class="row">
-                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[0].item.id }" class="thumbnail"><img src="${inventory[0].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[1].item.id }" class="thumbnail"><img src="${inventory[1].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[2].item.id }" class="thumbnail"><img src="${inventory[2].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[3].item.id }" class="thumbnail"><img src="${inventory[3].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[0].id }" class="thumbnail"><img src="${inventory[0].item.imgUrl } " alt="Image" style="max-width:100%;" style="max-height: 40px;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[1].id }" class="thumbnail"><img src="${inventory[1].item.imgUrl } " alt="Image" style="max-width:100%;" style="max-height: 40px;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[2].id }" class="thumbnail"><img src="${inventory[2].item.imgUrl } " alt="Image" style="max-width:100%;" style="max-height: 40px;"></a></div>
+                	  <div class="col-md-3"><a href="itemDetails.do?id=${inventory[3].id }" class="thumbnail"><img src="${inventory[3].item.imgUrl } " alt="Image" style="max-width:100%;" style="max-height: 40px;"></a></div>
                 	</div><!--.row-->
                 </div><!--.item-->
                  
                 <div class="item">
                 	<div class="row">
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[4].item.id }" class="thumbnail"><img src="${inventory[4].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[5].item.id }" class="thumbnail"><img src="${inventory[5].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[6].item.id }" class="thumbnail"><img src="${inventory[6].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[7].item.id }" class="thumbnail"><img src="${inventory[7].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[4].id }" class="thumbnail"><img src="${inventory[4].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[5].id }" class="thumbnail"><img src="${inventory[5].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[6].id }" class="thumbnail"><img src="${inventory[6].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[7].id }" class="thumbnail"><img src="${inventory[7].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div>
                 	</div><!--.row-->
                 </div><!--.item-->
                  
                 <div class="item">
                 	<div class="row">
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[8].item.id }" class="thumbnail"><img src="${inventory[8].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[9].item.id }" class="thumbnail"><img src="${inventory[9].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[10].item.id }" class="thumbnail"><img src="${inventory[10].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[11].item.id }" class="thumbnail"><img src="${inventory[11].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div> 
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[8].id }" class="thumbnail"><img src="${inventory[8].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[9].id }" class="thumbnail"><img src="${inventory[9].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[10].id }" class="thumbnail"><img src="${inventory[10].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div>
+                		<div class="col-md-3"><a href="itemDetails.do?id=${inventory[11].id }" class="thumbnail"><img src="${inventory[11].item.imgUrl } " alt="Image" style="max-width:100%;" style="object-fit:contain;"></a></div> 
                 	</div><!--.row-->
                 </div><!--.item-->
                  
@@ -213,7 +213,7 @@ $(document).ready(function() {
                         <div class="row">
                         <div class="col-md-4 col-lg-4 col-sm-2 inner" style="">
                         <div class="container" id="sResults">
-                        <img src="${i.item.imgUrl }" class="img-fluid" alt="">
+                        <img src="${i.item.imgUrl }" class="img-fluid1" alt="">
                         </div>
                         </div>
                         <div class="col">
