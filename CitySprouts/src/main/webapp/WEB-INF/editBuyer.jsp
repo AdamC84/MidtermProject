@@ -84,15 +84,14 @@
 		</div>
 	</nav>
 
-	<div
-		class="container-fluid text-left align-items-center justify-content-center">
+	<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
 					<div class="text-center">
-						<h2>Edit Profile</h2>
+						<h2>Edit Buyer Profile</h2>
 						<hr>
 					</div>	
 
@@ -143,9 +142,56 @@
       <label for="inputState">State</label>
       <form:select id="inputState" class="form-control" path="user.address.state">
         <option selected>${seller.user.address.state}</option>
-        <option>Alabama</option>
-        <option>Alaska</option>
-        <option>Colorado</option>
+			<option>Alabama</option>
+			<option>Alaska</option>
+			<option>Arizona</option>
+			<option>Arkansas</option>
+			<option>California</option>
+			<option>Colorado</option>
+			<option>Connecticut</option>
+			<option>Delaware</option>
+			<option>Florida</option>
+			<option>Georgia</option>
+			<option>Hawaii</option>
+			<option>Idaho</option>
+			<option>Illinois</option>
+			<option>Indiana</option>
+			<option>Iowa</option>
+			<option>Kansas</option>
+			<option>Kentucky</option>
+			<option>Louisiana</option>
+			<option>Maine</option>
+			<option>Maryland</option>
+			<option>Massachusetts</option>
+			<option>Michigan</option>
+			<option>Minnesota</option>
+			<option>Mississippi</option>
+			<option>Missouri</option>
+			<option>Montana</option>
+			<option>Nebraska</option>
+			<option>Nevada</option>
+			<option>New Hampshire</option>
+			<option>New Jersey</option>
+			<option>New Mexico</option>
+			<option>New York</option>
+			<option>North Carolina</option>
+			<option>North Dakota</option>
+			<option>Ohio</option>
+			<option>Oklahoma</option>
+			<option>Oregon</option>
+			<option>Pennsylvania</option>
+			<option>Rhode Island</option>
+			<option>South Carolina</option>
+			<option>South Dakota</option>
+			<option>Tennessee</option>
+			<option>Texas</option>
+			<option>Utah</option>
+			<option>Vermont</option>
+			<option>Virginia</option>
+			<option>Washington</option>
+			<option>West Virginia</option>
+			<option>Wisconsin</option>
+			<option>Wyoming</option>
       </form:select>
     </div>
     <div class="form-group col-md-2">
@@ -162,21 +208,20 @@
     <div class="form-group col-md-6">
       <label for="inputPassword4">CCV</label>
       <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv"/>
-
     </div>
-  <div class="form-row">
+    </div>
+  <div class="row">
     <div class="form-group col-md-12">
   <button type="submit" class="btn btn-success">Save Changes</button>
   </div>
   </div>
-    </div>
 </form:form>
 
 					</div>
 				</div>
 			</div>
-		</div>
 		<div class="col-md-2 col-sm-1"></div>
+		</div>
 	</div>
 
 	<footer class="container-fluid text-center">
@@ -188,10 +233,13 @@
 			</div>
 			<div class="col-sm-4">
 				<h3>Connect</h3>
+				<a href="https://github.com/Randybeach" class="fa fa-github"></a>
+				<a href="https://github.com/AdamC84" class="fa fa-github"></a>				
+				<a href="https://github.com/robrides" class="fa fa-github"></a><br>
 				<a href="#" class="fa fa-facebook"></a> <a href="#"
-					class="fa fa-twitter"></a> <a href="#" class="fa fa-linkedin"></a>
-				<a href="#" class="fa fa-youtube"></a> <a href="#"
-					class="fa fa-github"></a>
+					class="fa fa-twitter"></a> 
+					<a href="https://www.linkedin.com/in/roblounsbury" class="fa fa-linkedin"></a>
+<!-- 				<a href="#" class="fa fa-youtube"></a>  -->			
 			</div>
 			<div class="col-sm-4">
 				<img src="img/logo_rd.png" class="icon">

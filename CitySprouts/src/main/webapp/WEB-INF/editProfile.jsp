@@ -84,7 +84,16 @@
 		</div>
 	</nav>
 
-
+	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
+						<h2>Edit Seller Profile</h2>
+						<hr>
+					</div>
 <form:form action="updateSeller.do" method="POST" modelAttribute="seller">
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -132,16 +141,63 @@
       <label for="inputState">State</label>
       <form:select id="inputState" class="form-control" path="user.address.state">
         <option selected>${seller.user.address.state}</option>
-        <option>Alabama</option>
-        <option>Alaska</option>
-        <option>Colorado</option>
+			<option>Alabama</option>
+			<option>Alaska</option>
+			<option>Arizona</option>
+			<option>Arkansas</option>
+			<option>California</option>
+			<option>Colorado</option>
+			<option>Connecticut</option>
+			<option>Delaware</option>
+			<option>Florida</option>
+			<option>Georgia</option>
+			<option>Hawaii</option>
+			<option>Idaho</option>
+			<option>Illinois</option>
+			<option>Indiana</option>
+			<option>Iowa</option>
+			<option>Kansas</option>
+			<option>Kentucky</option>
+			<option>Louisiana</option>
+			<option>Maine</option>
+			<option>Maryland</option>
+			<option>Massachusetts</option>
+			<option>Michigan</option>
+			<option>Minnesota</option>
+			<option>Mississippi</option>
+			<option>Missouri</option>
+			<option>Montana</option>
+			<option>Nebraska</option>
+			<option>Nevada</option>
+			<option>New Hampshire</option>
+			<option>New Jersey</option>
+			<option>New Mexico</option>
+			<option>New York</option>
+			<option>North Carolina</option>
+			<option>North Dakota</option>
+			<option>Ohio</option>
+			<option>Oklahoma</option>
+			<option>Oregon</option>
+			<option>Pennsylvania</option>
+			<option>Rhode Island</option>
+			<option>South Carolina</option>
+			<option>South Dakota</option>
+			<option>Tennessee</option>
+			<option>Texas</option>
+			<option>Utah</option>
+			<option>Vermont</option>
+			<option>Virginia</option>
+			<option>Washington</option>
+			<option>West Virginia</option>
+			<option>Wisconsin</option>
+			<option>Wyoming</option>
       </form:select>
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Zip</label>
       <form:input type="text" class="form-control" id="inputZip" path="user.address.zipcode"/>
     </div>
-  </div>
+  </div><hr>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Bank Routing</label>
@@ -152,14 +208,22 @@
       <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankName"/>
     </div>
   </div>
-    <div class="form-group col-md-6">
+  <div class="row">
+    <div class="form-group">
       <label for="inputPassword4">Bank acct number</label>
       <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankAcctNum" />
     </div>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="form-group col-md-12">
+	  <button type="submit" class="btn btn-success float-right">Save Changes</button>
+	</div>
 </form:form>
-
+  					</div>
+				</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+			</div>
+		</div>
 
 
 	<footer class="container-fluid text-center">

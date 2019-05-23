@@ -88,7 +88,7 @@
 				<div id="panel-green"><br>
 					<div id="white-text">
 					<div class="text-center">
-						<h2>Store</h2>
+						<h2>Profile</h2>
 						${seller.storeName }<br>
 					</div>
 						<hr>
@@ -99,7 +99,7 @@
 						Username: ${seller.user.username }<br>
 						Password: ${seller.user.password }<br>
 						Last Login: ${seller.user.lastLogin }<br>
-						Role: ${seller.user.role }<br>
+						Role: ${seller.user.role }<br><hr>
 						<h4>Address Details</h4>
 						Street: ${seller.user.address.streetAddress }<br>
 						Street2: ${seller.user.address.address2 }<br>
