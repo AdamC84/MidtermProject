@@ -85,14 +85,6 @@
 	</nav>
 
 	<div class="container-fluid text-left align-items-center justify-content-center">
-		<div class="row">
-			<div class="col-md-2 col-sm-1"></div>
-			<div class="col-md-8 col-sm-10">
-				<div id="panel-green"><br>
-					<div id="white-text">
-					<div class="text-center">
-						<h2>Cart</h2>
-					</div>
                     <c:forEach var="p" items="${buyer.purchases}">
                     <c:if test="${p.purchaseStatus.id == 5}">
                     <c:forEach var="i" items="${p.inventory}">
@@ -119,8 +111,8 @@
                             Harvested: ${i.item.picked }<br>
                             <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
-                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
-                       <%--  <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a> --%>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-success float-right" role="button">Item Details</a>
+                        <%-- <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a> --%>
                     </div>
                 </div>
                 </div>
@@ -135,7 +127,17 @@
     </div>
     </c:forEach>
     </c:if>
-              </c:forEach>
+  </c:forEach>
+</div>
+   
+   	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green">
+					<div id="white-text">
+					<div class="text-center">
+   
               <form action="checkout.do">
 							<c:if test="${not empty buyer.purchases }">
 							<div class="text-center">
@@ -153,6 +155,7 @@
 			</div>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
+	</div>
 	</div>
 
     
