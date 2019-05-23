@@ -89,16 +89,16 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Bank Routing</label>
-      <form:input type="text" class="form-control" id="firstName" placeholder="first" path="bankRouting" />
+      <form:input type="text" class="form-control" id="firstName" placeholder="0000000" path="bankRouting" />
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Bank Name</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankName"/>
+      <form:input type="text" class="form-control" id="lastName" placeholder="Bank" path="bankName"/>
     </div>
   </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Bank acct number</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="last" path="bankAcctNum" />
+      <form:input type="text" class="form-control" id="lastName" placeholder="00000-00000" path="bankAcctNum" />
     </div>
  	
   <button type="submit" class="btn btn-primary">Next</button>

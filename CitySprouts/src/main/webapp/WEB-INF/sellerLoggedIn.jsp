@@ -198,7 +198,7 @@
 	</div>
 	</div>
 	</div>
-	
+	<c:if test="${empty item}">
 		<div
 		class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
@@ -257,7 +257,7 @@
 			</div>
 		</div>
 	<hr>
-			
+	</c:if>		
 							
 								
 		

@@ -120,9 +120,22 @@ public class LoginController {
 			return "login";
 		}
 		if(role.equals("BUYER")) {
-			
+			Buyer buyer =(Buyer) session.getAttribute("buyer");
+			model.addAttribute("buyer", buyer);
+			Inventory[] inv = itemDAO.getAllInventory();
+			model.addAttribute("inventory", inv);
 			return "buyerLoggedIn";
 		}else if(role.equals("SELLER")) {
+			Seller seller =(Seller) session.getAttribute("seller");
+			if (sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()) != null) {
+				
+				model.addAttribute("invSummary", sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()));
+			}
+			if(sDAO.getFulfilledInventoryItemsQtyBySeller(seller.getId()) != null) {
+				model.addAttribute("fulFilled", sDAO.getFulfilledInventoryItemsQtyBySeller(seller.getId()));
+			}
+			session.setAttribute("seller", seller);
+			model.addAttribute(seller);
 			return "sellerLoggedIn";
 		}else
 		return "login";
@@ -218,6 +231,8 @@ public class LoginController {
 	public String registeredBuyer(Model model, HttpSession session) {
 		Buyer buyer = (Buyer) session.getAttribute("buyer");
 		model.addAttribute("buyer", buyer);
+		Inventory[] inv = itemDAO.getAllInventory();
+		model.addAttribute("inventory", inv);
 		return "buyerLoggedIn";
 	}
 

@@ -15,6 +15,7 @@ import com.skilldistillery.midterm.data.BuyerDAO;
 import com.skilldistillery.midterm.data.ItemDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.PurchaseStatus;
 
@@ -78,7 +79,8 @@ public class BuyerController {
 			System.out.println("*** Buyer's Purchase Status: "+ purchase.getPurchaseStatus());
 			
 		}
-		
+		Inventory[] inv = i.getAllInventory();
+		model.addAttribute("inventory", inv);
 		System.out.println("GOING TO BUYER LOGGED IN PAGE *** ");
 		return "buyerLoggedIn";
 	}
