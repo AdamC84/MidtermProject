@@ -85,10 +85,6 @@
 			<div class="row">
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>
 				<div class="col-sm-8 col-md-6 col-lg-6" id="white-text">
-					<div id="panel-grey" style="padding: 0% 0% 2% 0%">
-						<br>
-						<h1>Local Urban Farms</h1>
-					</div>
 
 				</div>
 				<div class="col-sm-2 col-md-3 col-lg-3"></div>

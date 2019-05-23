@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.data;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -55,7 +56,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public List<Inventory> getItemsByKeyword(String keyword) {
-		String query = "Select i from Inventory i where (i.item.name LIKE :keyword OR i.item.description LIKE :keyword OR i.item.category.name LIKE :keyword) AND i.purchase is null";
+		String query = "Select i from Inventory i where (i.item.name LIKE :keyword OR i.item.description LIKE :keyword OR i.item.category.name LIKE :keyword OR i.seller.storeName LIKE :keyword) AND i.purchase is null";
 		List<Inventory> items = em.createQuery(query, Inventory.class).setParameter("keyword", '%' + keyword + '%')
 				.getResultList();
 		return items;
@@ -309,8 +310,9 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 	@Override
 	public Inventory[] getAllInventory() {
-		String query = "Select i from Inventory i";
+		String query = "Select i from Inventory i where i.purchase is null";
 		List<Inventory> invlist = em.createQuery(query, Inventory.class).getResultList();
+		Collections.shuffle(invlist);
 		Inventory[] invArray = new Inventory[12];
 		for (int i = 0; i < 12 ; i++) {
 			invArray[i]= invlist.get(i);
