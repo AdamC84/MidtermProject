@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +36,7 @@ public class Item {
 	@JoinColumn(name = "category_id")
 	private Category category;
 	private String lastUpdated;
-	@OneToMany(mappedBy = "item")
+	@OneToMany(mappedBy = "item", fetch = FetchType.EAGER)
 	private List<Inventory> inventories;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "unit_id")

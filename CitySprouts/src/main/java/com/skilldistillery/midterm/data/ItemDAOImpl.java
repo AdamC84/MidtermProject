@@ -55,7 +55,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public List<Inventory> getItemsByKeyword(String keyword) {
-		String query = "Select i from Inventory i where (i.item.name LIKE :keyword OR i.item.description LIKE :keyword OR i.item.category.name LIKE :keyword) AND  i.purchase = null";
+		String query = "Select i from Inventory i where (i.item.name LIKE :keyword OR i.item.description LIKE :keyword OR i.item.category.name LIKE :keyword) AND i.purchase is null";
 		List<Inventory> items = em.createQuery(query, Inventory.class).setParameter("keyword", '%' + keyword + '%')
 				.getResultList();
 		return items;
@@ -152,6 +152,13 @@ public class ItemDAOImpl implements ItemDAO {
 		List<Item> items = em.createQuery(query, Item.class).getResultList();
 		return items;
 	}
+	
+	@Override
+	public Item getItemByInvetoryId(int id) {
+		String query = "Select i.item from Inventory i where i.id = :id";
+		Item items = em.createQuery(query, Item.class).setParameter("id", id).getResultList().get(0);
+		return items;
+	}
 
 	@Override
 	public Item addItem(Item i, Seller s) {
@@ -196,6 +203,14 @@ public class ItemDAOImpl implements ItemDAO {
 		em.persist(item);
 		em.flush();
 		return item;
+	}
+	@Override
+	public Inventory updateInventory(Inventory inventory) {
+		Inventory i = em.find(Inventory.class, inventory.getId());
+		i.setPurchase(inventory.getPurchase());
+		em.persist(i);
+		em.flush();
+		return i;
 	}
 	
 	@Override
@@ -303,6 +318,13 @@ public class ItemDAOImpl implements ItemDAO {
 		return invArray;
 		
 	}
+	@Override
+	public Inventory getInventoryItemBySellerIdAndItemId(int sId, int itemId) {
+		String query = "Select i from Inventory i where i.seller.id = :sId and i.id = :itemId";
+		Inventory inventory = em.createQuery(query, Inventory.class).setParameter("sId"	, sId).setParameter("itemId", itemId).getResultList().get(0);
+		return inventory;
+	}
+			
 
 
  	

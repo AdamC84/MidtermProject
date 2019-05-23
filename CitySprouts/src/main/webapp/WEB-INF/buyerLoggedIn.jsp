@@ -226,7 +226,11 @@ $(document).ready(function() {
                             Harvested: ${i.item.picked }<br>
                             <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
+<<<<<<< HEAD
+                        <a href="itemDetails.do?id=${i.id }" class="btn btn-info" role="button">Item Details</a>
+=======
                         <a href="itemDetails.do?id=${i.item.id }" class="btn btn-outline-success" role="button">Item Details</a>
+>>>>>>> 00e04a8859249a604dae4715b433d943069e0851
                       <%--   <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a> --%>
                     </div>
                 </div>

@@ -62,12 +62,15 @@ public class LoginController {
 			if (b.getAllPurchases(buyer) != null) {
 				List<Purchase> purchases = b.getAllPurchases(buyer);
 				for (Purchase purchase : purchases) {
-					if(purchase.getPurchaseStatus().getStatus().equals("Fulfilled")) {
-						fulfilled.add(purchase);
+					try {
+						if(purchase.getPurchaseStatus().getStatus().equals("Fulfilled")) {
+							fulfilled.add(purchase);
+							mv.addObject("fulfilled", fulfilled);
+						}
+					} catch (Exception e) {
 					}
 				}
 				
-				mv.addObject("fulfilled", fulfilled);
 			}
 			session.setAttribute("buyer", buyer);
 			mv.addObject(buyer);

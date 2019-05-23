@@ -88,24 +88,24 @@
 				<div id="panel-green">
 					<div id="white-text">
 							<h1>Item Details</h1>
-						<c:forEach var="item" items="${items}">
-						<h3>${item.name }</h3>
-						<img src="${item.imgUrl }"  class="img-fluid" alt="img-thumbnail">
+						<h3>${i.item.name }</h3>
+						<img src="${i.item.imgUrl }"  class="img-fluid" alt="img-thumbnail">
 						
-						Description: ${item.description}<br>
-						Price: $${item.price}<br>
-						Best By Date: ${item.bestBy}<br>
-						Picked Date: ${item.picked}<br>
-						Category: ${item.category.name}<br>
-						Unit: ${item.unit.name}<br>
-						Seller: ${item.seller.storeName}<br>
+
+						Description: ${i.item.description}<br>
+						Price: ${i.item.price}<br>
+						Best By Date: ${i.item.bestBy}<br>
+						Picked Date: ${i.item.picked}<br>
+						Category: ${i.item.category.name}<br>
+						Unit: ${i.item.unit.name}<br>
+						Seller: ${i.item.seller.storeName}<br>
 						
 						<p>
 						<div class="card-body">
-										<a href="addToCart.do?id=${item.id }" class="btn btn-success"
+										<a href="addToCart.do?id=${i.id }" class="btn btn-info"
+
 											role="button">Add to Cart</a><br> 
 									</div>
-						</c:forEach>
 					</div>
 				</div>
 			</div>
