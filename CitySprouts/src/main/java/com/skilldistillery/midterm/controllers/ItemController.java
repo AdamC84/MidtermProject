@@ -157,10 +157,12 @@ public class ItemController {
 		mv.setViewName("itemDetails");
 		return mv;
 	}
+	
 	@RequestMapping(path="getItem.do", method = RequestMethod.POST)
 	public String getItemById(Model model, Item item){
 		model.addAttribute(item);
 		return "itemDetails";
 	}
+	
 	
 }

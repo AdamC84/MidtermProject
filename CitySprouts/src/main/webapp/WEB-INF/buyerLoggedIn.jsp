@@ -5,6 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -162,7 +166,63 @@
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
+	<script>
+	$(document).ready(function() {
+	    $('#Carousel').carousel({
+	        interval: 5000
+	    })
+	});
+</script>
 
+<div class="container">
+    <div class="row">
+		<div class="col-md-12">
+                <div id="Carousel" class="carousel slide active">
+                 
+                <ol class="carousel-indicators">
+                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#Carousel" data-slide-to="1"></li>
+                    <li data-target="#Carousel" data-slide-to="2"></li>
+                </ol>
+                 
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    
+                <div class="item active">
+                	<div class="row">
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[0].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[1].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[2].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[3].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	</div><!--.row-->
+                </div><!--.item-->
+                 
+                <div class="item">
+                	<div class="row">
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[4].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[5].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[6].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[7].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                	</div><!--.row-->
+                </div><!--.item-->
+                 
+                <div class="item">
+                	<div class="row">
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[8].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[9].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[10].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div>
+                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="${inventory[11].item.imgUrl } " alt="Image" style="max-width:100%;"></a></div> --%>
+                	</div><!--.row-->
+                </div><!--.item-->
+                 
+                </div><!--.carousel-inner-->
+                  <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+                  <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+                </div><!--.Carousel-->
+                 
+		</div>
+	</div>
+</div><!--.container-->
 	
 
 	<footer class="container-fluid text-center">
