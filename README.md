@@ -22,30 +22,50 @@
 
 Link to deployed app
 
-How to login, username/password, etc.
+## Login
+Users will be prompted to register as a Farmer, Buyer, or Driver and then create a user profile containing a username and password which they will use to login.
 
-Implementation
+## Implementation
 Description of overall project structure
 
-ERDiagram.png
+citysproutsERD.png
 
-Technologies and Methodologies Used
-bullet list or table of technologies/libraries/frameworks used
+## Technologies and Methodologies Used
+* Git
+* Amazon Web Services
+* Java
+* MySQL Workbench
+* MySQL database
+* CSS
+* HTML
+* BootStrap
+* Apache Tomcat
+* Gradle
+* Gimp
+* Spring
+* Stack Overflow
+* MAMP
+* Slack
 
-bullet list or table of development techniques (pair programming, agile, git collaboration, etc.)
+## Techniques
+* Pair programming
+* Git collaboration
+* Agile
+* Standup meetings
 
-Lessons Learned
-Stretch Goals
-How to Download and Run
-How a developer would download and set up, install DB, etc.
+## Lessons Learned
+  Never underestimate what could go wrong when you think you are changing one little thing. Understand the front-end design of the site and the flow before you start building the front-end.  
+
+## Stretch Goals
+  Deploying the driver user.
+  Adding more of an item while the item is in the cart.
+  Allowing the seller to edit an item.
+  Feedback and ratings for seller and drivers.
+  Link local farms on map.
+  Multiple roles for one user.
+
 
 Resources
 https://www.makeareadme.com
 
-https://github.com/matiassingers/awesome-readme
-
-https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
-
-Note that most of these examples are for open-source projects and are targeted to fellow developers instead of a potential employer.
-
-However they demonstrate some good ideas, such as screenshots, usage instructions, etc.
+https://www.Google.com
