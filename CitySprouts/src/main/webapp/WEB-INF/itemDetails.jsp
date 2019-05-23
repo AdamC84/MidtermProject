@@ -59,7 +59,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
@@ -91,6 +91,7 @@
 						<h3>${i.item.name }</h3>
 						<img src="${i.item.imgUrl }"  class="img-fluid" alt="img-thumbnail">
 						
+
 						Description: ${i.item.description}<br>
 						Price: ${i.item.price}<br>
 						Best By Date: ${i.item.bestBy}<br>
@@ -102,6 +103,7 @@
 						<p>
 						<div class="card-body">
 										<a href="addToCart.do?id=${i.id }" class="btn btn-info"
+
 											role="button">Add to Cart</a><br> 
 									</div>
 					</div>
@@ -121,7 +123,7 @@
 					<div id="white-text-lg">
 						<h1>Local Urban Farm Connections</h1>
 						<h4>
-							<small>Sell it local...</small>
+							<small>Buy it / Sell it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>

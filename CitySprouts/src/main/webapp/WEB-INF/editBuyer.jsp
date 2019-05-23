@@ -26,7 +26,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 
 <style>
 <%@include file="css/style.css" %>
@@ -64,7 +64,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
@@ -84,6 +84,17 @@
 		</div>
 	</nav>
 
+	<div
+		class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
+						<h2>Edit Profile</h2>
+						<hr>
+					</div>	
 
 <form:form action="updateBuyer.do" method="POST" modelAttribute="buyer">
   <div class="form-row">
@@ -142,24 +153,31 @@
       <form:input type="text" class="form-control" id="inputZip" path="user.address.zipcode"/>
     </div>
   </div>
-  <div class="container">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Credit Card Number</label>
       <form:input type="test" class="form-control" id="firstName" placeholder="44444" path="creditCardNum" />
     </div>
   
-  </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">CCV</label>
       <form:input type="text" class="form-control" id="lastName" placeholder="017" path="creditCardCcv"/>
-    </div>
-    </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+  <button type="submit" class="btn btn-success">Save Changes</button>
+  </div>
+  </div>
+    </div>
 </form:form>
 
-
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-1"></div>
+	</div>
 
 	<footer class="container-fluid text-center">
 		<div class="row">

@@ -105,6 +105,9 @@ footer {
   max-width: 200px;
 
 }
+
+
+
 #white-text {
 	color: #FFF;
 }
@@ -152,7 +155,9 @@ body > nav > img {
 #white-text > h4 > a {
 	color: tomato;
 }
-
+div.nav-item:nth-child(5) > a:nth-child(1){
+	color: tomato;
+}
 .fa-user-circle-o {
 	color: tomato;
 }
@@ -251,7 +256,10 @@ top: -45px;
 }
 #btn_height {
 	max-height: 50px !important;
+	padding: 0px 0px 15px 0px;
+	color: tomato;
 }
+
 
 .input-group-prepend span{
 width: 50px;

@@ -63,7 +63,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
@@ -83,8 +83,19 @@
 		</div>
 	</nav>
 
-	
- <div class="container">
+
+	<div
+		class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green"><br>
+					<div id="white-text">
+					<div class="text-center">
+						<h2>Payment Method</h2>
+						<hr>
+					</div>
+  <div class="row">
  <form:form action="registerSeller.do" method="POST" modelAttribute="seller">
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -104,6 +115,14 @@
   <button type="submit" class="btn btn-primary">Next</button>
   </form:form>
   </div>
+  </div>
+  					</div>
+				</div>
+			</div>
+		<div class="col-md-2 col-sm-1"></div>
+		</div>
+	
+
   
 	<footer class="container-fluid text-center">
 		<div class="row">

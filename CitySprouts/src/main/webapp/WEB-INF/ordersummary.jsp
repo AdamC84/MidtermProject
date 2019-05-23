@@ -63,7 +63,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
@@ -112,7 +112,6 @@
 						City: ${buyer.user.address.city }<br>
 						State: ${buyer.user.address.state }<br>
 						Zipcode: ${buyer.user.address.zipcode }<br>
-						<hr>
 						</div>
 						</div>
 						<div class="row">
@@ -151,7 +150,7 @@
                         <div class="col">
                         <div class="card-block px-2" style="color: black">
                         <h5 class="card-title">${i.item.name}</h5>
-                                Price: ${i.item.price }<br>
+                                Price: $${i.item.price }<br>
                             Unit ${i.item.unit.name }<br>
                             <div style="font-size: 15px; padding: 0px 0px 10px 0px">
                             Category: ${i.item.category.name } &nbsp;|&nbsp; 
@@ -187,7 +186,7 @@
                             <form action="submitOrder.do">
 							<c:if test="${not empty buyer.purchases }">
 							<div class="text-center">
-							Total ${sum}<br>
+							Total $${sum}<br>
 							<input type="hidden" name="sum"  value="${sum}">
 							</div>
 							<div style="padding: 0px 0px 10px 0px">

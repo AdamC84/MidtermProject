@@ -63,7 +63,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
@@ -100,26 +100,27 @@
             			<div class="col">
                 		<div class="card-block px-2" style="color: black">
                     	<h5 class="card-title">${i.item.name}</h5>
-                    			Price: ${i.item.price }<br>
+                    			Price: $${i.item.price }<br>
 							Unit ${i.item.unit.name }<br>
 							<div style="font-size: 15px; padding: 0px 0px 10px 0px">
 							Category: ${i.item.category.name } &nbsp;|&nbsp; 
 							Harvested: ${i.item.picked }<br>
 							Seller: <a href="getItemsFromStore.do?id=${i.item.seller.id}">${i.item.seller.storeName}</a>
 							</div>
+
                     	<a href="itemDetails.do?id=${i.id }" class="btn btn-info" role="button">Item Details</a>
                     	<a href="addToCart.do?id=${i.id }" class="btn btn-success">Add to Cart</a>
+
                 	</div>
             	</div>
        		 </div>
 		        <div class="card-footer w-20" style="background-color: tomato; color: tomato">
-		            Footer 
 		        </div>
   			</div>
   			</c:forEach>
 					</div>
 				</div>
-			</div>
+			</div><hr>
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
@@ -153,7 +154,7 @@
                             Harvested: ${i.item.picked }<br>
                             <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
-                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-outline-success" role="button">Item Details</a>
                         <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a>
                     </div>
                 </div>
@@ -188,9 +189,9 @@
 										<li class="list-group-item"></li>
 									</ul>
 									<div class="card-body">
-										<a href="addToCart.do?id=${item.id }" class="btn btn-info"
+										<a href="addToCart.do?id=${item.id }" class="btn btn-outline-success"
 											role="button">Add to Cart</a><br> <a
-											href="itemDetails.do?id=${item.id }" class="btn btn-info"
+											href="itemDetails.do?id=${item.id }" class="btn btn-outline-success"
 											role="button">Item Details</a>
 									</div>
 								</div>

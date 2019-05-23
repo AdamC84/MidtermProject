@@ -61,7 +61,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
@@ -100,7 +100,6 @@
 						Password: ${seller.user.password }<br>
 						Last Login: ${seller.user.lastLogin }<br>
 						Role: ${seller.user.role }<br>
-						<hr>
 						<h4>Address Details</h4>
 						Street: ${seller.user.address.streetAddress }<br>
 						Street2: ${seller.user.address.address2 }<br>
@@ -143,28 +142,28 @@
 	<form:form action="addItem.do" method="POST" modelAttribute="item">
   	<div class="form-row">
     <div class="col-md-4 mb-3">
-      *Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="Delicious Red Strawberries" required="true" path="name"/>
+      *Name<form:input type="text" class="form-control" id="validationDefault01" placeholder="Product Name" value="" required="true" path="name"/>
     </div>
     <div class="col-md-2 mb-3">
-  		*Category<form:select class="form-control" path="category.name" value="unit">
+  		*Category<form:select class="form-control" path="category.name" value="">
   		<c:forEach var="category" items="${categoryList}">
   			<option>${category.name}</option>
   		</c:forEach>
 		</form:select>
     </div>
     <div class="col-md-3 mb-3">
-  		*Best By:<input type="date" class="form-control" name="best_by"/>
+  		*Picked:<input type="date" class="form-control" name="picked_on" />
 
     </div>
     <div class="col-md-3 mb-3">
-  		*Picked:<input type="date" class="form-control" name="picked_on" />
+  		*Best By:<input type="date" class="form-control" name="best_by"/>
 
     </div>
     <div class="col-md-4 mb-3"></div>
     		</div>
     <div class="form-row">
   		<div class="col-md-4 mb-3">
-  				*Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="Description" value="2.99" required="true" path="price"/>
+  				*Price<form:input type="text" class="form-control" id="validationDefault01" placeholder="" value="" required="true" path="price"/>
 		</div>
   		<div class="col-md-4 mb-3">
  			    *Quantity<input type="number" class="form-control" id="quantity" placeholder="0" value="0" name="qty" required/>
@@ -184,7 +183,7 @@
     		</div>
     		<div class="form-row">
     		<div class="col-md-12 mb-3">
-      			*Image URL<form:input type="text" class="form-control" id="validationDefault01" placeholder="URL" value="" required="true" path="imgUrl"/>
+      			*Image URL<form:input type="text" class="form-control" id="validationDefault01" placeholder="http" value="" required="true" path="imgUrl"/>
     		</div>
     		</div>
  
