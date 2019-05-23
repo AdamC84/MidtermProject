@@ -1,7 +1,7 @@
-## Midterm Full-stack project
+### Midterm Full-stack project
 
 
-# City Sprouts
+## City Sprouts
   Mid-term Team Project for Skill Distillery
 
   Team members and roles:
@@ -10,11 +10,11 @@
     Randy Beach (Developer, Scrum Master)
     Adam Crawford (Developer, Repo Owner)
 
-### Overview
+## Overview
 
   City Sprouts is a full-crud application that utilizes a SQL database to allow a user to sign up as a farmer(user), buyer(user), or driver(user) and will connect the supply and demand of the urban city.
 
-###Description
+## Description
 
   Farmers will be able add any harvested items from their farms directly onto the application. Farmers will then be notified when their items have been purchased and the delivery details will be sent to the driver for delivery. Buyers will be able to keep track of their purchases and be able to choose if they want to buy from the farmer again by going directly to that Farmers available products. Buyers can search through all items description, name, and category, and directly add that item to their cart from the search results.
 
