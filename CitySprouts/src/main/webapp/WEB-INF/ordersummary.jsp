@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -186,7 +187,7 @@
                             <form action="submitOrder.do">
 							<c:if test="${not empty buyer.purchases }">
 							<div class="text-center">
-							Total $${sum}<br>
+							Total $<fmt:formatNumber value="${sum}" type="currency" currencySymbol=""/><br>
 							<input type="hidden" name="sum"  value="${sum}">
 							</div>
 							<div style="padding: 0px 0px 10px 0px">

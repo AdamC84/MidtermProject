@@ -129,22 +129,6 @@ public class ItemController {
 			mv.setViewName("login");
 			return mv;
 		}
-		double sum = 0;
-		List<Purchase> purchasesPending = new ArrayList<>();
-
-		try {
-			for (Purchase p : buyer.getPurchases()) {
-				if (p.getPurchaseStatus().getId() == 5) {
-					purchasesPending.add(p);
-				}
-			}
-			for (Purchase p : purchasesPending) {
-				for (Inventory in : p.getInventory()) {
-					sum += in.getItem().getPrice();
-				}
-			}
-		} catch (Exception e) {
-		}
 		Purchase purchase = new Purchase();
 		if (session.getAttribute("purchase") == null) {
 			purchase.setBuyer(buyer);
@@ -170,14 +154,30 @@ public class ItemController {
 		
 		buyer = d.updateBuyer(buyer);
 		System.out.println(buyer.getPurchases());
-		double total = 0;
-
-		for (Inventory in : purchase.getInventory()) {
-			total += in.getItem().getPrice();
+		double sum = 0;
+		List<Purchase> purchasesPending = new ArrayList<>();
+		
+		try {
+			for (Purchase p : buyer.getPurchases()) {
+				if (p.getPurchaseStatus().getId() == 5) {
+					purchasesPending.add(p);
+				}
+			}
+			for (Purchase p : purchasesPending) {
+				for (Inventory in : p.getInventory()) {
+					sum += in.getItem().getPrice();
+				}
+			}
+		} catch (Exception e) {
 		}
-		total += sum;
-		System.out.println("**** TOTAL ****  " + total);
-		mv.addObject("total", total);
+//		double total = 0;
+//
+//		for (Inventory in : purchase.getInventory()) {
+//			total += in.getItem().getPrice();
+//		}
+//		total += sum;
+		System.out.println("**** TOTAL ****  " + sum);
+		mv.addObject("total", sum);
 		session.setAttribute("buyer", buyer);
 		mv.addObject("buyer", buyer);
 		mv.setViewName("cart");
