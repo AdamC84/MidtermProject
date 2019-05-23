@@ -117,10 +117,26 @@ public class ItemController {
 	@RequestMapping(path="addToCart.do", method = RequestMethod.GET)
 	public ModelAndView addItemToCart(@RequestParam("id")int id , HttpSession session){
 		ModelAndView mv = new ModelAndView();
-		Buyer buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
-//		Item i = itemDao.getItemByItemId(id);
-//		i.setActive(0);
+		Buyer buyer = null;
+		try {
+			buyer = d.getBuyerById(((Buyer) session.getAttribute("buyer")).getId());
+		} catch (Exception e) {
+			mv.setViewName("login");
+			return mv;
+		}
+		double sum = 0;
+			List<Purchase> purchasesPending = new ArrayList<>();
 		
+		for (Purchase p : buyer.getPurchases()) {
+			if(p.getPurchaseStatus().getId() == 5) {
+				purchasesPending.add(p);
+			}
+		}
+		for (Purchase p : purchasesPending) {
+			for (Inventory in : p.getInventory()) {
+				sum += in.getItem().getPrice();
+			}
+		}
 		Purchase purchase = new Purchase();
 		if(session.getAttribute("purchase") == null) {
 			purchase.setBuyer(buyer);
@@ -147,7 +163,7 @@ public class ItemController {
 			for (Inventory in : purchase.getInventory()) {
 				total += in.getItem().getPrice();
 			}
-		
+		total += sum;
 		System.out.println("**** TOTAL ****  " + total);
 		mv.addObject("total", total);
 		session.setAttribute("buyer", buyer);

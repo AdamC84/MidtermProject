@@ -139,7 +139,8 @@ public class UserController {
 	@RequestMapping(path = "getItemsFromStore.do")
 	public ModelAndView itemList(@RequestParam("id")int id) {
 		ModelAndView mv = new ModelAndView();
-		List<Item> items = sDAO.getInventoryItemsBySellerId(id);
+//		List<Item> items = sDAO.getInventoryItemsBySellerId(id);
+		List<Inventory> items = iDao.getSellerInventoryById(id);
 		System.out.println(items);
 		mv.addObject("items", items);
 		mv.setViewName("searchResults");
