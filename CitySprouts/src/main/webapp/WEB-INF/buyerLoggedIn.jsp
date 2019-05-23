@@ -36,8 +36,6 @@ $(document).ready(function() {
 	    })
 	});
 	
-function setFocusToTextBox(){
-    document.getElementById("Carousel").focus();
 }
 
 </script>
@@ -49,7 +47,7 @@ function setFocusToTextBox(){
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand navbar-left" href="home.do"><img src="img/logo_trans.png"
 			class="icon"></a>
 			
@@ -103,7 +101,7 @@ function setFocusToTextBox(){
 
 
 
-	<div class="container-fluid text-left align-items-center justify-content-center" style="padding: 200px 0px 0px 0px">
+	<div class="container-fluid text-left align-items-center justify-content-center" >
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10" >
