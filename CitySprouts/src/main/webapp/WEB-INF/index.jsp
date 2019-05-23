@@ -53,7 +53,6 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="home.do">Home</a> 
 							<a class="dropdown-item" href="login">Profile</a> 
-						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="cart.do">Cart</a>
 						<a class="dropdown-item" href="search.do">Search</a> 
@@ -138,7 +137,7 @@
 					<div id="white-text-lg">
 						<h1>Find your Urban Farmer</h1>
 						<h4>
-							<small>Buy / Sell it local...</small>
+							<small>Buy it / Sell it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>

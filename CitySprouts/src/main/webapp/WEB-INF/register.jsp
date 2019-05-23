@@ -103,7 +103,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">First</label>
-      <form:input autofocus="autofocus" type="test" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
+      <form:input autofocus="autofocus" type="text" class="form-control" id="firstName" placeholder="first" path="firstName" value="${user.firstName}"/>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last</label>
