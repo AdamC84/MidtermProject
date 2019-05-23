@@ -82,7 +82,6 @@
 				</div>
 		</div>
 	</nav>
-	
 		
 	<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
@@ -95,6 +94,8 @@
 						
 					</div>
 						<hr>
+						<div class="row">
+						<div class="col-md-6">
 						<h4>Personal Info</h4>
 						Buyer Id: ${buyer.id}<br>
 						User Id: ${buyer.user.id}<br>
@@ -102,7 +103,9 @@
 						Username: ${buyer.user.username }<br>
 						Email: ${buyer.user.email }<br>
 						Last Login: ${buyer.user.lastLogin }<br>
-						<hr>
+						</div>						
+						<div class="col-md-6">
+						
 						<h4>Address Details</h4>
 						Street: ${buyer.user.address.streetAddress }<br>
 						Street2: ${buyer.user.address.address2 }<br>
@@ -110,13 +113,25 @@
 						State: ${buyer.user.address.state }<br>
 						Zipcode: ${buyer.user.address.zipcode }<br>
 						<hr>
+						</div>
+						</div>
+						<div class="row">
+						<div class="col-md-6">
 						<h4>Bank Info</h4>
 						Credit Card On File: ${buyer.creditCardNum }<br>
 						EXP Date:${buyer.creditCardExpDate}<br>
 						CCV: ${buyer.creditCardCcv }<br>
+						</div>
+						</div>
 						<hr>
 					</div>
-				<div class="container-fluid text-left align-items-center justify-content-center">
+				</div>
+                </div>
+        </div>
+        <div class="col-md-2 col-sm-1"></div>
+    </div>
+					
+	<div class="container-fluid text-left align-items-center justify-content-center">
                     <c:forEach var="p" items="${buyer.purchases}">
                     <c:if test="${p.purchaseStatus.id == 5}">
                     <c:forEach var="i" items="${p.inventory}">
@@ -143,7 +158,7 @@
                             Harvested: ${i.item.picked }<br>
                             <a href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
                             </div>
-                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-info" role="button">Item Details</a>
+                        <a href="itemDetails.do?id=${i.item.id }" class="btn btn-success float-right" role="button">Item Details</a>
                         <%-- <a href="addToCart.do?id=${i.item.id }" class="btn btn-success">Add to Cart</a> --%>
                     </div>
                 </div>
@@ -159,17 +174,35 @@
     </div>
     </c:forEach>
     </c:if>
-              </c:forEach>
-              <form action="submitOrder.do">
-							<%-- <c:if test="${not empty buyer.purchases }"> --%>
+  </c:forEach>
+</div>
+    
+	<div class="container-fluid text-left align-items-center justify-content-center">
+		<div class="row">
+			<div class="col-md-2 col-sm-1"></div>
+			<div class="col-md-8 col-sm-10">
+				<div id="panel-green">
+					<div id="white-text">
+					<div class="text-center">
+                            <form action="submitOrder.do">
+							<c:if test="${not empty buyer.purchases }">
+							<div class="text-center">
 							Total ${sum}<br>
 							<input type="hidden" name="sum"  value="${sum}">
-							<button type="submit" class="btn btn-primary">Submit Order</button>
-							<%-- </c:if>		 --%>				
+							</div>
+							<div style="padding: 0px 0px 10px 0px">
+							<button type="submit" class="btn btn-success float-right">Submit Order</button>
+							</div>
+							</c:if>
 						</form>
-    </div> 
+    					</div> 	
 
-
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-2 col-sm-1"></div>
+    </div>
+    </div>
 
 
 	<footer class="container-fluid text-center">
