@@ -67,7 +67,7 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="logout.do">Logout</a>
+			<a class="nav-link tomato-text" href="login">Login</a>
 			</div>
 			<div class="nav-item">
 			<div id="btn_height" >				

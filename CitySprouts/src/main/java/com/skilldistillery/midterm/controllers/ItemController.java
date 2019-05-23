@@ -73,7 +73,7 @@ public class ItemController {
 		item.setActive(1);
 		item = itemDao.addItem(item, seller);
 		model.addAttribute("seller",seller);
-		model.addAttribute("item", new Item());
+//		model.addAttribute("item", new Item());
 		List<Inventory> inventory = new ArrayList<Inventory>();
 		inventory = itemDao.getSellerInventory(seller);
 		
@@ -98,10 +98,12 @@ public class ItemController {
 			model.addAttribute("fulFilled", sDAO.getFulfilledInventoryItemsQtyBySeller(seller.getId()));
 		}
 		session.setAttribute("purchases", purchased);
-		List<Unit> u = itemDao.getAllUnits();
-		List<Category> c = itemDao.getAllCategory();
-		model.addAttribute(u);
-		model.addAttribute(c);
+		Item item1 = null;
+		model.addAttribute("item",item1);
+//		List<Unit> u = itemDao.getAllUnits();
+//		List<Category> c = itemDao.getAllCategory();
+//		model.addAttribute(u);
+//		model.addAttribute(c);
 
 		return "sellerLoggedIn";
 	}
@@ -187,6 +189,12 @@ public class ItemController {
 	@RequestMapping(path="getItem.do", method = RequestMethod.POST)
 	public String getItemById(Model model, Item item){
 		model.addAttribute(item);
+		return "itemDetails";
+	}
+	@RequestMapping(path="removeItem.do", method = RequestMethod.POST)
+	public String removeItemByInventoryId(Model model, int id){
+		Inventory inventory = itemDao.getInventoryById(id);
+		inventory.getPurchase().setPurchaseStatus(null);
 		return "itemDetails";
 	}
 	

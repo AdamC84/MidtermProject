@@ -67,7 +67,7 @@
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
-			<a class="nav-link tomato-text" href="logout.do">Logout</a>
+			<a class="nav-link tomato-text" href="registerPage.do">Register</a>
 			</div>
 			<div class="nav-item">
 			<div id="btn_height" >				
@@ -128,7 +128,7 @@
 						</c:if>
 					</div>
 					<div class="d-flex justify-content-center text-white">
-						Don't have an account? <div id="tomato-text2"> <a href="register.do">&nbspSign Up</a></div>
+						Don't have an account? <div id="tomato-text2"> <a href="registerPage.do">&nbspSign Up</a></div>
 					</div>
 					<!-- 				<div class="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>

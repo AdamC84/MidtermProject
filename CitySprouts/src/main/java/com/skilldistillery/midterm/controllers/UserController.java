@@ -55,18 +55,22 @@ public class UserController {
 		double total = 0;
 		List<Purchase> purchasesPending = new ArrayList<>();
 		
-		for (Purchase p : buyer.getPurchases()) {
-			if(p.getPurchaseStatus().getId() == 5) {
-				purchasesPending.add(p);
+		try {
+			for (Purchase p : buyer.getPurchases()) {
+				if(p.getPurchaseStatus().getId() == 5) {
+					purchasesPending.add(p);
+				}
 			}
-		}
-		for (Purchase p : purchasesPending) {
-			for (Inventory in : p.getInventory()) {
-				total += in.getItem().getPrice();
+			for (Purchase p : purchasesPending) {
+				for (Inventory in : p.getInventory()) {
+					total += in.getItem().getPrice();
+				}
 			}
+			System.out.println("**** TOTAL for Pending purchases ****  " + total);
+			model.addAttribute("total", total);
+		} catch (Exception e) {
+			
 		}
-		System.out.println("**** TOTAL for Pending purchases ****  " + total);
-		model.addAttribute("total", total);
 		return "cart";
 	}
 	@RequestMapping(path = "buyerLearnMore.do")
