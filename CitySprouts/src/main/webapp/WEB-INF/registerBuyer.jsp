@@ -103,7 +103,7 @@
   	     <div class="col-sm-6">
   <div class="form-group">
     <label for="inputAddress">Credit Card Number</label>
-    <form:input type="text" class="form-control" id="cerditcardnum" placeholder="XXXXXXXXXXXX" path="creditCardNum"/>
+    <form:input autofocus="autofocus" type="text" class="form-control" id="cerditcardnum" placeholder="XXXXXXXXXXXX" path="creditCardNum"/>
   </div>
   </div>
   <div class="col-sm-6">

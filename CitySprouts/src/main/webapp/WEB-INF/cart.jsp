@@ -132,7 +132,7 @@
 																	href="getItemsFromStore.do?id=${i.item.seller.id }">${i.item.seller.storeName }</a>
 															</div>
 															<a href="itemDetails.do?id=${i.id }"
-																class="btn btn-success float-right" role="button">Item
+																class="btn btn-outline-success float-left" role="button">Item
 																Details</a>
 
 															<a href="removeItem.do?id=${i.id }"
@@ -167,7 +167,7 @@
 								<form action="checkout.do">
 									<c:if test="${not empty buyer.purchases }">
 										<div class="text-center">
-											Total ${total}<br> <input type="hidden" name="total"
+											Total: $${total}<br> <input type="hidden" name="total"
 												value="${total}">
 										</div>
 										<div style="padding: 0px 0px 10px 0px">

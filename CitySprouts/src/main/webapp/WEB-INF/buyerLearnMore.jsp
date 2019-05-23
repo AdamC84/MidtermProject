@@ -138,7 +138,7 @@
 					<div id="white-text-lg">
 						<h1>Find your Urban Farmer</h1>
 						<h4>
-							<small>Sell it local...</small>
+							<small>Buy it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>
