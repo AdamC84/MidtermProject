@@ -127,7 +127,7 @@
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
-
+	
 	<div
 		class="container-fluid text-center align-items-center justify-content-center">
 		<div class="row" style="padding: 0% 0% 3% 1.5%">
@@ -155,6 +155,7 @@
 		</div>
 		<div class="col-md-2 col-sm-1"></div>
 	</div>
+	
 
 	<footer class="container-fluid text-center">
 		<div class="row">

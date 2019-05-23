@@ -20,7 +20,7 @@ import com.skilldistillery.midterm.data.SellerDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Buyer;
 import com.skilldistillery.midterm.entities.Driver;
-import com.skilldistillery.midterm.entities.Item;
+import com.skilldistillery.midterm.entities.Inventory;
 import com.skilldistillery.midterm.entities.Purchase;
 import com.skilldistillery.midterm.entities.Seller;
 import com.skilldistillery.midterm.entities.User;
@@ -58,6 +58,7 @@ public class LoginController {
 		if (role.equals("BUYER")) {
 			Buyer buyer = d.getBuyerByUserId(u.getId());
 			List<Purchase> fulfilled = new ArrayList<>();
+			Inventory[] inv = itemDAO.getAllInventory();
 			if (b.getAllPurchases(buyer) != null) {
 				List<Purchase> purchases = b.getAllPurchases(buyer);
 				for (Purchase purchase : purchases) {
@@ -70,6 +71,7 @@ public class LoginController {
 			}
 			session.setAttribute("buyer", buyer);
 			mv.addObject(buyer);
+			mv.addObject("inventory", inv);
 			mv.setViewName("buyerLoggedIn");
 			return mv;
 		} else if (role.equals("SELLER")) {
@@ -118,6 +120,7 @@ public class LoginController {
 			return "login";
 		}
 		if(role.equals("BUYER")) {
+			
 			return "buyerLoggedIn";
 		}else if(role.equals("SELLER")) {
 			return "sellerLoggedIn";

@@ -286,6 +286,17 @@ public class ItemDAOImpl implements ItemDAO {
 		return em.createQuery(query, PurchaseStatus.class).setParameter("name", name).getResultList().get(0);
 		
 	}
+	@Override
+	public Inventory[] getAllInventory() {
+		String query = "Select i from Inventory i";
+		List<Inventory> invlist = em.createQuery(query, Inventory.class).getResultList();
+		Inventory[] invArray = new Inventory[12];
+		for (int i = 0; i < 12 ; i++) {
+			invArray[i]= invlist.get(i);
+		}
+		return invArray;
+		
+	}
 
 
  	
