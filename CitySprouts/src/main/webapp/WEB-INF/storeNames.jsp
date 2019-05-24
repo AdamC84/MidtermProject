@@ -5,12 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>City Sprouts - Urban Farms</title>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
+<title>City Sprouts - Urban Farms</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -48,8 +48,6 @@
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="home.do">Home</a> 
-							<a class="dropdown-item" href="login">Profile</a> 
-						 <a 	class="dropdown-item" href="editProfile.do">Edit Profile</a>
 						<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="cart.do">Cart</a>
 						<a class="dropdown-item" href="search.do">Search</a> 
