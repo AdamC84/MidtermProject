@@ -10,7 +10,7 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>City Sprouts - Connecting Urban Growers</title>
+<title>City Sprouts - Search Results</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -94,12 +94,12 @@
 					<c:forEach var="i" items="${items}">
 					<div class="card">
         				<div class="row">
-            			<div class="col-md-3">
+            			<div class="col-md-3 inner  justify-content-center mx-auto">
                 		<img src="${i.item.imgUrl }" class="img-fluid" alt="">
             			</div>
             			<div class="col">
                 		<div class="card-block px-2" style="color: black">
-                    	<h5 class="card-title">${i.item.name}</h5>
+                    	<h3 class="card-title">${i.item.name}</h3>
                     			Price: $${i.item.price }<br>
 							Unit ${i.item.unit.name }<br>
 							<div style="font-size: 15px; padding: 0px 0px 10px 0px">
@@ -118,6 +118,7 @@
 		        </div>
   			</div>
   			</c:forEach>
+  			
 					</div>
 				</div>
 			</div><hr>

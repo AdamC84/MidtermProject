@@ -99,11 +99,11 @@
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green">
 					<div id="white-text">
-						<h3>Your Local Farms...</h3>
+						<h2>Your Local Farms...</h2>
 						<c:forEach var="seller" items="${sellers }">
-						<a class="nav-link" href="getItemsFromStore.do?id=${seller.id}">${seller.storeName }</a><br>
+						<h3><a class="nav-link" href="getItemsFromStore.do?id=${seller.id}">${seller.storeName }</a></h3>
 						</c:forEach>
-						
+						<br>
 						<h4>
 							<a href="registerPage.do">Sign Up today!</a>
 						</h4>
@@ -124,7 +124,7 @@
 					<div id="white-text-lg">
 						<h1>Find your Urban Farmer</h1>
 						<h4>
-							<small>Sell it local...</small>
+							<small>Buy it local...</small>
 						</h4>
 						<h3>Denver Area</h3>
 					</div>
