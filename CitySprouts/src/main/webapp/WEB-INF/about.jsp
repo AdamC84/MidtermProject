@@ -51,8 +51,9 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="home.do">Home</a> 
 						<div class="dropdown-divider"></div>
- <a class="dropdown-item" href="buyerLearnMore.do">Buyer
+						 <a class="dropdown-item" href="buyerLearnMore.do">Buyer
 							Learn More</a> <a class="dropdown-item" href="sellerLearnMore.do">Seller
 							Learn More</a>
 							<a class="dropdown-item" href="about">About</a>
