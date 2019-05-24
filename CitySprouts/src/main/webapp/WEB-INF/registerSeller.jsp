@@ -63,7 +63,7 @@
 			<form class="form-inline my-2 my-lg-0" action="search.do">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search" name="keyword">
-				<button class="btn btn-outline-success" my-2 my-sm-0" type="submit">Search</button>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 			<div class="nav-item">
 			<a class="nav-link tomato-text" href="logout.do">Logout</a>
@@ -84,43 +84,48 @@
 	</nav>
 
 
-	<div
-		class="container-fluid text-left align-items-center justify-content-center">
+ <form:form action="registerSeller.do" method="POST" modelAttribute="seller">
+	<div class="container-fluid text-left align-items-center justify-content-center">
 		<div class="row">
 			<div class="col-md-2 col-sm-1"></div>
 			<div class="col-md-8 col-sm-10">
 				<div id="panel-green"><br>
 					<div id="white-text">
 					<div class="text-center">
-						<h2>Payment Method</h2>
+						<h2>Seller Details</h2>
 						<hr>
 					</div>
-  <div class="row">
- <form:form action="registerSeller.do" method="POST" modelAttribute="seller">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Bank Routing</label>
-      <form:input type="text" class="form-control" id="firstName" placeholder="0000000" path="bankRouting" />
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank Name</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="Bank" path="bankName"/>
-    </div>
-  </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Bank acct number</label>
-      <form:input type="text" class="form-control" id="lastName" placeholder="00000-00000" path="bankAcctNum" />
-    </div>
- 	
-  <button type="submit" class="btn btn-primary">Next</button>
-  </form:form>
-  </div>
-  </div>
+					  <div class="row">
+					  <div class="form-row">
+					    <div class="form-group col-md-3">
+					      <label for="sotre">Store Name</label>
+					      <form:input type="text" class="form-control" id="storeName" placeholder="Store" path="storeName" />
+					    </div>
+					    <div class="form-group col-md-3">
+					      <label for="inputPassword4">Bank Name</label>
+					      <form:input type="text" class="form-control" id="lastName" placeholder="Bank" path="bankName"/>
+					    </div>
+					    <div class="form-group col-md-3">
+					      <label for="inputPassword4">Bank Account Number</label>
+					      <form:input type="text" class="form-control" id="lastName" placeholder="00000-00000" path="bankAcctNum" />
+					    </div>
+					    <div class="form-group col-md-3">
+					      <label for="inputEmail4">Bank Routing ABA</label>
+					      <form:input type="text" class="form-control" id="firstName" placeholder="0000000" path="bankRouting" />
+					    </div>
+					  </div>
+					 	
+					    <div class="form-group col-md-6">
+					  <button type="submit" class="btn btn-success">Next</button>
+					  </div>
+					  </div>
+					</div>
   					</div>
 				</div>
 			</div>
 		<div class="col-md-2 col-sm-1"></div>
 		</div>
+  </form:form>
 	
 
   
