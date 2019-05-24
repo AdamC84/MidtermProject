@@ -327,6 +327,41 @@ public class ItemDAOImpl implements ItemDAO {
 		return inventory;
 	}
 			
+	@Override
+	public Category getCategoryIdByCategoryId(int id) {
+		String query = "Select c from Category c where c.id = :id";
+		return em.createQuery(query, Category.class).setParameter("id", id).getResultList().get(0);
+	}
+	@Override
+	public Unit getUnitIdByUnitId(int id) {
+		String query = "Select u from Unit u where u.name = :id";
+		return em.createQuery(query, Unit.class).setParameter("id", id).getResultList().get(0);
+	}
+
+	@Override
+	public int getCategoryIdByCategoryName(String name) {
+		String query = "Select c.id from Category c where c.name = :name";
+		return em.createQuery(query, Integer.class).setParameter("name", name).getResultList().get(0);
+	}
+
+	@Override
+	public int getUnitIdByUnitName(String name) {
+		String query = "Select u.id from Unit u where u.name = :name";
+		return em.createQuery(query, Integer.class).setParameter("name", name).getResultList().get(0);
+	}
+
+	@Override
+	public Unit getUnitByUnitId(int id) {
+		String query = "Select u from Unit u where u.id = :id";
+		return em.createQuery(query, Unit.class).setParameter("id", id).getResultList().get(0);
+	}
+
+	@Override
+	public Category getCategoryByCategoryId(int id) {
+		String query = "Select c from Category c where c.id = :id";
+		return em.createQuery(query, Category.class).setParameter("id", id).getResultList().get(0);
+	}
+
 
 
  	

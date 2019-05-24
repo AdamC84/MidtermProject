@@ -55,6 +55,12 @@ public interface ItemDAO {
 	Inventory getInventoryItemBySellerIdAndItemId(int sId, int itemId);
 	Item getItemByInvetoryId(int id);
 	Inventory updateInventory(Inventory inventory);
+	int getCategoryIdByCategoryName(String name);
+	Unit getUnitIdByUnitId(int id);
+	int getUnitIdByUnitName(String name);
+	Unit getUnitByUnitId(int id);
+	Category getCategoryByCategoryId(int id);
+	Category getCategoryIdByCategoryId(int id);
 
 
 

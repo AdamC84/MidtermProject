@@ -70,6 +70,11 @@ public class ItemController {
 		}
 		item.setSeller(seller);
 		item.setActive(1);
+		System.out.println(item.getCategory());
+		int categoryId = itemDao.getCategoryIdByCategoryName(item.getCategory().getName());
+		int unitId = itemDao.getUnitIdByUnitName(item.getUnit().getName());
+		item.setCategory(itemDao.getCategoryByCategoryId(categoryId));
+		item.setUnit(itemDao.getUnitByUnitId(unitId));
 		item = itemDao.addItem(item, seller);
 		model.addAttribute("seller", seller);
 //		model.addAttribute("item", new Item());
