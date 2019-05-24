@@ -194,6 +194,16 @@ public class ItemController {
 		mv.setViewName("itemDetails");
 		return mv;
 	}
+	@RequestMapping(path = "itemDetails1.do", method = RequestMethod.GET)
+	public ModelAndView itemDetailsBuyitemId(@RequestParam("id") int id) {
+		ModelAndView mv = new ModelAndView();
+		Inventory i = itemDao.getInventoryByItemId(id);
+		System.out.println("*********" + i);
+		
+		mv.addObject("i", i);
+		mv.setViewName("itemDetails");
+		return mv;
+	}
 
 	@RequestMapping(path = "getItem.do", method = RequestMethod.POST)
 	public String getItemById(Model model, Item item) {
