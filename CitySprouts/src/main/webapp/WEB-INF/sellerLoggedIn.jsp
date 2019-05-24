@@ -211,7 +211,7 @@
 						<c:if test="${! empty invSummary }">
 						<c:forEach var="invSum" items="${invSummary}">
 							<li class="list-group-item list-group-item-action"
-							><a href="itemDetails.do?id=${invSum[0]}">
+							><a href="itemDetails1.do?id=${invSum[0]}">
 								Item Id: ${invSum[0] }
 								Item: ${invSum[1]}
 								Qty: ${invSum[2]}

@@ -186,6 +186,7 @@ public class UserController {
 			if (sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()) != null) {
 //				if (iDao.getSellerInventory(seller) != null) {
 //				model.addAttribute("inventory", iDao.getSellerInventory(seller));
+				System.out.println(sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()).size());
 				model.addAttribute("invSummary", sDAO.getPendingInventoryItemsQtyBySeller(seller.getId()));
 				session.setAttribute("seller", seller);
 				model.addAttribute(seller);
