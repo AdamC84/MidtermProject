@@ -52,9 +52,7 @@
 					aria-expanded="false"> More... </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="home.do">Home</a> 
-							<a class="dropdown-item" href="login">Profile</a> 
 						<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="cart.do">Cart</a>
 						<a class="dropdown-item" href="search.do">Search</a> 
 					</div></li>
 			</ul>
