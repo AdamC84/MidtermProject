@@ -201,7 +201,7 @@
 						<div id="Container"
 							style="padding-bottom: 56.25%; position: relative; display: block; width: 100%">
 							<iframe width="100%" height="100%" frameborder="0"
-								src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+								src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=YOUR_API_KEY"
 								allowfullscreen=""
 								style="position: absolute; top: 0; left: 0; padding: 10px">
 							</iframe>

@@ -128,7 +128,7 @@
 			<h3>Denver Area</h3>
 			</div></div>
 			<iframe width="800" height="400" frameborder="0" style="border: 0"
-				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=AIzaSyDAxjvHqQQNx3ZZLcUiMDuQB3uQwitKsKY"
+				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJzxcfI6qAa4cR1jaKJ_j0jhE&key=YOUR_API_KEY"
 				allowfullscreen> </iframe>
 		</div>
 		</div>
